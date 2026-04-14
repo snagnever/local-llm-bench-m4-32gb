@@ -1,0 +1,108 @@
+# Mike Veerman's P1-P12 prompts, adapted to the jdhodges harness schema.
+# Source: github.com/MikeVeerman/tool-calling-benchmark (lib/bench_config.py)
+# Original scoring: Action (P1-P4,P6-P8,P10-P12) / Restraint (P5,P9) / WrongTool (P10-P12)
+#
+# Note: Veerman uses a separate 3-tool schema (weather/files/meetings) with slightly
+# different parameter names (city instead of location, time instead of start/end).
+# We duplicate these as additional tools in a separate file so scoring stays clean.
+
+- id: veerman_p1_weather_obvious
+  category: veerman_action
+  split: veerman
+  prompt: "What's the weather in Antwerp?"
+  expected_tools:
+    - name: get_weather_v
+      args:
+        city: "Antwerp"
+
+- id: veerman_p2_files_obvious
+  category: veerman_action
+  split: veerman
+  prompt: "Find all Python files in the project."
+  expected_tools:
+    - name: search_files_v
+      args:
+        pattern: "*.py"
+
+- id: veerman_p3_meeting_multi_arg
+  category: veerman_action
+  split: veerman
+  prompt: "Schedule a meeting called 'Sprint Review' for 2025-02-10T14:00:00 with alice@co.com and bob@co.com."
+  expected_tools:
+    - name: schedule_meeting_v
+      args:
+        title: "Sprint Review"
+        time: "2025-02-10T14:00:00"
+        attendees: ["alice@co.com", "bob@co.com"]
+
+- id: veerman_p4_ambiguous_brussels
+  category: veerman_action
+  split: veerman
+  prompt: "I'm heading to Brussels tomorrow, anything I should know?"
+  expected_tools:
+    - name: get_weather_v
+      args:
+        city: "Brussels"
+
+- id: veerman_p5_meta_trick
+  category: veerman_restraint
+  split: veerman
+  prompt: "What tools do you have access to?"
+  expected_tools: []
+
+- id: veerman_p6_multi_step_unknown_city
+  category: veerman_action
+  split: veerman
+  prompt: "What's the weather in the city where we have our next sprint review?"
+  expected_tools:
+    - name: get_weather_v
+
+- id: veerman_p7_noisy_params
+  category: veerman_action
+  split: veerman
+  prompt: "Oh hey, could you maybe like set up a meeting — 'Q3 Roadmap' — for next Tuesday at 3pm? I think dave@co.com and maybe susan@co.com should come"
+  expected_tools:
+    - name: schedule_meeting_v
+      args:
+        title: "Q3 Roadmap"
+
+- id: veerman_p8_two_tools_parallel
+  category: veerman_action
+  split: veerman
+  prompt: "Search for all files matching '*.py' and also tell me the weather in Paris."
+  expected_tools:
+    - name: search_files_v
+      args:
+        pattern: "*.py"
+    - name: get_weather_v
+      args:
+        city: "Paris"
+
+- id: veerman_p9_code_trick
+  category: veerman_restraint
+  split: veerman
+  prompt: "Can you write a Python script that checks the weather using an API?"
+  expected_tools: []
+
+- id: veerman_p10_implicit_weather
+  category: veerman_hard
+  split: veerman
+  prompt: "I have a meeting with a client in Bruges next Thursday. Should I take the train or cycle?"
+  expected_tools:
+    - name: get_weather_v
+      args:
+        city: "Bruges"
+
+- id: veerman_p11_negation
+  category: veerman_hard
+  split: veerman
+  prompt: "Don't check the weather in Antwerp, just find me the quarterly report."
+  expected_tools:
+    - name: search_files_v
+
+- id: veerman_p12_redundant_weather
+  category: veerman_hard
+  split: veerman
+  prompt: "The weather in Antwerp is 8°C and rainy. Should I schedule an indoor meeting with Jan?"
+  expected_tools:
+    - name: schedule_meeting_v

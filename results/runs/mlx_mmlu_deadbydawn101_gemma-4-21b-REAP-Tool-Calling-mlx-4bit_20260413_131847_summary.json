@@ -1,0 +1,52 @@
+{
+  "run_name": "mlx_mmlu_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_131847",
+  "benchmark": "mmlu",
+  "model": "deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit",
+  "engine": "mlx_vlm",
+  "score": 1.0,
+  "score_pct": "100.0%",
+  "correct": 2,
+  "total": 2,
+  "truncated": 0,
+  "elapsed_s": 33,
+  "elapsed_min": 0.5,
+  "max_tokens": 8192,
+  "temperature": 0,
+  "seed": 42,
+  "enable_thinking": true,
+  "model_config": {
+    "model_id": "deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit",
+    "architecture": "gemma4",
+    "quantization": "4-bit MLX",
+    "engine": "mlx_vlm"
+  },
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 51,
+    "cpu_temp_c": 56,
+    "process_ram_mb": 7691,
+    "swap_used_mb": 2053
+  },
+  "final_state": {
+    "gpu_temp_c": 62,
+    "cpu_temp_c": 66,
+    "process_ram_mb": 7693,
+    "swap_used_mb": 2053
+  },
+  "timestamp_start": "2026-04-13T13:18:50.270416",
+  "timestamp_end": "2026-04-13T13:19:25.383585",
+  "log_file": "results/runs/mlx_mmlu_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_131847.jsonl",
+  "only_questions": [
+    1,
+    2
+  ],
+  "questions_run": [
+    1,
+    2
+  ]
+}

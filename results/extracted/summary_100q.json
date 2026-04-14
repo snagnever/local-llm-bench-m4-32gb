@@ -1,0 +1,101 @@
+[
+  {
+    "model": "Qwen3-Coder",
+    "benchmark": "mmlu",
+    "correct": 67,
+    "total": 100,
+    "score": 0.67,
+    "truncated": 0,
+    "entries_found": 100
+  },
+  {
+    "model": "Qwen3-Coder",
+    "benchmark": "math",
+    "correct": 76,
+    "total": 100,
+    "score": 0.76,
+    "truncated": 1,
+    "entries_found": 100
+  },
+  {
+    "model": "Qwen3-Coder",
+    "benchmark": "gpqa",
+    "correct": 42,
+    "total": 100,
+    "score": 0.42,
+    "truncated": 0,
+    "entries_found": 100
+  },
+  {
+    "model": "Qwen3-Coder",
+    "benchmark": "drop",
+    "correct": 35,
+    "total": 99,
+    "score": 0.3535,
+    "truncated": 0,
+    "entries_found": 99
+  },
+  {
+    "model": "Gemma4",
+    "benchmark": "mmlu",
+    "correct": 84,
+    "total": 100,
+    "score": 0.84,
+    "truncated": 0,
+    "entries_found": 100
+  },
+  {
+    "model": "Gemma4",
+    "benchmark": "math",
+    "correct": 12,
+    "total": 99,
+    "score": 0.1212,
+    "truncated": 25,
+    "entries_found": 99
+  },
+  {
+    "model": "Gemma4",
+    "benchmark": "drop",
+    "correct": 5,
+    "total": 100,
+    "score": 0.05,
+    "truncated": 0,
+    "entries_found": 100
+  },
+  {
+    "model": "huihui-ref",
+    "benchmark": "mmlu",
+    "correct": 23,
+    "total": 100,
+    "score": 0.23,
+    "truncated": 0,
+    "entries_found": 100
+  },
+  {
+    "model": "huihui-ref",
+    "benchmark": "math",
+    "correct": 54,
+    "total": 100,
+    "score": 0.54,
+    "truncated": 32,
+    "entries_found": 100
+  },
+  {
+    "model": "huihui-ref",
+    "benchmark": "drop",
+    "correct": 89,
+    "total": 100,
+    "score": 0.89,
+    "truncated": 0,
+    "entries_found": 100
+  },
+  {
+    "model": "huihui-ref",
+    "benchmark": "gpqa",
+    "correct": 56,
+    "total": 100,
+    "score": 0.56,
+    "truncated": 2,
+    "entries_found": 100
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_gemma-4-21b-a4b-it-reap_20260414_024320",
+  "suite": "veerman",
+  "model": "gemma-4-21b-a4b-it-reap",
+  "model_slug": "gemma-4-21b-a4b-it-reap",
+  "score": 0.8333333333333334,
+  "score_pct": "83.3%",
+  "correct": 10,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 2,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 24.54,
+  "elapsed_s": 127,
+  "elapsed_min": 2.1,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 52,
+    "cpu_temp_c": 55,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2197,
+    "free_pages": 8522
+  },
+  "final_state": {
+    "gpu_temp_c": 56,
+    "cpu_temp_c": 60,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2197,
+    "free_pages": 10490
+  },
+  "timestamp_start": "2026-04-14T02:43:22.667875",
+  "timestamp_end": "2026-04-14T02:45:31.807955",
+  "log_file": "results/runs/toolcall_veerman_gemma-4-21b-a4b-it-reap_20260414_024320.jsonl"
+}

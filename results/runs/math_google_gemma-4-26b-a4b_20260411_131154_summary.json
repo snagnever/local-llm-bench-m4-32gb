@@ -1,0 +1,19 @@
+{
+  "benchmark": "math",
+  "model": "google/gemma-4-26b-a4b",
+  "score": 0.5,
+  "correct": 1,
+  "total": 2,
+  "truncated": 0,
+  "elapsed_s": 107,
+  "elapsed_min": 1.8,
+  "max_tokens": 32768,
+  "temperature": 0,
+  "seed": 42,
+  "timestamp": "2026-04-11T13:13:41.454466",
+  "log_file": "results/runs/math_google_gemma-4-26b-a4b_20260411_131154.jsonl",
+  "only_questions": [
+    1,
+    2
+  ]
+}

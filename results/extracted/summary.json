@@ -1,0 +1,62 @@
+{
+  "qwen3-coder-30b-a3b-instruct|math": {
+    "score": 0.76,
+    "correct": 76,
+    "total": 100,
+    "truncated": 1
+  },
+  "qwen3-coder-30b-a3b-instruct|humaneval": {
+    "score": 0.0,
+    "correct": 0,
+    "total": 100,
+    "truncated": 0
+  },
+  "qwen3-coder-30b-a3b-instruct|mmlu": {
+    "score": 0.67,
+    "correct": 67,
+    "total": 100,
+    "truncated": 0
+  },
+  "google/gemma-4-26b-a4b|math": {
+    "score": 0.0,
+    "correct": 0,
+    "total": 100,
+    "truncated": 24
+  },
+  "google/gemma-4-26b-a4b|drop": {
+    "score": 0.04,
+    "correct": 4,
+    "total": 100,
+    "truncated": 0
+  },
+  "google/gemma-4-26b-a4b|humaneval": {
+    "score": 0.0,
+    "correct": 0,
+    "total": 100,
+    "truncated": 0
+  },
+  "google/gemma-4-26b-a4b|mmlu": {
+    "score": 0.84,
+    "correct": 84,
+    "total": 100,
+    "truncated": 0
+  },
+  "huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1|math": {
+    "score": 0.54,
+    "correct": 54,
+    "total": 100,
+    "truncated": 32
+  },
+  "huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1|drop": {
+    "score": 0.89,
+    "correct": 89,
+    "total": 100,
+    "truncated": 0
+  },
+  "huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1|mmlu": {
+    "score": 0.18,
+    "correct": 18,
+    "total": 100,
+    "truncated": 0
+  }
+}

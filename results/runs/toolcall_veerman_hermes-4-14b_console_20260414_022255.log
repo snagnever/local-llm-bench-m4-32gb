@@ -1,0 +1,74 @@
+Loading veerman suite...
+
+--- Pre-flight ---
+  Model: hermes-4-14b
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 54°C | CPU: 58°C
+  Swap: 2197MB
+
+==============================================================================================================
+TOOL_CALL | Suite: VEERMAN | Model: hermes-4-14b | Fresh: 12 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=53°C, swap=2197MB
+Log: results/runs/toolcall_veerman_hermes-4-14b_20260414_022258.jsonl
+==============================================================================================================
+    1/12 veerman_p1_weather_obvious           |    5.5s | p= 456 c=  22   4.0t/s |  63°C sw=2197M | OK    | score: 100%
+    2/12 veerman_p2_files_obvious             |    2.3s | p= 456 c=  21   9.0t/s |  62°C sw=2197M | OK    | score: 100%
+    3/12 veerman_p3_meeting_multi_arg         |    6.2s | p= 489 c=  65  10.5t/s |  64°C sw=2197M | OK    | score: 100%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+    4/12 veerman_p4_ambiguous_brussels        |    4.1s | p= 460 c=  43  10.5t/s |  60°C sw=2197M | OK    | score: 100%
+    5/12 veerman_p5_meta_trick                |   17.0s | p= 456 c= 199  11.7t/s |  69°C sw=2197M | OK    | score: 100%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+    6/12 veerman_p6_multi_step_unknown_city   |    3.4s | p= 463 c=  34  10.1t/s |  58°C sw=2197M | FAIL  (no_tool_called) | score: 83%
+    7/12 veerman_p7_noisy_params              |    7.0s | p= 491 c=  75  10.6t/s |  66°C sw=2197M | OK    | score: 86%
+    8/12 veerman_p8_two_tools_parallel        |    4.5s | p= 465 c=  48  10.7t/s |  63°C sw=2197M | OK    | score: 88%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 34°C — resuming
+    9/12 veerman_p9_code_trick                |   19.1s | p= 462 c= 223  11.7t/s |  56°C sw=2197M | OK    | score: 89%
+   10/12 veerman_p10_implicit_weather         |    8.3s | p= 469 c=  93  11.2t/s |  58°C sw=2197M | FAIL  (no_tool_called) | score: 80%
+   11/12 veerman_p11_negation                 |    6.0s | p= 464 c=  66  11.0t/s |  58°C sw=2197M | FAIL  (no_tool_called) | score: 73%
+   12/12 veerman_p12_redundant_weather        |   12.3s | p= 469 c= 142  11.6t/s |  63°C sw=2197M | FAIL  (no_tool_called) | score: 67%
+
+  >>> VEERMAN: 67% (8/12) in 803s (13.4m) [fresh=12, carried=0] tok-wt 10.8t/s
+  >>> GPU: 53°C → 57°C
+  >>> Swap: 2197MB → 2197MB
+  >>> Log: results/runs/toolcall_veerman_hermes-4-14b_20260414_022258.jsonl
+  >>> Summary: results/runs/toolcall_veerman_hermes-4-14b_20260414_022258_summary.json

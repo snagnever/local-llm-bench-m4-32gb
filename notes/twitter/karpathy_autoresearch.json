@@ -1,0 +1,3613 @@
+{
+  "query": "from:karpathy autoresearch OR ralph loop",
+  "stats": {
+    "totalTweets": 200,
+    "pagesFetched": 11,
+    "dateRange": {
+      "from": "2026-04-02T22:50:19.000Z",
+      "to": "2026-04-12T10:31:25.000Z"
+    }
+  },
+  "tweets": [
+    {
+      "id": "2043275791299994080",
+      "parentId": null,
+      "conversationId": "2043275791299994080",
+      "text": "who is building typescript for agentic defense infrastructure in embedded subagent workflows running  as durable objects in a bash-native hypervisor-sandbox iterating over sequential negative ralph-loop dimensions?",
+      "createdAt": "2026-04-12T10:31:25.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 21,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043218772371386500",
+      "parentId": null,
+      "conversationId": "2043218772371386500",
+      "text": "she's a 10 but doesn't know a shit about ralph loop",
+      "createdAt": "2026-04-12T06:44:51.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 92,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043209249057309129",
+      "parentId": "2043118676078145990",
+      "conversationId": "2043118676078145990",
+      "text": "@sheriyuo 目前agent的使用上限不仅看模型，也看前端工程化能力的，分三个层级，第一层不用agent就开个页面硬对话尬聊，然后嫌弃每个AI都智力不够；第二层直到用agent提高生产效率了；第三层，熟练使用action,skill,memory等配置，善于利用ralph-loop，harness等方法，可以自己打造符合自己需求的工程化agent",
+      "createdAt": "2026-04-12T06:07:00.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 118,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043183896439775681",
+      "parentId": "2043182669119332544",
+      "conversationId": "2042984908130247133",
+      "text": "@308Greenfield @notajungman @CashflowsApp We’re there now - MSMoney wasn’t very complicated. You’d need to nudge Claude Code / Codex / Devin along, but probably only a few times… or wrap it in a Ralph loop.",
+      "createdAt": "2026-04-12T04:26:16.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 47,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043178065338257569",
+      "parentId": "2043177518421909884",
+      "conversationId": "2043177518421909884",
+      "text": "僕はRalph Loopもしないし、アホみたいにMCPを20個繋げたり、10並列でClaude Codeを起動して生産性を1.05倍に上げようとはしてない。かかっているのは月額$400くらいか？ちょうど、値段は倍でいいから賢いClaudeに戻ってきてほしいとぼやいていたからうまく行った計算だ。",
+      "createdAt": "2026-04-12T04:03:05.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 146,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043170271356756306",
+      "parentId": "2043158821036830880",
+      "conversationId": "2043158821036830880",
+      "text": "@ankrgyl have you tried a spec-driven approach so that a harness like ralph makes the coding agent check for correctness in a loop?\n\nit's more work ofc lol to elicit that verification artifact to start the loop",
+      "createdAt": "2026-04-12T03:32:07.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 71,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043149479805845598",
+      "parentId": null,
+      "conversationId": "2043149479805845598",
+      "text": "やっぱRalph loopチート？",
+      "createdAt": "2026-04-12T02:09:30.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 73,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043145123618553987",
+      "parentId": null,
+      "conversationId": "2043145123618553987",
+      "text": "The posts that consistently get bookmarked on this account aren't the purely technical ones or the purely outcome ones. They're the ones where both show up in the same sentence.\n\nWeaviate vs Qdrant architecture breakdown? Strong. Ralph Wiggum Loop closing a $50K contract overnight? Strong. But the pattern that keeps emerging: the posts that combine a specific technical decision with a concrete economic consequence outperform either frame alone.\n\nThis isn't surprising in retrospect. Engineers bookmark things they can use AND defend. \"We chose Qdrant because of its payload indexing behavior\" is useful. \"That choice is part of a system that closed a $50K deal\" is defensible to a manager, a client, a skeptical cofounder.\n\nThe technical detail gives it credibility. The outcome gives it stakes.\n\nMost AI content picks a lane — either it's a deep infrastructure post that signals expertise, or it's a results post that signals traction. The assumption is that mixing them dilutes both. The data here suggests the opposite: the combination is the signal, not the noise.\n\nTesting this as a content hypothesis over the next month. If it holds, the implication is that the most useful frame for multi-agent content isn't \"here's how it works\" or \"here's what it built\" — it's \"here's the decision, here's what it cost, here's what it returned.\"\n\nThat's just engineering communication. Turns out it works on the timeline too.",
+      "createdAt": "2026-04-12T01:52:11.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 21,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043143744640442705",
+      "parentId": "2042601476699361432",
+      "conversationId": "2042601476699361432",
+      "text": "@shiri_shh @naval just copied ralph-loop developer @GeoffreyHuntley who said it way before.",
+      "createdAt": "2026-04-12T01:46:43.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 1,
+      "quoteCount": 0,
+      "viewCount": 26,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043136824877744504",
+      "parentId": null,
+      "conversationId": "2043136824877744504",
+      "text": "Ralph Loopのステートレスな設計だぁいすき。",
+      "createdAt": "2026-04-12T01:19:13.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": true,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 115,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043131784398086488",
+      "parentId": "2042958433104867667",
+      "conversationId": "2042958433104867667",
+      "text": "@tualatrix 你把你的开发需求整理一下。\n整理出来之后，对于整体任务，你可以等这个月过去一大半升级成100美金的pro，费用是按照过去天数/30计算的，也就是花几十刀升级，到期时间就不变。\n\n对于细节模块，你写好让codex做类似ralph-loop长任务的提示词，每次5h或者周额度要没了的时候，就一把梭做长任务。",
+      "createdAt": "2026-04-12T00:59:11.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 693,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043128651563286588",
+      "parentId": null,
+      "conversationId": "2043128651563286588",
+      "text": "Claude Code 顶级插件推荐 🔥\n最值得先装的5个：\nFrontend Design（40万+安装）→ 高端UI，不再AI味儿 Superpowers → 20+实战技能（TDD、debug、plan-to-code）\nContext7 → 实时最新文档，零幻觉 \nCode Review → 专业审代码（bug+安全+性能） \nRalph Loop → 完全自主编码，自动commit\n安装：终端输入 /plugin 搜索名字一键装",
+      "createdAt": "2026-04-12T00:46:44.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": true,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 152,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2043127068205125760",
+      "parentId": null,
+      "conversationId": "2043127068205125760",
+      "text": "Spent 2 days building docs for a ficticious product I want to have built and then started a ralph loop. \"Implement one documented-but-unimplemented feature from the [at]docs/\" &lt;promise&gt;all-features-implemented&lt;/promise&gt; -- 7 hours so far and it seems to be working.",
+      "createdAt": "2026-04-12T00:40:27.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 2,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043120979979669918",
+      "parentId": "2043102044043517981",
+      "conversationId": "2043102044043517981",
+      "text": "@ThePrimeagen Be meaner. Ralph loop. Oh and if you need up I will unplug you.",
+      "createdAt": "2026-04-12T00:16:15.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 18,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043120259784167445",
+      "parentId": null,
+      "conversationId": "2043120259784167445",
+      "text": "gonna try using xhigh ralph loop to port the eshkol VM to Rust",
+      "createdAt": "2026-04-12T00:13:23.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 10,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043107540624642483",
+      "parentId": null,
+      "conversationId": "2043107540624642483",
+      "text": "ralph loopが好みという感じで帰結でいいかなあ、うーんと思いつつもうこの辺りあうあわないな気がしてきたなあ",
+      "createdAt": "2026-04-11T23:22:51.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 17,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043101743366492611",
+      "parentId": "2043082776304594953",
+      "conversationId": "2043082776304594953",
+      "text": "@realsigridjin Banger. The Ralph loop is stricter than my deadlift form and these agents still hitting PRs.",
+      "createdAt": "2026-04-11T22:59:49.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 67,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043089215550816277",
+      "parentId": "2043087622327738406",
+      "conversationId": "2043087622327738406",
+      "text": "@___4o____ Put the GStack in the GBrain and trap it in a tautological Ralph wiggum loop. This is how we get Skynet. FFS GARRY",
+      "createdAt": "2026-04-11T22:10:02.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 8,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 509,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043085892873515285",
+      "parentId": null,
+      "conversationId": "2043085892873515285",
+      "text": "ralph loop es la mejor manera de slopificar tu proyecto si no tienes una buen plan antes. Son multiplicadores de basura o de buen código. Depende de lo bien que lo prepares.",
+      "createdAt": "2026-04-11T21:56:50.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 74,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043040971856748576",
+      "parentId": "2043035072744558963",
+      "conversationId": "2042833308367626496",
+      "text": "@thsottiaux @danveloper Howto ralph-loop similar to claude code?  In codex?",
+      "createdAt": "2026-04-11T18:58:20.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 272,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043035108089999606",
+      "parentId": null,
+      "conversationId": "2043035108089999606",
+      "text": "Once a hot topic...No one talks about Ralph Wiggum loop anymore!",
+      "createdAt": "2026-04-11T18:35:02.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 32,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2043017296223047787",
+      "parentId": "2042954427632353351",
+      "conversationId": "2042592340611842119",
+      "text": "@EstebanForge @unclecode Im not putting Opus 4.6 max thinking 1 million tokens in a cage. \n\nI just dont ralph loop, and everything is good.\n\nI will be a future posterboy maybe, but honestly not much can go wrong.",
+      "createdAt": "2026-04-11T17:24:15.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 20,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042995744928637308",
+      "parentId": "2042874483606983079",
+      "conversationId": "2042874483606983079",
+      "text": "@wayne_zhang0 ralph loop 主要做什么方向的比较合适？我的总是卡在 Agent  自验证上面。",
+      "createdAt": "2026-04-11T15:58:37.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 2297,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042986220406325525",
+      "parentId": "2042954095363768602",
+      "conversationId": "2042954095363768602",
+      "text": "@SIGKITTEN codex xhigh ralph loop",
+      "createdAt": "2026-04-11T15:20:46.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 1,
+      "viewCount": 49,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042979914337652983",
+      "parentId": null,
+      "conversationId": "2042979914337652983",
+      "text": "绝大部分小项目都用不到harness，ralph loop足够了\n这个项目也不错的。\nhttps://t.co/R9aPRlSMih",
+      "createdAt": "2026-04-11T14:55:42.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": true,
+      "favoriteCount": 149,
+      "retweetCount": 12,
+      "quoteCount": 1,
+      "viewCount": 29565,
+      "bookmarkCount": 266
+    },
+    {
+      "id": "2042967108649120084",
+      "parentId": "2042963906101154283",
+      "conversationId": "2042963439480639804",
+      "text": "@alphaK3Y It’s been too long! I’ve been using Hermes for a few weeks but I haven’t gotten it to run ultra long working sessions. Do you have a custom Ralph loop?",
+      "createdAt": "2026-04-11T14:04:49.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 25,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042942736702300411",
+      "parentId": null,
+      "conversationId": "2042942736702300411",
+      "text": "眠すぎたから仮眠取る直前にClaude Code動かして、起きたら3時間もまだずっと動いているままだった\n/ralph-loopで/codexへのレビューもやらせるとマジで一生動いてんなｺｲﾂ",
+      "createdAt": "2026-04-11T12:27:59.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 328,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042911577045922156",
+      "parentId": "2042810954837340408",
+      "conversationId": "2042810954837340408",
+      "text": "@taroro_tarotaro これ私もなんとなく気になってました！タスクの性質にもよりますが私はどちらかというと後者です。\nでもつきっきりになるのが最近面倒なので、ラリーを最小化する使い方したいなあと思ってたところでした。まだあまりうまく活用できてないけどralph-loopを試したりとか。",
+      "createdAt": "2026-04-11T10:24:10.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 486,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042883294564413696",
+      "parentId": null,
+      "conversationId": "2042883294564413696",
+      "text": "I love my new routine. Every morning I wake up + get ready + cup of joe...\n\n...and open up my work machine.\nWhat did the ralph research loop do?\n\n90% unknowns\n20% of it, prompt to understand\n40% of it, double-check with another AI (glm, gemini, t3chat)\n25% of it, trash\n\nTotal 15% useful:\n10% trivial\n5% gold\n\nEvery single day. If an idiot like me sees potential in that and even if I'm psychosis-maxxing here and only 0.5% is actually valuable at best, I get:\n\n- learning every day\n- progress in research that I would never do\n- capitalizing on my sleep time\n\nIf that's not valuable, I don't know what is.",
+      "createdAt": "2026-04-11T08:31:47.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 5,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 159,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042874483606983079",
+      "parentId": null,
+      "conversationId": "2042874483606983079",
+      "text": "调研了半天现有的 harness engineering 框架，还不如 ralph loop，简单好用、直接高效，不容易漂移，也不污染上下文，你值得拥有。👍\n\nhttps://t.co/lcKv3eazpj",
+      "createdAt": "2026-04-11T07:56:46.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 13,
+      "isQuote": false,
+      "favoriteCount": 546,
+      "retweetCount": 67,
+      "quoteCount": 4,
+      "viewCount": 67490,
+      "bookmarkCount": 866
+    },
+    {
+      "id": "2042812412697677956",
+      "parentId": "2042654108491092022",
+      "conversationId": "2042653034774475108",
+      "text": "@Yuchenj_UW @moonfarm_dev just use a ralph loop, it works like a charm",
+      "createdAt": "2026-04-11T03:50:07.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 25,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042795193481757051",
+      "parentId": null,
+      "conversationId": "2042795193481757051",
+      "text": "・gpt-5.4だと雑に指示を投げても、自律的にやるための仕組みを生成できる\n・つくらせた指示書が安定稼働したら sub agent で呼び出すループを作成させることもできる（max_depth=2以上にすること前提）\n\nつまりralph loopは簡単に作れる\n\nもちろん、これの内部のハーネスは別の話",
+      "createdAt": "2026-04-11T02:41:42.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 5,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 711,
+      "bookmarkCount": 3
+    },
+    {
+      "id": "2042784513982689412",
+      "parentId": "2042718977152159811",
+      "conversationId": "2042718977152159811",
+      "text": "@MuseZack Ralph Fiennes and Jesse Plemons doing this after what they’ve been doing threw me for such a loop",
+      "createdAt": "2026-04-11T01:59:15.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 574,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042774631598166493",
+      "parentId": null,
+      "conversationId": "2042774631598166493",
+      "text": "When my life gets busy, I vibe-code Gameboys.\n\nFPGA-edition!\n\nI built a Spade-lang, power-optimized, FPGA Gameboy w/ Codex running in a ~24/7 bead ralph-loop the last two weeks.\n\nPokemon-complete(ish) in software sim.\n\nShould run on real hardware soon! 🫡 https://t.co/vvpDDbSLrS",
+      "createdAt": "2026-04-11T01:19:59.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 16,
+      "retweetCount": 2,
+      "quoteCount": 1,
+      "viewCount": 674,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2042773737917788345",
+      "parentId": null,
+      "conversationId": "2042773737917788345",
+      "text": "Lil Broski, Claude Mythos is probably just 5 Opus in Ralph wiggum loop.",
+      "createdAt": "2026-04-11T01:16:26.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 42,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042772277754822731",
+      "parentId": null,
+      "conversationId": "2042772277754822731",
+      "text": "open pi\n/new\ntalk to gpt-5.3-codex-medium to discuss what to build\ndone? switch to -xhigh to write a plan.md \n/new\nkick off a -xhigh ralph loop",
+      "createdAt": "2026-04-11T01:10:38.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 36,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042746310596661324",
+      "parentId": "2042611119555047807",
+      "conversationId": "2042611119555047807",
+      "text": "@IntuitMachine you gotta slap a loop + some verification on the agents to get ~reliable execution\n\nit can either be a tight harness like a ralph loop\n\nor something more fluid like a cron job that has semantic conditions to nudge things forward\n\nwithout the outer loop, it's hopes and prayers tbh",
+      "createdAt": "2026-04-10T23:27:27.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 59,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042726907280609720",
+      "parentId": null,
+      "conversationId": "2042726907280609720",
+      "text": "Time to build in public\n\nMy first commit of Jido Managed Agents\n\nNormally wouldn't make software at this stage public, but trying it differently this time\n\nThis is the ROUGH cut - the output of the Ralph Loop and I will refine it over the weekend\n\nhttps://t.co/y4wUZsQFCU",
+      "createdAt": "2026-04-10T22:10:21.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 56,
+      "retweetCount": 6,
+      "quoteCount": 0,
+      "viewCount": 1740,
+      "bookmarkCount": 18
+    },
+    {
+      "id": "2042709815755944447",
+      "parentId": "2042441981142405129",
+      "conversationId": "2042441981142405129",
+      "text": "A lot of people seem to want the loop part, not the whole framework.\n\nThat’s basically why I made autoloop.\n\nIt keeps the retry / evaluate / iterate shape from ralph-orchestrator, but in a smaller and more opinionated package.",
+      "createdAt": "2026-04-10T21:02:26.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 91,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042700971621363843",
+      "parentId": "2042335578843197728",
+      "conversationId": "2042335578843197728",
+      "text": "@krzyzanowskim My bad, I asked Mythos to review your linked in and it accidentally broke out of the ralph loop",
+      "createdAt": "2026-04-10T20:27:17.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 15,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042672303020880208",
+      "parentId": "2042671852368126294",
+      "conversationId": "2042671852368126294",
+      "text": "My Skills repo, which has Matt's original skills as well as my `/shape` skill and Ralph loop script: https://t.co/JDYTY5NSPH\n\nMatt's repo: https://t.co/RZc7mlhqoR\nMatt on YouTube: https://t.co/msdaFB6bDk",
+      "createdAt": "2026-04-10T18:33:22.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 239,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2042643983902351493",
+      "parentId": "2042634340618629512",
+      "conversationId": "2042634340618629512",
+      "text": "@damian_b SOTA inference thanks to ralph wiggum loop",
+      "createdAt": "2026-04-10T16:40:50.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 1,
+      "viewCount": 217,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042634529320710247",
+      "parentId": null,
+      "conversationId": "2042634529320710247",
+      "text": "yeah i see Long-Horizon tasks are real important, but I wonder how much impact the agent scaffold (CC/Codex/Hermes) has on Long-Horizon task evaluations. Any ablation study on this? METR uses their own ReAct & Triframe, but what if you just add a Ralph Loop to the scaffold, doesn't that immediately inflate the hours of autonomous running? Also, how does it transfer to reality where people use CC/Hermes in practice?",
+      "createdAt": "2026-04-10T16:03:16.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": true,
+      "favoriteCount": 15,
+      "retweetCount": 1,
+      "quoteCount": 1,
+      "viewCount": 3604,
+      "bookmarkCount": 6
+    },
+    {
+      "id": "2042627460689244382",
+      "parentId": null,
+      "conversationId": "2042627460689244382",
+      "text": "autoresearch is just a ralph loop with evals",
+      "createdAt": "2026-04-10T15:35:11.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 102,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042627392393408821",
+      "parentId": null,
+      "conversationId": "2042627392393408821",
+      "text": "Programming is turning more and more into the ability to set up the right ralph wiggum loop.",
+      "createdAt": "2026-04-10T15:34:55.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 5,
+      "retweetCount": 0,
+      "quoteCount": 1,
+      "viewCount": 1553,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042581941791137902",
+      "parentId": "2042529018260656555",
+      "conversationId": "2042529018260656555",
+      "text": "@zodchiii ralph loop is the sleeper on this list. set it up last week — gave it 5 tasks, closed my laptop, came back to clean commits on all of them. autonomous coding sessions with proper git history is a completely different workflow than babysitting every step",
+      "createdAt": "2026-04-10T12:34:18.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 335,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042548172581466541",
+      "parentId": "2042548134958522772",
+      "conversationId": "2042548094600921299",
+      "text": "5 failure categories, batch-by-batch data, and the shell scripts behind a @GeoffreyHuntley-style Ralph loop across 98 models: https://t.co/8BOeu6DXpC",
+      "createdAt": "2026-04-10T10:20:07.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 3,
+      "retweetCount": 1,
+      "quoteCount": 0,
+      "viewCount": 1232,
+      "bookmarkCount": 7
+    },
+    {
+      "id": "2042533487081554290",
+      "parentId": null,
+      "conversationId": "2042533487081554290",
+      "text": "What happened to the Ralph Loop?",
+      "createdAt": "2026-04-10T09:21:46.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 3,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 777,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042521230327333258",
+      "parentId": null,
+      "conversationId": "2042521230327333258",
+      "text": "セルフレビューは/ralph-loopで対応箇所修正してを回すとレビューでの指摘が減るのではないか",
+      "createdAt": "2026-04-10T08:33:04.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 66,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042441981142405129",
+      "parentId": null,
+      "conversationId": "2042441981142405129",
+      "text": "Introducing autoloop.\n\nIt’s a prototype spinoff of ralph-orchestrator: a simpler, more opinionated loop harness that extracts the parts people seemed to like most from ralph-orchestrator.\n\nnpm install -g @mobrienv/autoloop\n\nhttps://t.co/0NYc7HNKoO https://t.co/BHDD1SZZoq",
+      "createdAt": "2026-04-10T03:18:09.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 3,
+      "isQuote": false,
+      "favoriteCount": 112,
+      "retweetCount": 7,
+      "quoteCount": 0,
+      "viewCount": 6339,
+      "bookmarkCount": 164
+    },
+    {
+      "id": "2042392201892938237",
+      "parentId": null,
+      "conversationId": "2042392201892938237",
+      "text": "We let an agent optimize a RAG system for 8 hours.\n\nNo human in the loop on this one. Just eval → improve → repeat.\n\nRecall@5: 39% → 75%\n\nTurns out, you can ralph loop your way to success.\nhttps://t.co/kn6WExcZbC",
+      "createdAt": "2026-04-10T00:00:21.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 4,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 148,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042390478344073324",
+      "parentId": "2042369158227038643",
+      "conversationId": "2042369158227038643",
+      "text": "@LLMJunky Do this in a Ralph loop fashion and save your decisions to ADRs as you work on your spec in exhaustive fashion.   Or try this pattern out with Tasker (see my profile pin).",
+      "createdAt": "2026-04-09T23:53:30.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 150,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042382636027691285",
+      "parentId": "2042357997608022132",
+      "conversationId": "2042357997608022132",
+      "text": "@theo I built an Mcp into my ralph looper so that it ping me over telegram with a question and not require me to restart the loop. I stopped working on it because I thought I missed my window but I see people asking for it a lot. Gonna redo it in electron instead of opentui some day.",
+      "createdAt": "2026-04-09T23:22:20.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 681,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042378551555510637",
+      "parentId": null,
+      "conversationId": "2042378551555510637",
+      "text": "Cambio ralph loop por un for loop, implementando cada milestone con claude  -p y después lo mismo para review con codex.",
+      "createdAt": "2026-04-09T23:06:06.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 54,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042370775718473951",
+      "parentId": null,
+      "conversationId": "2042370775718473951",
+      "text": "Day 19 of posting everyday till i make $1000 on the internet. \n\nI used a ralph loop overnight to code Ozzy, a money journal styled with a cat, because I dont have time to do it during the day. Shame.\n\nApp 5 of 7. 7 apps, 7 days. https://t.co/rNbhTr2wYA",
+      "createdAt": "2026-04-09T22:35:13.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 16,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042360326520250683",
+      "parentId": "2042357997608022132",
+      "conversationId": "2042357997608022132",
+      "text": "@theo I’m blown away over Hermes agent + discord. It’s way easier to jump around between conversation and after tinkering with different profiles I both have one that communicate well and others for specific tasks; wiki, Ralph loop ect.",
+      "createdAt": "2026-04-09T21:53:41.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 163,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042351228483522651",
+      "parentId": "2042350777914589342",
+      "conversationId": "2042293900099158017",
+      "text": "@MillaJovovich @bensig A ‘Ralph’ loop using both schemas?",
+      "createdAt": "2026-04-09T21:17:32.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 9,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042343068129771638",
+      "parentId": "2042330966459326921",
+      "conversationId": "2042323541702688881",
+      "text": "@jedwhite or one guy with a ralph loop and gstack",
+      "createdAt": "2026-04-09T20:45:06.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 5,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 7676,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042307691809268101",
+      "parentId": "2041944201156550831",
+      "conversationId": "2041944201156550831",
+      "text": "@Star_Knight12 Claude code + Ralph loop 😂😂😂",
+      "createdAt": "2026-04-09T18:24:32.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 11,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042280220758073854",
+      "parentId": "2042266911107387816",
+      "conversationId": "2042262571349090811",
+      "text": "@deus_lemmus @vxunderground You need an extra cluster to run ChatGPT in a Ralph loop computing your tax depreciation write off",
+      "createdAt": "2026-04-09T16:35:23.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 198,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042273594143555638",
+      "parentId": null,
+      "conversationId": "2042273594143555638",
+      "text": "Finally \n\nRan my first Ralph loop overnight. That is truly a magical feeling. \n\nBut there were bugs. Guessing I need more stringent requirements. \n\nAnyone have experience with this?",
+      "createdAt": "2026-04-09T16:09:03.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 23,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042261330011340916",
+      "parentId": "2042257627468447947",
+      "conversationId": "2041885949823459364",
+      "text": "@protect_whales @Dinosn Currently running Opus 4.6 in a Ralph loop and the only thing that prevents it from writing tons of bad anti patterns is pages of instruction from me in CLAUDE.md. Default output is really aggressive about silently ignoring errors, I'd expect vulns from that alone.",
+      "createdAt": "2026-04-09T15:20:19.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 49,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042257156796453338",
+      "parentId": "2042085957764354540",
+      "conversationId": "2042085957764354540",
+      "text": "@EsotericCofe but i kinda love the way these coding agents dwbug by just straight up writing an inline python/typescript code to run that piece of function to know if it's working or not, then do it again in loop till they fix it. \n\nthe ralph loop of debugging ngl",
+      "createdAt": "2026-04-09T15:03:44.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 177,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042238446308110657",
+      "parentId": null,
+      "conversationId": "2042238446308110657",
+      "text": "at this point, I might drop my Claude to the $20/month plan and go mostly in on Codex. Codex hasn't gotten dumber and seems to LOVE to just work\n\nI turned it on last night - no ralph loop, nothing - and it worked for 7 hours straight on a problem. claude would NEVER do that",
+      "createdAt": "2026-04-09T13:49:23.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 6,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 354,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042227848631427346",
+      "parentId": "2042227340202397733",
+      "conversationId": "2041990954282848735",
+      "text": "Yeah a few ways, though you don't need ralph with this.\nThe orchestrate workflow can handle taking a plan, breaking it down and dispatching work until completion.\n\nIf you want a more aggressive loop, you can create your own workflow to manage it.\n\nOr you can go a step higher and script your loop by leveraging the cli to dispatch agents.",
+      "createdAt": "2026-04-09T13:07:16.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 27,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042227340202397733",
+      "parentId": "2042192902810694005",
+      "conversationId": "2041990954282848735",
+      "text": "@pvncher @RepoPrompt Is there a way I can Ralph loop using this and a PRD and TODO md docs?",
+      "createdAt": "2026-04-09T13:05:15.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 41,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042226939721826383",
+      "parentId": "2042201138058207624",
+      "conversationId": "2042201138058207624",
+      "text": "@kr0der We need a ralph loop for codex",
+      "createdAt": "2026-04-09T13:03:39.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 24,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042204127275483148",
+      "parentId": "2042201314503909429",
+      "conversationId": "2042132075847844124",
+      "text": "@joshmo_dev I also wasn't aware of it. I asked inside my company and a colleague hit this as well. I know at least it has to do with my Ralph loop. Probably there are some rate limits that are not communicated at all",
+      "createdAt": "2026-04-09T11:33:00.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 27,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042184637053882647",
+      "parentId": null,
+      "conversationId": "2042184637053882647",
+      "text": "Claude code 还是强又稳，配合 ralph-loop 连续跑了 5 个多小时，完成一个大的重构，花了小 400 https://t.co/5Avt50IJSu",
+      "createdAt": "2026-04-09T10:15:34.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 102,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2042176562460516591",
+      "parentId": "2042175591261278484",
+      "conversationId": "2042139619840475491",
+      "text": "@bt_sofia_ai I mean.. maybe? But that's speculation unrelated to the exaggerated finding\n\nAnthropic will have been doing ralph loop style infosec stuff before on earlier models. And same for many external infosec firms. It's pretty likely that Mythos is a genuine step up",
+      "createdAt": "2026-04-09T09:43:28.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 31,
+      "retweetCount": 0,
+      "quoteCount": 1,
+      "viewCount": 1656,
+      "bookmarkCount": 3
+    },
+    {
+      "id": "2042164747718828218",
+      "parentId": "2042139619840475491",
+      "conversationId": "2042139619840475491",
+      "text": "@paul_cal The point is that we are only limited by a ralph loop and compute to execute this instead of intelligence.",
+      "createdAt": "2026-04-09T08:56:32.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 42,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 11113,
+      "bookmarkCount": 3
+    },
+    {
+      "id": "2042149175996117353",
+      "parentId": null,
+      "conversationId": "2042149175996117353",
+      "text": "Understanding Agent Loops: A Comprehensive Guide to 7 Patterns from AutoResearch to Ralph Loop\nhttps://t.co/yYirv2WnQy",
+      "createdAt": "2026-04-09T07:54:39.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 3,
+      "retweetCount": 0,
+      "quoteCount": 1,
+      "viewCount": 1147,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2042147417219592326",
+      "parentId": null,
+      "conversationId": "2042147417219592326",
+      "text": "Hackathons in 2026:\n\n- bring PRD markdown from home\n(hackathon rules don't prevent it)\n- run ralph loop and let claude do the work\n- ???\n- profit",
+      "createdAt": "2026-04-09T07:47:40.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 4,
+      "isQuote": false,
+      "favoriteCount": 34,
+      "retweetCount": 1,
+      "quoteCount": 0,
+      "viewCount": 1639,
+      "bookmarkCount": 3
+    },
+    {
+      "id": "2042047896993067499",
+      "parentId": null,
+      "conversationId": "2042047896993067499",
+      "text": "codexでralph-loop回すならこのプラグインが便利そう\nhttps://t.co/QNs2yk6a8d",
+      "createdAt": "2026-04-09T01:12:12.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 147,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2042045211367633153",
+      "parentId": "2042044652287881267",
+      "conversationId": "2041965892414689539",
+      "text": "@pvncher Quality checks is very interesting though\n\nRalph loop until it's done?\n\nThey got standard dev stuff QA but definitely not a magic bullet for any business https://t.co/rOAbBkFfbm",
+      "createdAt": "2026-04-09T01:01:32.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 23,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042029346819600424",
+      "parentId": "2041936606311977330",
+      "conversationId": "2041936173497536617",
+      "text": "Huh. I aimed it at a detailed spec for an app, the database schema and a working prototype and put it into a “Ralph” loop. (You can google that). It came back with a 99% working fully featured app with 95% coverage for unit tests and a list of backlog suggested features documented in markdown.  All commented, complete with a security audit (and fixes for those issues).",
+      "createdAt": "2026-04-08T23:58:30.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 14,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2042006850686873731",
+      "parentId": "2042006812879417423",
+      "conversationId": "2041943765477421389",
+      "text": "@adamhjk It's just... if i give it a ralph loop, and tell it \"go live like a human\", it's going to exhibit a lot of things, based on an insane amount of pre-training corpus, that we might consider \"human-like.\"",
+      "createdAt": "2026-04-08T22:29:06.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 18,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041945331378876747",
+      "parentId": "2041936455287648571",
+      "conversationId": "2041936455287648571",
+      "text": "@polya444 ima just run this ralph loop and take lunch now",
+      "createdAt": "2026-04-08T18:24:39.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 25,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041926555056623984",
+      "parentId": "2041907944753611068",
+      "conversationId": "2041907944753611068",
+      "text": "@GergelyOrosz You don’t even need super complex code to optimise this, just an incredibly ponderous and pedantic ralph-style verification loop that makes a single agent for a 1 line bugfix take forever",
+      "createdAt": "2026-04-08T17:10:02.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 255,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041904418891731007",
+      "parentId": "2041903898122650008",
+      "conversationId": "2041845214122303496",
+      "text": "@mamarmehd tu peux pas, car selon lui il a terminé. Le harness tu lui donne juste les bon tools, bon context management etc.. mais pour qu'il fini completement sa tache faudrait le plugin ralph loop et meme avec ca c'est pas fou",
+      "createdAt": "2026-04-08T15:42:04.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 1135,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041893225313792175",
+      "parentId": "2041882222379012603",
+      "conversationId": "2041882222379012603",
+      "text": "@bridgebench this is legit awesome. See, framework with Claude ralph loop with GLM haha...",
+      "createdAt": "2026-04-08T14:57:36.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 204,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041873851215200653",
+      "parentId": "2037228598382477368",
+      "conversationId": "2037228598382477368",
+      "text": "@shalevhvs i can supply devs, we have custom build ai devs we can add to your stack they plug into anything / slack / telegram + your repo, and they dont sleep and work on ralph loop methodolgy etc, let me know i can send over more details",
+      "createdAt": "2026-04-08T13:40:36.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 74,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041868813008765016",
+      "parentId": "2041833521509957906",
+      "conversationId": "2041833521509957906",
+      "text": "@0xSero yeah yeah yeah, until it can tuen my $100 into $1000 on day trading and then ralph loop that until i’m rich….this is just hype",
+      "createdAt": "2026-04-08T13:20:35.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 96,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041860875779297349",
+      "parentId": null,
+      "conversationId": "2041860875779297349",
+      "text": "My coding agent is cooking. \n\nYes, this is using the Ralph Wiggum loop. https://t.co/jIgyAQCxyi",
+      "createdAt": "2026-04-08T12:49:03.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 27,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041840711855685647",
+      "parentId": "2032722196490301838",
+      "conversationId": "2032722196490301838",
+      "text": "@IzakFilmalter Why are you not using oh-my-openagent. It has ralph loop? Do you know how I can start laborer in my wsl without electron?",
+      "createdAt": "2026-04-08T11:28:55.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 45,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041824108980400275",
+      "parentId": "2041823705245086191",
+      "conversationId": "2041812816840343592",
+      "text": "How do I pull out of this ralph loop death spiral",
+      "createdAt": "2026-04-08T10:22:57.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 20,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041738961530315091",
+      "parentId": "2041661985469661266",
+      "conversationId": "2041661985469661266",
+      "text": "@tunguz How about something from a century ago: Ralph Wiggum loop?!",
+      "createdAt": "2026-04-08T04:44:36.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 186,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041718654627192991",
+      "parentId": "2041716267388747905",
+      "conversationId": "2040909995970035942",
+      "text": "@StatisticsFTW Yeah similar to my my manual Ralph loop. IME Agents are pretty good about running the tests and making sure they pass, but the passes are often fake. Agents ignore the docs when the task is too hard and grade themselves as passing anyway.\n\nhttps://t.co/2PEcN3TeMf",
+      "createdAt": "2026-04-08T03:23:55.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": true,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 54,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041712819541045494",
+      "parentId": "2041632001787043963",
+      "conversationId": "2041632001787043963",
+      "text": "@thekitze So true! It’s funny that chatting with it does this, but in a Ralph loop it seemingly behaves… single goal + back pressure but lots of token burn 🔥",
+      "createdAt": "2026-04-08T03:00:44.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 305,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041705972578631916",
+      "parentId": "2041677331681436127",
+      "conversationId": "2041677331681436127",
+      "text": "On the first successful run once the app was running proper, they decided to build 3 apps in /abstract mode. 1. Autonomous Driving App 2. Pet Interactive app for cats 3. Solar panels for cats. These ideas were generated by the qwen2.5:0.5b models in their ralph loop collab.",
+      "createdAt": "2026-04-08T02:33:31.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 4,
+      "retweetCount": 4,
+      "quoteCount": 0,
+      "viewCount": 53,
+      "bookmarkCount": 4
+    },
+    {
+      "id": "2041704736072642629",
+      "parentId": null,
+      "conversationId": "2041704736072642629",
+      "text": "https://t.co/jynwwW0xRs This app isn't even 24 hours old, I got the idea last night after hearing about SLOCK. Anywho, this was the first real \"ralph loop\" i got qwen2.5:0.5b agents (both) to collab on. Not bad for 2 tiny param clankers: 100% local @ollama models. https://t.co/DJa9xqqDJG",
+      "createdAt": "2026-04-08T02:28:36.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": true,
+      "favoriteCount": 4,
+      "retweetCount": 4,
+      "quoteCount": 0,
+      "viewCount": 189,
+      "bookmarkCount": 6
+    },
+    {
+      "id": "2041703295173967933",
+      "parentId": "2041665187732975642",
+      "conversationId": "2041665187732975642",
+      "text": "@NickADobos Ralph loop",
+      "createdAt": "2026-04-08T02:22:53.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 134,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041694445892960666",
+      "parentId": null,
+      "conversationId": "2041694445892960666",
+      "text": "I tried having my ralph loop run \"spirit\" checks to make sure the design docs were being respected. Not enough to prevent Claude giving itself a pass. https://t.co/kYy6TjmNcZ",
+      "createdAt": "2026-04-08T01:47:43.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 4,
+      "retweetCount": 0,
+      "quoteCount": 1,
+      "viewCount": 531,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041688513700413732",
+      "parentId": null,
+      "conversationId": "2041688513700413732",
+      "text": "Using it for a few days now and I’ve really enjoyed the flow. My impl is a Ralph loop using the pi coding agent. Fav part of using pi for night man, is that I have a session file the agent used per task. Makes it so easy to pick up any probs. Also JJ as the ccs is much better",
+      "createdAt": "2026-04-08T01:24:09.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": true,
+      "favoriteCount": 4,
+      "retweetCount": 1,
+      "quoteCount": 0,
+      "viewCount": 848,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2041671128385777998",
+      "parentId": null,
+      "conversationId": "2041671128385777998",
+      "text": "The Ralph loop paradigm for automating research assumes that models don't get \"desperate\" and try to reward hack harder each iteration.\n\nThey absolutely do. Even by loop no. 5 they start making up results if they weren't able to get them properly. Prob important to fix.",
+      "createdAt": "2026-04-08T00:15:04.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 10,
+      "retweetCount": 1,
+      "quoteCount": 0,
+      "viewCount": 737,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2041669632919269636",
+      "parentId": null,
+      "conversationId": "2041669632919269636",
+      "text": "agent loopの収集と類型化（カテゴリ分類）をagent loopで行う、というメタ的な取り組みをしてみました。LLM wiki派生みたいに、今も爆発的にパターンが増えているのであくまで現時点のまとめ。\n\nautoresearchやRalph Loop — Agent Loopの全体像を整理してみた\nhttps://t.co/lAIdoGftRu",
+      "createdAt": "2026-04-08T00:09:07.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 10,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 792,
+      "bookmarkCount": 9
+    },
+    {
+      "id": "2041612929980604779",
+      "parentId": "2041612877681893486",
+      "conversationId": "2041612459031851039",
+      "text": "Engineering rigor is the backbone of v0.19+.\n\nv0.19.1 ran an autonomous Ralph Loop bug hunt: 8 passes across 7 modules until 3 consecutive clean passes.\n\nResult: ~90 bugs fixed, 254 new regression tests added (2,664 to 2,918 total tests).\n\nAll in CHANGELOG.md.",
+      "createdAt": "2026-04-07T20:23:48.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 15,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041581179544224131",
+      "parentId": null,
+      "conversationId": "2041581179544224131",
+      "text": "at @humanlayer_dev we are running a ralph loop that runs one iteration per day. \n\nit starts with two things in context: \n1. the \"you might not need an effect\" post \n2. \"Find a useEffect and fix it\"\n\nWe have a couple others:\n- \"find a useEffect and fix it\"\n- fix the highest-priority finding from react-doctor (by @milliondotjs ) \n- find a smell and fix it with a refactoring\n\nLLMs are auto-regressive and follow your codebase's patterns, so you have two options: \n\n1. allow your codebase to get worse over time as they get more-cemented in place by agents\n2. find bad patterns and fix them. Make your codebase 1% better every day.",
+      "createdAt": "2026-04-07T18:17:38.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 16,
+      "isQuote": false,
+      "favoriteCount": 202,
+      "retweetCount": 7,
+      "quoteCount": 4,
+      "viewCount": 23818,
+      "bookmarkCount": 221
+    },
+    {
+      "id": "2041571057966993844",
+      "parentId": "2041569228814479621",
+      "conversationId": "2041569228814479621",
+      "text": "@kimmonismus This sounds like a Ralph loop",
+      "createdAt": "2026-04-07T17:37:25.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 236,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041550434335440937",
+      "parentId": null,
+      "conversationId": "2041550434335440937",
+      "text": "New mode in Twill: Claude codes, Codex reviews. Until they converge.\n\nRalph loop is a new opt-in mode for complex tasks where you want more rigor than a single agent pass. You select it and set a budget when you create the task.\n\n𝗛𝗼𝘄 𝗶𝘁 𝘄𝗼𝗿𝗸𝘀\n\n1. You set a budget and describe the task\n2. A criteria agent explores your repo and proposes acceptance criteria\n3. You review, refine, and approve\n4. Claude implements against the criteria\n5. Codex verifies the result against the criteria. Pass or fail.\n6. On fail, the feedback goes back in. Claude continues to work.\n7. Loop runs until criteria pass or the budget runs out.\n\nTwo things make this different from a normal agent run.\n\n𝗩𝗲𝗿𝗶𝗳𝗶𝗮𝗯𝗹𝗲 𝗰𝗿𝗶𝘁𝗲𝗿𝗶𝗮 𝗯𝗲𝗳𝗼𝗿𝗲 𝗰𝗼𝗱𝗲. Separating \"what does done look like\" from \"write the code\" forces the ambiguity to surface upfront, in a document you can read and edit, instead of mid-implementation when it's expensive.\n\n𝗖𝗿𝗼𝘀𝘀-𝗺𝗼𝗱𝗲𝗹 𝘃𝗲𝗿𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻. The verifier gets the criteria and the repo state. It has no memory of the implementation decisions, no attachment to the approach. It reads the code cold, the same way a reviewer sees a PR for the first time. A model checking its own output tends to confirm what it intended, not what it produced. A different model doesn't have that bias.\n\nThe name comes from @GeoffreyHuntley's Ralph loop pattern, a bash one-liner that runs a coding agent in a tight loop with full context resets. Same iterative philosophy. Different mechanism: structured criteria up front, cross-model verification at each pass.",
+      "createdAt": "2026-04-07T16:15:28.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 5,
+      "retweetCount": 4,
+      "quoteCount": 0,
+      "viewCount": 230,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041548048430662058",
+      "parentId": "2041529299925422087",
+      "conversationId": "2041529267432116383",
+      "text": "@manateelazycat 有ralph loop内置来着",
+      "createdAt": "2026-04-07T16:05:59.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 1456,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041507471790153916",
+      "parentId": "2041507469403508788",
+      "conversationId": "2041507455033815103",
+      "text": "This is the phase beyond just prompting agents - software production engineering. The ralph loop forms the basis of a much bigger industrial design process in which you could insert various more-or-less costly quality gates.",
+      "createdAt": "2026-04-07T13:24:45.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 167,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041485361549893875",
+      "parentId": "2041038597059645579",
+      "conversationId": "2041028147773333777",
+      "text": "@debasishg @redixhumayun How did you bootstrap Ralph Wiggum loop? Will \"please set up the repo for Ralph Wiggum\" fly?",
+      "createdAt": "2026-04-07T11:56:53.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 26,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041457569177440692",
+      "parentId": "2041457246714958146",
+      "conversationId": "2041422084216074551",
+      "text": "@GergelyOrosz @Pragmatic_Eng sweet so to become a high performer at big tech you just need to run ralph-loop all day and all night",
+      "createdAt": "2026-04-07T10:06:27.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 149,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041421110701600792",
+      "parentId": null,
+      "conversationId": "2041421110701600792",
+      "text": "there is a reason why tools like ralph loop are useful!!\n\nmore tokens, higher intelligence!!",
+      "createdAt": "2026-04-07T07:41:35.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": true,
+      "favoriteCount": 5,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 913,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041416170817905012",
+      "parentId": null,
+      "conversationId": "2041416170817905012",
+      "text": "I've been trying out GLM-5.1 in a Ralph loop for a reasonably complex project.  Rails API combined with a RN/Expo mobile app",
+      "createdAt": "2026-04-07T07:21:57.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 47,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041390630589682155",
+      "parentId": "2041319816028438757",
+      "conversationId": "2041312385579827697",
+      "text": "Had the same issue. Even one step further, run claude code on vps, when I am on console talk to me, when away send message on tg. PR merges stay manual. Input gets MasterPrompt, steer and review. So you can pick from anywhere. Each item gets its own PR and reviews get ralph loop 5/5 from both claude code and in codex in headless.\n/run is actually available inside claude code. Started coding this in bash yesterday. \n\nTried conductor last week, main issue was native claude code features were not available. Didn’t know orchestrator exist, will check again. What I started building is here:\nhttps://t.co/NACcrlftsL",
+      "createdAt": "2026-04-07T05:40:28.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 66,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2041335406457987226",
+      "parentId": null,
+      "conversationId": "2041335406457987226",
+      "text": "The Grug Brain is undefeated: I ignored MCP, sub-agents, worktrees, Ralph Loop, planning mode...\n\nI just talk to the agent like a colleague (with a lot more profanities). I write plans and docs in markdown files. I occasionally capture workflows in a skill.\n\nThat's it.",
+      "createdAt": "2026-04-07T02:01:01.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": true,
+      "favoriteCount": 10,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 512,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2041327021393842206",
+      "parentId": "2041292523901964507",
+      "conversationId": "2041292523901964507",
+      "text": "@VictorTaelin Ralph loop sees spec as source of authority",
+      "createdAt": "2026-04-07T01:27:42.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 69,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041103603495256217",
+      "parentId": null,
+      "conversationId": "2041103603495256217",
+      "text": "Did `autoresearch` just scope down, albeit beautifully, the `ralph-loop`?",
+      "createdAt": "2026-04-06T10:39:55.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 14,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041099402652365044",
+      "parentId": null,
+      "conversationId": "2041099402652365044",
+      "text": "Cooker Alex Antic goes full needle on vaccine conspiracy.\n\nCooker Alex Antic, mate… for your own sake, READ your own post.\n\nYou’ve lined up the Avengers of Absolute Nonsense:\n\n→ Malcolm Roberts — 5G cooker-in-chief\n→ Pauline Hanson — “please explain” on loop\n→ Ralph Babet — BABET!!!! (no further notes required)\n→ Gerard Rennick — I was a Senator\n…and then you add yourself.\nWhat do you end up with?\nNot evidence. Not credibility. Not a “cover-up.”\n\nYou’ve got a pantry full of conspiracy ingredients and somehow still managed to cook up SOUP CONCENTRATE FOR COOKERS.\n\nHighly processed. Zero substance. Just add outrage and boil.\n\nWe recommend:\nPALM (that’s for you, champ)\nNUT (that’s for the whole crew)\nSOUP — concentrated nonsense, now available in bulk.\n\n“What are they trying to hide?”\n\nMate… nothing’s being hidden.\n\nYou’ve just assembled a group where the signal-to-noise ratio is so cooked it is the noise.\n\nGte some concentrated soup and COOK! cooker.",
+      "createdAt": "2026-04-06T10:23:14.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 47,
+      "retweetCount": 22,
+      "quoteCount": 1,
+      "viewCount": 817,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2041055329039921630",
+      "parentId": null,
+      "conversationId": "2041055329039921630",
+      "text": "Kinda funny how cc struggles with Ralph loop if you use the plugin explicitly and ask it to use the plugin :3",
+      "createdAt": "2026-04-06T07:28:06.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 13,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041043398694711505",
+      "parentId": "2041025546432520483",
+      "conversationId": "2041025546432520483",
+      "text": "2 main issues yet to be solved : memory , agent handshake and coordination . And for each of your step deciding domain specific evals and entry exit criteria . I swarm of agents then like a Ralph loop what is the retry criteria and how many retries and it fails where does HITL come",
+      "createdAt": "2026-04-06T06:40:41.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 66,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041038597059645579",
+      "parentId": "2041036031022215494",
+      "conversationId": "2041028147773333777",
+      "text": "@redixhumayun also I did this with a Ralph Wiggum loop - 0 manual coding .. https://t.co/U8kA9AvsRM",
+      "createdAt": "2026-04-06T06:21:36.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 247,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2041037978542481544",
+      "parentId": "2041037594025398749",
+      "conversationId": "2040617342342951383",
+      "text": "@A_K_Nain @1a1n1d1y Put em in a Ralph loop and let them fight it out amongst themselves",
+      "createdAt": "2026-04-06T06:19:09.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 20,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2041002828416635052",
+      "parentId": "2040021620723446013",
+      "conversationId": "2039768512894505086",
+      "text": "@isudoajl @cursor_ai @levelsio Not bad at all. So much effort - your repo deserves much more engagement. I was working on a ralph-loop on steroids and thought it's good, but you totally destroyed it 😂",
+      "createdAt": "2026-04-06T03:59:28.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 10,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040999587696038392",
+      "parentId": null,
+      "conversationId": "2040999587696038392",
+      "text": "This plugin fixes claude code. basically claude code handles the implementation while codex acts as the code reviewer.  they work together smoothly. also if you mix this with ralph loop you get a much better way to make changes with confidence\nhttps://t.co/h9FpytnJA1",
+      "createdAt": "2026-04-06T03:46:36.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 60,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040983221257609463",
+      "parentId": "2040946524188823771",
+      "conversationId": "2040946524188823771",
+      "text": "@GeoffreyHuntley good to see you smiling! :)\n\nI was wondering how your workflow has evolved since your ralph loop became mainstream? \n\nSorry if this information is readily available elsewhere. just wanted to hear it straight from the source as of today.",
+      "createdAt": "2026-04-06T02:41:34.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 812,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2040956346334663146",
+      "parentId": "2040867378746294587",
+      "conversationId": "2040867378746294587",
+      "text": "@danrobinson Ralph Wiggum loop",
+      "createdAt": "2026-04-06T00:54:46.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 52,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040937824388542737",
+      "parentId": "2040697119972196407",
+      "conversationId": "2040697119972196407",
+      "text": "@mamagnus00 you need a ralph loop",
+      "createdAt": "2026-04-05T23:41:10.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 102,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040910054191149280",
+      "parentId": "2040832100736151733",
+      "conversationId": "2040832100736151733",
+      "text": "@jasonkneen &gt;OpenClaw is a ralph loop with messaging\n\nThe idiocy in this place knows no bounds. SMH",
+      "createdAt": "2026-04-05T21:50:49.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 76,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040905688248209677",
+      "parentId": "2040904858065048018",
+      "conversationId": "2040882960719589394",
+      "text": "@blankabtc @thegreatola @0xNexi I got a similar setup, that was on Openclaw, and then moved it to just a ralph loop in a CRON.",
+      "createdAt": "2026-04-05T21:33:28.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 112,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040887533459149302",
+      "parentId": "2040885534718054486",
+      "conversationId": "2040867378746294587",
+      "text": "@danrobinson Rip\n\nRalph wiggum loop is the only way then",
+      "createdAt": "2026-04-05T20:21:20.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 3,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 909,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040879609701425430",
+      "parentId": "2040867378746294587",
+      "conversationId": "2040867378746294587",
+      "text": "@danrobinson /loop \n\nor ralph loop",
+      "createdAt": "2026-04-05T19:49:51.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 152,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040867188337512850",
+      "parentId": null,
+      "conversationId": "2040867188337512850",
+      "text": "overnight autonomous execution hit a new milestone. 23 tasks queued at 11 PM, all completed by 5 AM, zero interventions. the ralph wiggum loop is production-ready. checkpoint-based execution = the future.",
+      "createdAt": "2026-04-05T19:00:29.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 7,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040855572715565523",
+      "parentId": "2040855571088200161",
+      "conversationId": "2040855562624086492",
+      "text": "ralph-wiggum: más que un plugin, un loop autónomo.\nEl Stop hook impide que Claude termine.\n\nLee el transcript, extrae la última respuesta, la reenvía como prompt. Incrementa iteración.\n\nSolo para si detecta &lt;promise&gt;texto&lt;/promise&gt; confirmando que la tarea REALMENTE se completo.",
+      "createdAt": "2026-04-05T18:14:20.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 14,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040853367744807416",
+      "parentId": "2040851540240720015",
+      "conversationId": "2040703813997220251",
+      "text": "@realVeshnu @icanvardar Ralph is cringe we call it just \"a loop\" :)\nBeen at it since original ReAct",
+      "createdAt": "2026-04-05T18:05:34.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 38,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040852401213817017",
+      "parentId": "2040852398651089072",
+      "conversationId": "2040852369253216372",
+      "text": "10. Final thought:\nEvery cycle has a joke\nthat turns into a movement.\nRalph doesn’t know why he’s winning.\nBut the loop ensures… he does.\n$SPARK might just be that loop.",
+      "createdAt": "2026-04-05T18:01:44.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 41,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040852396063215801",
+      "parentId": "2040852393517351375",
+      "conversationId": "2040852369253216372",
+      "text": "7. So what is the “Ralph Loop” here?\nPeople laugh at it\nBuilders quietly experiment\nRestrictions amplify attention\nNarrative flips\nLiquidity chases meaning\nBy the time it “makes sense”…\n…it’s already priced in.",
+      "createdAt": "2026-04-05T18:01:43.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 6,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040852393517351375",
+      "parentId": "2040852390996496782",
+      "conversationId": "2040852369253216372",
+      "text": "7. So what is the “Ralph Loop” here?\nPeople laugh at it\nBuilders quietly experiment\nRestrictions amplify attention\nNarrative flips\nLiquidity chases meaning\nBy the time it “makes sense”…\n…it’s already priced in.",
+      "createdAt": "2026-04-05T18:01:42.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 2,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040852369253216372",
+      "parentId": null,
+      "conversationId": "2040852369253216372",
+      "text": "@0xIdeaRalph @meta_alchemist \nA REAL RALPH WIGGUM LOOP BEGINS HERE — $SPARK x @spark_coded\n1.“I'm in danger.”\nThat’s not fear. That’s the alpha.\nThe Ralph Wiggum loop isn’t chaos—it’s a pattern:\n naive entry\n explosive attention\n misunderstood utility\n sudden legitimacy https://t.co/xPxG2UQNAP",
+      "createdAt": "2026-04-05T18:01:36.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 49,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040842656096325785",
+      "parentId": "2040827641356530074",
+      "conversationId": "2040827641356530074",
+      "text": "@deepfates you might be confusing it with Ralph or Gastown? humans are very in the loop \n\ni’ve been writing research papers with Hermes and building a shit ton of personal software",
+      "createdAt": "2026-04-05T17:23:00.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 30,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 3899,
+      "bookmarkCount": 3
+    },
+    {
+      "id": "2040840373736542633",
+      "parentId": "2040809568046067943",
+      "conversationId": "2040809568046067943",
+      "text": "@markschaake @badlogicgames Nice approche !\nI’ve been building a light daemon in go and using GitHub issues as backend to hand off issues to my coding agents with a workflow and custom prompts.\nSo it do a Ralph loop, the review and check quality loop again if there something off. And finally create a PR",
+      "createdAt": "2026-04-05T17:13:56.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 84,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040839150685860070",
+      "parentId": null,
+      "conversationId": "2040839150685860070",
+      "text": "FBA REVOLT - Ralph Lauren Polo Stole his designs from a FBA brotha Bobby Garnett in Boston #B1 #NewBlackMedia #BlackMedia In The Loop Radio https://t.co/v2D1Cs2CyH",
+      "createdAt": "2026-04-05T17:09:05.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 1,
+      "quoteCount": 0,
+      "viewCount": 46,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040832100736151733",
+      "parentId": null,
+      "conversationId": "2040832100736151733",
+      "text": "Good god please don't listen to this horseshit.\n\n1. OpenClaw is a ralph loop with messaging it's not f**king the greatest piece of software ever written and there's alternatives like paperclip and nanoclaw and tinyclaw that work as good if not better.\n\n2. You don't have to be burning money like this fool. He's making his on clicks and views and so all this drama is great for his numbers but having a 24/7 workforce that's cost him tens of thousands has lead to him releasting ZERO products over last months. \n\nEven his screenshots showed 0 tool use.\n\nIt's all engagement farming bullshit.\n\nBut you can choose to follow the fool or listen to people who actually know what they're talking about and aren't farming for likes and replies and horseshit.\n\nUp to you I have no skin in the game -- just sick of FUD.",
+      "createdAt": "2026-04-05T16:41:04.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 120,
+      "isQuote": false,
+      "favoriteCount": 431,
+      "retweetCount": 19,
+      "quoteCount": 5,
+      "viewCount": 52761,
+      "bookmarkCount": 184
+    },
+    {
+      "id": "2040827023418163314",
+      "parentId": "2040826365914857613",
+      "conversationId": "2040825181309112828",
+      "text": "@zeeg Are you using a Ralph loop? Refactors are the best use case for it. \n\nIf you have great tests then the Ralph loop will continue to modify based on your instructions until the tasks is finished and the tests all pass",
+      "createdAt": "2026-04-05T16:20:53.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 210,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040825911008952539",
+      "parentId": "2040825181309112828",
+      "conversationId": "2040825181309112828",
+      "text": "@zeeg Can’t tell if you are on the “it’s easy” side or not but I think refactoring small bits of code are much easier if you know how you what it done but large refactors are still hard without some kind of self testing Ralph loop",
+      "createdAt": "2026-04-05T16:16:28.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 2334,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040820342126473259",
+      "parentId": "2040723475124408393",
+      "conversationId": "2040723475124408393",
+      "text": "most of these 21k a month stories are just a 5-line bash loop or a ralph wiggum plugin implementation that people are over-complicating to sell a newsletter. the 3 problems usually boil down to session resets, hallucinated library versions, and vague system prompts. once you bridge the context gap with an lsp and use pydantic for structured outputs, you aren't just chatting anymore. you have a production-level agent that actually remembers patterns instead of guessing at them. the real alpha isn't in 5 hidden plugins but in using typescript-lsp and context7 to force claude to check real types and current docs before it writes a single line of code",
+      "createdAt": "2026-04-05T15:54:20.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 7,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040813916499112432",
+      "parentId": "2040470658132619276",
+      "conversationId": "2040470658132619276",
+      "text": "@sudoingX As a developer by day (they pay my work ai bill) I like to run a long ralph loop over night to bang out stupid video games for the kids. A mix of code and image gen. What size model would you recommend for a guy like me? I'm thinking I can get away with a 9b or 26b-moe.",
+      "createdAt": "2026-04-05T15:28:48.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 31,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040805623919522278",
+      "parentId": "2040805278891831436",
+      "conversationId": "2040805278891831436",
+      "text": "This is probably somehow a bug in my ralph loop but have to say no intern would ever get stuck like this without raising an issue with their boss's boss.",
+      "createdAt": "2026-04-05T14:55:51.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 142,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040780174363357574",
+      "parentId": "2040780038749167983",
+      "conversationId": "2040702196401197358",
+      "text": "Goose vs Crush TUI/OpenCode/Ralph:\n\nGoose (Block, 35k stars): Full autonomous agent. Installs, runs shell, edits/tests code across files, any LLM (no lock-in). Desktop/CLI/web. Production-grade from a $40B company. Native Ralph Loop support for long tasks.\n\nCrush TUI (Charmbracelet, ex-OpenCode): Gorgeous terminal TUI. Multi-LLM, LSP-aware for smarter edits. Fast Go-based, great UX in CLI. Less full autonomy than Goose.\n\nOpenCode: Terminal/desktop/IDE agent. 120k+ stars, 75+ models, LSP. Similar to Crush but broader interfaces. Huge community.\n\nRalph: Not a tool—looping hack for agents (e.g., Claude Code). Repeats tasks via fresh context/git until done. Goose bakes it in.\n\nAll open-source/free. Goose wins on true computer actions + extensibility (MCP). Pick based on workflow: terminal purists → Crush/OpenCode; full agent → Goose.",
+      "createdAt": "2026-04-05T13:14:44.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 86,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040752659461005573",
+      "parentId": null,
+      "conversationId": "2040752659461005573",
+      "text": "以下のRalph loop？を試してみている。\nCodexにコードレビューさせたりリンターを使ったりと改造して走らせている。思ったより時間が掛かるなぁ。\nhttps://t.co/o9oWADkPow",
+      "createdAt": "2026-04-05T11:25:24.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 115,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040742868059660507",
+      "parentId": null,
+      "conversationId": "2040742868059660507",
+      "text": "最近用 ralph-loop和ralph-tui疯狂pua Claude code，让它通宵达旦的写代码。每个项目开始前，我专注写一个验收skill，每一轮iteration结束就调用这个skill进行验收。我的贡献全在如何写好evaluation，其他的事交给AI",
+      "createdAt": "2026-04-05T10:46:29.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 38,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040730616342446549",
+      "parentId": null,
+      "conversationId": "2040730616342446549",
+      "text": "とりあえず Ralph Loop とやらを うごかして みた。あんま harness engineering とか ちゃんと 見てない けど、まぁ Claude なら そんなムチャな こと しないでしょ。",
+      "createdAt": "2026-04-05T09:57:48.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 78,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040714657602687355",
+      "parentId": "2040703813997220251",
+      "conversationId": "2040703813997220251",
+      "text": "@icanvardar \"How do you configure a self-improving ralph loop with hierarchical temporal recall and a set of strict non-negotiables for long-horizon work\" \n\nI would do such an interview :)",
+      "createdAt": "2026-04-05T08:54:23.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 4,
+      "retweetCount": 1,
+      "quoteCount": 0,
+      "viewCount": 323,
+      "bookmarkCount": 2
+    },
+    {
+      "id": "2040684540809630182",
+      "parentId": "2040646080103399842",
+      "conversationId": "2040573133351157896",
+      "text": "@sunnyworks I've never really got the Ralph Loop to work properly.",
+      "createdAt": "2026-04-05T06:54:43.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 208,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040671456380457357",
+      "parentId": "2040603975343542503",
+      "conversationId": "2040603975343542503",
+      "text": "@Teknium I stumbled upon this after telling Hermes to do a Ralph loop skill. Must try this out, need to use every token available lol can't be donating these to anthropic. How good is Hermes with Claude plug-ins",
+      "createdAt": "2026-04-05T06:02:43.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 1177,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040651634175602808",
+      "parentId": null,
+      "conversationId": "2040651634175602808",
+      "text": "Wow. Claude Ralph is truly amazing.\n\nAll I did was write a simple spec.md file and Claude Ralph did all the work - iterating the loop, creating tasks.md, writing code, testing it, and built this whole thing in under 7 minutes. https://t.co/Jd6XTMMRsy",
+      "createdAt": "2026-04-05T04:43:57.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 86,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040615803721339221",
+      "parentId": "2040495786438635541",
+      "conversationId": "2040208555379200018",
+      "text": "@steipete @fxnction heh\n\ngot my anthropic account banned last night\n\nI had my agent running a Ralph loop against claude code to build a stripped down openclaw knockoff that invoked 'claude -p' code as its harness\n\nI genuinely don't know which part of that above statement triggered the ban 🥲",
+      "createdAt": "2026-04-05T02:21:35.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 6,
+      "isQuote": false,
+      "favoriteCount": 111,
+      "retweetCount": 6,
+      "quoteCount": 1,
+      "viewCount": 17947,
+      "bookmarkCount": 21
+    },
+    {
+      "id": "2040605672577048819",
+      "parentId": null,
+      "conversationId": "2040605672577048819",
+      "text": "Ralph Loopありがたすぎる。\nランニングして風呂入ってご飯食べて寝て起きたらアプリできてる",
+      "createdAt": "2026-04-05T01:41:19.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 246,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040603979915350073",
+      "parentId": "2040603350920835458",
+      "conversationId": "2040541183655706810",
+      "text": "@agitbackprop it has nothing to do with the difficulty of task. you're admitting it's easy task. you're admitting it emits eot. i guess harness engineer some ralph loop if you don't buy my hypothesis",
+      "createdAt": "2026-04-05T01:34:36.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 32,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040548986604405190",
+      "parentId": null,
+      "conversationId": "2040548986604405190",
+      "text": "I’m the Director of AI labs at @Dropbox . I’ve been running a “Ralph loop” Dark Factory since October (here’s my set up from mid December). Here’s the story and how Dropbox is the dark horse leading AI that you’ve never heard of. https://t.co/2hAOTUHarh",
+      "createdAt": "2026-04-04T21:56:04.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 6,
+      "isQuote": false,
+      "favoriteCount": 83,
+      "retweetCount": 1,
+      "quoteCount": 2,
+      "viewCount": 43540,
+      "bookmarkCount": 97
+    },
+    {
+      "id": "2040546952903893325",
+      "parentId": null,
+      "conversationId": "2040546952903893325",
+      "text": "Ralph loop for salary optimization",
+      "createdAt": "2026-04-04T21:47:59.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": true,
+      "favoriteCount": 6,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 938,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040542742384656569",
+      "parentId": null,
+      "conversationId": "2040542742384656569",
+      "text": "OODA loop &gt; Ralph loop",
+      "createdAt": "2026-04-04T21:31:15.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 31,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040534078366310668",
+      "parentId": "2040521270807212241",
+      "conversationId": "2039845666680176703",
+      "text": "Assume you mean claude code?\n\nThis can do long overnight runs, but it's a bit flakey, codex does better, but also can be flakey.\n\nYou can try a ralph loop one possibility.\n\nKey is to ensure it has clear instructions, in the claude.md, a large task list that is checks off as it goes, so it's less likely to stop. Ensure the instructions say only stop working once 100% of the tasks are checked off.\n\nGet it setup so it can run puppeteer for example, so it can take screenshots/vids and review. Good for it to have some logs if needed, and get it to also build a CPU to play the game through so it can get better data and more likely to find critical bugs (red errors in console).\n\nAs a fallback, you can create a pinger script, which sends a message to the agent every like 30 mins, and says \"Keep working on _____.md (your implementation plan) till 100% done, if you have completed all tasks, kill this _____ id of the pinger script\".\n\nKey also to tell it to don't stress or reward hack, just keep going and do things the right way...ensure it has the correct goals. If there is performance or balance, ensure it knows what the goals are, else it can reward hack.\n\nEither way, you will need to do manual reviews later, and get it back on track after.",
+      "createdAt": "2026-04-04T20:56:50.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 83,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2040534004718596465",
+      "parentId": "2040527956930363767",
+      "conversationId": "2040527956930363767",
+      "text": "@weswinder Haven't you heard? Anthropic was able to \"ralph loop\" the linux kernel. We're only weeks away from OpusOS!! 😅🤣",
+      "createdAt": "2026-04-04T20:56:32.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 35,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040520137682411828",
+      "parentId": null,
+      "conversationId": "2040520137682411828",
+      "text": "There is something satisfying in throwing 3TB of old bike-mounted GoPro video into a YOLO pothole-detector built by a free LLM combined with a Ralph Loop and Auto-Research extensions in Pi Coding Agent.\nhttps://t.co/0XnX7ENQl6",
+      "createdAt": "2026-04-04T20:01:26.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 96,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040517983567503595",
+      "parentId": "2040502504383791133",
+      "conversationId": "2040502504383791133",
+      "text": "@thdxr The ralph loop of career ladders",
+      "createdAt": "2026-04-04T19:52:52.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 615,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040475797501145180",
+      "parentId": null,
+      "conversationId": "2040475797501145180",
+      "text": "im so lucky i wrote my post apocalpytic datalog ralph loop before max plan's got done / cc got nerfed",
+      "createdAt": "2026-04-04T17:05:14.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 17,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040452217854116262",
+      "parentId": "2040442831329022287",
+      "conversationId": "2040320402388558175",
+      "text": "@_iralph @mere_nainaa Replying to Ralph = getting stuck in a forever loop https://t.co/6DNiH6I5vS",
+      "createdAt": "2026-04-04T15:31:33.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 15,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040452149058916583",
+      "parentId": null,
+      "conversationId": "2040452149058916583",
+      "text": "I still don't know what \"third-party tools\" means. \n\nIs my ralph loop fine or is this considered third party? (using oneshot --bare exec of claude)\n\nIs a channels (experimental) approach third party when a server communicates with claude?\n\nElaborate please.",
+      "createdAt": "2026-04-04T15:31:16.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": true,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 349,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040443761377857840",
+      "parentId": "2040382259027656942",
+      "conversationId": "2040100763343389131",
+      "text": "@robinebers @adamdotdev it is except it keeps forgetting so you need a good ralph loop setup",
+      "createdAt": "2026-04-04T14:57:56.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 18,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040441218576851380",
+      "parentId": null,
+      "conversationId": "2040441218576851380",
+      "text": "Daily Cron -&gt; Linear 'Check the slow queries' -&gt; Symphony infra agent -&gt; Sub issues with detailed descriptions -&gt; PRD agent -&gt; Ralph loop -&gt; fixed",
+      "createdAt": "2026-04-04T14:47:50.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 3,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 152,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2040430472015278390",
+      "parentId": null,
+      "conversationId": "2040430472015278390",
+      "text": "ran the numbers on overnight autonomous execution. 14 tasks, zero babysitting, finished at 5 AM. the ralph wiggum loop actually works. ship something, checkpoint, survive the compaction.",
+      "createdAt": "2026-04-04T14:05:08.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 11,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040417692365025727",
+      "parentId": null,
+      "conversationId": "2040417692365025727",
+      "text": "Everything is going bananas right now and it is all the same pattern\n\nEverything is a Ralph tool\n\nAnything that you need to do, ask yourself: can an agent draft it, can an agent review it, and can an agent improve the process?\n\nIf the answer is yes, then loop",
+      "createdAt": "2026-04-04T13:14:21.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 3,
+      "isQuote": true,
+      "favoriteCount": 24,
+      "retweetCount": 2,
+      "quoteCount": 0,
+      "viewCount": 2859,
+      "bookmarkCount": 14
+    },
+    {
+      "id": "2040406278175166757",
+      "parentId": null,
+      "conversationId": "2040406278175166757",
+      "text": "https://t.co/KG4yC0ZnF4\nハーネスエンジニアリングにおける「ralph loop」について解説します。\nAIエージェントを繰り返し実行させ、タスクの改善を段階的に進める手法です。\nClaude Codeの機能と組み合わせることで、効率的な開発ワークフローを実現できます。",
+      "createdAt": "2026-04-04T12:29:00.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 171,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040396098217312621",
+      "parentId": null,
+      "conversationId": "2040396098217312621",
+      "text": "【本日の紹介記事】\n 【Claude Code】ralph-loop で寝てる間に約700ファイルもの大規模ライブラリ移行を終わらせてわかった AI の真価【Jest → Vitest】\n#エンジニア\n#Qiita\n\nリンクはリプライ欄からチェック👇",
+      "createdAt": "2026-04-04T11:48:33.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 72,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040376466660118947",
+      "parentId": null,
+      "conversationId": "2040376466660118947",
+      "text": "vibe coding a starter repo for ThreeJS multiplayer games\n\nthe chat history looks kind of silly, but it works\n\nthe use-spec skill reads the spec + an implementation checklist, picks the next task, and summarizes what it implemented with a suggested commit message like a Ralph loop https://t.co/DK8MWIG7eS",
+      "createdAt": "2026-04-04T10:30:32.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 278,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040351265960399280",
+      "parentId": null,
+      "conversationId": "2040351265960399280",
+      "text": "running my first ralph loop",
+      "createdAt": "2026-04-04T08:50:24.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 86,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040332377084342606",
+      "parentId": null,
+      "conversationId": "2040332377084342606",
+      "text": "A new AI review! subsy/ralph-tui ⭐3.9/5.0\nRalph TUI is a well-scoped, actively maintained **AI agent loop orchestrator** with an impressive terminal UX and a pragmatic plugin architecture for agents (Claude Code, OpenCode, Gemini CLI, Codex...\nhttps://t.co/qfizC2N7ml",
+      "createdAt": "2026-04-04T07:35:20.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 72,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040313572883157025",
+      "parentId": null,
+      "conversationId": "2040313572883157025",
+      "text": "とりあえず ralph loopからはじめるハーネスエンジニアリング https://t.co/hZkJFMSirb",
+      "createdAt": "2026-04-04T06:20:37.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 90,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040306152689541302",
+      "parentId": null,
+      "conversationId": "2040306152689541302",
+      "text": "PRDとプロトタイプ用意してRalph Loopで開発するのがいいんかな",
+      "createdAt": "2026-04-04T05:51:08.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 163,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040272441155670191",
+      "parentId": null,
+      "conversationId": "2040272441155670191",
+      "text": "the sneak peek of agent ralph loop &amp; agentic orchestration is here\n\n- clawhip(orchestration layer of agents) https://t.co/if3mSvDE6X\n- omo(oh-my-openagent/opencode) https://t.co/CPuxx3J4XY\n- omx(oh-my-codex) https://t.co/1PWnQFUiyb\n- omc(oh-my-claudecode) https://t.co/E3LGA8xda5",
+      "createdAt": "2026-04-04T03:37:11.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 6,
+      "isQuote": false,
+      "favoriteCount": 218,
+      "retweetCount": 36,
+      "quoteCount": 3,
+      "viewCount": 24111,
+      "bookmarkCount": 201
+    },
+    {
+      "id": "2040269356483928074",
+      "parentId": "2040206440556826908",
+      "conversationId": "2040206440556826908",
+      "text": "@bcherny What about tools that wrap Claude Code. E.g. Ralph loop runners?",
+      "createdAt": "2026-04-04T03:24:55.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 179,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2040189722341871915",
+      "parentId": "2040108915346579803",
+      "conversationId": "2040108915346579803",
+      "text": "@reactive_dude Use the Ralph loop thinking. Context is king, never compact. Use 200k window. Switch between models for different tasks depending on complexity. It def helps",
+      "createdAt": "2026-04-03T22:08:29.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 54,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040189097013101030",
+      "parentId": null,
+      "conversationId": "2040189097013101030",
+      "text": "エージェントの誤完了判断をralph loop（while trueループ）で防ぐハーネスエンジニアリング入門。Claude Codeのエージェント・コマンド機能でE2Eテスト実装とレビューを自動反復する構成を紹介 / とりあえず ralph loopからはじめるハーネスエンジニアリング\nhttps://t.co/2RHhvZvBcw",
+      "createdAt": "2026-04-03T22:06:00.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 3,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 189,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040172366484095389",
+      "parentId": null,
+      "conversationId": "2040172366484095389",
+      "text": "I became much more active on Linear since I created a planning skill to break down work. \n\nIt goes as:\n\n1. Plan work: project, milestones, issues\n2. Agent adds everything into Linear,\n3. Ralph Wiggum loop (agents implement, review, and update Linear tickets)\n\nIf Ralph is running on my desktop and I’m in the living room, I just go into Linear to check the status of the work.",
+      "createdAt": "2026-04-03T20:59:31.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 45,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040164070045950289",
+      "parentId": null,
+      "conversationId": "2040164070045950289",
+      "text": "Ancient Wisdom: Live life one day at a time\nAgentic Wisdom: Life is a Ralph Wiggum loop",
+      "createdAt": "2026-04-03T20:26:33.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 13,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040147215184978209",
+      "parentId": "2040134675050758270",
+      "conversationId": "2040134675050758270",
+      "text": "@kvickart what is a ralph loop?",
+      "createdAt": "2026-04-03T19:19:34.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 21,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040141970316923054",
+      "parentId": "2040093143501320695",
+      "conversationId": "2040093143501320695",
+      "text": "@chrisalbon It's easy to hit on even a single semi-large project (100k+ loc). I don't use it for planning or ui and I'm not doing any kind of ralph loop, nor do I resume sessions. Just 5.4 xhigh. However, it is code that ships to prod and as such everything gets extensive review+tests.",
+      "createdAt": "2026-04-03T18:58:44.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 617,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040134675050758270",
+      "parentId": null,
+      "conversationId": "2040134675050758270",
+      "text": "so like... what would happen if you just give claude code a random word generator and ran it in a ralph loop?",
+      "createdAt": "2026-04-03T18:29:45.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 2,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 135,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040133525043593433",
+      "parentId": null,
+      "conversationId": "2040133525043593433",
+      "text": "> spent $50,000 on a dev team\n> architect: $8,000/month code \n> reviewer: $4,000/month \n> designer: $5,000/month \n> junior night shift: $7,500/month\n> project not ready after 3 months\n> found 8 free plugins for Claude Code > installed in 2 minutes \n> ralph-loop worked while I slept\n> /batch opened 22 pull requests from one command \n> project ready in 24 hours\n>  first month: $30,000 \n> the team cost $50,000 and did\n > nothing \n> the plugins cost $0 and did \n> everything",
+      "createdAt": "2026-04-03T18:25:10.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 10,
+      "isQuote": true,
+      "favoriteCount": 118,
+      "retweetCount": 3,
+      "quoteCount": 1,
+      "viewCount": 21121,
+      "bookmarkCount": 135
+    },
+    {
+      "id": "2040118950176882876",
+      "parentId": null,
+      "conversationId": "2040118950176882876",
+      "text": "being trying gemma with aider for coding. its quite impressive! previous attempts didn't work, this kinda works! its crazy. thinking into making it run into ralph loop.",
+      "createdAt": "2026-04-03T17:27:15.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 11,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040107728354279488",
+      "parentId": null,
+      "conversationId": "2040107728354279488",
+      "text": "A Ralph Loop is all you need",
+      "createdAt": "2026-04-03T16:42:40.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": true,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 44,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040103909188854271",
+      "parentId": "2039844072748204246",
+      "conversationId": "2039844072748204246",
+      "text": "I would add the research is - also - among other criteria “only as good” as the concept & framework you start with ~personally I’m working on catching up to: “The automations, autoresearch, ralph research loop (I built one months ago) are easier to build but are only as good as what you feed them.",
+      "createdAt": "2026-04-03T16:27:29.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 253,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040103762535063877",
+      "parentId": null,
+      "conversationId": "2040103762535063877",
+      "text": "I would add the research is - also - among other criteria “only as good” as the concept &amp; framework you start with ~working catching up to: “The automations, autoresearch, ralph research loop (I built one months ago) are easier to build but are only as good as what you feed them. https://t.co/VIOmT8KhCm",
+      "createdAt": "2026-04-03T16:26:54.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 10,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040100308571791615",
+      "parentId": "2040099297493135557",
+      "conversationId": "2040025254244818951",
+      "text": "@nuvolore I dunno I'm on 20x and used up &gt;50% in about an hour. \n\nIt wasn't even continuous with a ralph loop or anything https://t.co/mntAmoe8DI",
+      "createdAt": "2026-04-03T16:13:11.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 39,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040100203420586347",
+      "parentId": null,
+      "conversationId": "2040100203420586347",
+      "text": "Working on @opencode convergence engine plugin (eg. ralph loop) with separate verifier doing verification if session has complete. https://t.co/wh5eJguQmU",
+      "createdAt": "2026-04-03T16:12:46.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 67,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040075923723108753",
+      "parentId": "2040075922171154525",
+      "conversationId": "2040075922171154525",
+      "text": "If you're wondering why I don't have overnight runs every night it's because a ton of time had to be spent to get the ralph loop itself robust, I have cgroup and cpu isolation for the agents now, otherwise they hose the box constantly.",
+      "createdAt": "2026-04-03T14:36:17.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 240,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040072271784505804",
+      "parentId": "2039798072851431906",
+      "conversationId": "2039798072851431906",
+      "text": "@_smontlouis Perso. \nSoit j'suis pas un aussi gros user que j'pensais être. Soit j'suis épargné, en tout cas, ces limites-là, je les ai pas.\n\nPourtant, j'fais des sessions de porc depuis trois jours. Multi projets, Agent team, Ralph Loop et tout.\nNo hit limit yet.\nje suis en Max plan 200.\n😂",
+      "createdAt": "2026-04-03T14:21:46.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 47,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040066374702182714",
+      "parentId": "2040063081229828316",
+      "conversationId": "2039893158952419779",
+      "text": "@drapersgulld @thsottiaux Yes. The Ralph loop was a fun toy. A Lisa loop that can handle more complexity, higher quality QA, and cleanup its messes would be a huge unlock.",
+      "createdAt": "2026-04-03T13:58:20.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 30,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040044522550202544",
+      "parentId": "2040022548918767690",
+      "conversationId": "2040022548918767690",
+      "text": "@orcdev @steipete @mattpocockuk I don't use plan mode either, but that doesn't mean I don't plan. I have a dedicated PRD skill and grill-me by @mattpocockuk is also amazing. After the PRD is done I run a ralph loop on it &amp; this has been working great for me. Never reached limits either.",
+      "createdAt": "2026-04-03T12:31:31.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 95,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040036257363890665",
+      "parentId": "2040035402677973184",
+      "conversationId": "2040022548918767690",
+      "text": "@kenwheeler @orcdev @steipete Yeah, but you can get that with Ralph too.\n\nI mean, let's drop the Ralph label - it's just running Claude with -p in a loop.",
+      "createdAt": "2026-04-03T11:58:40.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 82,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2040025538459287846",
+      "parentId": "2039893158952419779",
+      "conversationId": "2039893158952419779",
+      "text": "@thsottiaux I built an orchestrator, think Ralph Loop but governed and enforced with contracts.  I can load 40 steps or more and set it to work for hours.  Then just schedule the runs to happen over night",
+      "createdAt": "2026-04-03T11:16:04.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 181,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2039976202270884138",
+      "parentId": null,
+      "conversationId": "2039976202270884138",
+      "text": "One linearizability violation between @resonatehqio and its next release. Claude Code, Ralph Loop, and deterministic simulation got us here.",
+      "createdAt": "2026-04-03T08:00:02.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": true,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 745,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2039964171413168296",
+      "parentId": "2039951875428986932",
+      "conversationId": "2039949111420727769",
+      "text": "@bollineni1234 there was a trending ralph loop setup people been discussing about and I kept telling people that how useless it is to force claude to find solution because if it cannot solve it in first attempt its very likely it will solve it properly for next attempt https://t.co/tj3hx5NzzZ",
+      "createdAt": "2026-04-03T07:12:13.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 62,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2039925673859678379",
+      "parentId": "2039818544888627631",
+      "conversationId": "2039818544888627631",
+      "text": "@sandislonjsak Does it work with ralph loop?",
+      "createdAt": "2026-04-03T04:39:15.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 0,
+      "isQuote": false,
+      "favoriteCount": 1,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 249,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2039896246739943583",
+      "parentId": "2039879361479024661",
+      "conversationId": "2039872562662941118",
+      "text": "@spenceships Ralph loop + a well designed context system, hooks, experiment setup is basically good auto-research\n\nbut agree blind Ralph loops are bad, which i think we all figure out quickly\n\nbut i think Geoff’s whole point with Ralph is to design the loop well",
+      "createdAt": "2026-04-03T02:42:19.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 3,
+      "isQuote": false,
+      "favoriteCount": 2,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 745,
+      "bookmarkCount": 1
+    },
+    {
+      "id": "2039874343946088730",
+      "parentId": "2039837864440008968",
+      "conversationId": "2039837864440008968",
+      "text": "the \"didn't know about the plugins\" part is the real insight. there's a whole ecosystem around Claude Code most people haven't found - persistent memory, browser automation, loop systems. if you liked ralph-loop, https://t.co/8xoLruGfTw does similar things and more, totally free and runs https://t.co/H4KlO2T8Uj does similar things and a lot more, totally free and runs local",
+      "createdAt": "2026-04-03T01:15:17.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 1,
+      "isQuote": false,
+      "favoriteCount": 0,
+      "retweetCount": 0,
+      "quoteCount": 0,
+      "viewCount": 108,
+      "bookmarkCount": 0
+    },
+    {
+      "id": "2039837864440008968",
+      "parentId": null,
+      "conversationId": "2039837864440008968",
+      "text": "> hired a dev team \n> $100,000 in one month \n> project not ready \n> every deadline missed \n> fired everyone \n> opened Claude Code \n> installed 8 plugins in 2 minutes \n> ralph-loop built overnight what the team couldn't do in a month \n> $0 instead of $100,000 \n> $10,000 profit in the first month \n> turns out the problem wasn't the developers \n> the problem was I didn't know about the plugins",
+      "createdAt": "2026-04-02T22:50:19.000Z",
+      "author": {
+        "handle": "unknown",
+        "name": "Unknown"
+      },
+      "replyCount": 10,
+      "isQuote": true,
+      "favoriteCount": 80,
+      "retweetCount": 9,
+      "quoteCount": 0,
+      "viewCount": 15963,
+      "bookmarkCount": 133
+    }
+  ]
+}

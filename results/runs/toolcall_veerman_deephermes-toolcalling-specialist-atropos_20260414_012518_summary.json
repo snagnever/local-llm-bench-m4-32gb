@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_deephermes-toolcalling-specialist-atropos_20260414_012518",
+  "suite": "veerman",
+  "model": "deephermes-toolcalling-specialist-atropos",
+  "model_slug": "deephermes-toolcalling-specialist-atropos",
+  "score": 0.6666666666666666,
+  "score_pct": "66.7%",
+  "correct": 8,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 4,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 2,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 17.85,
+  "elapsed_s": 158,
+  "elapsed_min": 2.6,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 40,
+    "cpu_temp_c": 43,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2293,
+    "free_pages": 8612
+  },
+  "final_state": {
+    "gpu_temp_c": 58,
+    "cpu_temp_c": 62,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2293,
+    "free_pages": 9881
+  },
+  "timestamp_start": "2026-04-14T01:25:20.960425",
+  "timestamp_end": "2026-04-14T01:28:01.001028",
+  "log_file": "results/runs/toolcall_veerman_deephermes-toolcalling-specialist-atropos_20260414_012518.jsonl"
+}

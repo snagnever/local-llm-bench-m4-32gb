@@ -1,0 +1,74 @@
+{
+  "run_name": "gpqa_google_gemma-4-26b-a4b_20260412_073858",
+  "benchmark": "gpqa",
+  "model": "google/gemma-4-26b-a4b",
+  "score": 0.7,
+  "score_pct": "70.0%",
+  "correct": 7,
+  "total": 10,
+  "truncated": 0,
+  "elapsed_s": 3483,
+  "elapsed_min": 58.1,
+  "max_tokens": 32768,
+  "temperature": 0,
+  "seed": 42,
+  "timeout_s": 1800,
+  "model_config": {
+    "model_id": "google/gemma-4-26b-a4b",
+    "architecture": "gemma4",
+    "quantization": "Q4_K_M",
+    "bits_per_weight": 4,
+    "size_bytes": 17990911801,
+    "size_gb": 16.8,
+    "params": "26B-A4B",
+    "context_length": 65536,
+    "flash_attention": true,
+    "eval_batch_size": 512,
+    "num_experts": 8
+  },
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 62,
+    "cpu_temp_c": 67,
+    "process_ram_mb": 21725,
+    "swap_used_mb": 3716
+  },
+  "final_state": {
+    "gpu_temp_c": 68,
+    "cpu_temp_c": 70,
+    "process_ram_mb": 17566,
+    "swap_used_mb": 7381
+  },
+  "timestamp_start": "2026-04-12T07:39:01.380705",
+  "timestamp_end": "2026-04-12T08:37:07.175437",
+  "log_file": "results/runs/gpqa_google_gemma-4-26b-a4b_20260412_073858.jsonl",
+  "only_questions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "questions_run": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "run_name": "mlx_math_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_140348",
+  "benchmark": "math",
+  "model": "deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit",
+  "engine": "mlx_vlm",
+  "score": 1.0,
+  "score_pct": "100.0%",
+  "correct": 5,
+  "total": 5,
+  "truncated": 0,
+  "elapsed_s": 149,
+  "elapsed_min": 2.5,
+  "max_tokens": 32768,
+  "temperature": 1.0,
+  "seed": 42,
+  "enable_thinking": false,
+  "model_config": {
+    "model_id": "deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit",
+    "architecture": "gemma4",
+    "quantization": "4-bit MLX",
+    "engine": "mlx_vlm"
+  },
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 62,
+    "cpu_temp_c": 68,
+    "process_ram_mb": 10959,
+    "swap_used_mb": 0
+  },
+  "final_state": {
+    "gpu_temp_c": 67,
+    "cpu_temp_c": 71,
+    "process_ram_mb": 10969,
+    "swap_used_mb": 0
+  },
+  "timestamp_start": "2026-04-13T14:03:50.975106",
+  "timestamp_end": "2026-04-13T14:06:22.523972",
+  "log_file": "results/runs/mlx_math_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_140348.jsonl",
+  "only_questions": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "questions_run": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_mlx_veerman_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260414_111346",
+  "suite": "veerman",
+  "model": "deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit",
+  "model_slug": "deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit",
+  "score": 0.75,
+  "score_pct": "75.0%",
+  "correct": 9,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 1,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 16.36,
+  "elapsed_s": 106,
+  "elapsed_min": 1.8,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 62,
+    "cpu_temp_c": 67,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2915,
+    "free_pages": 82833
+  },
+  "final_state": {
+    "gpu_temp_c": 64,
+    "cpu_temp_c": 68,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2899,
+    "free_pages": 58201
+  },
+  "timestamp_start": "2026-04-14T11:13:49.408544",
+  "timestamp_end": "2026-04-14T11:15:37.808454",
+  "log_file": "results/runs/toolcall_mlx_veerman_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260414_111346.jsonl"
+}

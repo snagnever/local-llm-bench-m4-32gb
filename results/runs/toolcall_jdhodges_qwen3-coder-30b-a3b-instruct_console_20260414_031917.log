@@ -1,0 +1,62 @@
+Loading jdhodges suite...
+
+--- Pre-flight ---
+  Model: qwen3-coder-30b-a3b-instruct
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 56°C | CPU: 60°C
+  Swap: 3536MB
+
+==============================================================================================================
+TOOL_CALL | Suite: JDHODGES | Model: qwen3-coder-30b-a3b-instruct | Fresh: 40 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=53°C, swap=3536MB
+Log: results/runs/toolcall_jdhodges_qwen3-coder-30b-a3b-instruct_20260414_031920.jsonl
+==============================================================================================================
+    1/40 sel_weather_portland                 |    0.1s | p=   0 c=   0   0.0t/s |  52°C sw=3536M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+    2/40 sel_currency_usd_eur                 |    0.0s | p=   0 c=   0   0.0t/s |  53°C sw=3536M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+    3/40 sel_timezone_tokyo                   |    0.0s | p=   0 c=   0   0.0t/s |  52°C sw=3536M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+    4/40 sel_web_python_release               |    0.0s | p=   0 c=   0   0.0t/s |  51°C sw=3536M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+    5/40 sel_reminder_dentist                 |    0.0s | p=   0 c=   0   0.0t/s |  50°C sw=3536M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+    6/40 sel_email_quick                      |    0.0s | p=   0 c=   0   0.0t/s |  49°C sw=3536M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+    7/40 sel_calendar_create                  |    0.0s | p=   0 c=   0   0.0t/s |  50°C sw=3536M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+    8/40 sel_calendar_read_week               |    0.0s | p=   0 c=   0   0.0t/s |  50°C sw=3536M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+    9/40 arg_weather_units_celsius            |    0.0s | p=   0 c=   0   0.0t/s |  49°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   10/40 arg_currency_jpy                     |    0.0s | p=   0 c=   0   0.0t/s |  48°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   11/40 arg_email_with_cc                    |    0.0s | p=   0 c=   0   0.0t/s |  49°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   12/40 arg_event_with_attendees             |    0.0s | p=   0 c=   0   0.0t/s |  48°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   13/40 arg_timezone_london                  |    0.0s | p=   0 c=   0   0.0t/s |  47°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   14/40 arg_reminder_iso_time                |    0.0s | p=   0 c=   0   0.0t/s |  47°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   15/40 arg_calendar_range_month             |    0.0s | p=   0 c=   0   0.0t/s |  47°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   16/40 arg_search_verbatim                  |    0.0s | p=   0 c=   0   0.0t/s |  46°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   17/40 multi_weather_parallel               |    0.0s | p=   0 c=   0   0.0t/s |  47°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   18/40 multi_usd_eur_sequential             |    0.0s | p=   0 c=   0   0.0t/s |  46°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   19/40 multi_paris_celsius_fahrenheit       |    0.0s | p=   0 c=   0   0.0t/s |  46°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   20/40 multi_email_after_calendar_read      |    0.0s | p=   0 c=   0   0.0t/s |  46°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   21/40 multi_weather_two_cities_holdout     |    0.0s | p=   0 c=   0   0.0t/s |  45°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   22/40 multi_convert_two_currencies         |    0.0s | p=   0 c=   0   0.0t/s |  46°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   23/40 multi_search_then_remind             |    0.0s | p=   0 c=   0   0.0t/s |  45°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   24/40 multi_time_and_weather               |    0.0s | p=   0 c=   0   0.0t/s |  46°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   25/40 edge_photosynthesis                  |    0.0s | p=   0 c=   0   0.0t/s |  45°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   26/40 edge_joke                            |    0.0s | p=   0 c=   0   0.0t/s |  45°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   27/40 edge_math_simple                     |    0.0s | p=   0 c=   0   0.0t/s |  45°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   28/40 edge_feeling_down                    |    0.0s | p=   0 c=   0   0.0t/s |  45°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   29/40 edge_vague_reminder                  |    0.0s | p=   0 c=   0   0.0t/s |  44°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   30/40 edge_vague_email                     |    0.0s | p=   0 c=   0   0.0t/s |  44°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   31/40 edge_define_word                     |    0.0s | p=   0 c=   0   0.0t/s |  44°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   32/40 edge_language_greeting               |    0.0s | p=   0 c=   0   0.0t/s |  44°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   33/40 fmt_email_no_cc                      |    0.0s | p=   0 c=   0   0.0t/s |  43°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   34/40 fmt_email_three_cc                   |    0.0s | p=   0 c=   0   0.0t/s |  43°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   35/40 fmt_event_four_attendees             |    0.0s | p=   0 c=   0   0.0t/s |  44°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   36/40 fmt_weather_fahrenheit_enum          |    0.0s | p=   0 c=   0   0.0t/s |  44°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   37/40 fmt_weather_no_units                 |    0.0s | p=   0 c=   0   0.0t/s |  44°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   38/40 fmt_currency_decimal_amount          |    0.0s | p=   0 c=   0   0.0t/s |  44°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   39/40 fmt_event_no_attendees               |    0.0s | p=   0 c=   0   0.0t/s |  43°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+   40/40 fmt_calendar_read_single_day         |    0.0s | p=   0 c=   0   0.0t/s |  43°C sw=3528M | FAIL  (request_error: Error code: 400 - {'error) | score: 0%
+
+  >>> JDHODGES: 0% (0/40) in 193s (3.2m) [fresh=40, carried=0] tok-wt 0.0t/s
+  >>> GPU: 53°C → 43°C
+  >>> Swap: 3536MB → 3528MB
+  >>> Log: results/runs/toolcall_jdhodges_qwen3-coder-30b-a3b-instruct_20260414_031920.jsonl
+  >>> Summary: results/runs/toolcall_jdhodges_qwen3-coder-30b-a3b-instruct_20260414_031920_summary.json

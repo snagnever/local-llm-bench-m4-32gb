@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_nvidia-nemotron-3-nano-4b_20260414_005028",
+  "suite": "jdhodges",
+  "model": "nvidia-nemotron-3-nano-4b",
+  "model_slug": "nvidia-nemotron-3-nano-4b",
+  "score": 0.9,
+  "score_pct": "90.0%",
+  "correct": 36,
+  "total": 40,
+  "carried_over": 0,
+  "fresh_run": 40,
+  "by_category": {
+    "tool_selection": {
+      "pass": 8,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 8,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 5,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 7,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 18.04,
+  "elapsed_s": 962,
+  "elapsed_min": 16.0,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 53,
+    "cpu_temp_c": 56,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2317,
+    "free_pages": 14794
+  },
+  "final_state": {
+    "gpu_temp_c": 58,
+    "cpu_temp_c": 61,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2309,
+    "free_pages": 22976
+  },
+  "timestamp_start": "2026-04-14T00:50:30.712282",
+  "timestamp_end": "2026-04-14T01:06:35.018710",
+  "log_file": "results/runs/toolcall_jdhodges_nvidia-nemotron-3-nano-4b_20260414_005028.jsonl"
+}

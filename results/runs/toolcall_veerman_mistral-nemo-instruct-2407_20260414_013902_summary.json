@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_mistral-nemo-instruct-2407_20260414_013902",
+  "suite": "veerman",
+  "model": "mistral-nemo-instruct-2407",
+  "model_slug": "mistral-nemo-instruct-2407",
+  "score": 0.9166666666666666,
+  "score_pct": "91.7%",
+  "correct": 11,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 7,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 1,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 3,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 11.93,
+  "elapsed_s": 137,
+  "elapsed_min": 2.3,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 53,
+    "cpu_temp_c": 55,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2205,
+    "free_pages": 46171
+  },
+  "final_state": {
+    "gpu_temp_c": 61,
+    "cpu_temp_c": 64,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2205,
+    "free_pages": 120400
+  },
+  "timestamp_start": "2026-04-14T01:39:05.150461",
+  "timestamp_end": "2026-04-14T01:41:24.948081",
+  "log_file": "results/runs/toolcall_veerman_mistral-nemo-instruct-2407_20260414_013902.jsonl"
+}

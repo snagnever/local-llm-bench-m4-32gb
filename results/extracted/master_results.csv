@@ -1,0 +1,16 @@
+Model,Benchmark,Score%,Correct,Total,Duration_min,Truncated,MaxTokensSent,ContextLen,Bugged,Source,Is100q,AvgPromptTok,AvgCompletionTok,AvgThinkingTok,AvgVisibleTok,TotalCompletionTok,EffectiveTokPerSec
+Gemma4,drop,89%,89,100,96,0,16384,,,original,YES,332,514,506,8,92581,16.0
+Gemma4,gpqa,64.0%,64,100,687.0,0,32768,65536,,new_run,YES,227,4966,4729,238,496619,12.0
+Gemma4,humaneval,99%,99,100,185,0,16384,,,original,YES,177,1446,1233,213,144612,13.0
+Gemma4,math,82.0%,82,100,337.5,0,32768,65536,,new_run,YES,112,3011,2441,569,301051,14.9
+Gemma4,mmlu,84%,84,100,73,0,16384,,,original,YES,153,639,634,5,63888,14.5
+Qwen3-Coder,drop,80%,80,100,11,0,16384,,,original,YES,330,55,0,55,5411,8.2
+Qwen3-Coder,gpqa,42%,42,100,38,0,16384,,,original,YES,256,363,0,363,36270,15.7
+Qwen3-Coder,humaneval,94%,94,100,15,0,16384,,,original,YES,163,132,0,132,13230,14.8
+Qwen3-Coder,math,78.0%,78,100,66.4,0,16384,16384,,new_run,YES,113,974,0,974,97434,24.5
+Qwen3-Coder,mmlu,67%,67,100,9,0,16384,,,original,YES,146,57,0,57,5689,10.8
+huihui-ref,drop,89%,89,100,27,0,16384,,,original,YES,331,246,237,9,24324,15.1
+huihui-ref,gpqa,54%,54,100,102,2,16384,,,original,YES,261,1138,949,189,112662,18.4
+huihui-ref,humaneval,91%,91,100,84,1,16384,,,original,YES,179,819,646,174,79469,15.8
+huihui-ref,math,73.0%,73,100,647.4,11,32768,65536,,new_run,YES,115,7281,6823,457,728054,18.7
+huihui-ref,mmlu,78%,78,100,70,1,16384,,,original,YES,145,408,356,52,64130,15.3

@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_jdhodges_qwen_qwen3.5-4b_20260414_001614",
+  "suite": "jdhodges",
+  "model": "qwen_qwen3.5-4b",
+  "model_slug": "qwen_qwen3.5-4b",
+  "score": 1.0,
+  "score_pct": "100.0%",
+  "correct": 3,
+  "total": 3,
+  "carried_over": 0,
+  "fresh_run": 3,
+  "by_category": {
+    "tool_selection": {
+      "pass": 1,
+      "total": 1
+    },
+    "multi_tool": {
+      "pass": 1,
+      "total": 1
+    },
+    "edge_cases": {
+      "pass": 1,
+      "total": 1
+    }
+  },
+  "fresh_tok_weighted_tps": 16.78,
+  "elapsed_s": 39,
+  "elapsed_min": 0.7,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 44,
+    "cpu_temp_c": 49,
+    "process_ram_mb": 0,
+    "swap_used_mb": 1017,
+    "free_pages": 187913
+  },
+  "final_state": {
+    "gpu_temp_c": 59,
+    "cpu_temp_c": 62,
+    "process_ram_mb": 0,
+    "swap_used_mb": 1017,
+    "free_pages": 168899
+  },
+  "timestamp_start": "2026-04-14T00:16:17.368574",
+  "timestamp_end": "2026-04-14T00:16:59.179499",
+  "log_file": "results/runs/toolcall_jdhodges_qwen_qwen3.5-4b_20260414_001614.jsonl"
+}

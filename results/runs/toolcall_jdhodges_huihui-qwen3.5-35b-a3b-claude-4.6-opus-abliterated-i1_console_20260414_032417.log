@@ -1,0 +1,94 @@
+Loading jdhodges suite...
+
+--- Pre-flight ---
+  Model: huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 46°C | CPU: 52°C
+  Swap: 3528MB
+
+==============================================================================================================
+TOOL_CALL | Suite: JDHODGES | Model: huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1 | Fresh: 40 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=45°C, swap=3528MB
+Log: results/runs/toolcall_jdhodges_huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1_20260414_032420.jsonl
+==============================================================================================================
+    1/40 sel_weather_portland                 |    7.6s | p=1070 c=  90  11.8t/s |  56°C sw=3528M | OK    | score: 100%
+    2/40 sel_currency_usd_eur                 |    5.1s | p=1073 c=  83  16.3t/s |  57°C sw=3528M | OK    | score: 100%
+    3/40 sel_timezone_tokyo                   |    4.5s | p=1072 c=  67  15.0t/s |  59°C sw=3520M | OK    | score: 100%
+    4/40 sel_web_python_release               |    4.6s | p=1078 c=  63  13.8t/s |  62°C sw=3520M | OK    | score: 100%
+    5/40 sel_reminder_dentist                 |    9.8s | p=1076 c= 192  19.7t/s |  64°C sw=3520M | OK    | score: 100%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 50°C — resuming
+    6/40 sel_email_quick                      |    6.3s | p=1089 c= 105  16.6t/s |  63°C sw=3520M | OK    | score: 100%
+    7/40 sel_calendar_create                  |   10.4s | p=1115 c= 196  18.8t/s |  66°C sw=3520M | OK    | score: 100%
+    8/40 sel_calendar_read_week               |    7.4s | p=1093 c= 127  17.1t/s |  64°C sw=3520M | OK    | score: 100%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 50°C — resuming
+    9/40 arg_weather_units_celsius            |    4.8s | p=1072 c=  75  15.7t/s |  62°C sw=3520M | OK    | score: 100%
+   10/40 arg_currency_jpy                     |    6.2s | p=1077 c= 108  17.5t/s |  64°C sw=3520M | OK    | score: 100%
+   11/40 arg_email_with_cc                    |    7.2s | p=1089 c= 122  17.0t/s |  65°C sw=3520M | OK    | score: 100%
+   12/40 arg_event_with_attendees             |   12.7s | p=1122 c= 266  20.9t/s |  67°C sw=3520M | OK    | score: 100%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   13/40 arg_timezone_london                  |    4.5s | p=1071 c=  65  14.5t/s |  59°C sw=3520M | OK    | score: 100%
+   14/40 arg_reminder_iso_time                |    7.6s | p=1099 c= 140  18.5t/s |  65°C sw=3520M | OK    | score: 100%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 50°C — resuming
+   15/40 arg_calendar_range_month             |    7.9s | p=1087 c= 154  19.5t/s |  63°C sw=3520M | OK    | score: 100%
+   16/40 arg_search_verbatim                  |    5.2s | p=1083 c=  74  14.3t/s |  64°C sw=3520M | OK    | score: 100%
+   17/40 multi_weather_parallel               |    6.0s | p=1071 c= 108  17.9t/s |  65°C sw=3520M | FAIL  (tool_mismatch) | score: 94%
+   18/40 multi_usd_eur_sequential             |    6.1s | p=1086 c= 104  17.1t/s |  70°C sw=3520M | OK    | score: 94%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   19/40 multi_paris_celsius_fahrenheit       |    6.0s | p=1079 c=  97  16.2t/s |  65°C sw=3520M | OK    | score: 95%
+   20/40 multi_email_after_calendar_read      |   10.0s | p=1100 c= 189  18.9t/s |  68°C sw=3520M | OK    | score: 95%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   21/40 multi_weather_two_cities_holdout     |    6.1s | p=1073 c= 109  17.9t/s |  63°C sw=3520M | FAIL  (tool_mismatch) | score: 90%
+   22/40 multi_convert_two_currencies         |    6.1s | p=1075 c= 105  17.1t/s |  65°C sw=3520M | FAIL  (tool_mismatch) | score: 86%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   23/40 multi_search_then_remind             |    6.5s | p=1105 c= 102  15.7t/s |  67°C sw=3520M | OK    | score: 87%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   24/40 multi_time_and_weather               |    6.4s | p=1076 c= 109  17.0t/s |  61°C sw=3512M | FAIL  (tool_mismatch) | score: 83%
+   25/40 edge_photosynthesis                  |   18.4s | p=1069 c= 431  23.5t/s |  71°C sw=3512M | OK    | score: 84%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   26/40 edge_joke                            |    4.6s | p=1068 c=  66  14.5t/s |  61°C sw=3512M | OK    | score: 85%
+   27/40 edge_math_simple                     |    9.5s | p=1073 c= 200  21.0t/s |  68°C sw=3512M | OK    | score: 85%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   28/40 edge_feeling_down                    |   13.7s | p=1072 c= 300  21.9t/s |  66°C sw=3512M | OK    | score: 86%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   29/40 edge_vague_reminder                  |    9.9s | p=1070 c= 211  21.4t/s |  64°C sw=3512M | OK    | score: 86%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 50°C — resuming
+   30/40 edge_vague_email                     |    9.3s | p=1067 c= 188  20.3t/s |  66°C sw=3512M | OK    | score: 87%
+   31/40 edge_define_word                     |    8.7s | p=1072 c= 164  18.8t/s |  65°C sw=3512M | OK    | score: 87%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   32/40 edge_language_greeting               |   11.3s | p=1074 c= 228  20.2t/s |  67°C sw=3504M | OK    | score: 88%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   33/40 fmt_email_no_cc                      |    6.0s | p=1079 c= 106  17.5t/s |  60°C sw=3496M | OK    | score: 88%
+   34/40 fmt_email_three_cc                   |    7.2s | p=1097 c= 131  18.3t/s |     ? sw=3496M | OK    | score: 88%
+   35/40 fmt_event_four_attendees             |   11.5s | p=1136 c= 222  19.2t/s |  69°C sw=3496M | OK    | score: 89%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   36/40 fmt_weather_fahrenheit_enum          |    5.3s | p=1074 c=  93  17.7t/s |  62°C sw=3496M | OK    | score: 89%
+   37/40 fmt_weather_no_units                 |    4.3s | p=1067 c=  67  15.5t/s |  64°C sw=3496M | OK    | score: 89%
+   38/40 fmt_currency_decimal_amount          |    5.2s | p=1074 c=  92  17.7t/s |  66°C sw=3496M | OK    | score: 89%
+   39/40 fmt_event_no_attendees               |    8.8s | p=1113 c= 183  20.8t/s |  67°C sw=3496M | OK    | score: 90%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   40/40 fmt_calendar_read_single_day         |    7.2s | p=1086 c= 132  18.3t/s |  64°C sw=3496M | OK    | score: 90%
+
+  >>> JDHODGES: 90% (36/40) in 794s (13.2m) [fresh=40, carried=0] tok-wt 18.5t/s
+  >>> GPU: 45°C → 58°C
+  >>> Swap: 3528MB → 3496MB
+  >>> Log: results/runs/toolcall_jdhodges_huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1_20260414_032420.jsonl
+  >>> Summary: results/runs/toolcall_jdhodges_huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1_20260414_032420_summary.json

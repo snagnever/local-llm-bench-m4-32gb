@@ -1,0 +1,80 @@
+Loading jdhodges suite...
+
+--- Pre-flight ---
+  Model: google/gemma-4-26b-a4b
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 53°C | CPU: 56°C
+  Swap: 2426MB
+
+==============================================================================================================
+TOOL_CALL | Suite: JDHODGES | Model: google/gemma-4-26b-a4b | Fresh: 40 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=52°C, swap=2426MB
+Log: results/runs/toolcall_jdhodges_google_gemma-4-26b-a4b_20260414_030321.jsonl
+==============================================================================================================
+    1/40 sel_weather_portland                 |    4.8s | p= 892 c=  19   3.9t/s |  62°C sw=2426M | OK    | score: 100%
+    2/40 sel_currency_usd_eur                 |    1.6s | p= 894 c=  31  19.6t/s |  59°C sw=2426M | OK    | score: 100%
+    3/40 sel_timezone_tokyo                   |    1.2s | p= 893 c=  21  17.5t/s |  58°C sw=2426M | OK    | score: 100%
+    4/40 sel_web_python_release               |    2.7s | p= 899 c=  62  22.8t/s |  59°C sw=2426M | OK    | score: 100%
+    5/40 sel_reminder_dentist                 |    6.8s | p= 897 c= 172  25.3t/s |  66°C sw=2426M | OK    | score: 100%
+    6/40 sel_email_quick                      |    2.1s | p= 911 c=  42  19.8t/s |  64°C sw=2426M | OK    | score: 100%
+    7/40 sel_calendar_create                  |    3.3s | p= 936 c=  70  21.1t/s |  65°C sw=2426M | OK    | score: 100%
+    8/40 sel_calendar_read_week               |    2.4s | p= 914 c=  49  20.5t/s |  61°C sw=2426M | OK    | score: 100%
+    9/40 arg_weather_units_celsius            |    3.0s | p= 894 c=  71  23.6t/s |  64°C sw=2426M | OK    | score: 100%
+   10/40 arg_currency_jpy                     |    1.7s | p= 898 c=  32  19.3t/s |  60°C sw=2426M | OK    | score: 100%
+   11/40 arg_email_with_cc                    |    2.6s | p= 914 c=  58  21.9t/s |  64°C sw=2426M | OK    | score: 100%
+   12/40 arg_event_with_attendees             |    4.0s | p= 947 c=  89  22.2t/s |  65°C sw=2426M | OK    | score: 100%
+   13/40 arg_timezone_london                  |    1.2s | p= 892 c=  21  17.1t/s |  61°C sw=2426M | OK    | score: 100%
+   14/40 arg_reminder_iso_time                |    2.2s | p= 920 c=  44  19.8t/s |  62°C sw=2426M | OK    | score: 100%
+   15/40 arg_calendar_range_month             |    8.8s | p= 908 c= 224  25.5t/s |  67°C sw=2426M | OK    | score: 100%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   16/40 arg_search_verbatim                  |    1.6s | p= 903 c=  29  18.3t/s |  55°C sw=2426M | OK    | score: 100%
+   17/40 multi_weather_parallel               |    1.9s | p= 892 c=  37  19.8t/s |  58°C sw=2426M | OK    | score: 100%
+   18/40 multi_usd_eur_sequential             |   13.0s | p= 907 c= 339  26.1t/s |  71°C sw=2426M | OK    | score: 100%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   19/40 multi_paris_celsius_fahrenheit       |   10.5s | p= 900 c= 273  26.1t/s |  67°C sw=2426M | OK    | score: 100%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   20/40 multi_email_after_calendar_read      |   11.5s | p= 923 c= 293  25.6t/s |  70°C sw=2426M | FAIL  (turn_1_tool_mismatch) | score: 95%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   21/40 multi_weather_two_cities_holdout     |    3.1s | p= 895 c=  72  23.1t/s |  61°C sw=2426M | OK    | score: 95%
+   22/40 multi_convert_two_currencies         |    2.7s | p= 896 c=  55  20.7t/s |  59°C sw=2426M | OK    | score: 95%
+   23/40 multi_search_then_remind             |   14.9s | p= 926 c= 387  25.9t/s |  71°C sw=2426M | OK    | score: 96%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   24/40 multi_time_and_weather               |    1.9s | p= 897 c=  40  20.8t/s |  59°C sw=2426M | OK    | score: 96%
+   25/40 edge_photosynthesis                  |   35.5s | p= 889 c= 924  26.0t/s |  77°C sw=2426M | OK    | score: 96%
+  ⏸ GPU at 73°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   26/40 edge_joke                            |    2.6s | p= 889 c=  49  18.9t/s |  62°C sw=2426M | OK    | score: 96%
+   27/40 edge_math_simple                     |    3.7s | p= 895 c=  87  23.4t/s |  66°C sw=2426M | OK    | score: 96%
+   28/40 edge_feeling_down                    |   30.1s | p= 894 c= 779  25.9t/s |  81°C sw=2426M | OK    | score: 96%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   29/40 edge_vague_reminder                  |    3.9s | p= 891 c=  95  24.4t/s |  67°C sw=2482M | OK    | score: 97%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   30/40 edge_vague_email                     |    4.5s | p= 888 c= 104  23.3t/s |  63°C sw=2482M | OK    | score: 97%
+   31/40 edge_define_word                     |    6.9s | p= 893 c= 178  25.6t/s |  66°C sw=2482M | OK    | score: 97%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   32/40 edge_language_greeting               |    5.6s | p= 895 c= 140  25.2t/s |  62°C sw=2482M | OK    | score: 97%
+   33/40 fmt_email_no_cc                      |    2.0s | p= 902 c=  38  18.9t/s |  64°C sw=2482M | OK    | score: 97%
+   34/40 fmt_email_three_cc                   |    3.1s | p= 926 c=  66  21.2t/s |  64°C sw=2482M | OK    | score: 97%
+   35/40 fmt_event_four_attendees             |    5.2s | p= 961 c= 106  20.4t/s |  67°C sw=2482M | OK    | score: 97%
+   36/40 fmt_weather_fahrenheit_enum          |    1.5s | p= 895 c=  28  18.8t/s |  61°C sw=2482M | OK    | score: 97%
+   37/40 fmt_weather_no_units                 |    2.4s | p= 888 c=  56  23.1t/s |  62°C sw=2482M | OK    | score: 97%
+   38/40 fmt_currency_decimal_amount          |    1.7s | p= 895 c=  33  19.9t/s |  63°C sw=2482M | OK    | score: 97%
+   39/40 fmt_event_no_attendees               |    3.2s | p= 934 c=  70  21.8t/s |  66°C sw=2482M | OK    | score: 97%
+   40/40 fmt_calendar_read_single_day         |    2.6s | p= 908 c=  49  19.0t/s |  62°C sw=2482M | OK    | score: 98%
+
+  >>> JDHODGES: 98% (39/40) in 583s (9.7m) [fresh=40, carried=0] tok-wt 23.8t/s
+  >>> GPU: 52°C → 60°C
+  >>> Swap: 2426MB → 2482MB
+  >>> Log: results/runs/toolcall_jdhodges_google_gemma-4-26b-a4b_20260414_030321.jsonl
+  >>> Summary: results/runs/toolcall_jdhodges_google_gemma-4-26b-a4b_20260414_030321_summary.json

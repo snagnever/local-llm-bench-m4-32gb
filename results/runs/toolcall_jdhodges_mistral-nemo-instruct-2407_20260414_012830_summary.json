@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_mistral-nemo-instruct-2407_20260414_012830",
+  "suite": "jdhodges",
+  "model": "mistral-nemo-instruct-2407",
+  "model_slug": "mistral-nemo-instruct-2407",
+  "score": 0.775,
+  "score_pct": "77.5%",
+  "correct": 31,
+  "total": 40,
+  "carried_over": 4,
+  "fresh_run": 36,
+  "by_category": {
+    "tool_selection": {
+      "pass": 8,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 3,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 4,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 8,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 11.73,
+  "elapsed_s": 621,
+  "elapsed_min": 10.4,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 50,
+    "cpu_temp_c": 53,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2293,
+    "free_pages": 22824
+  },
+  "final_state": {
+    "gpu_temp_c": 56,
+    "cpu_temp_c": 61,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2205,
+    "free_pages": 46970
+  },
+  "timestamp_start": "2026-04-14T01:28:32.830160",
+  "timestamp_end": "2026-04-14T01:38:56.413809",
+  "log_file": "results/runs/toolcall_jdhodges_mistral-nemo-instruct-2407_20260414_012830.jsonl"
+}

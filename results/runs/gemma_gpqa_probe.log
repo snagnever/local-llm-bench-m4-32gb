@@ -1,0 +1,38 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading gpqa dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: google/gemma-4-26b-a4b
+  Config: ctx=65536, quant=Q4_K_M, size=16.8GB, arch=gemma4
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 59°C | CPU: 63°C
+  RAM: 21708MB process | Swap: 3716MB
+  max_tokens: 32768
+  Warmup... '4' | p=26 c=47 (t=42+v=5) 23.2t/s | stop
+Running 10 specific questions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+==============================================================================================================
+BENCHMARK: GPQA | Model: google/gemma-4-26b-a4b | Questions: 10
+Params: temp=0, max_tokens=32768, seed=42
+Config: ctx=65536, quant=Q4_K_M, size=16.8GB, arch=gemma4, experts=8
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=62°C, swap=3716MB, process_ram=21725MB
+Log: results/runs/gpqa_google_gemma-4-26b-a4b_20260412_073858.jsonl
+==============================================================================================================
+    1/10 Q1   |  261.8s | p= 123 c= 5586 (t= 5176+v= 410)  21.3t/s |  71°C ram=21725M sw=3716M | FAIL  | exp=C got=B | score: 0%
+    2/10 Q2   | 1800.0s | p=   0 c=    0 (t=    0+v=   0)   0.0t/s |  71°C ram=21884M sw=3556M | FAIL  | exp=C got=? | score: 0%
+    3/10 Q3   |  691.0s | p= 510 c=13319 (t=12488+v= 831)  19.3t/s |  72°C ram=21373M sw=3345M | OK    | exp=C got=C | score: 33%
+    4/10 Q4   |  304.8s | p= 291 c= 6174 (t= 6169+v=   5)  20.3t/s |  70°C ram=18858M sw=3511M | OK    | exp=B got=B | score: 50%
+    5/10 Q5   |   51.9s | p= 237 c= 1133 (t= 1128+v=   5)  21.8t/s |  70°C ram=18314M sw=4685M | FAIL  | exp=B got=C | score: 40%
+    6/10 Q6   |   54.3s | p= 261 c= 1174 (t= 1169+v=   5)  21.6t/s |  71°C ram=18360M sw=5835M | OK    | exp=B got=B | score: 50%
+    7/10 Q7   |   28.9s | p=  66 c=  674 (t=  669+v=   5)  23.3t/s |  70°C ram=17952M sw=6266M | OK    | exp=D got=D | score: 57%
+    8/10 Q8   |   80.7s | p= 148 c= 1751 (t= 1746+v=   5)  21.7t/s |  69°C ram=17849M sw=6304M | OK    | exp=C got=C | score: 62%
+    9/10 Q9   |   71.4s | p= 257 c= 1549 (t= 1544+v=   5)  21.7t/s |  72°C ram=17998M sw=6660M | OK    | exp=C got=C | score: 67%
+   10/10 Q10  |   85.4s | p= 116 c= 1862 (t= 1857+v=   5)  21.8t/s |  71°C ram=17979M sw=7088M | OK    | exp=A got=A | score: 70%
+
+  >>> GPQA: 70% (7/10) in 3483s (58.1m)
+  >>> GPU: 62°C → 68°C
+  >>> RAM: 21725MB | Swap: 3716MB → 7381MB
+  >>> Log: results/runs/gpqa_google_gemma-4-26b-a4b_20260412_073858.jsonl
+  >>> Summary: results/runs/gpqa_google_gemma-4-26b-a4b_20260412_073858_summary.json

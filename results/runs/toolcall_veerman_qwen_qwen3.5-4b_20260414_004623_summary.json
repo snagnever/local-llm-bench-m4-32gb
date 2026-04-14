@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_qwen_qwen3.5-4b_20260414_004623",
+  "suite": "veerman",
+  "model": "qwen_qwen3.5-4b",
+  "model_slug": "qwen_qwen3.5-4b",
+  "score": 0.8333333333333334,
+  "score_pct": "83.3%",
+  "correct": 10,
+  "total": 12,
+  "carried_over": 3,
+  "fresh_run": 9,
+  "by_category": {
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 2,
+      "total": 3
+    },
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    }
+  },
+  "fresh_tok_weighted_tps": 19.42,
+  "elapsed_s": 215,
+  "elapsed_min": 3.6,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 56,
+    "cpu_temp_c": 59,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2317,
+    "free_pages": 8453
+  },
+  "final_state": {
+    "gpu_temp_c": 65,
+    "cpu_temp_c": 69,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2317,
+    "free_pages": 5519
+  },
+  "timestamp_start": "2026-04-14T00:46:25.897772",
+  "timestamp_end": "2026-04-14T00:50:03.104527",
+  "log_file": "results/runs/toolcall_veerman_qwen_qwen3.5-4b_20260414_004623.jsonl"
+}

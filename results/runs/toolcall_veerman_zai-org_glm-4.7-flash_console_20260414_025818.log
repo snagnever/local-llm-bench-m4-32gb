@@ -1,0 +1,44 @@
+Loading veerman suite...
+
+--- Pre-flight ---
+  Model: zai-org/glm-4.7-flash
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 55°C | CPU: 59°C
+  Swap: 2189MB
+
+==============================================================================================================
+TOOL_CALL | Suite: VEERMAN | Model: zai-org/glm-4.7-flash | Fresh: 12 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=53°C, swap=2189MB
+Log: results/runs/toolcall_veerman_zai-org_glm-4.7-flash_20260414_025821.jsonl
+==============================================================================================================
+    1/12 veerman_p1_weather_obvious           |    5.4s | p= 455 c=  86  15.9t/s |  61°C sw=2189M | OK    | score: 100%
+    2/12 veerman_p2_files_obvious             |    2.6s | p= 455 c=  69  26.3t/s |  62°C sw=2189M | OK    | score: 100%
+    3/12 veerman_p3_meeting_multi_arg         |    7.4s | p= 481 c= 199  27.0t/s |  67°C sw=2189M | OK    | score: 100%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+    4/12 veerman_p4_ambiguous_brussels        |    4.2s | p= 459 c= 114  27.1t/s |  59°C sw=2189M | OK    | score: 100%
+    5/12 veerman_p5_meta_trick                |    8.6s | p= 455 c= 244  28.4t/s |  66°C sw=2189M | OK    | score: 100%
+    6/12 veerman_p6_multi_step_unknown_city   |    3.5s | p= 462 c=  95  26.8t/s |  67°C sw=2189M | FAIL  (no_tool_called) | score: 83%
+    7/12 veerman_p7_noisy_params              |   10.2s | p= 490 c= 275  27.0t/s |  73°C sw=2189M | OK    | score: 86%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+    8/12 veerman_p8_two_tools_parallel        |    4.5s | p= 464 c= 122  27.0t/s |  62°C sw=2189M | OK    | score: 88%
+    9/12 veerman_p9_code_trick                |   46.2s | p= 461 c=1270  27.5t/s |  82°C sw=2189M | OK    | score: 89%
+  ⏸ GPU at 74°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   10/12 veerman_p10_implicit_weather         |    3.9s | p= 468 c= 104  26.6t/s |  69°C sw=2189M | OK    | score: 90%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   11/12 veerman_p11_negation                 |    7.6s | p= 463 c= 208  27.4t/s |  68°C sw=2189M | FAIL  (tool_mismatch) | score: 82%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   12/12 veerman_p12_redundant_weather        |    7.0s | p= 468 c= 192  27.4t/s |  67°C sw=2189M | FAIL  (no_tool_called) | score: 75%
+
+  >>> VEERMAN: 75% (9/12) in 256s (4.3m) [fresh=12, carried=0] tok-wt 26.8t/s
+  >>> GPU: 53°C → 60°C
+  >>> Swap: 2189MB → 2189MB
+  >>> Log: results/runs/toolcall_veerman_zai-org_glm-4.7-flash_20260414_025821.jsonl
+  >>> Summary: results/runs/toolcall_veerman_zai-org_glm-4.7-flash_20260414_025821_summary.json

@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_google_gemma-4-26b-a4b_20260414_030321",
+  "suite": "jdhodges",
+  "model": "google/gemma-4-26b-a4b",
+  "model_slug": "google_gemma-4-26b-a4b",
+  "score": 0.975,
+  "score_pct": "97.5%",
+  "correct": 39,
+  "total": 40,
+  "carried_over": 0,
+  "fresh_run": 40,
+  "by_category": {
+    "tool_selection": {
+      "pass": 8,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 8,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 7,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 8,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 23.81,
+  "elapsed_s": 583,
+  "elapsed_min": 9.7,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 52,
+    "cpu_temp_c": 55,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2426,
+    "free_pages": 5933
+  },
+  "final_state": {
+    "gpu_temp_c": 60,
+    "cpu_temp_c": 64,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2482,
+    "free_pages": 6359
+  },
+  "timestamp_start": "2026-04-14T03:03:23.643016",
+  "timestamp_end": "2026-04-14T03:13:08.647599",
+  "log_file": "results/runs/toolcall_jdhodges_google_gemma-4-26b-a4b_20260414_030321.jsonl"
+}

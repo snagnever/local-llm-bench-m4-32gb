@@ -1,0 +1,75 @@
+{
+  "model": "huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1",
+  "timestamp": "20260408_163252",
+  "base_url": "http://127.0.0.1:1234/v1",
+  "questions": [
+    {
+      "name": "trivial",
+      "category": "sanity",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is 2+2? Answer with just the number."
+        }
+      ],
+      "expected": "4",
+      "max_tokens": 256,
+      "result": {
+        "success": true,
+        "content": "\n\n4",
+        "elapsed": 6.48,
+        "prompt_tokens": 34,
+        "completion_tokens": 153,
+        "reasoning_tokens": 149
+      }
+    },
+    {
+      "name": "mmlu_atmosphere",
+      "category": "knowledge",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which of the following is the correct order of the layers of the Earth's atmosphere from lowest to highest?\n(A) Troposphere, Stratosphere, Mesosphere, Thermosphere\n(B) Stratosphere, Troposphere, Mesosphere, Thermosphere\n(C) Troposphere, Mesosphere, Stratosphere, Thermosphere\n(D) Mesosphere, Troposphere, Stratosphere, Thermosphere\nAnswer with just the letter."
+        }
+      ],
+      "expected": "A",
+      "max_tokens": 512,
+      "result": {
+        "success": true,
+        "content": "\n\nThe correct order of Earth's atmospheric layers from lowest to highest is:\n\n1. **Troposphere** - The lowest layer, extending from the surface up to about 8-20 km (varies by latitude). Contains most weather phenomena and contains about 75% of the atmosphere's mass.\n2. **Stratosphere** - Extends from the tropopause up to about 50 km. Contains the ozone layer which absorbs UV radiation. Temperature increases with altitude here due to ozone absorption.\n3. **Mesosphere** - Extends from the stratopause up to about 85-90 km. This is where most meteors burn up upon entering Earth's atmosphere.\n4. **Thermosphere** - Extends from the mesopause up to about 600 km (",
+        "elapsed": 19.66,
+        "prompt_tokens": 109,
+        "completion_tokens": 512,
+        "reasoning_tokens": 341
+      }
+    },
+    {
+      "name": "code_second_largest",
+      "category": "coding",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that takes a list of integers and returns the second largest element. If fewer than 2 unique elements, return None. Just the function, no explanation."
+        }
+      ],
+      "expected": null,
+      "max_tokens": 1024,
+      "result": {
+        "success": true,
+        "content": "\n\n```python\ndef second_largest(nums):\n    unique_nums = sorted(set(nums), reverse=True)\n    return unique_nums[1] if len(unique_nums) >= 2 else None\n```",
+        "elapsed": 5.73,
+        "prompt_tokens": 56,
+        "completion_tokens": 137,
+        "reasoning_tokens": 93
+      }
+    }
+  ],
+  "total_time": 31.87,
+  "system_metrics": {
+    "peak_ram_gb": 27.5,
+    "peak_swap_gb": 4.2,
+    "avg_gpu_pct": 94.6,
+    "peak_power_w": 16.2,
+    "samples": 32
+  }
+}

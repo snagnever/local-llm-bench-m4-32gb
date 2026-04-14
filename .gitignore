@@ -1,0 +1,89 @@
+# ── Secrets / environment ───────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# ── Python ──────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+wheels/
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+env/
+ENV/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Type checkers / linters
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+
+# ── Jupyter ─────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_meta
+
+# ── OS / editor ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+!.vscode/settings.json.example
+
+# ── Claude / AI tooling local state ─────────────────────────────
+# Ignore everything under .claude/ except explicitly shared config.
+.claude/*
+!.claude/settings.json
+!.claude/commands/
+!.claude/agents/
+
+# ── Project-specific: large outputs & local artifacts ───────────
+logs/
+output/
+*.zip
+!research/**/*.zip
+
+# Model weights (never commit multi-GB files)
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# ── Keep upstream reference trees out of version control ────────
+# These are checked-out copies of external projects used only for
+# reference. Uncomment if you want to exclude them entirely.
+# LiveBench/
+# simple-evals/

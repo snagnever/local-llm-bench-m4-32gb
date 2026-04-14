@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_qwen3-coder-30b-a3b-instruct_20260414_032244",
+  "suite": "veerman",
+  "model": "qwen3-coder-30b-a3b-instruct",
+  "model_slug": "qwen3-coder-30b-a3b-instruct",
+  "score": 0.0,
+  "score_pct": "0.0%",
+  "correct": 0,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 0,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 0,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 0,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 0,
+  "elapsed_s": 58,
+  "elapsed_min": 1.0,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 44,
+    "cpu_temp_c": 47,
+    "process_ram_mb": 0,
+    "swap_used_mb": 3528,
+    "free_pages": 18058
+  },
+  "final_state": {
+    "gpu_temp_c": 42,
+    "cpu_temp_c": 45,
+    "process_ram_mb": 0,
+    "swap_used_mb": 3528,
+    "free_pages": 8097
+  },
+  "timestamp_start": "2026-04-14T03:22:46.700585",
+  "timestamp_end": "2026-04-14T03:23:47.023044",
+  "log_file": "results/runs/toolcall_veerman_qwen3-coder-30b-a3b-instruct_20260414_032244.jsonl"
+}

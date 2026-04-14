@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_zai-org_glm-4.7-flash_20260414_024614",
+  "suite": "jdhodges",
+  "model": "zai-org/glm-4.7-flash",
+  "model_slug": "zai-org_glm-4.7-flash",
+  "score": 0.9,
+  "score_pct": "90.0%",
+  "correct": 36,
+  "total": 40,
+  "carried_over": 0,
+  "fresh_run": 40,
+  "by_category": {
+    "tool_selection": {
+      "pass": 7,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 8,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 5,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 8,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 24.82,
+  "elapsed_s": 716,
+  "elapsed_min": 11.9,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 51,
+    "cpu_temp_c": 56,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2197,
+    "free_pages": 5295
+  },
+  "final_state": {
+    "gpu_temp_c": 58,
+    "cpu_temp_c": 63,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2189,
+    "free_pages": 4202
+  },
+  "timestamp_start": "2026-04-14T02:46:16.703355",
+  "timestamp_end": "2026-04-14T02:58:15.368251",
+  "log_file": "results/runs/toolcall_jdhodges_zai-org_glm-4.7-flash_20260414_024614.jsonl"
+}

@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_hermes-4-14b_20260414_022258",
+  "suite": "veerman",
+  "model": "hermes-4-14b",
+  "model_slug": "hermes-4-14b",
+  "score": 0.6666666666666666,
+  "score_pct": "66.7%",
+  "correct": 8,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 0,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 10.76,
+  "elapsed_s": 803,
+  "elapsed_min": 13.4,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 53,
+    "cpu_temp_c": 57,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2197,
+    "free_pages": 203440
+  },
+  "final_state": {
+    "gpu_temp_c": 57,
+    "cpu_temp_c": 61,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2197,
+    "free_pages": 76808
+  },
+  "timestamp_start": "2026-04-14T02:23:00.956934",
+  "timestamp_end": "2026-04-14T02:36:26.102337",
+  "log_file": "results/runs/toolcall_veerman_hermes-4-14b_20260414_022258.jsonl"
+}

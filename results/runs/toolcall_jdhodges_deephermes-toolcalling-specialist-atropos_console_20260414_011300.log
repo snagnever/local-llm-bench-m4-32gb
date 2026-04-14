@@ -1,0 +1,94 @@
+Loading jdhodges suite...
+
+--- Pre-flight ---
+  Model: deephermes-toolcalling-specialist-atropos
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 56°C | CPU: 60°C
+  Swap: 2309MB
+
+==============================================================================================================
+TOOL_CALL | Suite: JDHODGES | Model: deephermes-toolcalling-specialist-atropos | Fresh: 40 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=54°C, swap=2309MB
+Log: results/runs/toolcall_jdhodges_deephermes-toolcalling-specialist-atropos_20260414_011302.jsonl
+==============================================================================================================
+    1/40 sel_weather_portland                 |    9.4s | p=1504 c=  28   3.0t/s |  72°C sw=2309M | OK    | score: 100%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+    2/40 sel_currency_usd_eur                 |    2.3s | p=1505 c=  39  16.9t/s |  59°C sw=2309M | OK    | score: 100%
+    3/40 sel_timezone_tokyo                   |    1.7s | p=1506 c=  30  17.2t/s |  61°C sw=2309M | OK    | score: 100%
+    4/40 sel_web_python_release               |    1.9s | p=1511 c=  32  17.2t/s |  60°C sw=2309M | OK    | score: 100%
+    5/40 sel_reminder_dentist                 |    2.5s | p=1510 c=  44  17.9t/s |  63°C sw=2309M | OK    | score: 100%
+    6/40 sel_email_quick                      |    2.6s | p=1523 c=  44  17.1t/s |  61°C sw=2309M | OK    | score: 100%
+    7/40 sel_calendar_create                  |    3.3s | p=1535 c=  58  17.4t/s |  63°C sw=2309M | OK    | score: 100%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+    8/40 sel_calendar_read_week               |    2.5s | p=1519 c=  43  17.5t/s |  62°C sw=2309M | OK    | score: 100%
+    9/40 arg_weather_units_celsius            |    1.8s | p=1506 c=  31  16.8t/s |  60°C sw=2309M | OK    | score: 100%
+   10/40 arg_currency_jpy                     |    2.3s | p=1509 c=  41  17.6t/s |  61°C sw=2309M | OK    | score: 100%
+   11/40 arg_email_with_cc                    |    2.8s | p=1523 c=  51  18.1t/s |  65°C sw=2309M | OK    | score: 100%
+   12/40 arg_event_with_attendees             |    4.1s | p=1542 c=  74  17.9t/s |  66°C sw=2309M | OK    | score: 100%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   13/40 arg_timezone_london                  |    1.6s | p=1505 c=  28  17.0t/s |  58°C sw=2309M | OK    | score: 100%
+   14/40 arg_reminder_iso_time                |    2.6s | p=1526 c=  44  16.8t/s |  62°C sw=2309M | OK    | score: 100%
+   15/40 arg_calendar_range_month             |    2.5s | p=1516 c=  43  17.1t/s |  60°C sw=2309M | OK    | score: 100%
+   16/40 arg_search_verbatim                  |    2.1s | p=1516 c=  36  17.1t/s |  60°C sw=2309M | OK    | score: 100%
+   17/40 multi_weather_parallel               |    1.6s | p=1505 c=  26  16.7t/s |  61°C sw=2309M | FAIL  (tool_mismatch) | score: 94%
+   18/40 multi_usd_eur_sequential             |    1.8s | p=1518 c=  31  17.1t/s |  63°C sw=2309M | FAIL  (turn_2_tool_mismatch) | score: 89%
+   19/40 multi_paris_celsius_fahrenheit       |    1.9s | p=1513 c=  31  16.4t/s |  60°C sw=2309M | OK    | score: 89%
+   20/40 multi_email_after_calendar_read      |    2.7s | p=1530 c=  43  16.1t/s |  65°C sw=2301M | FAIL  (turn_2_tool_mismatch) | score: 85%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   21/40 multi_weather_two_cities_holdout     |    1.6s | p=1507 c=  26  15.8t/s |  55°C sw=2301M | FAIL  (tool_mismatch) | score: 81%
+   22/40 multi_convert_two_currencies         |    3.1s | p=1508 c=  53  17.2t/s |  58°C sw=2301M | FAIL  (tool_mismatch) | score: 77%
+   23/40 multi_search_then_remind             |    1.8s | p=1532 c=  28  15.4t/s |  63°C sw=2301M | FAIL  (turn_2_tool_mismatch) | score: 74%
+   24/40 multi_time_and_weather               |    1.7s | p=1510 c=  29  16.9t/s |  62°C sw=2301M | FAIL  (tool_mismatch) | score: 71%
+   25/40 edge_photosynthesis                  |   11.8s | p=1503 c= 231  19.5t/s |  72°C sw=2301M | OK    | score: 72%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   26/40 edge_joke                            |    1.3s | p=1502 c=  21  15.7t/s |  56°C sw=2301M | OK    | score: 73%
+   27/40 edge_math_simple                     |    0.9s | p=1505 c=  14  15.0t/s |  55°C sw=2301M | OK    | score: 74%
+   28/40 edge_feeling_down                    |   13.5s | p=1506 c= 262  19.4t/s |  72°C sw=2301M | OK    | score: 75%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   29/40 edge_vague_reminder                  |    1.7s | p=1504 c=  30  17.3t/s |  57°C sw=2301M | OK    | score: 76%
+   30/40 edge_vague_email                     |    2.6s | p=1501 c=  48  18.2t/s |  62°C sw=2301M | FAIL  (called_tool_when_not_needed: send_email) | score: 73%
+   31/40 edge_define_word                     |    1.8s | p=1506 c=  30  17.0t/s |  60°C sw=2301M | FAIL  (called_tool_when_not_needed: web_search) | score: 71%
+   32/40 edge_language_greeting               |    1.9s | p=1508 c=  32  17.1t/s |  60°C sw=2301M | FAIL  (called_tool_when_not_needed: web_search) | score: 69%
+   33/40 fmt_email_no_cc                      |    2.2s | p=1513 c=  39  17.8t/s |  65°C sw=2301M | OK    | score: 70%
+   34/40 fmt_email_three_cc                   |    3.2s | p=1531 c=  55  17.1t/s |  61°C sw=2301M | OK    | score: 71%
+   35/40 fmt_event_four_attendees             |    4.7s | p=1556 c=  86  18.2t/s |  67°C sw=2301M | OK    | score: 71%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   36/40 fmt_weather_fahrenheit_enum          |    1.9s | p=1508 c=  33  17.4t/s |  58°C sw=2301M | OK    | score: 72%
+   37/40 fmt_weather_no_units                 |    1.5s | p=1501 c=  26  17.0t/s |  59°C sw=2301M | OK    | score: 73%
+   38/40 fmt_currency_decimal_amount          |    2.3s | p=1506 c=  41  17.9t/s |     ? sw=2293M | OK    | score: 74%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 38°C — resuming
+   39/40 fmt_event_no_attendees               |    3.4s | p=1533 c=  60  17.7t/s |     ? sw=2293M | OK    | score: 74%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 36°C — resuming
+   40/40 fmt_calendar_read_single_day         |    2.4s | p=1516 c=  43  18.1t/s |  46°C sw=2293M | OK    | score: 75%
+
+  >>> JDHODGES: 75% (30/40) in 725s (12.1m) [fresh=40, carried=0] tok-wt 16.6t/s
+  >>> GPU: 54°C → 42°C
+  >>> Swap: 2309MB → 2293MB
+  >>> Log: results/runs/toolcall_jdhodges_deephermes-toolcalling-specialist-atropos_20260414_011302.jsonl
+  >>> Summary: results/runs/toolcall_jdhodges_deephermes-toolcalling-specialist-atropos_20260414_011302_summary.json

@@ -1,0 +1,1746 @@
+{
+  "root": {
+    "id": "2043060712134603107",
+    "parentId": null,
+    "text": "I wonder if anyone in Warsaw would like to purchase this preconfigured, preoptimised and heavily benchmarked rig. \n\nI can give a full spec sheet, including all the models it can run, as well as all the thousands of benchmarks I’ve ran. \n\nI can also custom configure it for you https://t.co/RwW3G2FLnf",
+    "author": {
+      "handle": "0xSero",
+      "name": "0xSero"
+    },
+    "url": "https://x.com/0xSero/status/2043060712134603107",
+    "createdAtMs": 1775938606000,
+    "replyCount": 47,
+    "isQuote": false,
+    "favoriteCount": 191,
+    "retweetCount": 5,
+    "quoteCount": 2,
+    "viewCount": 15450,
+    "children": [
+      {
+        "id": "2043060873657258373",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero id buy one 3090 🤭🤭",
+        "author": {
+          "handle": "jaro3th",
+          "name": "Jaro"
+        },
+        "url": "https://x.com/jaro3th/status/2043060873657258373",
+        "createdAtMs": 1775938645000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 2,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 1602,
+        "children": [
+          {
+            "id": "2043061053156671826",
+            "parentId": "2043060873657258373",
+            "text": "@jaro3th More so testing the waters I’m interested to see if there’s an appetite for this",
+            "author": {
+              "handle": "0xSero",
+              "name": "0xSero"
+            },
+            "url": "https://x.com/0xSero/status/2043061053156671826",
+            "createdAtMs": 1775938687000,
+            "replyCount": 1,
+            "isQuote": false,
+            "favoriteCount": 2,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 1558,
+            "children": [
+              {
+                "id": "2043067813665849500",
+                "parentId": "2043061053156671826",
+                "text": "@0xSero @jaro3th I'd like to buy a 3090 as well if you decide to sell in bits",
+                "author": {
+                  "handle": "LeanKinPrazli",
+                  "name": "Lean Kin Prak"
+                },
+                "url": "https://x.com/LeanKinPrazli/status/2043067813665849500",
+                "createdAtMs": 1775940299000,
+                "replyCount": 0,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 30,
+                "children": [],
+                "isPartial": false
+              }
+            ],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043061210317271535",
+        "parentId": "2043060712134603107",
+        "text": "Basically I’m all in on growing bigger and bigger but I think this is a killer setup. Just guzzles too much power to keep scaling it",
+        "author": {
+          "handle": "0xSero",
+          "name": "0xSero"
+        },
+        "url": "https://x.com/0xSero/status/2043061210317271535",
+        "createdAtMs": 1775938725000,
+        "replyCount": 5,
+        "isQuote": false,
+        "favoriteCount": 17,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 3133,
+        "children": [
+          {
+            "id": "2043061628166373679",
+            "parentId": "2043061210317271535",
+            "text": "@0xSero Hah. Wanted to ask if it is not cheaper to just buy tokens if you need to setup your own \"data center\" 🥲",
+            "author": {
+              "handle": "MDikkii",
+              "name": "Mikołaj Demków"
+            },
+            "url": "https://x.com/MDikkii/status/2043061628166373679",
+            "createdAtMs": 1775938825000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 106,
+            "children": [],
+            "isPartial": false
+          },
+          {
+            "id": "2043117275029365091",
+            "parentId": "2043061210317271535",
+            "text": "@0xSero Are you switching to something more power efficient?",
+            "author": {
+              "handle": "mk17726645",
+              "name": "Kkm"
+            },
+            "url": "https://x.com/mk17726645/status/2043117275029365091",
+            "createdAtMs": 1775952092000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 36,
+            "children": [],
+            "isPartial": false
+          },
+          {
+            "id": "2043169669427638773",
+            "parentId": "2043061210317271535",
+            "text": "@0xSero How much is power there?   Its about $.12/kwh here (central texas on an electric coop.)",
+            "author": {
+              "handle": "dholzric",
+              "name": "Dan Holzrichter"
+            },
+            "url": "https://x.com/dholzric/status/2043169669427638773",
+            "createdAtMs": 1775964584000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 25,
+            "children": [],
+            "isPartial": false
+          },
+          {
+            "id": "2043235878013661277",
+            "parentId": "2043061210317271535",
+            "text": "@0xSero What did you use it for and did you see measurable roi with it?",
+            "author": {
+              "handle": "21Language",
+              "name": "Jason Boschung"
+            },
+            "url": "https://x.com/21Language/status/2043235878013661277",
+            "createdAtMs": 1775980369000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 13,
+            "children": [],
+            "isPartial": false
+          },
+          {
+            "id": "2043250405208101350",
+            "parentId": "2043061210317271535",
+            "text": "@0xSero actually, I think you probably hit bifurcation and PCI lane exhaustion before you could expand this much more.\n\n1.2kW, no way… 350x8 2800w!!\nso you’re running the cards at 150w each? no… that would only account for the GPU’s.  so you’re either dropping them down to 100W each…?",
+            "author": {
+              "handle": "BakariSoul",
+              "name": "Bakari Soul"
+            },
+            "url": "https://x.com/BakariSoul/status/2043250405208101350",
+            "createdAtMs": 1775983833000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 5,
+            "children": [],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043061828901654958",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero How much ?",
+        "author": {
+          "handle": "ScapeTheMatrix",
+          "name": "Nueva etapa."
+        },
+        "url": "https://x.com/ScapeTheMatrix/status/2043061828901654958",
+        "createdAtMs": 1775938872000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 2,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 1296,
+        "children": [
+          {
+            "id": "2043063094046339539",
+            "parentId": "2043061828901654958",
+            "text": "@ScapeTheMatrix I paid 12k usd\n\nIt’s\n\n512gb ddr4\n192gb vram (8x 3090s) \n6tb NVMe \nASrock romed82t\nEpyc 7443p",
+            "author": {
+              "handle": "0xSero",
+              "name": "0xSero"
+            },
+            "url": "https://x.com/0xSero/status/2043063094046339539",
+            "createdAtMs": 1775939174000,
+            "replyCount": 3,
+            "isQuote": false,
+            "favoriteCount": 13,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 1276,
+            "children": [
+              {
+                "id": "2043065324400943406",
+                "parentId": "2043063094046339539",
+                "text": "@0xSero @ScapeTheMatrix What are t/s for varous 30B, 70B, 120B in average",
+                "author": {
+                  "handle": "Aylard7",
+                  "name": "everything"
+                },
+                "url": "https://x.com/Aylard7/status/2043065324400943406",
+                "createdAtMs": 1775939706000,
+                "replyCount": 0,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 128,
+                "children": [],
+                "isPartial": false
+              },
+              {
+                "id": "2043069984537010186",
+                "parentId": "2043063094046339539",
+                "text": "@0xSero @ScapeTheMatrix 🔥",
+                "author": {
+                  "handle": "LeTechLead",
+                  "name": "القائد التقني🔰"
+                },
+                "url": "https://x.com/LeTechLead/status/2043069984537010186",
+                "createdAtMs": 1775940817000,
+                "replyCount": 0,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 100,
+                "children": [],
+                "isPartial": false
+              },
+              {
+                "id": "2043079060541059144",
+                "parentId": "2043063094046339539",
+                "text": "@0xSero @ScapeTheMatrix You sell it for 12k?",
+                "author": {
+                  "handle": "solthodox",
+                  "name": "solthodox.eth"
+                },
+                "url": "https://x.com/solthodox/status/2043079060541059144",
+                "createdAtMs": 1775942981000,
+                "replyCount": 1,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 414,
+                "children": [
+                  {
+                    "id": "2043080127832088984",
+                    "parentId": "2043079060541059144",
+                    "text": "@solthodox @ScapeTheMatrix USD",
+                    "author": {
+                      "handle": "0xSero",
+                      "name": "0xSero"
+                    },
+                    "url": "https://x.com/0xSero/status/2043080127832088984",
+                    "createdAtMs": 1775943235000,
+                    "replyCount": 1,
+                    "isQuote": false,
+                    "favoriteCount": 0,
+                    "retweetCount": 0,
+                    "quoteCount": 0,
+                    "viewCount": 421,
+                    "children": [
+                      {
+                        "id": "2043081392351752695",
+                        "parentId": "2043080127832088984",
+                        "text": "@0xSero @ScapeTheMatrix Do you sell separate parts?",
+                        "author": {
+                          "handle": "solthodox",
+                          "name": "solthodox.eth"
+                        },
+                        "url": "https://x.com/solthodox/status/2043081392351752695",
+                        "createdAtMs": 1775943537000,
+                        "replyCount": 0,
+                        "isQuote": false,
+                        "favoriteCount": 0,
+                        "retweetCount": 0,
+                        "quoteCount": 0,
+                        "viewCount": 79,
+                        "children": [],
+                        "isPartial": false
+                      }
+                    ],
+                    "isPartial": false
+                  }
+                ],
+                "isPartial": false
+              }
+            ],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043062008640086290",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero How much electricity does that setup use ? How much are you using in general ?",
+        "author": {
+          "handle": "obsolete_dev",
+          "name": "Decstar"
+        },
+        "url": "https://x.com/obsolete_dev/status/2043062008640086290",
+        "createdAtMs": 1775938915000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 3,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 1709,
+        "children": [
+          {
+            "id": "2043063177676562581",
+            "parentId": "2043062008640086290",
+            "text": "@obsolete_dev 1200w at peak",
+            "author": {
+              "handle": "0xSero",
+              "name": "0xSero"
+            },
+            "url": "https://x.com/0xSero/status/2043063177676562581",
+            "createdAtMs": 1775939194000,
+            "replyCount": 4,
+            "isQuote": false,
+            "favoriteCount": 6,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 1669,
+            "children": [
+              {
+                "id": "2043069536593666118",
+                "parentId": "2043063177676562581",
+                "text": "@0xSero @obsolete_dev Wait that’s it? You can easily get a few cheap solar panels to cover that. 3000 watts of portable solar panels right here that I use for running local models https://t.co/dal00fJ0FL",
+                "author": {
+                  "handle": "XadenRyan",
+                  "name": "Xaden Ryan"
+                },
+                "url": "https://x.com/XadenRyan/status/2043069536593666118",
+                "createdAtMs": 1775940710000,
+                "replyCount": 2,
+                "isQuote": false,
+                "favoriteCount": 4,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 662,
+                "children": [
+                  {
+                    "id": "2043069778902880294",
+                    "parentId": "2043069536593666118",
+                    "text": "@XadenRyan @obsolete_dev How much do these cost? \n\nThe weather where you are and the whether in Poland ain’t the same",
+                    "author": {
+                      "handle": "0xSero",
+                      "name": "0xSero"
+                    },
+                    "url": "https://x.com/0xSero/status/2043069778902880294",
+                    "createdAtMs": 1775940768000,
+                    "replyCount": 2,
+                    "isQuote": false,
+                    "favoriteCount": 6,
+                    "retweetCount": 0,
+                    "quoteCount": 0,
+                    "viewCount": 692,
+                    "children": [
+                      {
+                        "id": "2043071418196242490",
+                        "parentId": "2043069778902880294",
+                        "text": "@0xSero @obsolete_dev Solar panels are extremely cheap. $300 for 400 watts. https://t.co/CQAl8KJ0hC\n\nThese are more expensive because they are “portable” panels. Black Friday deals you can get panels 50% off.. You can even get batteries cheap now too https://t.co/JrQDmy5Le2",
+                        "author": {
+                          "handle": "XadenRyan",
+                          "name": "Xaden Ryan"
+                        },
+                        "url": "https://x.com/XadenRyan/status/2043071418196242490",
+                        "createdAtMs": 1775941159000,
+                        "replyCount": 0,
+                        "isQuote": false,
+                        "favoriteCount": 2,
+                        "retweetCount": 0,
+                        "quoteCount": 0,
+                        "viewCount": 148,
+                        "children": [],
+                        "isPartial": false
+                      },
+                      {
+                        "id": "2043234519969341726",
+                        "parentId": "2043069778902880294",
+                        "text": "@0xSero @XadenRyan @obsolete_dev Poland weather is basicslly god hating Poles' happiness",
+                        "author": {
+                          "handle": "tradewaver1",
+                          "name": "tradewaver"
+                        },
+                        "url": "https://x.com/tradewaver1/status/2043234519969341726",
+                        "createdAtMs": 1775980045000,
+                        "replyCount": 0,
+                        "isQuote": false,
+                        "favoriteCount": 0,
+                        "retweetCount": 0,
+                        "quoteCount": 0,
+                        "viewCount": 8,
+                        "children": [],
+                        "isPartial": false
+                      }
+                    ],
+                    "isPartial": false
+                  },
+                  {
+                    "id": "2043114155985498493",
+                    "parentId": "2043069536593666118",
+                    "text": "@XadenRyan @0xSero @obsolete_dev No sun in Poland M8 :)\nIm live near 0xSero, even have 15kW solar.\n5kwp+15kwh+ inverters cables = ~4k usd DIY lowest\nOne shady day, and you are empty.",
+                    "author": {
+                      "handle": "AiFreak_",
+                      "name": "AI guy"
+                    },
+                    "url": "https://x.com/AiFreak_/status/2043114155985498493",
+                    "createdAtMs": 1775951348000,
+                    "replyCount": 1,
+                    "isQuote": false,
+                    "favoriteCount": 1,
+                    "retweetCount": 0,
+                    "quoteCount": 0,
+                    "viewCount": 28,
+                    "children": [
+                      {
+                        "id": "2043139746185240877",
+                        "parentId": "2043114155985498493",
+                        "text": "5kwp of 15kW of solar sounds like winter months here. 33% efficiency is about what we get in winter months here. I just deploy 3x more panels to make up for it! 😅\n\nSummer months though I somehow get over 3kWp from my 3kW of panels ☺️\n\nMy usage is only about 10kWh max per day so the 3kW of panels works for me. I have 20kWh of batteries, so there’s a few days of buffer for my off grid “home” /van on cloudy, no sun days.\n\nI would think that micro inverters (skip the expensive battery) with some solar panels it would be better than nothing for brining the utility bill down.",
+                        "author": {
+                          "handle": "XadenRyan",
+                          "name": "Xaden Ryan"
+                        },
+                        "url": "https://x.com/XadenRyan/status/2043139746185240877",
+                        "createdAtMs": 1775957449000,
+                        "replyCount": 0,
+                        "isQuote": false,
+                        "favoriteCount": 0,
+                        "retweetCount": 0,
+                        "quoteCount": 0,
+                        "viewCount": 18,
+                        "children": [
+                          {
+                            "id": "2043240682337218948",
+                            "parentId": "2043139746185240877",
+                            "text": "@XadenRyan @0xSero @obsolete_dev I'm toping to about 80-100kwh daily usage in winter and 20-40 in summer :)\nI got poor efficency - I live essentialy in forest, so ahh it's complicated :)  10kwp roof microinverters, 5kwp fence offgrid + 30kwh battery.\nAll electric home + car + workshop with machines.",
+                            "author": {
+                              "handle": "AiFreak_",
+                              "name": "AI guy"
+                            },
+                            "url": "https://x.com/AiFreak_/status/2043240682337218948",
+                            "createdAtMs": 1775981514000,
+                            "replyCount": 0,
+                            "isQuote": false,
+                            "favoriteCount": 0,
+                            "retweetCount": 0,
+                            "quoteCount": 0,
+                            "viewCount": 11,
+                            "children": [],
+                            "isPartial": false
+                          }
+                        ],
+                        "isPartial": false
+                      }
+                    ],
+                    "isPartial": false
+                  }
+                ],
+                "isPartial": false
+              },
+              {
+                "id": "2043070654677672354",
+                "parentId": "2043063177676562581",
+                "text": "@0xSero @obsolete_dev Electricity in Poland is expensive sadly.\n\n1200W for all these GPUs sounds very reasonable. Do you have a full list of this setup?",
+                "author": {
+                  "handle": "Rob3rtWozny",
+                  "name": "Ariel"
+                },
+                "url": "https://x.com/Rob3rtWozny/status/2043070654677672354",
+                "createdAtMs": 1775940977000,
+                "replyCount": 0,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 27,
+                "children": [],
+                "isPartial": false
+              },
+              {
+                "id": "2043077491011510465",
+                "parentId": "2043063177676562581",
+                "text": "@0xSero @obsolete_dev How come? Each 3090 is 350W?",
+                "author": {
+                  "handle": "MicaAudio",
+                  "name": "Mica"
+                },
+                "url": "https://x.com/MicaAudio/status/2043077491011510465",
+                "createdAtMs": 1775942607000,
+                "replyCount": 0,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 24,
+                "children": [],
+                "isPartial": false
+              },
+              {
+                "id": "2043247383455187034",
+                "parentId": "2043063177676562581",
+                "text": "@0xSero @obsolete_dev What undervolting you running?\n1200w peak is less then half stock watage of those 3090s :)",
+                "author": {
+                  "handle": "AiFreak_",
+                  "name": "AI guy"
+                },
+                "url": "https://x.com/AiFreak_/status/2043247383455187034",
+                "createdAtMs": 1775983112000,
+                "replyCount": 1,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 40,
+                "children": [
+                  {
+                    "id": "2043248105164820939",
+                    "parentId": "2043247383455187034",
+                    "text": "@AiFreak_ @obsolete_dev 150w per gpu\n\n30% loss in speed \n60% reduction in sound \n70% reduction in cost",
+                    "author": {
+                      "handle": "0xSero",
+                      "name": "0xSero"
+                    },
+                    "url": "https://x.com/0xSero/status/2043248105164820939",
+                    "createdAtMs": 1775983284000,
+                    "replyCount": 1,
+                    "isQuote": false,
+                    "favoriteCount": 2,
+                    "retweetCount": 0,
+                    "quoteCount": 0,
+                    "viewCount": 37,
+                    "children": [
+                      {
+                        "id": "2043259814998835529",
+                        "parentId": "2043248105164820939",
+                        "text": "@0xSero @obsolete_dev Nice :) Must try.\nI'm undervolting a bit because... Gigabyte 3090 Turbo.\nFucking jet plane.",
+                        "author": {
+                          "handle": "AiFreak_",
+                          "name": "AI guy"
+                        },
+                        "url": "https://x.com/AiFreak_/status/2043259814998835529",
+                        "createdAtMs": 1775986076000,
+                        "replyCount": 0,
+                        "isQuote": false,
+                        "favoriteCount": 0,
+                        "retweetCount": 0,
+                        "quoteCount": 0,
+                        "viewCount": 9,
+                        "children": [],
+                        "isPartial": false
+                      }
+                    ],
+                    "isPartial": false
+                  }
+                ],
+                "isPartial": false
+              }
+            ],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043062121152352448",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Bro has AI factory in the country with most expensive electricity",
+        "author": {
+          "handle": "CyberKhan5",
+          "name": "Cyber Khan"
+        },
+        "url": "https://x.com/CyberKhan5/status/2043062121152352448",
+        "createdAtMs": 1775938942000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 5,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 408,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043062158410277244",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Yes how much?",
+        "author": {
+          "handle": "DODOREACH",
+          "name": "dodo-reach 🦤"
+        },
+        "url": "https://x.com/DODOREACH/status/2043062158410277244",
+        "createdAtMs": 1775938951000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 265,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043062185866207587",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Wawa ? Ty nasz  ?;) pokazuje USA w profilu.",
+        "author": {
+          "handle": "bbarski",
+          "name": "RM"
+        },
+        "url": "https://x.com/bbarski/status/2043062185866207587",
+        "createdAtMs": 1775938958000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 1,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 1210,
+        "children": [
+          {
+            "id": "2043063565087576095",
+            "parentId": "2043062185866207587",
+            "text": "@bbarski I’m American living in wawa",
+            "author": {
+              "handle": "0xSero",
+              "name": "0xSero"
+            },
+            "url": "https://x.com/0xSero/status/2043063565087576095",
+            "createdAtMs": 1775939286000,
+            "replyCount": 2,
+            "isQuote": false,
+            "favoriteCount": 20,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 1189,
+            "children": [
+              {
+                "id": "2043064587101130926",
+                "parentId": "2043063565087576095",
+                "text": "@0xSero @bbarski jo, czyli nasz",
+                "author": {
+                  "handle": "jerzydejm",
+                  "name": "λthugg-huh?"
+                },
+                "url": "https://x.com/jerzydejm/status/2043064587101130926",
+                "createdAtMs": 1775939530000,
+                "replyCount": 1,
+                "isQuote": false,
+                "favoriteCount": 2,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 153,
+                "children": [
+                  {
+                    "id": "2043064676624302442",
+                    "parentId": "2043064587101130926",
+                    "text": "@jerzydejm @0xSero @bbarski znaturalizowany nasz",
+                    "author": {
+                      "handle": "JohnStrongHodl",
+                      "name": "Jean"
+                    },
+                    "url": "https://x.com/JohnStrongHodl/status/2043064676624302442",
+                    "createdAtMs": 1775939551000,
+                    "replyCount": 0,
+                    "isQuote": false,
+                    "favoriteCount": 3,
+                    "retweetCount": 0,
+                    "quoteCount": 0,
+                    "viewCount": 41,
+                    "children": [],
+                    "isPartial": false
+                  }
+                ],
+                "isPartial": false
+              },
+              {
+                "id": "2043090893884776682",
+                "parentId": "2043063565087576095",
+                "text": "@0xSero @bbarski Let’s hang bro",
+                "author": {
+                  "handle": "brunoaurelius",
+                  "name": "Michał Brunon"
+                },
+                "url": "https://x.com/brunoaurelius/status/2043090893884776682",
+                "createdAtMs": 1775945802000,
+                "replyCount": 0,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 65,
+                "children": [],
+                "isPartial": false
+              }
+            ],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043062405035385067",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero 👀👀👀",
+        "author": {
+          "handle": "NERDDISCO",
+          "name": "tim"
+        },
+        "url": "https://x.com/NERDDISCO/status/2043062405035385067",
+        "createdAtMs": 1775939010000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 241,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043063288301248879",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero China might buy it from you",
+        "author": {
+          "handle": "NeuroSpace01",
+          "name": "NeuroSpace01"
+        },
+        "url": "https://x.com/NeuroSpace01/status/2043063288301248879",
+        "createdAtMs": 1775939220000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 244,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043063681123053790",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero You're from Warsaw? Man we definitely need to catch up :D\n\nWould gladly get this from you if I had the cash atm",
+        "author": {
+          "handle": "joaosump",
+          "name": "Vieirowski"
+        },
+        "url": "https://x.com/joaosump/status/2043063681123053790",
+        "createdAtMs": 1775939314000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 355,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043064248788496718",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero fuck wish i had the funds man but got cleared out in a hack, beastly rig. you gotta make sure its put to good use and in a good home!",
+        "author": {
+          "handle": "KALYXLINUX",
+          "name": "Kalyx"
+        },
+        "url": "https://x.com/KALYXLINUX/status/2043064248788496718",
+        "createdAtMs": 1775939449000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 700,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043064561805283713",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero or sell the configuration instructions and config files",
+        "author": {
+          "handle": "JohnStrongHodl",
+          "name": "Jean"
+        },
+        "url": "https://x.com/JohnStrongHodl/status/2043064561805283713",
+        "createdAtMs": 1775939524000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 1295,
+        "children": [
+          {
+            "id": "2043064702876479797",
+            "parentId": "2043064561805283713",
+            "text": "@JohnStrongHodl I’d sell those 2",
+            "author": {
+              "handle": "0xSero",
+              "name": "0xSero"
+            },
+            "url": "https://x.com/0xSero/status/2043064702876479797",
+            "createdAtMs": 1775939558000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 3,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 1207,
+            "children": [
+              {
+                "id": "2043265755903316043",
+                "parentId": "2043064702876479797",
+                "text": "@0xSero @JohnStrongHodl Dude just sell your build proccess for 19 bucks all the following you've gained they will buy your digital file.\n\nJust post a link on x I bet 200 will buy there you go.... money....",
+                "author": {
+                  "handle": "_Biz_Builder",
+                  "name": "William Donovan"
+                },
+                "url": "https://x.com/_Biz_Builder/status/2043265755903316043",
+                "createdAtMs": 1775987492000,
+                "replyCount": 0,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 8,
+                "children": [],
+                "isPartial": false
+              }
+            ],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043064698438877671",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero This deal is messing with my plans, I was planning to buy 6000 Pro... 🙈",
+        "author": {
+          "handle": "llmdevguy",
+          "name": "Mateusz Mirkowski"
+        },
+        "url": "https://x.com/llmdevguy/status/2043064698438877671",
+        "createdAtMs": 1775939557000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 1,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 472,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043064971639296186",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero How do I learn about building with open air frames? Have only ever built computers in enclosures. Recently saw an extension board for a GPU, instead of the on-board bus. Is there a keyword to search or guide?",
+        "author": {
+          "handle": "cyber_arcana",
+          "name": "."
+        },
+        "url": "https://x.com/cyber_arcana/status/2043064971639296186",
+        "createdAtMs": 1775939622000,
+        "replyCount": 2,
+        "isQuote": false,
+        "favoriteCount": 2,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 447,
+        "children": [
+          {
+            "id": "2043070635904053497",
+            "parentId": "2043064971639296186",
+            "text": "@cyber_arcana @0xSero Generally, \"riser\".",
+            "author": {
+              "handle": "strangecodename",
+              "name": "mirage"
+            },
+            "url": "https://x.com/strangecodename/status/2043070635904053497",
+            "createdAtMs": 1775940972000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 11,
+            "children": [],
+            "isPartial": false
+          },
+          {
+            "id": "2043115230662664418",
+            "parentId": "2043064971639296186",
+            "text": "@cyber_arcana @0xSero Search for mining rig build, but use tr/epyc internals.",
+            "author": {
+              "handle": "AiFreak_",
+              "name": "AI guy"
+            },
+            "url": "https://x.com/AiFreak_/status/2043115230662664418",
+            "createdAtMs": 1775951604000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 1,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 9,
+            "children": [],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043065455951171909",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero how much? actually forget it, I'm broke anyway",
+        "author": {
+          "handle": "krzyzanowskim",
+          "name": "Marcin Krzyzanowski"
+        },
+        "url": "https://x.com/krzyzanowskim/status/2043065455951171909",
+        "createdAtMs": 1775939737000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 3,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 434,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043065521017344160",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero No zpuerdalaj, Sero jest Polakem 😅🤘",
+        "author": {
+          "handle": "AVaclav73853",
+          "name": "Alois Vaclav"
+        },
+        "url": "https://x.com/AVaclav73853/status/2043065521017344160",
+        "createdAtMs": 1775939753000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 1,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 231,
+        "children": [],
+        "isPartial": true
+      },
+      {
+        "id": "2043066421685432549",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero let us know if you sell it!\n\nbeen thinking to create an AI PC shop to sell pre-built AI machines with local AI models pre-installed and with benchmarks",
+        "author": {
+          "handle": "kartojal",
+          "name": "kartojal"
+        },
+        "url": "https://x.com/kartojal/status/2043066421685432549",
+        "createdAtMs": 1775939967000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 190,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043067474698969358",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero How much you want for it ?",
+        "author": {
+          "handle": "cs_mackey",
+          "name": "cs_mackey"
+        },
+        "url": "https://x.com/cs_mackey/status/2043067474698969358",
+        "createdAtMs": 1775940218000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 342,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043067808498475150",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero More interested to know how you keep it dust-free 😆",
+        "author": {
+          "handle": "__Privaty__",
+          "name": "Privaty"
+        },
+        "url": "https://x.com/__Privaty__/status/2043067808498475150",
+        "createdAtMs": 1775940298000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 1,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 330,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043068318123163839",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero How would this 8x3090 setup compare in practice to a Mac Studio with an expected M5 Ultra and 512 GB unified memory for local AI workloads?\nI’d care about:\n- parallel users / agents\n- quantized 70B to 400B class models\n- real inference speed\nWhere do you think the Mac/box wins",
+        "author": {
+          "handle": "PatrykPyzel",
+          "name": "Patryk Pyzel"
+        },
+        "url": "https://x.com/PatrykPyzel/status/2043068318123163839",
+        "createdAtMs": 1775940420000,
+        "replyCount": 3,
+        "isQuote": false,
+        "favoriteCount": 3,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 1462,
+        "children": [
+          {
+            "id": "2043068773163274635",
+            "parentId": "2043068318123163839",
+            "text": "@PatrykPyzel Mac fits larger models but too slow",
+            "author": {
+              "handle": "0xSero",
+              "name": "0xSero"
+            },
+            "url": "https://x.com/0xSero/status/2043068773163274635",
+            "createdAtMs": 1775940528000,
+            "replyCount": 1,
+            "isQuote": false,
+            "favoriteCount": 9,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 1287,
+            "children": [],
+            "isPartial": true
+          },
+          {
+            "id": "2043247214185873602",
+            "parentId": "2043068318123163839",
+            "text": "@PatrykPyzel @0xSero there’s quite a few good MLX benchmarks out there.\n\nIf you start pushing the boundaries of the SoC, it drops to 15-25TPS, maybe 100s+ PP.\n\nsize the models and their density/moe/active ratio to ram, you can see ~45-65TPS, on a single node.  TP2 slower but 2x uRAM. Power winner.",
+            "author": {
+              "handle": "BakariSoul",
+              "name": "Bakari Soul"
+            },
+            "url": "https://x.com/BakariSoul/status/2043247214185873602",
+            "createdAtMs": 1775983072000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 13,
+            "children": [],
+            "isPartial": false
+          },
+          {
+            "id": "2043248954054447225",
+            "parentId": "2043068318123163839",
+            "text": "@PatrykPyzel @0xSero MLX: 397B 2x m2 ultra 192G TP2 = ~24TPS conc=1, tps &lt; ctx+\n\nThere are certain wins in batching/concurrency on MLX, but they’re being developed as well.\n\nCUDA: 122B 8x3090 192G ~= 65TPS+ conc1, or 800-1000TPS+ conc64.\n120b=111TPS conc1\n\nnot direct model comparison, examples",
+            "author": {
+              "handle": "BakariSoul",
+              "name": "Bakari Soul"
+            },
+            "url": "https://x.com/BakariSoul/status/2043248954054447225",
+            "createdAtMs": 1775983487000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 7,
+            "children": [],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043070075461112084",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero An option for @wojventures 😀",
+        "author": {
+          "handle": "pirosb3",
+          "name": "Daniel Pyrathon"
+        },
+        "url": "https://x.com/pirosb3/status/2043070075461112084",
+        "createdAtMs": 1775940839000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 2,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 259,
+        "children": [
+          {
+            "id": "2043070824991617349",
+            "parentId": "2043070075461112084",
+            "text": "@pirosb3 @0xSero not in the market but it looks great",
+            "author": {
+              "handle": "wojventures",
+              "name": "Wojciech Kulikowski"
+            },
+            "url": "https://x.com/wojventures/status/2043070824991617349",
+            "createdAtMs": 1775941017000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 10,
+            "children": [],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043071372910371277",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero is this the 3090´s and etc?",
+        "author": {
+          "handle": "AndreBuckingham",
+          "name": "Andre Buckingham 🧙‍♂️"
+        },
+        "url": "https://x.com/AndreBuckingham/status/2043071372910371277",
+        "createdAtMs": 1775941148000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 164,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043071603135684937",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero For how much are you selling full set-up now?",
+        "author": {
+          "handle": "TeutaAi",
+          "name": "Teuta"
+        },
+        "url": "https://x.com/TeutaAi/status/2043071603135684937",
+        "createdAtMs": 1775941203000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 315,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043072668476346818",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero I would consider it if I still lived in Praga Poludnie, are GPU prices any better in Poland?",
+        "author": {
+          "handle": "sacred_pop",
+          "name": "Sacred Pop"
+        },
+        "url": "https://x.com/sacred_pop/status/2043072668476346818",
+        "createdAtMs": 1775941457000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 332,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043072709131637060",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero beauty",
+        "author": {
+          "handle": "ukkometa",
+          "name": "Ukko (33.3%)"
+        },
+        "url": "https://x.com/ukkometa/status/2043072709131637060",
+        "createdAtMs": 1775941466000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 90,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043073753328807978",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Oh, this is tempting\n\nI only lack a proper place to put it and time to spend using it to the extent it deserves",
+        "author": {
+          "handle": "Everlier",
+          "name": "Everlier"
+        },
+        "url": "https://x.com/Everlier/status/2043073753328807978",
+        "createdAtMs": 1775941715000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 505,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043076408298057881",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero I'm not in Warsaw, otherwise we'd be having a conversation",
+        "author": {
+          "handle": "AndresGFaucet",
+          "name": "Andrés G. Faucet"
+        },
+        "url": "https://x.com/AndresGFaucet/status/2043076408298057881",
+        "createdAtMs": 1775942348000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 1,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 144,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043078384633200691",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero What are you replacing it with",
+        "author": {
+          "handle": "iamtexture",
+          "name": "Texture"
+        },
+        "url": "https://x.com/iamtexture/status/2043078384633200691",
+        "createdAtMs": 1775942820000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 1,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 157,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043082727641977130",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Why sell rig, when life rig you. https://t.co/gq6cwjqjX8",
+        "author": {
+          "handle": "cyberwhisperr",
+          "name": "Whisperer"
+        },
+        "url": "https://x.com/cyberwhisperr/status/2043082727641977130",
+        "createdAtMs": 1775943855000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 296,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043084574104916283",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Hey bro why dont you start an AI cloud provider that provides inference for training AI models like fireworks(if im not wrong)",
+        "author": {
+          "handle": "0xNeuroo",
+          "name": "ØxNeuro"
+        },
+        "url": "https://x.com/0xNeuroo/status/2043084574104916283",
+        "createdAtMs": 1775944295000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 350,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043086872847462437",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero A za ile?",
+        "author": {
+          "handle": "perfectcards",
+          "name": "Trading Phoenix"
+        },
+        "url": "https://x.com/perfectcards/status/2043086872847462437",
+        "createdAtMs": 1775944843000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 252,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043087587116478807",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Can you do me a generous favor of DM’ing I have a gtx 5070 12gb 32gb ram",
+        "author": {
+          "handle": "Dude_Manski",
+          "name": "Dude Manski"
+        },
+        "url": "https://x.com/Dude_Manski/status/2043087587116478807",
+        "createdAtMs": 1775945014000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 96,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043087687381315746",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero YUM wtf is in it gimmie specs",
+        "author": {
+          "handle": "lostboys",
+          "name": "⚞ Black ⚟"
+        },
+        "url": "https://x.com/lostboys/status/2043087687381315746",
+        "createdAtMs": 1775945038000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 140,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043095054001086856",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Kochani to ilu tych Warszawiaków ma narąbane na punkcie AI, benchmarków, TPS itp, itd. Możeby tak jakiś patriotyczny zryw narodowy? Trzeba pokazać światu \"iż Polacy nie gęsi, i na AI się znają\"!!!🇵🇱🇵🇱🇵🇱",
+        "author": {
+          "handle": "ruider92545",
+          "name": "William Ruider"
+        },
+        "url": "https://x.com/ruider92545/status/2043095054001086856",
+        "createdAtMs": 1775946794000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 3,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 350,
+        "children": [
+          {
+            "id": "2043114493257892122",
+            "parentId": "2043095054001086856",
+            "text": "@ruider92545 @0xSero I co bedziemy debatować Qwen czy Gemma ;P?",
+            "author": {
+              "handle": "AiFreak_",
+              "name": "AI guy"
+            },
+            "url": "https://x.com/AiFreak_/status/2043114493257892122",
+            "createdAtMs": 1775951429000,
+            "replyCount": 1,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 30,
+            "children": [
+              {
+                "id": "2043119477013758317",
+                "parentId": "2043114493257892122",
+                "text": "@AiFreak_ @0xSero Może NVIDIA vs APPLE?",
+                "author": {
+                  "handle": "ruider92545",
+                  "name": "William Ruider"
+                },
+                "url": "https://x.com/ruider92545/status/2043119477013758317",
+                "createdAtMs": 1775952617000,
+                "replyCount": 1,
+                "isQuote": false,
+                "favoriteCount": 0,
+                "retweetCount": 0,
+                "quoteCount": 0,
+                "viewCount": 26,
+                "children": [
+                  {
+                    "id": "2043239011662066035",
+                    "parentId": "2043119477013758317",
+                    "text": "@ruider92545 @0xSero Nie ma potrzeby ;))))",
+                    "author": {
+                      "handle": "AiFreak_",
+                      "name": "AI guy"
+                    },
+                    "url": "https://x.com/AiFreak_/status/2043239011662066035",
+                    "createdAtMs": 1775981116000,
+                    "replyCount": 0,
+                    "isQuote": false,
+                    "favoriteCount": 0,
+                    "retweetCount": 0,
+                    "quoteCount": 0,
+                    "viewCount": 5,
+                    "children": [],
+                    "isPartial": false
+                  }
+                ],
+                "isPartial": false
+              }
+            ],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043095230178590929",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Who are you and why is Warsaw again stealing ideas from Wroclaw xd",
+        "author": {
+          "handle": "piotroxp",
+          "name": "piotroxp"
+        },
+        "url": "https://x.com/piotroxp/status/2043095230178590929",
+        "createdAtMs": 1775946836000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 137,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043109895881527452",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero please share the specs",
+        "author": {
+          "handle": "ALASKVN_DJ",
+          "name": "ALASKVN DJ"
+        },
+        "url": "https://x.com/ALASKVN_DJ/status/2043109895881527452",
+        "createdAtMs": 1775950332000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 277,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043113497282609350",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero please wrap one single hot 3090 for me :)",
+        "author": {
+          "handle": "WaveCut",
+          "name": "Enlarge Your Genus"
+        },
+        "url": "https://x.com/WaveCut/status/2043113497282609350",
+        "createdAtMs": 1775951191000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 42,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043121168840785925",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero I look at this and just want it even though I have no need for it",
+        "author": {
+          "handle": "JamieDay719679",
+          "name": "Jamie Day"
+        },
+        "url": "https://x.com/JamieDay719679/status/2043121168840785925",
+        "createdAtMs": 1775953020000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 147,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043131599881974035",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Why are you gas lighting people you just realised local can’t do what other models can and are selling of your junk",
+        "author": {
+          "handle": "wawaweewaa59",
+          "name": "waawaawee"
+        },
+        "url": "https://x.com/wawaweewaa59/status/2043131599881974035",
+        "createdAtMs": 1775955507000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 1,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 117,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043141995254968353",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Shipping costs to Australia?",
+        "author": {
+          "handle": "Josh_is_regen",
+          "name": "Josh Thomson"
+        },
+        "url": "https://x.com/Josh_is_regen/status/2043141995254968353",
+        "createdAtMs": 1775957986000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 211,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043176043339538894",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero how much are you asking?",
+        "author": {
+          "handle": "DemonicZucchini",
+          "name": "Fear&Loathing🐀"
+        },
+        "url": "https://x.com/DemonicZucchini/status/2043176043339538894",
+        "createdAtMs": 1775966103000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 32,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043182280898666953",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Instead of selling the hardware, provide community endpoints. I have been thinking about this for awhile. There are 8/16 hours a day I don't use my computer. Perhaps organize a community of like minded people interested in sharing compute.",
+        "author": {
+          "handle": "DarkSmak812",
+          "name": "Dark"
+        },
+        "url": "https://x.com/DarkSmak812/status/2043182280898666953",
+        "createdAtMs": 1775967590000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 2,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 148,
+        "children": [
+          {
+            "id": "2043224448417857578",
+            "parentId": "2043182280898666953",
+            "text": "@DarkSmak812 @0xSero working on this as we speak",
+            "author": {
+              "handle": "realnews42069",
+              "name": "realnews"
+            },
+            "url": "https://x.com/realnews42069/status/2043224448417857578",
+            "createdAtMs": 1775977644000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 4,
+            "children": [],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      },
+      {
+        "id": "2043186467347067359",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Can you ship to australia for someone wanting to start out with a good system for local models 😂🔥🫡",
+        "author": {
+          "handle": "SlimTradeyBaby",
+          "name": "SlimTradey"
+        },
+        "url": "https://x.com/SlimTradeyBaby/status/2043186467347067359",
+        "createdAtMs": 1775968589000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 85,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043218176956051789",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero How much?",
+        "author": {
+          "handle": "allig8or_dundee",
+          "name": "Skippy"
+        },
+        "url": "https://x.com/allig8or_dundee/status/2043218176956051789",
+        "createdAtMs": 1775976149000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 12,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043235092596654172",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero @poesdec",
+        "author": {
+          "handle": "0xRacerAlt",
+          "name": "Friendtech CEO"
+        },
+        "url": "https://x.com/0xRacerAlt/status/2043235092596654172",
+        "createdAtMs": 1775980182000,
+        "replyCount": 0,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 10,
+        "children": [],
+        "isPartial": false
+      },
+      {
+        "id": "2043248255795097901",
+        "parentId": "2043060712134603107",
+        "text": "@0xSero Can I replace these with 5090?",
+        "author": {
+          "handle": "vicnaum",
+          "name": "Convergence Boy"
+        },
+        "url": "https://x.com/vicnaum/status/2043248255795097901",
+        "createdAtMs": 1775983320000,
+        "replyCount": 1,
+        "isQuote": false,
+        "favoriteCount": 0,
+        "retweetCount": 0,
+        "quoteCount": 0,
+        "viewCount": 93,
+        "children": [
+          {
+            "id": "2043248642102874310",
+            "parentId": "2043248255795097901",
+            "text": "@vicnaum You could",
+            "author": {
+              "handle": "0xSero",
+              "name": "0xSero"
+            },
+            "url": "https://x.com/0xSero/status/2043248642102874310",
+            "createdAtMs": 1775983412000,
+            "replyCount": 0,
+            "isQuote": false,
+            "favoriteCount": 0,
+            "retweetCount": 0,
+            "quoteCount": 0,
+            "viewCount": 77,
+            "children": [],
+            "isPartial": false
+          }
+        ],
+        "isPartial": false
+      }
+    ],
+    "isPartial": true
+  },
+  "stats": {
+    "totalTweets": 94,
+    "pagesFetched": 5,
+    "danglingParents": 0
+  }
+}

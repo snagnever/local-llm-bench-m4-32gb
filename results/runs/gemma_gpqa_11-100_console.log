@@ -1,0 +1,118 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading gpqa dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: google/gemma-4-26b-a4b
+  Config: ctx=65536, quant=Q4_K_M, size=16.8GB, arch=gemma4
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 39°C | CPU: 43°C
+  RAM: 17820MB process | Swap: 8478MB
+  max_tokens: 32768
+  Warmup... '4' | p=26 c=47 (t=42+v=5) 15.2t/s | stop
+Running 90 specific questions: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+
+==============================================================================================================
+BENCHMARK: GPQA | Model: google/gemma-4-26b-a4b | Questions: 90
+Params: temp=0, max_tokens=32768, seed=42
+Config: ctx=65536, quant=Q4_K_M, size=16.8GB, arch=gemma4, experts=8
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=45°C, swap=8812MB, process_ram=16750MB
+Log: results/runs/gpqa_google_gemma-4-26b-a4b_20260412_112453.jsonl
+==============================================================================================================
+    1/90 Q11  |  181.1s | p= 170 c= 4246 (t= 4241+v=   5)  23.4t/s |  85°C ram=16722M sw=8812M | OK    | exp=C got=C | score: 100%
+    2/90 Q12  |   81.5s | p= 223 c= 1806 (t= 1801+v=   5)  22.2t/s |  79°C ram=17499M sw=8830M | OK    | exp=D got=D | score: 100%
+    3/90 Q13  |  608.5s | p= 333 c=11623 (t=10937+v= 686)  19.1t/s |  71°C ram=17979M sw=9731M | OK    | exp=D got=D | score: 100%
+    4/90 Q14  |   53.8s | p= 149 c= 1192 (t= 1187+v=   5)  22.2t/s |  70°C ram=18101M sw=10368M | OK    | exp=C got=C | score: 100%
+    5/90 Q15  |  779.5s | p= 227 c=14648 (t=14234+v= 414)  18.8t/s |  70°C ram=18158M sw=8261M | FAIL  | exp=B got=D | score: 80%
+    6/90 Q16  |  140.6s | p= 215 c= 2837 (t= 2832+v=   5)  20.2t/s |  68°C ram=18166M sw=9564M | OK    | exp=D got=D | score: 83%
+    7/90 Q17  |  511.5s | p= 192 c= 9357 (t= 8682+v= 675)  18.3t/s |  69°C ram=18957M sw=10315M | OK    | exp=A got=A | score: 86%
+    8/90 Q18  |   58.3s | p= 216 c= 1162 (t= 1157+v=   5)  19.9t/s |  68°C ram=18103M sw=12651M | OK    | exp=B got=B | score: 88%
+    9/90 Q19  |  113.1s | p= 788 c= 1968 (t= 1963+v=   5)  17.4t/s |  69°C ram=18230M sw=12975M | OK    | exp=B got=B | score: 89%
+   10/90 Q20  | 1800.1s | p=   0 c=    0 (t=    0+v=   0)   0.0t/s |  69°C ram=17752M sw=10229M | FAIL  | exp=C got=? | score: 80%
+   11/90 Q21  |  253.4s | p= 314 c= 4722 (t= 4151+v= 571)  18.6t/s |  70°C ram=17878M sw=12361M | FAIL  | exp=D got=B | score: 73%
+   12/90 Q22  |  122.4s | p= 134 c= 2374 (t= 2369+v=   5)  19.4t/s |  69°C ram=17896M sw=13021M | OK    | exp=A got=A | score: 75%
+   13/90 Q23  |   48.2s | p= 138 c= 1008 (t= 1003+v=   5)  20.9t/s |  69°C ram=18294M sw=10639M | OK    | exp=D got=D | score: 77%
+   14/90 Q24  |  712.2s | p= 167 c=13076 (t=12679+v= 397)  18.4t/s |  68°C ram=17814M sw=10583M | FAIL  | exp=B got=D | score: 71%
+   15/90 Q25  |  618.0s | p= 179 c=11237 (t=10441+v= 796)  18.2t/s |  69°C ram=17918M sw=11224M | OK    | exp=B got=B | score: 73%
+   16/90 Q26  |   39.7s | p= 154 c=  784 (t=  779+v=   5)  19.7t/s |  70°C ram=18695M sw=12632M | OK    | exp=C got=C | score: 75%
+   17/90 Q27  |   44.8s | p= 138 c=  927 (t=  922+v=   5)  20.7t/s |  69°C ram=18110M sw=13629M | OK    | exp=A got=A | score: 76%
+   18/90 Q28  |  894.9s | p= 296 c=15000 (t=14435+v= 565)  16.8t/s |  74°C ram=17914M sw=9878M | FAIL  | exp=A got=C | score: 72%
+   19/90 Q29  |   45.2s | p= 196 c=  655 (t=  650+v=   5)  14.5t/s |  74°C ram=17240M sw=10954M | OK    | exp=A got=A | score: 74%
+   20/90 Q30  |  304.8s | p= 196 c= 5494 (t= 4806+v= 688)  18.0t/s |  70°C ram=17026M sw=12223M | FAIL  | exp=C got=A | score: 70%
+   21/90 Q31  |   99.1s | p= 294 c= 1926 (t= 1921+v=   5)  19.4t/s |  69°C ram=17955M sw=12819M | OK    | exp=D got=D | score: 71%
+   22/90 Q32  |   14.4s | p=2395 c=    6 (t=    1+v=   5)   0.4t/s |     ? ram=18153M sw=13360M | OK    | exp=B got=B | score: 73%
+   23/90 Q33  |   91.4s | p= 132 c= 1641 (t= 1636+v=   5)  18.0t/s |  69°C ram=18288M sw=14196M | OK    | exp=C got=C | score: 74%
+   24/90 Q34  |  423.4s | p= 448 c= 7683 (t= 7678+v=   5)  18.1t/s |  67°C ram=18157M sw=11919M | OK    | exp=A got=A | score: 75%
+   25/90 Q35  |   75.7s | p= 390 c= 1476 (t= 1471+v=   5)  19.5t/s |  69°C ram=17700M sw=12236M | OK    | exp=A got=A | score: 76%
+   26/90 Q36  |  131.7s | p= 110 c= 2519 (t= 2059+v= 460)  19.1t/s |  70°C ram=17447M sw=13087M | FAIL  | exp=C got=A | score: 73%
+   27/90 Q37  |  732.6s | p= 242 c=13109 (t=13066+v=  43)  17.9t/s |  69°C ram=16799M sw=13934M | OK    | exp=A got=A | score: 74%
+   28/90 Q38  |  125.4s | p= 301 c= 2355 (t= 2350+v=   5)  18.8t/s |  68°C ram=17186M sw=15489M | OK    | exp=B got=B | score: 75%
+   29/90 Q39  |   88.9s | p= 230 c= 1713 (t= 1708+v=   5)  19.3t/s |  69°C ram=17061M sw=11086M | OK    | exp=A got=A | score: 76%
+   30/90 Q40  |  453.6s | p=  79 c= 8397 (t= 8390+v=   7)  18.5t/s |  69°C ram=17512M sw=11637M | OK    | exp=D got=D | score: 77%
+   31/90 Q41  |  132.5s | p= 208 c= 2471 (t= 2466+v=   5)  18.7t/s |  67°C ram=17853M sw=12036M | OK    | exp=C got=C | score: 77%
+   32/90 Q42  |   38.7s | p= 219 c=  788 (t=  783+v=   5)  20.3t/s |  69°C ram=18367M sw=12899M | OK    | exp=A got=A | score: 78%
+   33/90 Q43  |  684.3s | p= 387 c=11941 (t=11223+v= 718)  17.5t/s |  67°C ram=17969M sw=13407M | FAIL  | exp=A got=C | score: 76%
+   34/90 Q44  |  546.9s | p= 276 c= 8253 (t= 7597+v= 656)  15.1t/s |  73°C ram=18070M sw=11619M | OK    | exp=B got=B | score: 76%
+   35/90 Q45  | 1007.4s | p= 272 c=13604 (t=13085+v= 519)  13.5t/s |  70°C ram=17312M sw=13473M | FAIL  | exp=C got=D | score: 74%
+   36/90 Q46  |  235.9s | p= 277 c= 4301 (t= 4296+v=   5)  18.2t/s |  68°C ram=17420M sw=11710M | FAIL  | exp=C got=B | score: 72%
+   37/90 Q47  |   76.7s | p= 369 c= 1481 (t= 1476+v=   5)  19.3t/s |     ? ram=19031M sw=10082M | OK    | exp=B got=B | score: 73%
+   38/90 Q48  |  136.0s | p= 108 c= 2588 (t= 2583+v=   5)  19.0t/s |     ? ram=18345M sw=10313M | FAIL  | exp=D got=B | score: 71%
+   39/90 Q49  |  143.2s | p= 239 c= 2715 (t= 2280+v= 435)  19.0t/s |     ? ram=17672M sw=10759M | OK    | exp=B got=B | score: 72%
+   40/90 Q50  |  262.2s | p= 452 c= 4672 (t= 4000+v= 672)  17.8t/s |     ? ram=17958M sw=11262M | FAIL  | exp=A got=B | score: 70%
+   41/90 Q51  |  225.1s | p= 255 c= 3993 (t= 3659+v= 334)  17.7t/s |     ? ram=17706M sw=8378M | FAIL  | exp=A got=D | score: 68%
+   42/90 Q52  |  652.6s | p= 123 c=10873 (t=10231+v= 642)  16.7t/s |     ? ram=17845M sw=9312M | OK    | exp=B got=B | score: 69%
+   43/90 Q53  | 1800.1s | p=   0 c=    0 (t=    0+v=   0)   0.0t/s |     ? ram=17930M sw=10257M | FAIL  | exp=C got=? | score: 67%
+   44/90 Q54  |   71.0s | p=  88 c= 1197 (t= 1192+v=   5)  16.9t/s |     ? ram=17631M sw=8336M | OK    | exp=C got=C | score: 68%
+   45/90 Q55  |  452.4s | p= 129 c= 7250 (t= 6605+v= 645)  16.0t/s |     ? ram=17978M sw=9657M | OK    | exp=A got=A | score: 69%
+   46/90 Q56  |   32.3s | p= 153 c=  555 (t=  550+v=   5)  17.2t/s |     ? ram=17895M sw=10302M | OK    | exp=B got=B | score: 70%
+   47/90 Q57  |   25.1s | p=  98 c=  440 (t=  435+v=   5)  17.5t/s |     ? ram=18491M sw=10815M | OK    | exp=A got=A | score: 70%
+   48/90 Q58  |   89.7s | p= 114 c= 1355 (t= 1350+v=   5)  15.1t/s |     ? ram=17559M sw=11166M | OK    | exp=C got=C | score: 71%
+   49/90 Q59  |  115.3s | p= 349 c= 1917 (t= 1912+v=   5)  16.6t/s |  65°C ram=17824M sw=11849M | OK    | exp=D got=D | score: 71%
+   50/90 Q60  |  462.3s | p= 219 c= 7067 (t= 5952+v=1115)  15.3t/s |     ? ram=17586M sw=11769M | FAIL  | exp=C got=A | score: 70%
+   51/90 Q61  |   92.2s | p= 176 c= 1480 (t= 1475+v=   5)  16.1t/s |     ? ram=17852M sw=9045M | OK    | exp=A got=A | score: 71%
+   52/90 Q62  |  174.1s | p= 227 c= 2744 (t= 2213+v= 531)  15.8t/s |     ? ram=18264M sw=10111M | OK    | exp=A got=A | score: 71%
+   53/90 Q63  | 1800.0s | p=   0 c=    0 (t=    0+v=   0)   0.0t/s |     ? ram=17900M sw=10560M | FAIL  | exp=B got=? | score: 70%
+   54/90 Q64  |  192.0s | p= 230 c= 2914 (t= 2909+v=   5)  15.2t/s |     ? ram=17895M sw=8580M | OK    | exp=D got=D | score: 70%
+   55/90 Q65  |  115.6s | p= 201 c= 1764 (t= 1759+v=   5)  15.3t/s |     ? ram=17860M sw=9892M | OK    | exp=C got=C | score: 71%
+   56/90 Q66  |  188.1s | p= 200 c= 2904 (t= 2899+v=   5)  15.4t/s |     ? ram=16908M sw=7828M | OK    | exp=D got=D | score: 71%
+   57/90 Q67  | 1021.6s | p= 319 c=15271 (t=15266+v=   5)  14.9t/s |  65°C ram=17661M sw=8323M | FAIL  | exp=A got=B | score: 70%
+   58/90 Q68  | 1800.0s | p=   0 c=    0 (t=    0+v=   0)   0.0t/s |  64°C ram=17771M sw=9357M | FAIL  | exp=B got=? | score: 69%
+   59/90 Q69  | 1800.0s | p=   0 c=    0 (t=    0+v=   0)   0.0t/s |     ? ram=18159M sw=10692M | FAIL  | exp=D got=? | score: 68%
+   60/90 Q70  |  526.9s | p=  77 c= 8548 (t= 8037+v= 511)  16.2t/s |  65°C ram=17214M sw=11866M | OK    | exp=A got=A | score: 68%
+   61/90 Q71  |  990.4s | p= 138 c=15782 (t=14878+v= 904)  15.9t/s |  69°C ram=17926M sw=9146M | OK    | exp=C got=C | score: 69%
+   62/90 Q72  |   27.1s | p= 106 c=  502 (t=  497+v=   5)  18.5t/s |  69°C ram=18004M sw=10425M | OK    | exp=C got=C | score: 69%
+   63/90 Q73  |  738.8s | p= 275 c=12748 (t=12118+v= 630)  17.3t/s |  69°C ram=17256M sw=8438M | FAIL  | exp=D got=B | score: 68%
+   64/90 Q74  |   64.3s | p= 138 c= 1246 (t= 1241+v=   5)  19.4t/s |  68°C ram=17904M sw=8863M | FAIL  | exp=C got=D | score: 67%
+   65/90 Q75  |  977.7s | p= 425 c=16809 (t=16115+v= 694)  17.2t/s |  68°C ram=17926M sw=9696M | FAIL  | exp=B got=C | score: 66%
+   66/90 Q76  |  110.3s | p= 151 c= 2093 (t= 2088+v=   5)  19.0t/s |  69°C ram=17565M sw=10524M | FAIL  | exp=C got=B | score: 65%
+   67/90 Q77  | 1478.8s | p= 157 c=24886 (t=24118+v= 768)  16.8t/s |  71°C ram=17702M sw=7627M | OK    | exp=D got=D | score: 66%
+   68/90 Q78  |  869.6s | p= 199 c=15649 (t=14959+v= 690)  18.0t/s |  69°C ram=17890M sw=8436M | FAIL  | exp=C got=B | score: 65%
+   69/90 Q79  |  839.7s | p= 263 c=15109 (t=15104+v=   5)  18.0t/s |  70°C ram=17817M sw=9833M | FAIL  | exp=B got=C | score: 64%
+   70/90 Q80  |  212.4s | p= 288 c= 4030 (t= 3504+v= 526)  19.0t/s |  71°C ram=17932M sw=8780M | OK    | exp=A got=A | score: 64%
+   71/90 Q81  |  251.6s | p= 223 c= 4809 (t= 4392+v= 417)  19.1t/s |  70°C ram=18797M sw=9953M | FAIL  | exp=C got=D | score: 63%
+   72/90 Q82  |  566.1s | p= 190 c=10550 (t= 9553+v= 997)  18.6t/s |     ? ram=18405M sw=8243M | OK    | exp=A got=A | score: 64%
+   73/90 Q83  |   55.2s | p= 228 c= 1080 (t= 1075+v=   5)  19.6t/s |  69°C ram=18233M sw=9114M | OK    | exp=D got=D | score: 64%
+   74/90 Q84  |  346.4s | p= 245 c= 6555 (t= 6100+v= 455)  18.9t/s |  70°C ram=17851M sw=10107M | FAIL  | exp=D got=B | score: 64%
+   75/90 Q85  |   29.5s | p= 124 c=  607 (t=  602+v=   5)  20.6t/s |  70°C ram=17548M sw=10792M | OK    | exp=D got=D | score: 64%
+   76/90 Q86  |  719.7s | p= 220 c=13241 (t=12445+v= 796)  18.4t/s |  71°C ram=18311M sw=7876M | FAIL  | exp=B got=D | score: 63%
+   77/90 Q87  |  209.0s | p= 266 c= 4028 (t= 3755+v= 273)  19.3t/s |  71°C ram=17746M sw=8343M | OK    | exp=C got=C | score: 64%
+   78/90 Q88  |   14.6s | p=  67 c=  319 (t=  314+v=   5)  21.8t/s |  72°C ram=18251M sw=9468M | OK    | exp=C got=C | score: 64%
+   79/90 Q89  |  966.6s | p= 252 c=17413 (t=16932+v= 481)  18.0t/s |  71°C ram=18136M sw=10200M | FAIL  | exp=B got=C | score: 63%
+   80/90 Q90  |  291.9s | p= 219 c= 5529 (t= 4249+v=1280)  18.9t/s |  70°C ram=17622M sw=10913M | FAIL  | exp=A got=B | score: 62%
+   81/90 Q91  |   90.6s | p= 153 c= 1830 (t= 1825+v=   5)  20.2t/s |  69°C ram=17901M sw=8507M | OK    | exp=A got=A | score: 63%
+   82/90 Q92  |  489.5s | p=  78 c= 9215 (t= 8682+v= 533)  18.8t/s |  69°C ram=18150M sw=9460M | OK    | exp=B got=B | score: 63%
+   83/90 Q93  |  158.4s | p= 279 c= 3099 (t= 3094+v=   5)  19.6t/s |  71°C ram=17777M sw=9971M | FAIL  | exp=D got=A | score: 63%
+   84/90 Q94  |   40.0s | p= 187 c=  832 (t=  827+v=   5)  20.8t/s |  69°C ram=18726M sw=11053M | OK    | exp=A got=A | score: 63%
+   85/90 Q95  |   37.7s | p= 169 c=  798 (t=  793+v=   5)  21.1t/s |  69°C ram=18347M sw=8097M | OK    | exp=A got=A | score: 64%
+   86/90 Q96  | 1800.0s | p=   0 c=    0 (t=    0+v=   0)   0.0t/s |  70°C ram=18294M sw=8272M | FAIL  | exp=B got=? | score: 63%
+   87/90 Q97  |   50.4s | p= 194 c= 1009 (t= 1004+v=   5)  20.0t/s |  71°C ram=17189M sw=9084M | OK    | exp=A got=A | score: 63%
+   88/90 Q98  |   46.3s | p= 133 c=  977 (t=  972+v=   5)  21.1t/s |  69°C ram=17863M sw=10199M | OK    | exp=D got=D | score: 64%
+   89/90 Q99  |   34.3s | p= 220 c=  700 (t=  695+v=   5)  20.4t/s |  71°C ram=17759M sw=10562M | OK    | exp=B got=B | score: 64%
+   90/90 Q100 |  198.8s | p= 266 c= 3925 (t= 3201+v= 724)  19.7t/s |  71°C ram=17570M sw=10663M | FAIL  | exp=C got=A | score: 63%
+
+  >>> GPQA: 63% (57/90) in 37737s (628.9m)
+  >>> GPU: 45°C → 68°C
+  >>> RAM: 16750MB | Swap: 8812MB → 11136MB
+  >>> Log: results/runs/gpqa_google_gemma-4-26b-a4b_20260412_112453.jsonl
+  >>> Summary: results/runs/gpqa_google_gemma-4-26b-a4b_20260412_112453_summary.json

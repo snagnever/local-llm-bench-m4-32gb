@@ -1,0 +1,36 @@
+Loading veerman suite...
+
+--- Pre-flight ---
+  Model: mistral-nemo-instruct-2407
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 54°C | CPU: 58°C
+  Swap: 2205MB
+
+==============================================================================================================
+TOOL_CALL | Suite: VEERMAN | Model: mistral-nemo-instruct-2407 | Fresh: 12 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=53°C, swap=2205MB
+Log: results/runs/toolcall_veerman_mistral-nemo-instruct-2407_20260414_013902.jsonl
+==============================================================================================================
+    1/12 veerman_p1_weather_obvious           |    7.9s | p= 711 c=  32   4.0t/s |  63°C sw=2205M | OK    | score: 100%
+    2/12 veerman_p2_files_obvious             |    2.5s | p= 712 c=  31  12.2t/s |  61°C sw=2205M | OK    | score: 100%
+    3/12 veerman_p3_meeting_multi_arg         |    6.5s | p= 746 c=  85  13.0t/s |  65°C sw=2205M | OK    | score: 100%
+    4/12 veerman_p4_ambiguous_brussels        |    3.2s | p= 716 c=  40  12.5t/s |  64°C sw=2205M | OK    | score: 100%
+    5/12 veerman_p5_meta_trick                |   10.2s | p= 712 c= 143  14.0t/s |  69°C sw=2205M | OK    | score: 100%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+    6/12 veerman_p6_multi_step_unknown_city   |    2.7s | p= 719 c=  32  12.0t/s |  59°C sw=2205M | OK    | score: 100%
+    7/12 veerman_p7_noisy_params              |    6.7s | p= 747 c=  87  13.0t/s |  62°C sw=2205M | OK    | score: 100%
+    8/12 veerman_p8_two_tools_parallel        |    4.5s | p= 722 c=  59  13.0t/s |  64°C sw=2205M | OK    | score: 100%
+    9/12 veerman_p9_code_trick                |    3.1s | p= 718 c=  38  12.4t/s |  62°C sw=2205M | FAIL  (called_tool_when_not_needed: get_weather) | score: 89%
+   10/12 veerman_p10_implicit_weather         |    4.9s | p= 725 c=  65  13.2t/s |  63°C sw=2205M | OK    | score: 90%
+   11/12 veerman_p11_negation                 |    2.6s | p= 720 c=  31  12.0t/s |  62°C sw=2205M | OK    | score: 91%
+   12/12 veerman_p12_redundant_weather        |    7.1s | p= 724 c=  97  13.6t/s |  66°C sw=2205M | OK    | score: 92%
+
+  >>> VEERMAN: 92% (11/12) in 137s (2.3m) [fresh=12, carried=0] tok-wt 11.9t/s
+  >>> GPU: 53°C → 61°C
+  >>> Swap: 2205MB → 2205MB
+  >>> Log: results/runs/toolcall_veerman_mistral-nemo-instruct-2407_20260414_013902.jsonl
+  >>> Summary: results/runs/toolcall_veerman_mistral-nemo-instruct-2407_20260414_013902_summary.json

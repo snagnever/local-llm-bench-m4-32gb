@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1_20260414_032420",
+  "suite": "jdhodges",
+  "model": "huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1",
+  "model_slug": "huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1",
+  "score": 0.9,
+  "score_pct": "90.0%",
+  "correct": 36,
+  "total": 40,
+  "carried_over": 0,
+  "fresh_run": 40,
+  "by_category": {
+    "tool_selection": {
+      "pass": 8,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 8,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 4,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 8,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 18.53,
+  "elapsed_s": 794,
+  "elapsed_min": 13.2,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 45,
+    "cpu_temp_c": 49,
+    "process_ram_mb": 0,
+    "swap_used_mb": 3528,
+    "free_pages": 8634
+  },
+  "final_state": {
+    "gpu_temp_c": 58,
+    "cpu_temp_c": 63,
+    "process_ram_mb": 0,
+    "swap_used_mb": 3496,
+    "free_pages": 18991
+  },
+  "timestamp_start": "2026-04-14T03:24:22.863817",
+  "timestamp_end": "2026-04-14T03:37:39.190902",
+  "log_file": "results/runs/toolcall_jdhodges_huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1_20260414_032420.jsonl"
+}

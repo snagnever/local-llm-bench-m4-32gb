@@ -1,0 +1,38 @@
+Loading veerman suite...
+
+--- Pre-flight ---
+  Model: deephermes-toolcalling-specialist-atropos
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 42°C | CPU: 45°C
+  Swap: 2293MB
+
+==============================================================================================================
+TOOL_CALL | Suite: VEERMAN | Model: deephermes-toolcalling-specialist-atropos | Fresh: 12 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=40°C, swap=2293MB
+Log: results/runs/toolcall_veerman_deephermes-toolcalling-specialist-atropos_20260414_012518.jsonl
+==============================================================================================================
+    1/12 veerman_p1_weather_obvious           |    5.2s | p= 703 c=  29   5.6t/s |  52°C sw=2293M | OK    | score: 100%
+    2/12 veerman_p2_files_obvious             |    1.6s | p= 703 c=  28  17.5t/s |  52°C sw=2293M | OK    | score: 100%
+    3/12 veerman_p3_meeting_multi_arg         |    3.6s | p= 729 c=  65  18.2t/s |  56°C sw=2293M | OK    | score: 100%
+    4/12 veerman_p4_ambiguous_brussels        |    1.7s | p= 707 c=  28  16.5t/s |  53°C sw=2293M | OK    | score: 100%
+    5/12 veerman_p5_meta_trick                |   19.7s | p= 703 c= 391  19.9t/s |  67°C sw=2293M | OK    | score: 100%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 49°C — resuming
+    6/12 veerman_p6_multi_step_unknown_city   |    2.6s | p= 710 c=  48  18.5t/s |  58°C sw=2293M | FAIL  (no_tool_called) | score: 83%
+    7/12 veerman_p7_noisy_params              |    2.6s | p= 738 c=  45  17.4t/s |  57°C sw=2293M | FAIL  (no_tool_called) | score: 71%
+    8/12 veerman_p8_two_tools_parallel        |    1.6s | p= 712 c=  28  17.2t/s |  58°C sw=2293M | FAIL  (tool_mismatch) | score: 62%
+    9/12 veerman_p9_code_trick                |   15.6s | p= 709 c= 295  18.9t/s |  67°C sw=2293M | OK    | score: 67%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   10/12 veerman_p10_implicit_weather         |    3.1s | p= 716 c=  59  18.8t/s |  59°C sw=2293M | OK    | score: 70%
+   11/12 veerman_p11_negation                 |    3.2s | p= 711 c=  57  17.9t/s |  60°C sw=2293M | FAIL  (no_tool_called) | score: 64%
+   12/12 veerman_p12_redundant_weather        |    4.5s | p= 716 c=  86  19.3t/s |  64°C sw=2293M | OK    | score: 67%
+
+  >>> VEERMAN: 67% (8/12) in 158s (2.6m) [fresh=12, carried=0] tok-wt 17.8t/s
+  >>> GPU: 40°C → 58°C
+  >>> Swap: 2293MB → 2293MB
+  >>> Log: results/runs/toolcall_veerman_deephermes-toolcalling-specialist-atropos_20260414_012518.jsonl
+  >>> Summary: results/runs/toolcall_veerman_deephermes-toolcalling-specialist-atropos_20260414_012518_summary.json

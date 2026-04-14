@@ -1,0 +1,42 @@
+Loading veerman suite...
+
+--- Pre-flight ---
+  Model: huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 55°C | CPU: 59°C
+  Swap: 3496MB
+
+==============================================================================================================
+TOOL_CALL | Suite: VEERMAN | Model: huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1 | Fresh: 12 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=54°C, swap=3496MB
+Log: results/runs/toolcall_veerman_huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1_20260414_033745.jsonl
+==============================================================================================================
+    1/12 veerman_p1_weather_obvious           |    4.8s | p= 456 c=  72  15.0t/s |  61°C sw=3496M | OK    | score: 100%
+    2/12 veerman_p2_files_obvious             |    4.1s | p= 456 c=  59  14.4t/s |  62°C sw=3496M | OK    | score: 100%
+    3/12 veerman_p3_meeting_multi_arg         |    7.9s | p= 489 c= 160  20.4t/s |  69°C sw=3496M | OK    | score: 100%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+    4/12 veerman_p4_ambiguous_brussels        |    4.3s | p= 460 c=  68  15.7t/s |  60°C sw=3496M | OK    | score: 100%
+    5/12 veerman_p5_meta_trick                |   10.5s | p= 456 c= 214  20.3t/s |  67°C sw=3496M | OK    | score: 100%
+    6/12 veerman_p6_multi_step_unknown_city   |    7.0s | p= 463 c= 138  19.8t/s |  67°C sw=3496M | FAIL  (tool_mismatch) | score: 83%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+    7/12 veerman_p7_noisy_params              |   10.4s | p= 491 c= 215  20.7t/s |  63°C sw=3496M | OK    | score: 86%
+    8/12 veerman_p8_two_tools_parallel        |    6.4s | p= 465 c= 109  17.1t/s |  65°C sw=3496M | FAIL  (tool_mismatch) | score: 75%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+    9/12 veerman_p9_code_trick                |    8.1s | p= 462 c= 154  19.1t/s |  64°C sw=3496M | FAIL  (called_tool_when_not_needed: search_file) | score: 67%
+   10/12 veerman_p10_implicit_weather         |    8.3s | p= 469 c= 172  20.8t/s |  65°C sw=3496M | OK    | score: 70%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   11/12 veerman_p11_negation                 |    7.0s | p= 464 c= 139  19.8t/s |  62°C sw=3496M | OK    | score: 73%
+   12/12 veerman_p12_redundant_weather        |   10.7s | p= 469 c= 222  20.7t/s |  64°C sw=3496M | FAIL  (tool_mismatch) | score: 67%
+
+  >>> VEERMAN: 67% (8/12) in 217s (3.6m) [fresh=12, carried=0] tok-wt 19.3t/s
+  >>> GPU: 54°C → 62°C
+  >>> Swap: 3496MB → 3496MB
+  >>> Log: results/runs/toolcall_veerman_huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1_20260414_033745.jsonl
+  >>> Summary: results/runs/toolcall_veerman_huihui-qwen3.5-35b-a3b-claude-4.6-opus-abliterated-i1_20260414_033745_summary.json

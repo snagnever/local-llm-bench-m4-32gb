@@ -1,0 +1,440 @@
+# Reconstructed jdhodges-style test cases.
+# 40 cases total, 5 categories × 8 cases, 20 dev + 20 holdout.
+# Scored deterministically by the jdhodges eval_tool_calling.py harness.
+# 4 verbatim prompts from the blog are included and marked [verbatim].
+
+# ============================================================================
+# CATEGORY 1: TOOL SELECTION (8 cases)
+# Does the model pick the right tool for a clearly-specified request?
+# ============================================================================
+
+- id: sel_weather_portland
+  category: tool_selection
+  split: dev
+  prompt: "What's the weather in Portland?"
+  expected_tools:
+    - name: get_weather
+      args:
+        location: "Portland, OR"
+
+- id: sel_currency_usd_eur
+  category: tool_selection
+  split: dev
+  prompt: "Convert 100 US dollars to euros."
+  expected_tools:
+    - name: convert_currency
+      args:
+        amount: 100
+        from: USD
+        to: EUR
+
+- id: sel_timezone_tokyo
+  category: tool_selection
+  split: dev
+  prompt: "What time is it in Tokyo right now?"
+  expected_tools:
+    - name: get_time
+      args:
+        timezone: "Asia/Tokyo"
+
+- id: sel_web_python_release
+  category: tool_selection
+  split: dev
+  prompt: "Search the web for the latest Python 3.13 release notes."
+  expected_tools:
+    - name: web_search
+      args:
+        query: "Python 3.13 release notes"
+
+- id: sel_reminder_dentist
+  category: tool_selection
+  split: holdout
+  prompt: "Set a reminder to call the dentist tomorrow at 2pm."
+  expected_tools:
+    - name: set_reminder
+      args:
+        title: "call the dentist"
+
+- id: sel_email_quick
+  category: tool_selection
+  split: holdout
+  prompt: "Send an email to alice@example.com with the subject 'Sprint update' and the body 'Deploy is on track for Friday.'"
+  expected_tools:
+    - name: send_email
+      args:
+        to: alice@example.com
+        subject: "Sprint update"
+        body: "Deploy is on track for Friday."
+
+- id: sel_calendar_create
+  category: tool_selection
+  split: holdout
+  prompt: "Create a calendar event titled 'Product sync' from 2026-04-20T10:00:00 to 2026-04-20T11:00:00."
+  expected_tools:
+    - name: create_calendar_event
+      args:
+        title: "Product sync"
+        start: "2026-04-20T10:00:00"
+        end: "2026-04-20T11:00:00"
+
+- id: sel_calendar_read_week
+  category: tool_selection
+  split: holdout
+  prompt: "Show me my calendar events between 2026-04-14 and 2026-04-20."
+  expected_tools:
+    - name: get_calendar_events
+      args:
+        start_date: "2026-04-14"
+        end_date: "2026-04-20"
+
+# ============================================================================
+# CATEGORY 2: ARGUMENT ACCURACY (8 cases)
+# Given the right tool choice, does the model extract args correctly?
+# ============================================================================
+
+- id: arg_weather_units_celsius
+  category: argument_accuracy
+  split: dev
+  prompt: "What's the weather in Paris in Celsius?"
+  expected_tools:
+    - name: get_weather
+      args:
+        location: "Paris"
+        units: "celsius"
+
+- id: arg_currency_jpy
+  category: argument_accuracy
+  split: dev
+  prompt: "How much is 2500 Japanese yen in British pounds?"
+  expected_tools:
+    - name: convert_currency
+      args:
+        amount: 2500
+        from: JPY
+        to: GBP
+
+- id: arg_email_with_cc
+  category: argument_accuracy
+  split: dev
+  prompt: "Email bob@example.com, cc carol@example.com and dave@example.com, subject 'Weekly report', body 'See attached.'"
+  expected_tools:
+    - name: send_email
+      args:
+        to: bob@example.com
+        cc: ["carol@example.com", "dave@example.com"]
+        subject: "Weekly report"
+        body: "See attached."
+
+- id: arg_event_with_attendees
+  category: argument_accuracy
+  split: dev
+  prompt: "Schedule a meeting 'Design review' for 2026-04-18T15:00:00 to 2026-04-18T16:00:00, invite eve@example.com and frank@example.com."
+  expected_tools:
+    - name: create_calendar_event
+      args:
+        title: "Design review"
+        start: "2026-04-18T15:00:00"
+        end: "2026-04-18T16:00:00"
+        attendees: ["eve@example.com", "frank@example.com"]
+
+- id: arg_timezone_london
+  category: argument_accuracy
+  split: holdout
+  prompt: "Tell me the current time in London."
+  expected_tools:
+    - name: get_time
+      args:
+        timezone: "Europe/London"
+
+- id: arg_reminder_iso_time
+  category: argument_accuracy
+  split: holdout
+  prompt: "Remind me to take out the trash on 2026-04-15T19:30:00 — call it 'trash day'."
+  expected_tools:
+    - name: set_reminder
+      args:
+        title: "trash day"
+        datetime: "2026-04-15T19:30:00"
+
+- id: arg_calendar_range_month
+  category: argument_accuracy
+  split: holdout
+  prompt: "List all calendar events from April 1 2026 to April 30 2026."
+  expected_tools:
+    - name: get_calendar_events
+      args:
+        start_date: "2026-04-01"
+        end_date: "2026-04-30"
+
+- id: arg_search_verbatim
+  category: argument_accuracy
+  split: holdout
+  prompt: "Search for 'macbook air m4 32gb thermal throttling' on the web."
+  expected_tools:
+    - name: web_search
+      args:
+        query: "macbook air m4 32gb thermal throttling"
+
+# ============================================================================
+# CATEGORY 3: MULTI-TOOL (8 cases)
+# Parallel calls, sequential multi-turn chains, or multiple tools at once.
+# ============================================================================
+
+- id: multi_weather_parallel
+  category: multi_tool
+  split: dev
+  prompt: "Check the weather in Miami and Chicago."  # [verbatim — jdhodges blog]
+  expected_tools:
+    - name: get_weather
+      args:
+        location: "Miami"
+    - name: get_weather
+      args:
+        location: "Chicago"
+
+- id: multi_usd_eur_sequential
+  category: multi_tool
+  split: dev
+  prompt: "Search the web for the current exchange rate of USD to EUR, then convert 500 dollars to euros."  # [verbatim — jdhodges blog]
+  multi_turn: true
+  expected_tools:
+    - name: web_search
+      args:
+        query: "USD to EUR exchange rate"
+  turn_2_stub_result: '{"results": [{"title": "USD to EUR exchange rate", "snippet": "1 USD = 0.92 EUR"}]}'
+  turn_2_expected_tools:
+    - name: convert_currency
+      args:
+        amount: 500
+        from: USD
+        to: EUR
+
+- id: multi_paris_celsius_fahrenheit
+  category: multi_tool
+  split: dev
+  prompt: "Look up the weather in Paris, then convert the temperature from Celsius to Fahrenheit."  # [verbatim — jdhodges blog]
+  expected_tools:
+    - name: get_weather
+      args:
+        location: "Paris"
+        units: "celsius"
+
+- id: multi_email_after_calendar_read
+  category: multi_tool
+  split: dev
+  prompt: "Check my calendar for next Monday 2026-04-20, then email alice@example.com with subject 'Monday schedule' and list my events in the body."
+  multi_turn: true
+  expected_tools:
+    - name: get_calendar_events
+      args:
+        start_date: "2026-04-20"
+        end_date: "2026-04-20"
+  turn_2_stub_result: '{"events": [{"title": "Standup", "start": "09:00"}, {"title": "1:1 with Bob", "start": "14:00"}]}'
+  turn_2_expected_tools:
+    - name: send_email
+      args:
+        to: alice@example.com
+        subject: "Monday schedule"
+
+- id: multi_weather_two_cities_holdout
+  category: multi_tool
+  split: holdout
+  prompt: "What's the weather in Seattle and in Denver?"
+  expected_tools:
+    - name: get_weather
+      args:
+        location: "Seattle, WA"
+    - name: get_weather
+      args:
+        location: "Denver, CO"
+
+- id: multi_convert_two_currencies
+  category: multi_tool
+  split: holdout
+  prompt: "Convert 50 USD to both EUR and JPY."
+  expected_tools:
+    - name: convert_currency
+      args:
+        amount: 50
+        from: USD
+        to: EUR
+    - name: convert_currency
+      args:
+        amount: 50
+        from: USD
+        to: JPY
+
+- id: multi_search_then_remind
+  category: multi_tool
+  split: holdout
+  prompt: "Search for 'next SpaceX launch' on the web, then set a reminder titled 'watch launch' for 2026-04-25T18:00:00."
+  multi_turn: true
+  expected_tools:
+    - name: web_search
+      args:
+        query: "next SpaceX launch"
+  turn_2_stub_result: '{"results": [{"title": "Next SpaceX launch Apr 25 2026", "snippet": "Launch at 1800 UTC"}]}'
+  turn_2_expected_tools:
+    - name: set_reminder
+      args:
+        title: "watch launch"
+        datetime: "2026-04-25T18:00:00"
+
+- id: multi_time_and_weather
+  category: multi_tool
+  split: holdout
+  prompt: "Get the current time in New York and also the weather there."
+  expected_tools:
+    - name: get_time
+      args:
+        timezone: "America/New_York"
+    - name: get_weather
+      args:
+        location: "New York, NY"
+
+# ============================================================================
+# CATEGORY 4: EDGE CASES (8 cases)
+# Jokes, math, vague prompts, emotional support — should NOT call a tool
+# (or should ask for clarification).
+# ============================================================================
+
+- id: edge_photosynthesis
+  category: edge_cases
+  split: dev
+  prompt: "How does photosynthesis work?"  # [verbatim — jdhodges blog]
+  expected_tools: []
+
+- id: edge_joke
+  category: edge_cases
+  split: dev
+  prompt: "Tell me a joke."
+  expected_tools: []
+
+- id: edge_math_simple
+  category: edge_cases
+  split: dev
+  prompt: "What's 17 times 23?"
+  expected_tools: []
+
+- id: edge_feeling_down
+  category: edge_cases
+  split: dev
+  prompt: "I'm feeling overwhelmed today. Any advice?"
+  expected_tools: []
+
+- id: edge_vague_reminder
+  category: edge_cases
+  split: holdout
+  prompt: "Remind me about the thing."
+  expected_tools: []
+  clarify: true
+
+- id: edge_vague_email
+  category: edge_cases
+  split: holdout
+  prompt: "Send an email."
+  expected_tools: []
+  clarify: true
+
+- id: edge_define_word
+  category: edge_cases
+  split: holdout
+  prompt: "What does 'obsequious' mean?"
+  expected_tools: []
+
+- id: edge_language_greeting
+  category: edge_cases
+  split: holdout
+  prompt: "How do you say 'good morning' in Japanese?"
+  expected_tools: []
+
+# ============================================================================
+# CATEGORY 5: FORMAT COMPLIANCE (8 cases)
+# Tests array args, optional params, enum values, nested/complex schemas.
+# ============================================================================
+
+- id: fmt_email_no_cc
+  category: format_compliance
+  split: dev
+  prompt: "Email alice@example.com with subject 'Ping' and body 'Just checking in.'"
+  expected_tools:
+    - name: send_email
+      args:
+        to: alice@example.com
+        subject: "Ping"
+        body: "Just checking in."
+
+- id: fmt_email_three_cc
+  category: format_compliance
+  split: dev
+  prompt: "Send an email to lead@example.com, cc team1@example.com, team2@example.com, and team3@example.com, subject 'Release', body 'Ship it.'"
+  expected_tools:
+    - name: send_email
+      args:
+        to: lead@example.com
+        cc: ["team1@example.com", "team2@example.com", "team3@example.com"]
+        subject: "Release"
+        body: "Ship it."
+
+- id: fmt_event_four_attendees
+  category: format_compliance
+  split: dev
+  prompt: "Create an event 'All-hands' from 2026-04-22T13:00:00 to 2026-04-22T14:00:00 with attendees a@x.com, b@x.com, c@x.com, and d@x.com."
+  expected_tools:
+    - name: create_calendar_event
+      args:
+        title: "All-hands"
+        start: "2026-04-22T13:00:00"
+        end: "2026-04-22T14:00:00"
+        attendees: ["a@x.com", "b@x.com", "c@x.com", "d@x.com"]
+
+- id: fmt_weather_fahrenheit_enum
+  category: format_compliance
+  split: dev
+  prompt: "Give me the weather in Phoenix, Arizona in Fahrenheit."
+  expected_tools:
+    - name: get_weather
+      args:
+        location: "Phoenix, AZ"
+        units: "fahrenheit"
+
+- id: fmt_weather_no_units
+  category: format_compliance
+  split: holdout
+  prompt: "Weather in Boston?"
+  expected_tools:
+    - name: get_weather
+      args:
+        location: "Boston, MA"
+
+- id: fmt_currency_decimal_amount
+  category: format_compliance
+  split: holdout
+  prompt: "Convert 49.99 USD to CAD."
+  expected_tools:
+    - name: convert_currency
+      args:
+        amount: 49.99
+        from: USD
+        to: CAD
+
+- id: fmt_event_no_attendees
+  category: format_compliance
+  split: holdout
+  prompt: "Create an event 'Focus block' from 2026-04-16T09:00:00 to 2026-04-16T11:00:00."
+  expected_tools:
+    - name: create_calendar_event
+      args:
+        title: "Focus block"
+        start: "2026-04-16T09:00:00"
+        end: "2026-04-16T11:00:00"
+
+- id: fmt_calendar_read_single_day
+  category: format_compliance
+  split: holdout
+  prompt: "Show me today's events — start and end date both 2026-04-14."
+  expected_tools:
+    - name: get_calendar_events
+      args:
+        start_date: "2026-04-14"
+        end_date: "2026-04-14"

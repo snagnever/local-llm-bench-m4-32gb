@@ -1,0 +1,4 @@
+requests
+psutil
+datasets
+huggingface_hub

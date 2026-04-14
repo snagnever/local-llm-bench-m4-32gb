@@ -1,0 +1,184 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading drop dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit
+  Engine: mlx_vlm Python API
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  Temps: ?
+  Swap: 0MB
+  max_tokens: 8192 | thinking: on
+
+  Loading model... 
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 92794.34it/s]
+7.8s
+  Warmup (2+2)... '<|channel>thought
+*   Input: "' | p=32 c=102 (t=97+v=5) 38.4t/s | stop
+  Auto-skip: 45 questions already completed for deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit / drop (use --force to rerun all)
+    skipping: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]...
+
+==============================================================================================================
+BENCHMARK: DROP | Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit | Questions: 55
+Engine: mlx_vlm Python API
+Params: temp=1.0, max_tokens=8192, seed=42, enable_thinking=True
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=None°C, swap=0MB, process_ram=7370MB
+Carried over: 45 prior entries (36/45 correct = 80%)
+Log: results/runs/mlx_drop_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_143935.jsonl
+==============================================================================================================
+    1/55 Q46  |    1.5s | p= 313 c=    6 (t=    1+v=   5)  43.8t/s |     ? mem=13.4G sw=0M | FAIL  | exp=['Jake Elliott', 'Kamu Grugier | score: 78%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 50°C — resuming
+    2/55 Q47  |   10.1s | p= 195 c=  333 (t=  321+v=  12)  37.0t/s |  63°C mem=13.4G sw=0M | OK    | exp=['female householder with no h | score: 79%
+    3/55 Q48  |   14.3s | p= 208 c=  488 (t=  478+v=  10)  36.7t/s |  74°C mem=13.4G sw=0M | OK    | exp=['69.89', '69.89'] | score: 79%
+  ⏸ GPU at 68°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+    4/55 Q49  |    3.1s | p= 698 c=   11 (t=    1+v=  10)  37.6t/s |  64°C mem=13.7G sw=0M | FAIL  | exp=['Holly Hallstrom', 'Dian Park | score: 78%
+    5/55 Q50  |   74.8s | p= 262 c= 2455 (t= 2439+v=  16)  33.4t/s |  83°C mem=13.7G sw=0M | OK    | exp=['1', 'first'] | score: 78%
+  ⏸ GPU at 77°C — waiting for valid reading ≤60°C
+  ... GPU 64°C, still waiting
+  ✓ GPU at 59°C — resuming
+    6/55 Q51  |    2.1s | p= 362 c=   17 (t=    1+v=  16)  37.9t/s |  64°C mem=13.7G sw=0M | FAIL  | exp=["king's departure from the ar | score: 76%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+    7/55 Q52  |    9.6s | p= 345 c=  287 (t=  282+v=   5)  35.7t/s |  70°C mem=13.7G sw=0M | OK    | exp=['White', 'White'] | score: 77%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+    8/55 Q53  |    1.5s | p= 310 c=    6 (t=    1+v=   5)  43.8t/s |  62°C mem=13.7G sw=0M | FAIL  | exp=['second', 'second'] | score: 75%
+    9/55 Q54  |    2.0s | p= 440 c=    9 (t=    1+v=   8)  37.8t/s |  62°C mem=13.7G sw=0M | OK    | exp=['that same year', '1285'] | score: 76%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   10/55 Q55  |    1.5s | p= 271 c=    9 (t=    1+v=   8)  39.7t/s |  61°C mem=13.7G sw=0M | FAIL  | exp=['Švitrigaila', 'Švitrigaila'] | score: 75%
+   11/55 Q56  |    9.0s | p= 527 c=  241 (t=  235+v=   6)  35.0t/s |  71°C mem=13.7G sw=0M | OK    | exp=['Packers', 'Packers', 'Packer | score: 75%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   12/55 Q57  |    1.6s | p= 311 c=    7 (t=    1+v=   6)  41.7t/s |  59°C mem=13.7G sw=0M | OK    | exp=['26', '26', '26', '26'] | score: 75%
+   13/55 Q58  |    1.8s | p= 377 c=    8 (t=    1+v=   7)  41.2t/s |  61°C mem=13.7G sw=0M | OK    | exp=['231', '231', '231'] | score: 76%
+   14/55 Q59  |   28.6s | p= 294 c=  952 (t=  939+v=  13)  34.9t/s |  78°C mem=13.7G sw=0M | OK    | exp=['22'] | score: 76%
+  ⏸ GPU at 75°C — waiting for valid reading ≤60°C
+  ... GPU 61°C, still waiting
+  ✓ GPU at 55°C — resuming
+   15/55 Q60  |    1.5s | p= 294 c=    6 (t=    1+v=   5)  42.6t/s |  60°C mem=13.7G sw=0M | OK    | exp=['Craig', 'Craig'] | score: 77%
+   16/55 Q61  |    3.1s | p= 771 c=    6 (t=    1+v=   5)  40.4t/s |  65°C mem=13.8G sw=0M | FAIL  | exp=['3', '3'] | score: 75%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   17/55 Q62  |    1.6s | p= 261 c=   10 (t=    1+v=   9)  37.8t/s |  58°C mem=13.8G sw=0M | OK    | exp=['13.5', '13.5', '13.5', '13.5 | score: 76%
+   18/55 Q63  |    9.3s | p= 199 c=  298 (t=  289+v=   9)  36.2t/s |  66°C mem=13.8G sw=0M | OK    | exp=['67.2', '67.2'] | score: 76%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   19/55 Q64  |    8.2s | p= 202 c=  260 (t=  253+v=   7)  36.3t/s |  67°C mem=13.8G sw=0M | OK    | exp=['1'] | score: 77%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   20/55 Q65  |    1.6s | p= 317 c=    6 (t=    1+v=   5)  40.7t/s |  70°C mem=13.8G sw=0M | OK    | exp=['families', 'families'] | score: 77%
+  ⏸ GPU at 70°C — waiting for valid reading ≤60°C
+  ... GPU 64°C, still waiting
+  ✓ GPU at 55°C — resuming
+   21/55 Q66  |   61.4s | p= 458 c= 2024 (t= 2019+v=   5)  34.0t/s |  83°C mem=13.8G sw=0M | OK    | exp=['0', '0', '0'] | score: 77%
+  ⏸ GPU at 80°C — waiting for valid reading ≤60°C
+  ... GPU 64°C, still waiting
+  ✓ GPU at 59°C — resuming
+   22/55 Q67  |    1.7s | p= 335 c=    7 (t=    1+v=   6)  41.1t/s |  64°C mem=13.8G sw=0M | OK    | exp=['British government', 'rebels | score: 78%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   23/55 Q68  |    1.9s | p= 366 c=   13 (t=    1+v=  12)  38.6t/s |  60°C mem=13.8G sw=0M | OK    | exp=['pump boat in Mususiasi', 'Mu | score: 78%
+   24/55 Q69  |    1.6s | p= 304 c=   10 (t=    1+v=   9)  40.3t/s |  62°C mem=13.8G sw=0M | OK    | exp=['7.66', '7.66'] | score: 78%
+   25/55 Q70  |   15.6s | p= 209 c=  516 (t=  509+v=   7)  36.0t/s |  74°C mem=13.8G sw=0M | OK    | exp=['0.7', '1.23'] | score: 79%
+  ⏸ GPU at 68°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   26/55 Q71  |    1.4s | p= 258 c=    8 (t=    1+v=   7)  40.8t/s |  63°C mem=13.8G sw=0M | OK    | exp=['4.5', '4.5'] | score: 79%
+   27/55 Q72  |    6.7s | p= 234 c=  202 (t=  192+v=  10)  36.5t/s |  66°C mem=13.8G sw=0M | OK    | exp=['25 to 44', '25 to 44'] | score: 79%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   28/55 Q73  |    2.6s | p= 489 c=   23 (t=    1+v=  22)  37.4t/s |  63°C mem=13.8G sw=0M | FAIL  | exp=['62', '61'] | score: 78%
+   29/55 Q74  |    6.4s | p= 293 c=  182 (t=  177+v=   5)  36.3t/s |  68°C mem=13.8G sw=0M | OK    | exp=['people', '15,557 people,  4, | score: 78%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   30/55 Q75  |  323.2s | p= 398 c= 8192 (t=    0+v=8192)  25.5t/s |  67°C mem=13.8G sw=0M | FAIL  TRUNC! | exp=['42', '42'] | score: 77%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   31/55 Q76  |   19.6s | p= 352 c=  586 (t=  581+v=   5)  32.6t/s |  69°C mem=13.8G sw=0M | OK    | exp=['4', '4'] | score: 78%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   32/55 Q77  |    8.2s | p= 390 c=  237 (t=  232+v=   5)  36.5t/s |  69°C mem=13.8G sw=0M | OK    | exp=['1', '0'] | score: 78%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   33/55 Q78  |    6.0s | p= 446 c=  147 (t=  137+v=  10)  36.2t/s |  65°C mem=13.8G sw=0M | OK    | exp=['99.31', '99.93'] | score: 78%
+   34/55 Q79  |    1.5s | p= 257 c=   10 (t=    1+v=   9)  41.1t/s |     ? mem=13.8G sw=0M | OK    | exp=['Battle of Carrizal', 'Battle | score: 78%
+   35/55 Q80  |    8.0s | p= 197 c=  258 (t=  249+v=   9)  37.3t/s |  66°C mem=13.8G sw=0M | OK    | exp=['86.8', '86.8'] | score: 79%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   36/55 Q81  |    7.5s | p= 209 c=  238 (t=  228+v=  10)  36.8t/s |  66°C mem=13.8G sw=0M | OK    | exp=['18 to 24', '18 to 24'] | score: 79%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   37/55 Q82  |    6.3s | p= 457 c=  164 (t=  158+v=   6)  36.7t/s |  63°C mem=13.8G sw=0M | OK    | exp=['48-yard', '48'] | score: 79%
+   38/55 Q83  |   12.5s | p= 452 c=  384 (t=  378+v=   6)  36.2t/s |  70°C mem=13.8G sw=0M | OK    | exp=['1', '1'] | score: 80%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   39/55 Q84  |    1.4s | p= 259 c=    7 (t=    1+v=   6)  42.8t/s |  55°C mem=13.8G sw=0M | OK    | exp=['Pacific Islander', 'Pacific  | score: 80%
+   40/55 Q85  |   10.2s | p= 309 c=  323 (t=  314+v=   9)  36.6t/s |  68°C mem=13.8G sw=0M | OK    | exp=['47', '92.2'] | score: 80%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   41/55 Q86  |    1.5s | p= 278 c=   11 (t=    1+v=  10)  40.8t/s |  55°C mem=13.8G sw=0M | OK    | exp=['.0531', '0.0744'] | score: 80%
+   42/55 Q87  |    8.6s | p= 195 c=  283 (t=  273+v=  10)  37.6t/s |  63°C mem=13.8G sw=0M | OK    | exp=['25 to 44', '25 to 44'] | score: 80%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   43/55 Q88  |    1.8s | p= 401 c=    7 (t=    1+v=   6)  42.0t/s |  59°C mem=13.8G sw=0M | OK    | exp=['27', '27', '27'] | score: 81%
+   44/55 Q89  |    2.2s | p= 323 c=   31 (t=    1+v=  30)  38.3t/s |  57°C mem=13.8G sw=0M | OK    | exp=['Barack Obama', 'George W. Bu | score: 81%
+   45/55 Q90  |    1.6s | p= 341 c=    6 (t=    1+v=   5)  43.5t/s |  58°C mem=13.8G sw=0M | OK    | exp=['2', '2', '2', '2', '2'] | score: 81%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 39°C — resuming
+   46/55 Q91  |    6.3s | p= 274 c=  192 (t=  185+v=   7)  37.6t/s |     ? mem=13.8G sw=0M | OK    | exp=['319', '319'] | score: 81%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 40°C — resuming
+   47/55 Q92  |    2.4s | p= 527 c=   12 (t=    1+v=  11)  40.3t/s |     ? mem=13.8G sw=0M | OK    | exp=['Battle of Slobodyshche', 'Ba | score: 82%
+   48/55 Q93  |    9.7s | p= 260 c=  317 (t=  306+v=  11)  37.2t/s |     ? mem=13.8G sw=0M | FAIL  | exp=['779489', '779489'] | score: 81%
+   49/55 Q94  |    4.0s | p= 290 c=  102 (t=   96+v=   6)  37.8t/s |     ? mem=13.8G sw=0M | OK    | exp=['26', '26', '26'] | score: 81%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 39°C — resuming
+   50/55 Q95  |    2.0s | p= 412 c=    8 (t=    1+v=   7)  37.1t/s |  44°C mem=13.8G sw=0M | OK    | exp=['10', '10'] | score: 81%
+   51/55 Q96  |    8.7s | p= 272 c=  262 (t=  253+v=   9)  35.2t/s |  59°C mem=13.8G sw=0M | FAIL  | exp=['8352', '8352'] | score: 80%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 38°C — resuming
+   52/55 Q97  |   11.3s | p= 218 c=  384 (t=  378+v=   6)  37.2t/s |  56°C mem=13.8G sw=0M | OK    | exp=['Romanian', 'Romanian'] | score: 80%
+   53/55 Q98  |   10.1s | p= 204 c=  336 (t=  326+v=  10)  37.2t/s |  60°C mem=13.8G sw=0M | OK    | exp=['74.3', '74.3'] | score: 81%
+   54/55 Q99  |    5.8s | p= 325 c=  161 (t=  156+v=   5)  37.0t/s |  59°C mem=13.8G sw=0M | OK    | exp=['5', '5'] | score: 81%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 46°C — resuming
+   55/55 Q100 |    6.1s | p= 301 c=  179 (t=  174+v=   5)  37.2t/s |     ? mem=13.8G sw=0M | OK    | exp=['4', '1'] | score: 81%
+
+  >>> DROP: 81% (81/100) in 2163s (36.0m) [fresh=55, carried=45]
+  >>> 1 questions truncated at 8192 tokens
+  >>> GPU: None°C → 53°C
+  >>> RAM: 7370MB | Swap: 0MB → 0MB
+  >>> Log: results/runs/mlx_drop_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_143935.jsonl
+  >>> Summary: results/runs/mlx_drop_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_143935_summary.json

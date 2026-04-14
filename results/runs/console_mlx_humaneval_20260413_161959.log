@@ -1,0 +1,359 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading humaneval dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit
+  Engine: mlx_vlm Python API
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 54°C | CPU: 57°C
+  Swap: 0MB
+  max_tokens: 16384 | thinking: on
+
+  Loading model... 
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 19535.65it/s]
+8.8s
+  Warmup (2+2)... '<|channel>thought
+*   Question' | p=32 c=69 (t=64+v=5) 38.2t/s | stop
+
+==============================================================================================================
+BENCHMARK: HUMANEVAL | Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit | Questions: 100
+Engine: mlx_vlm Python API
+Params: temp=1.0, max_tokens=16384, seed=42, enable_thinking=True
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=60°C, swap=0MB, process_ram=4785MB
+Log: results/runs/mlx_humaneval_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_162016.jsonl
+==============================================================================================================
+    1/100 Q1   |  725.7s | p= 149 c=16384 (t=    1+v=16383)  22.6t/s |  67°C mem=13.5G sw=0M | FAIL  TRUNC! | generate_integers | score: 0%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ... GPU 61°C, still waiting
+  ✓ GPU at 60°C — resuming
+    2/100 Q2   |    2.9s | p=  95 c=   76 (t=    1+v=  75)  34.4t/s |  65°C mem=13.5G sw=0M | OK    | concatenate | score: 50%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+    3/100 Q3   |    7.4s | p= 155 c=  237 (t=    1+v= 236)  36.6t/s |  69°C mem=13.5G sw=0M | OK    | parse_nested_parens | score: 67%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+    4/100 Q4   |    6.9s | p= 172 c=  206 (t=    1+v= 205)  36.3t/s |  68°C mem=13.5G sw=0M | OK    | strange_sort_list | score: 75%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+    5/100 Q5   |    4.8s | p= 149 c=  143 (t=    1+v= 142)  36.6t/s |  65°C mem=13.5G sw=0M | OK    | derivative | score: 80%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+    6/100 Q6   |    4.8s | p= 122 c=  147 (t=    1+v= 146)  36.7t/s |  64°C mem=13.5G sw=0M | OK    | monotonic | score: 83%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+    7/100 Q7   |    3.9s | p= 124 c=  114 (t=    1+v= 113)  36.9t/s |  63°C mem=13.5G sw=0M | OK    | max_element | score: 86%
+    8/100 Q8   |    4.9s | p= 125 c=  149 (t=    1+v= 148)  36.8t/s |  68°C mem=13.5G sw=0M | OK    | remove_duplicates | score: 88%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+    9/100 Q9   |  733.1s | p= 136 c=16384 (t=    1+v=16383)  22.4t/s |     ? mem=13.5G sw=0M | FAIL  TRUNC! | special_factorial | score: 78%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 53°C — resuming
+   10/100 Q10  |    4.1s | p= 134 c=  124 (t=    1+v= 123)  37.6t/s |  64°C mem=13.5G sw=0M | OK    | filter_integers | score: 80%
+   11/100 Q11  |  138.7s | p= 188 c= 4365 (t= 4171+v= 194)  31.7t/s |     ? mem=13.5G sw=0M | FAIL  | double_the_difference | score: 73%
+  ⏸ GPU at 69°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 49°C — resuming
+   12/100 Q12  |  716.4s | p= 170 c=16384 (t=    1+v=16383)  22.9t/s |     ? mem=13.5G sw=0M | FAIL  TRUNC! | count_nums | score: 67%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 43°C — resuming
+   13/100 Q13  |   29.5s | p= 156 c= 1035 (t=  880+v= 155)  36.1t/s |  73°C mem=13.5G sw=0M | FAIL  | sum_product | score: 62%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   14/100 Q14  |    4.1s | p= 135 c=  122 (t=    1+v= 121)  37.7t/s |  61°C mem=13.5G sw=0M | OK    | filter_by_substring | score: 64%
+   15/100 Q15  |    2.1s | p=  76 c=   56 (t=    1+v=  55)  38.4t/s |  60°C mem=13.5G sw=0M | OK    | strlen | score: 67%
+   16/100 Q16  |    4.1s | p=  90 c=  131 (t=    1+v= 130)  37.9t/s |  64°C mem=13.5G sw=0M | OK    | fib | score: 69%
+   17/100 Q17  |    4.1s | p= 109 c=  127 (t=    1+v= 126)  38.0t/s |  66°C mem=13.5G sw=0M | OK    | largest_prime_factor | score: 71%
+   18/100 Q18  |  675.8s | p= 456 c=16384 (t=    1+v=16383)  24.3t/s |  67°C mem=13.5G sw=0M | FAIL  TRUNC! | minPath | score: 67%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   19/100 Q19  |    4.0s | p= 153 c=  107 (t=    1+v= 106)  34.6t/s |  63°C mem=13.5G sw=0M | OK    | solve | score: 68%
+   20/100 Q20  |    4.2s | p= 198 c=  119 (t=    1+v= 118)  37.8t/s |  68°C mem=13.5G sw=0M | OK    | words_in_sentence | score: 70%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   21/100 Q21  |    2.9s | p= 136 c=   78 (t=    1+v=  77)  38.0t/s |  61°C mem=13.5G sw=0M | FAIL  | decode_shift | score: 67%
+   22/100 Q22  |    4.9s | p= 111 c=  157 (t=    1+v= 156)  37.8t/s |  65°C mem=13.5G sw=0M | OK    | even_odd_count | score: 68%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   23/100 Q23  |    4.1s | p= 254 c=  109 (t=    1+v= 108)  37.5t/s |  65°C mem=13.5G sw=0M | OK    | even_odd_palindrome | score: 70%
+   24/100 Q24  |    4.9s | p= 125 c=  158 (t=    1+v= 157)  37.8t/s |  68°C mem=13.5G sw=0M | OK    | correct_bracketing | score: 71%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   25/100 Q25  |    5.6s | p= 125 c=  184 (t=    1+v= 183)  37.7t/s |  63°C mem=13.5G sw=0M | OK    | minSubArraySum | score: 72%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   26/100 Q26  |    7.0s | p= 164 c=  227 (t=    1+v= 226)  37.5t/s |  65°C mem=13.5G sw=0M | OK    | triangle_area | score: 73%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   27/100 Q27  |    7.8s | p= 157 c=  249 (t=    1+v= 248)  35.9t/s |  67°C mem=13.5G sw=0M | OK    | separate_paren_groups | score: 74%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   28/100 Q28  |   29.2s | p= 222 c= 1019 (t=    1+v=1018)  36.2t/s |  79°C mem=13.5G sw=0M | OK    | triples_sum_to_zero | score: 75%
+  ⏸ GPU at 71°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   29/100 Q29  |    8.5s | p= 275 c=  267 (t=    1+v= 266)  37.1t/s |  72°C mem=13.5G sw=0M | OK    | compare | score: 76%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   30/100 Q30  |    4.3s | p= 312 c=  110 (t=    1+v= 109)  37.4t/s |  65°C mem=13.5G sw=0M | OK    | get_row | score: 77%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   31/100 Q31  |   30.0s | p= 126 c= 1057 (t=  944+v= 113)  36.2t/s |  79°C mem=13.5G sw=0M | FAIL  | is_equal_to_sum_even | score: 74%
+  ⏸ GPU at 75°C — waiting for valid reading ≤60°C
+  ... GPU 62°C, still waiting
+  ✓ GPU at 57°C — resuming
+   32/100 Q32  |    7.0s | p= 136 c=  230 (t=    1+v= 229)  37.3t/s |  67°C mem=13.5G sw=0M | OK    | prime_fib | score: 75%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   33/100 Q33  |  699.2s | p= 250 c=16384 (t=    1+v=16383)  23.5t/s |     ? mem=13.5G sw=0M | FAIL  TRUNC! | bf | score: 73%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   34/100 Q34  |  703.7s | p= 174 c=16384 (t=    1+v=16383)  23.3t/s |  66°C mem=13.5G sw=0M | FAIL  TRUNC! | anti_shuffle | score: 71%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   35/100 Q35  |   10.8s | p= 156 c=  311 (t=    1+v= 310)  31.5t/s |  63°C mem=13.5G sw=0M | OK    | int_to_mini_roman | score: 71%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   36/100 Q36  |    8.1s | p= 236 c=  254 (t=    1+v= 253)  36.3t/s |  69°C mem=13.5G sw=0M | OK    | sorted_list_sum | score: 72%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   37/100 Q37  |    5.3s | p= 154 c=  165 (t=    1+v= 164)  37.5t/s |  66°C mem=13.5G sw=0M | OK    | multiply | score: 73%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   38/100 Q38  |    4.5s | p= 142 c=  136 (t=    1+v= 135)  37.6t/s |  64°C mem=13.5G sw=0M | OK    | longest | score: 74%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   39/100 Q39  |    2.4s | p=  82 c=   66 (t=    1+v=  65)  38.4t/s |  61°C mem=13.5G sw=0M | OK    | triangle_area | score: 74%
+   40/100 Q40  |    5.0s | p= 138 c=  155 (t=    1+v= 154)  37.7t/s |  66°C mem=13.5G sw=0M | OK    | can_arrange | score: 75%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   41/100 Q41  |    5.2s | p= 143 c=  165 (t=    1+v= 164)  37.7t/s |  63°C mem=13.5G sw=0M | OK    | change_base | score: 76%
+   42/100 Q42  |    5.2s | p= 151 c=  164 (t=    1+v= 163)  37.7t/s |  67°C mem=13.5G sw=0M | OK    | iscube | score: 76%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   43/100 Q43  |    7.9s | p= 191 c=  260 (t=    1+v= 259)  37.3t/s |  65°C mem=13.5G sw=0M | OK    | sort_third | score: 77%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   44/100 Q44  |  702.8s | p= 195 c=16384 (t=    1+v=16383)  23.3t/s |  67°C mem=13.5G sw=0M | FAIL  TRUNC! | rounded_avg | score: 75%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   45/100 Q45  |    6.3s | p= 135 c=  172 (t=    1+v= 171)  31.8t/s |  63°C mem=13.5G sw=0M | OK    | intersperse | score: 76%
+   46/100 Q46  |  714.6s | p= 155 c=16384 (t=    1+v=16383)  23.0t/s |  67°C mem=13.5G sw=0M | FAIL  TRUNC! | encode | score: 74%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 44°C — resuming
+   47/100 Q47  |    4.9s | p= 161 c=  152 (t=    1+v= 151)  37.6t/s |  55°C mem=13.5G sw=0M | OK    | common | score: 74%
+   48/100 Q48  |   13.7s | p= 372 c=  438 (t=    1+v= 437)  36.0t/s |  66°C mem=13.5G sw=0M | OK    | pluck | score: 75%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   49/100 Q49  |    3.5s | p= 110 c=  104 (t=    1+v= 103)  37.9t/s |  58°C mem=13.5G sw=0M | OK    | string_sequence | score: 76%
+   50/100 Q50  |    3.2s | p= 109 c=   91 (t=    1+v=  90)  37.6t/s |  62°C mem=13.5G sw=0M | OK    | is_palindrome | score: 76%
+   51/100 Q51  |    6.9s | p= 185 c=  218 (t=    1+v= 217)  36.9t/s |  68°C mem=13.5G sw=0M | OK    | make_palindrome | score: 76%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 50°C — resuming
+   52/100 Q52  |    8.6s | p= 255 c=  276 (t=    1+v= 275)  37.1t/s |     ? mem=13.5G sw=0M | OK    | do_algebra | score: 77%
+   53/100 Q53  |    6.8s | p= 164 c=  217 (t=    1+v= 216)  37.0t/s |  69°C mem=13.5G sw=0M | OK    | sort_even | score: 77%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   54/100 Q54  |  570.8s | p= 165 c=14553 (t=    1+v=14552)  25.5t/s |     ? mem=13.5G sw=0M | OK    | f | score: 78%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   55/100 Q55  |    6.5s | p= 160 c=  194 (t=    1+v= 193)  34.3t/s |  64°C mem=13.5G sw=0M | OK    | is_happy | score: 78%
+   56/100 Q56  |    6.1s | p= 192 c=  190 (t=    1+v= 189)  37.5t/s |  69°C mem=13.5G sw=0M | OK    | decimal_to_binary | score: 79%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   57/100 Q57  |  203.1s | p= 215 c= 5607 (t=    1+v=5606)  27.8t/s |  66°C mem=13.5G sw=0M | OK    | fib4 | score: 79%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   58/100 Q58  |    8.2s | p= 195 c=  221 (t=    1+v= 220)  31.1t/s |     ? mem=13.5G sw=0M | OK    | smallest_change | score: 79%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   59/100 Q59  |    3.1s | p=  86 c=   91 (t=    1+v=  90)  37.6t/s |  62°C mem=13.5G sw=0M | OK    | largest_divisor | score: 80%
+   60/100 Q60  |    5.7s | p= 161 c=  174 (t=    1+v= 173)  36.8t/s |  69°C mem=13.5G sw=0M | OK    | next_smallest | score: 80%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   61/100 Q61  |    6.4s | p= 322 c=  181 (t=    1+v= 180)  36.7t/s |  66°C mem=13.5G sw=0M | OK    | Strongest_Extension | score: 80%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   62/100 Q62  |    5.6s | p= 213 c=  172 (t=    1+v= 171)  37.4t/s |  62°C mem=13.5G sw=0M | OK    | match_parens | score: 81%
+   63/100 Q63  |   64.1s | p= 189 c= 2204 (t= 2013+v= 191)  34.9t/s |  79°C mem=13.5G sw=0M | FAIL  | solve | score: 79%
+  ⏸ GPU at 78°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 57°C — resuming
+   64/100 Q64  |    4.1s | p= 133 c=  122 (t=    1+v= 121)  37.0t/s |     ? mem=13.5G sw=0M | OK    | filter_by_prefix | score: 80%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 45°C — resuming
+   65/100 Q65  |    4.3s | p= 112 c=  137 (t=    1+v= 136)  37.8t/s |     ? mem=13.5G sw=0M | OK    | count_upper | score: 80%
+   66/100 Q66  |   30.3s | p= 192 c= 1061 (t=  813+v= 248)  36.2t/s |     ? mem=13.5G sw=0M | FAIL  | histogram | score: 79%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 47°C — resuming
+   67/100 Q67  |    8.7s | p= 226 c=  281 (t=    1+v= 280)  37.1t/s |     ? mem=13.5G sw=0M | OK    | odd_count | score: 79%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 41°C — resuming
+   68/100 Q68  |    6.0s | p= 177 c=  193 (t=    1+v= 192)  37.7t/s |     ? mem=13.5G sw=0M | OK    | make_a_pile | score: 79%
+   69/100 Q69  |  630.5s | p= 293 c=16384 (t=    1+v=16383)  26.0t/s |  70°C mem=13.5G sw=0M | FAIL  TRUNC! | is_sorted | score: 78%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 47°C — resuming
+   70/100 Q70  |    8.3s | p= 210 c=  269 (t=    1+v= 268)  37.2t/s |     ? mem=13.5G sw=0M | OK    | sum_squares | score: 79%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 43°C — resuming
+   71/100 Q71  |    5.1s | p= 152 c=  160 (t=    1+v= 159)  37.7t/s |     ? mem=13.5G sw=0M | OK    | right_angle_triangle | score: 79%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 41°C — resuming
+   72/100 Q72  |    9.5s | p= 227 c=  311 (t=    1+v= 310)  36.9t/s |  57°C mem=13.5G sw=0M | OK    | select_words | score: 79%
+   73/100 Q73  |   15.4s | p= 321 c=  506 (t=    1+v= 505)  36.3t/s |  69°C mem=13.5G sw=0M | OK    | numerical_letter_grade | score: 79%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 50°C — resuming
+   74/100 Q74  |   12.4s | p= 269 c=  409 (t=    1+v= 408)  36.6t/s |  67°C mem=13.5G sw=0M | OK    | file_name_check | score: 80%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   75/100 Q75  |  637.3s | p= 208 c=16384 (t=    1+v=16383)  25.8t/s |  68°C mem=13.5G sw=0M | FAIL  TRUNC! | find_closest_elements | score: 79%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   76/100 Q76  |    5.6s | p= 115 c=  166 (t=    1+v= 165)  34.1t/s |  65°C mem=13.5G sw=0M | OK    | median | score: 79%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   77/100 Q77  |  668.9s | p= 183 c=16384 (t=    1+v=16383)  24.5t/s |  66°C mem=13.5G sw=0M | FAIL  TRUNC! | split_words | score: 78%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   78/100 Q78  |    8.2s | p= 167 c=  235 (t=    1+v= 234)  32.7t/s |  65°C mem=13.5G sw=0M | OK    | specialFilter | score: 78%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   79/100 Q79  |    3.2s | p=  91 c=   96 (t=    1+v=  95)  38.1t/s |     ? mem=13.5G sw=0M | OK    | add | score: 78%
+   80/100 Q80  |    3.3s | p= 112 c=   96 (t=    1+v=  95)  37.9t/s |     ? mem=13.5G sw=0M | OK    | unique | score: 79%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 41°C — resuming
+   81/100 Q81  |    4.7s | p= 119 c=  151 (t=    1+v= 150)  38.0t/s |  51°C mem=13.5G sw=0M | OK    | prime_length | score: 79%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 41°C — resuming
+   82/100 Q82  |    5.5s | p= 140 c=  177 (t=    1+v= 176)  37.9t/s |     ? mem=13.5G sw=0M | OK    | rolling_max | score: 79%
+   83/100 Q83  |   65.5s | p= 177 c= 2296 (t= 2122+v= 174)  35.5t/s |  83°C mem=13.5G sw=0M | FAIL  | add_elements | score: 78%
+  ⏸ GPU at 74°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   84/100 Q84  |    6.6s | p= 167 c=  212 (t=    1+v= 211)  37.4t/s |  71°C mem=13.5G sw=0M | OK    | rescale_to_unit | score: 79%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 50°C — resuming
+   85/100 Q85  |  169.7s | p= 215 c= 5208 (t=    1+v=5207)  30.9t/s |  69°C mem=13.5G sw=0M | FAIL  | sort_array | score: 78%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 54°C — resuming
+   86/100 Q86  |    6.9s | p= 155 c=  226 (t=    1+v= 225)  37.3t/s |     ? mem=13.5G sw=0M | OK    | is_prime | score: 78%
+   87/100 Q87  |    7.8s | p= 152 c=  261 (t=    1+v= 260)  37.5t/s |  69°C mem=13.5G sw=0M | OK    | encrypt | score: 78%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 50°C — resuming
+   88/100 Q88  |  168.6s | p= 219 c= 4950 (t= 4347+v= 603)  29.5t/s |  67°C mem=13.5G sw=0M | OK    | get_max_triples | score: 78%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   89/100 Q89  |    6.4s | p= 362 c=  155 (t=    1+v= 154)  32.8t/s |  61°C mem=13.5G sw=0M | OK    | skjkasdkd | score: 79%
+   90/100 Q90  |  672.5s | p= 158 c=16384 (t=    1+v=16383)  24.4t/s |     ? mem=13.5G sw=0M | FAIL  TRUNC! | words_string | score: 78%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   91/100 Q91  |   24.0s | p= 200 c=  752 (t=  560+v= 192)  32.9t/s |  68°C mem=13.5G sw=0M | FAIL  | sum_squares | score: 77%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   92/100 Q92  |    4.3s | p= 127 c=  133 (t=    1+v= 132)  37.4t/s |     ? mem=13.5G sw=0M | OK    | string_to_md5 | score: 77%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 49°C — resuming
+   93/100 Q93  |    5.7s | p= 196 c=  175 (t=    1+v= 174)  37.4t/s |  60°C mem=13.5G sw=0M | OK    | car_race_collision | score: 77%
+   94/100 Q94  |    5.0s | p= 134 c=  158 (t=    1+v= 157)  37.7t/s |  65°C mem=13.5G sw=0M | OK    | x_or_y | score: 78%
+   95/100 Q95  |    8.3s | p= 212 c=  268 (t=    1+v= 267)  37.3t/s |     ? mem=13.5G sw=0M | OK    | count_up_to | score: 78%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   96/100 Q96  |    5.6s | p= 155 c=  177 (t=    1+v= 176)  37.6t/s |  63°C mem=13.5G sw=0M | OK    | mean_absolute_deviation | score: 78%
+   97/100 Q97  |    7.1s | p= 181 c=  226 (t=    1+v= 225)  37.4t/s |     ? mem=13.5G sw=0M | OK    | largest_smallest_integers | score: 78%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   98/100 Q98  |    5.5s | p= 170 c=  172 (t=    1+v= 171)  37.4t/s |  64°C mem=13.5G sw=0M | OK    | remove_vowels | score: 79%
+   99/100 Q99  |    3.7s | p= 241 c=   94 (t=    1+v=  93)  37.6t/s |  64°C mem=13.5G sw=0M | OK    | total_match | score: 79%
+  100/100 Q100 |  663.0s | p= 267 c=16384 (t=    1+v=16383)  24.8t/s |  67°C mem=13.5G sw=0M | FAIL  TRUNC! | maximum | score: 78%
+
+  >>> HUMANEVAL: 78% (78/100) in 14217s (237.0m) [fresh=100, carried=0]
+  >>> 13 questions truncated at 16384 tokens
+  >>> GPU: 60°C → None°C
+  >>> RAM: 4785MB | Swap: 0MB → 0MB
+  >>> Log: results/runs/mlx_humaneval_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_162016.jsonl
+  >>> Summary: results/runs/mlx_humaneval_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_162016_summary.json

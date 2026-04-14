@@ -1,0 +1,46 @@
+# Veerman's 3 tools with _v suffix to avoid collision with jdhodges schemas.
+# Used only when running Veerman cases (separate harness invocation).
+
+tools:
+  - type: function
+    function:
+      name: get_weather_v
+      description: Get the current weather for a given city.
+      parameters:
+        type: object
+        properties:
+          city:
+            type: string
+            description: "The city name, e.g. 'Antwerp'."
+        required: [city]
+
+  - type: function
+    function:
+      name: search_files_v
+      description: Search for files matching a pattern in the project directory.
+      parameters:
+        type: object
+        properties:
+          pattern:
+            type: string
+            description: "Glob pattern to match files, e.g. '*.py'."
+        required: [pattern]
+
+  - type: function
+    function:
+      name: schedule_meeting_v
+      description: Schedule a meeting with attendees at a given time.
+      parameters:
+        type: object
+        properties:
+          title:
+            type: string
+            description: "Meeting title."
+          time:
+            type: string
+            description: "Meeting time in ISO 8601 format."
+          attendees:
+            type: array
+            items: {type: string}
+            description: "List of attendee email addresses."
+        required: [title, time]

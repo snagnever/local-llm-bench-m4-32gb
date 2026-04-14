@@ -1,0 +1,18 @@
+{
+  "model": "google/gemma-4-26b-a4b",
+  "model_short": "Gemma4",
+  "benchmark": "gpqa",
+  "score": 0.64,
+  "correct": 64,
+  "total": 100,
+  "elapsed_s": 41220,
+  "elapsed_min": 687.0,
+  "truncated": 0,
+  "errors": 7,
+  "note": "Combined from 10q probe (Q1-10) + 90q main run (Q11-100)",
+  "probe_run": "gpqa_google_gemma-4-26b-a4b_20260412_073858",
+  "main_run": "gpqa_google_gemma-4-26b-a4b_20260412_112453",
+  "avg_completion_tokens": 4966,
+  "avg_reasoning_tokens": 4729,
+  "total_completion_tokens": 496619
+}

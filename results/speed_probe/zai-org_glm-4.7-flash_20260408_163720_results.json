@@ -1,0 +1,75 @@
+{
+  "model": "zai-org/glm-4.7-flash",
+  "timestamp": "20260408_163720",
+  "base_url": "http://127.0.0.1:1234/v1",
+  "questions": [
+    {
+      "name": "trivial",
+      "category": "sanity",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is 2+2? Answer with just the number."
+        }
+      ],
+      "expected": "4",
+      "max_tokens": 256,
+      "result": {
+        "success": true,
+        "content": "4",
+        "elapsed": 1.92,
+        "prompt_tokens": 25,
+        "completion_tokens": 55,
+        "reasoning_tokens": 52
+      }
+    },
+    {
+      "name": "mmlu_atmosphere",
+      "category": "knowledge",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which of the following is the correct order of the layers of the Earth's atmosphere from lowest to highest?\n(A) Troposphere, Stratosphere, Mesosphere, Thermosphere\n(B) Stratosphere, Troposphere, Mesosphere, Thermosphere\n(C) Troposphere, Mesosphere, Stratosphere, Thermosphere\n(D) Mesosphere, Troposphere, Stratosphere, Thermosphere\nAnswer with just the letter."
+        }
+      ],
+      "expected": "A",
+      "max_tokens": 512,
+      "result": {
+        "success": true,
+        "content": "A",
+        "elapsed": 15.8,
+        "prompt_tokens": 103,
+        "completion_tokens": 416,
+        "reasoning_tokens": 413
+      }
+    },
+    {
+      "name": "code_second_largest",
+      "category": "coding",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that takes a list of integers and returns the second largest element. If fewer than 2 unique elements, return None. Just the function, no explanation."
+        }
+      ],
+      "expected": null,
+      "max_tokens": 1024,
+      "result": {
+        "success": true,
+        "content": "```python\ndef second_largest(nums):\n    unique_nums = set(nums)\n    if len(unique_nums) < 2:\n        return None\n    return sorted(unique_nums)[-2]\n```",
+        "elapsed": 41.39,
+        "prompt_tokens": 47,
+        "completion_tokens": 1005,
+        "reasoning_tokens": 964
+      }
+    }
+  ],
+  "total_time": 59.11,
+  "system_metrics": {
+    "peak_ram_gb": 29.1,
+    "peak_swap_gb": 4.0,
+    "avg_gpu_pct": 69.0,
+    "peak_power_w": 14.8,
+    "samples": 58
+  }
+}

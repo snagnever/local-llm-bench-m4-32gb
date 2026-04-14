@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_hermes-4-14b_20260414_014154",
+  "suite": "jdhodges",
+  "model": "hermes-4-14b",
+  "model_slug": "hermes-4-14b",
+  "score": 0.875,
+  "score_pct": "87.5%",
+  "correct": 35,
+  "total": 40,
+  "carried_over": 0,
+  "fresh_run": 40,
+  "by_category": {
+    "tool_selection": {
+      "pass": 8,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 7,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 5,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 7,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 9.99,
+  "elapsed_s": 2453,
+  "elapsed_min": 40.9,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": null,
+    "cpu_temp_c": 56,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2205,
+    "free_pages": 8164
+  },
+  "final_state": {
+    "gpu_temp_c": 56,
+    "cpu_temp_c": 60,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2197,
+    "free_pages": 218559
+  },
+  "timestamp_start": "2026-04-14T01:41:56.714727",
+  "timestamp_end": "2026-04-14T02:22:52.170165",
+  "log_file": "results/runs/toolcall_jdhodges_hermes-4-14b_20260414_014154.jsonl"
+}

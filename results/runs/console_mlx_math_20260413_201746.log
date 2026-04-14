@@ -1,0 +1,475 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading math dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit
+  Engine: mlx_vlm Python API
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  Temps: ?
+  Swap: 0MB
+  max_tokens: 32768 | thinking: on
+
+  Loading model... 
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 22671.91it/s]
+8.6s
+  Warmup (2+2)... '<|channel>thought
+The user is ' | p=32 c=49 (t=44+v=5) 38.4t/s | stop
+  Auto-skip: 5 questions already completed for deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit / math (use --force to rerun all)
+    skipping: [1, 2, 3, 4, 5]
+
+==============================================================================================================
+BENCHMARK: MATH | Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit | Questions: 95
+Engine: mlx_vlm Python API
+Params: temp=1.0, max_tokens=32768, seed=42, enable_thinking=True
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=64°C, swap=588MB, process_ram=2357MB
+Carried over: 5 prior entries (5/5 correct = 100%)
+Log: results/runs/mlx_math_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_201810.jsonl
+==============================================================================================================
+    1/95 Q6   |   11.9s | p=  64 c=  421 (t=    1+v= 420)  37.2t/s |  72°C mem=13.0G sw=588M | OK    | Level 3 | score: 100%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+    2/95 Q7   |   15.6s | p= 101 c=  546 (t=    1+v= 545)  36.7t/s |  72°C mem=13.1G sw=588M | OK    | Level 5 | score: 100%
+  ⏸ GPU at 69°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+    3/95 Q8   |   31.5s | p=  91 c= 1110 (t=  587+v= 523)  35.9t/s |  80°C mem=13.1G sw=588M | OK    | Level 3 | score: 100%
+  ⏸ GPU at 77°C — waiting for valid reading ≤60°C
+  ... GPU 61°C, still waiting
+  ✓ GPU at 57°C — resuming
+    4/95 Q9   |   11.8s | p=  94 c=  407 (t=    1+v= 406)  36.3t/s |  68°C mem=13.1G sw=588M | OK    | Level 4 | score: 100%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 45°C — resuming
+    5/95 Q10  |   16.3s | p= 104 c=  573 (t=    1+v= 572)  36.8t/s |     ? mem=13.1G sw=588M | OK    | Level 3 | score: 100%
+    6/95 Q11  |   46.1s | p=  80 c= 1632 (t=    1+v=1631)  35.9t/s |     ? mem=13.1G sw=588M | OK    | Level 5 | score: 100%
+  ⏸ GPU at 73°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 52°C — resuming
+    7/95 Q12  |   15.0s | p= 134 c=  511 (t=    1+v= 510)  36.2t/s |     ? mem=13.1G sw=588M | OK    | Level 3 | score: 100%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 45°C — resuming
+    8/95 Q13  |   33.1s | p=  77 c= 1177 (t=    1+v=1176)  36.2t/s |     ? mem=13.1G sw=588M | OK    | Level 5 | score: 100%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+    9/95 Q14  |    8.1s | p=  62 c=  283 (t=    1+v= 282)  37.5t/s |     ? mem=13.1G sw=588M | OK    | Level 1 | score: 100%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   10/95 Q15  |   74.5s | p= 153 c= 2589 (t=    1+v=2588)  35.1t/s |     ? mem=13.1G sw=588M | OK    | Level 5 | score: 100%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 57°C — resuming
+   11/95 Q16  | 1538.9s | p=  77 c=32768 (t=    1+v=32767)  21.3t/s |  68°C mem=13.9G sw=588M | FAIL  TRUNC! | Level 3 | score: 94%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   12/95 Q17  |    7.7s | p=  74 c=  232 (t=    0+v= 232)  33.1t/s |     ? mem=13.9G sw=588M | OK    | Level 3 | score: 94%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 50°C — resuming
+   13/95 Q18  |   30.7s | p= 128 c= 1056 (t=    1+v=1055)  35.3t/s |  82°C mem=13.9G sw=588M | FAIL  | Level 5 | score: 89%
+  ⏸ GPU at 74°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   14/95 Q19  |    5.8s | p=  56 c=  190 (t=    1+v= 189)  37.0t/s |  71°C mem=13.9G sw=588M | OK    | Level 1 | score: 89%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   15/95 Q20  |   27.1s | p= 120 c=  932 (t=    1+v= 931)  35.4t/s |  82°C mem=13.9G sw=588M | OK    | Level 3 | score: 90%
+  ⏸ GPU at 75°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   16/95 Q21  |  653.2s | p=  68 c=15965 (t=15439+v= 526)  24.5t/s |     ? mem=13.9G sw=588M | FAIL  | Level 4 | score: 86%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 42°C — resuming
+   17/95 Q22  |   40.1s | p=  88 c= 1400 (t=    0+v=1400)  35.7t/s |  73°C mem=13.9G sw=580M | OK    | Level 4 | score: 86%
+  ⏸ GPU at 69°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   18/95 Q23  |   13.8s | p=  58 c=  488 (t=    1+v= 487)  36.9t/s |  70°C mem=13.9G sw=580M | OK    | Level 2 | score: 87%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   19/95 Q24  |   13.9s | p=  87 c=  488 (t=    1+v= 487)  36.9t/s |  73°C mem=13.9G sw=580M | OK    | Level 3 | score: 88%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 44°C — resuming
+   20/95 Q25  |   50.9s | p=  90 c= 1796 (t= 1315+v= 481)  35.7t/s |     ? mem=13.9G sw=580M | OK    | Level 4 | score: 88%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 44°C — resuming
+   21/95 Q26  |   46.4s | p=  59 c= 1647 (t=    1+v=1646)  35.9t/s |  76°C mem=13.9G sw=580M | FAIL  | Level 5 | score: 85%
+  ⏸ GPU at 71°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   22/95 Q27  |   40.8s | p= 179 c= 1418 (t=    1+v=1417)  35.6t/s |  83°C mem=13.9G sw=580M | OK    | Level 4 | score: 85%
+  ⏸ GPU at 75°C — waiting for valid reading ≤60°C
+  ... GPU 62°C, still waiting
+  ✓ GPU at 55°C — resuming
+   23/95 Q28  |   10.1s | p=  47 c=  350 (t=    1+v= 349)  37.2t/s |  70°C mem=13.9G sw=580M | OK    | Level 3 | score: 86%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   24/95 Q29  |  116.1s | p=  90 c= 3658 (t= 3304+v= 354)  31.7t/s |     ? mem=13.9G sw=580M | OK    | Level 2 | score: 86%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 50°C — resuming
+   25/95 Q30  |   22.1s | p=  55 c=  788 (t=    1+v= 787)  36.6t/s |     ? mem=13.9G sw=580M | OK    | Level 5 | score: 87%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 41°C — resuming
+   26/95 Q31  |   13.9s | p=  62 c=  495 (t=    1+v= 494)  37.2t/s |     ? mem=13.9G sw=580M | OK    | Level 3 | score: 87%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 41°C — resuming
+   27/95 Q32  |   35.6s | p=  69 c= 1257 (t=    1+v=1256)  35.9t/s |  71°C mem=13.9G sw=580M | OK    | Level 5 | score: 88%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   28/95 Q33  |   11.3s | p= 103 c=  388 (t=    1+v= 387)  36.9t/s |  71°C mem=13.9G sw=580M | OK    | Level 1 | score: 88%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   29/95 Q34  |   22.5s | p=  56 c=  804 (t=    1+v= 803)  36.6t/s |     ? mem=13.9G sw=580M | OK    | Level 3 | score: 88%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 47°C — resuming
+   30/95 Q35  |   27.5s | p= 144 c=  969 (t=    1+v= 968)  36.3t/s |  70°C mem=13.9G sw=580M | FAIL  | Level 5 | score: 86%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 49°C — resuming
+   31/95 Q36  |   10.5s | p=  96 c=  368 (t=    1+v= 367)  37.3t/s |     ? mem=13.9G sw=580M | OK    | Level 5 | score: 86%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 47°C — resuming
+   32/95 Q37  |   15.7s | p=  82 c=  558 (t=    1+v= 557)  37.1t/s |     ? mem=13.9G sw=580M | OK    | Level 3 | score: 86%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   33/95 Q38  |   18.9s | p=  76 c=  663 (t=    1+v= 662)  36.5t/s |  71°C mem=13.9G sw=580M | OK    | Level 3 | score: 87%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   34/95 Q39  |   16.4s | p= 360 c=  530 (t=    1+v= 529)  35.8t/s |  72°C mem=13.9G sw=580M | OK    | Level 5 | score: 87%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 50°C — resuming
+   35/95 Q40  |   43.5s | p=  71 c= 1538 (t=    1+v=1537)  35.9t/s |  82°C mem=13.9G sw=580M | OK    | Level 3 | score: 88%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 40°C — resuming
+   36/95 Q41  |   16.4s | p= 112 c=  578 (t=    1+v= 577)  36.8t/s |     ? mem=13.9G sw=580M | OK    | Level 4 | score: 88%
+   37/95 Q42  |   24.6s | p=  46 c=  882 (t=  500+v= 382)  36.8t/s |     ? mem=13.9G sw=580M | OK    | Level 1 | score: 88%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 47°C — resuming
+   38/95 Q43  |  294.1s | p=  91 c= 8557 (t= 7777+v= 780)  29.2t/s |     ? mem=13.9G sw=580M | FAIL  | Level 3 | score: 86%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 47°C — resuming
+   39/95 Q44  |   38.0s | p= 104 c= 1335 (t=    1+v=1334)  35.8t/s |  77°C mem=13.9G sw=580M | OK    | Level 3 | score: 86%
+  ⏸ GPU at 69°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   40/95 Q45  |    7.2s | p= 103 c=  236 (t=    1+v= 235)  37.2t/s |  67°C mem=13.9G sw=580M | OK    | Level 3 | score: 87%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 52°C — resuming
+   41/95 Q46  |   10.0s | p= 103 c=  337 (t=    1+v= 336)  36.8t/s |     ? mem=13.9G sw=580M | OK    | Level 4 | score: 87%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 51°C — resuming
+   42/95 Q47  |   17.0s | p=  83 c=  591 (t=    1+v= 590)  36.3t/s |  68°C mem=13.9G sw=580M | FAIL  | Level 5 | score: 85%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   43/95 Q48  |   23.8s | p=  79 c=  823 (t=    1+v= 822)  35.6t/s |  81°C mem=13.9G sw=572M | OK    | Level 5 | score: 85%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   44/95 Q49  |   11.3s | p=  95 c=  390 (t=    1+v= 389)  36.9t/s |  71°C mem=13.9G sw=572M | OK    | Level 3 | score: 86%
+  ⏸ GPU at 68°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   45/95 Q50  |   11.5s | p=  98 c=  394 (t=    1+v= 393)  36.8t/s |  72°C mem=13.9G sw=572M | FAIL  | Level 2 | score: 84%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   46/95 Q51  |   28.7s | p=  94 c=  993 (t=    1+v= 992)  35.4t/s |  80°C mem=13.9G sw=572M | OK    | Level 5 | score: 84%
+  ⏸ GPU at 76°C — waiting for valid reading ≤60°C
+  ... GPU 61°C, still waiting
+  ✓ GPU at 57°C — resuming
+   47/95 Q52  |   10.3s | p=  58 c=  346 (t=    1+v= 345)  36.1t/s |  73°C mem=13.9G sw=572M | OK    | Level 2 | score: 85%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   48/95 Q53  |   13.1s | p=  91 c=  449 (t=    1+v= 448)  36.0t/s |  75°C mem=13.9G sw=572M | OK    | Level 3 | score: 85%
+  ⏸ GPU at 69°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   49/95 Q54  |   11.4s | p=  64 c=  384 (t=    1+v= 383)  35.9t/s |  75°C mem=13.9G sw=572M | OK    | Level 2 | score: 85%
+  ⏸ GPU at 68°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   50/95 Q55  |    8.6s | p=  65 c=  286 (t=    0+v= 286)  36.4t/s |  69°C mem=13.9G sw=572M | OK    | Level 3 | score: 85%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   51/95 Q56  |   21.2s | p= 938 c=  599 (t=    1+v= 598)  34.2t/s |  77°C mem=14.0G sw=572M | OK    | Level 4 | score: 86%
+  ⏸ GPU at 74°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   52/95 Q57  |   25.4s | p= 256 c=  839 (t=    1+v= 838)  35.0t/s |  81°C mem=14.0G sw=572M | OK    | Level 4 | score: 86%
+  ⏸ GPU at 74°C — waiting for valid reading ≤60°C
+  ... GPU 62°C, still waiting
+  ✓ GPU at 56°C — resuming
+   53/95 Q58  |   17.3s | p=  87 c=  595 (t=    1+v= 594)  36.0t/s |  76°C mem=14.0G sw=572M | OK    | Level 4 | score: 86%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   54/95 Q59  |   10.5s | p=  85 c=  358 (t=    1+v= 357)  36.8t/s |  74°C mem=14.0G sw=572M | OK    | Level 2 | score: 86%
+  ⏸ GPU at 69°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   55/95 Q60  |   34.0s | p=  77 c= 1192 (t=    1+v=1191)  35.8t/s |  83°C mem=14.0G sw=572M | FAIL  | Level 4 | score: 85%
+  ⏸ GPU at 76°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 45°C — resuming
+   56/95 Q61  |    7.0s | p=  54 c=  246 (t=    1+v= 245)  37.7t/s |     ? mem=14.0G sw=572M | OK    | Level 4 | score: 85%
+   57/95 Q62  |   22.0s | p=  67 c=  787 (t=    0+v= 787)  36.8t/s |     ? mem=14.0G sw=572M | OK    | Level 4 | score: 85%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 45°C — resuming
+   58/95 Q63  |   70.4s | p= 112 c= 2448 (t=    1+v=2447)  35.1t/s |  81°C mem=14.0G sw=572M | FAIL  | Level 4 | score: 84%
+  ⏸ GPU at 77°C — waiting for valid reading ≤60°C
+  ... GPU 61°C, still waiting
+  ✓ GPU at 56°C — resuming
+   59/95 Q64  | 1485.9s | p= 171 c=32768 (t=    1+v=32767)  22.1t/s |  67°C mem=14.0G sw=572M | FAIL  TRUNC! | Level 5 | score: 83%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   60/95 Q65  |   43.9s | p=  75 c= 1359 (t=    1+v=1358)  31.4t/s |  71°C mem=14.0G sw=532M | OK    | Level 5 | score: 83%
+  ⏸ GPU at 69°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   61/95 Q66  |   14.4s | p=  73 c=  478 (t=    1+v= 477)  34.7t/s |  67°C mem=14.0G sw=532M | OK    | Level 4 | score: 83%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 54°C — resuming
+   62/95 Q67  |   68.2s | p=  95 c= 2342 (t=    1+v=2341)  34.7t/s |  85°C mem=14.0G sw=532M | OK    | Level 5 | score: 84%
+  ⏸ GPU at 81°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 54°C — resuming
+   63/95 Q68  |   41.1s | p= 194 c= 1433 (t=    1+v=1432)  35.8t/s |     ? mem=14.0G sw=532M | OK    | Level 4 | score: 84%
+  ⏸ GPU at 75°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 43°C — resuming
+   64/95 Q69  |   53.2s | p= 123 c= 1848 (t=    1+v=1847)  35.3t/s |  80°C mem=14.0G sw=532M | FAIL  | Level 4 | score: 83%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   65/95 Q70  |   31.8s | p=  81 c= 1122 (t=    1+v=1121)  36.0t/s |  82°C mem=14.0G sw=532M | OK    | Level 2 | score: 83%
+  ⏸ GPU at 74°C — waiting for valid reading ≤60°C
+  ... GPU 61°C, still waiting
+  ✓ GPU at 55°C — resuming
+   66/95 Q71  |   19.6s | p=  44 c=  702 (t=  388+v= 314)  36.9t/s |  75°C mem=14.0G sw=532M | OK    | Level 2 | score: 83%
+  ⏸ GPU at 68°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   67/95 Q72  |   23.9s | p= 214 c=  823 (t=    1+v= 822)  36.1t/s |  80°C mem=14.0G sw=532M | OK    | Level 5 | score: 83%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   68/95 Q73  |   48.4s | p=  75 c= 1683 (t=    1+v=1682)  35.3t/s |  83°C mem=14.0G sw=532M | OK    | Level 5 | score: 84%
+  ⏸ GPU at 77°C — waiting for valid reading ≤60°C
+  ... GPU 62°C, still waiting
+  ✓ GPU at 58°C — resuming
+   69/95 Q74  |   14.6s | p=  53 c=  508 (t=    1+v= 507)  36.2t/s |  73°C mem=14.0G sw=532M | OK    | Level 3 | score: 84%
+  ⏸ GPU at 68°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   70/95 Q75  |    7.4s | p= 200 c=  235 (t=    1+v= 234)  37.0t/s |  70°C mem=14.0G sw=532M | OK    | Level 1 | score: 84%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   71/95 Q76  |   95.4s | p= 161 c= 3168 (t=    1+v=3167)  33.5t/s |  80°C mem=14.0G sw=532M | OK    | Level 3 | score: 84%
+  ⏸ GPU at 77°C — waiting for valid reading ≤60°C
+  ... GPU 64°C, still waiting
+  ✓ GPU at 59°C — resuming
+   72/95 Q77  |   10.6s | p=  72 c=  364 (t=    1+v= 363)  36.6t/s |  72°C mem=14.0G sw=532M | OK    | Level 2 | score: 84%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   73/95 Q78  |    8.4s | p= 108 c=  283 (t=    1+v= 282)  36.9t/s |  70°C mem=14.0G sw=532M | OK    | Level 3 | score: 85%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   74/95 Q79  |   35.9s | p= 173 c= 1235 (t=    1+v=1234)  35.4t/s |  81°C mem=14.0G sw=532M | OK    | Level 5 | score: 85%
+  ⏸ GPU at 78°C — waiting for valid reading ≤60°C
+  ... GPU 63°C, still waiting
+  ✓ GPU at 58°C — resuming
+   75/95 Q80  |   39.9s | p=  82 c= 1397 (t=    1+v=1396)  35.6t/s |  82°C mem=14.0G sw=524M | FAIL  | Level 3 | score: 84%
+  ⏸ GPU at 79°C — waiting for valid reading ≤60°C
+  ... GPU 63°C, still waiting
+  ✓ GPU at 59°C — resuming
+   76/95 Q81  |   16.8s | p= 335 c=  552 (t=    1+v= 551)  36.0t/s |  78°C mem=14.0G sw=524M | FAIL  | Level 3 | score: 83%
+  ⏸ GPU at 71°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   77/95 Q82  |   18.4s | p= 107 c=  648 (t=    1+v= 647)  36.6t/s |  81°C mem=14.0G sw=524M | FAIL  | Level 5 | score: 82%
+  ⏸ GPU at 73°C — waiting for valid reading ≤60°C
+  ... GPU 61°C, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 41°C — resuming
+   78/95 Q83  |   17.0s | p=  82 c=  597 (t=    1+v= 596)  37.0t/s |     ? mem=14.0G sw=524M | FAIL  | Level 4 | score: 81%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 48°C — resuming
+   79/95 Q84  |   43.9s | p= 341 c= 1512 (t=    1+v=1511)  35.6t/s |     ? mem=14.0G sw=524M | OK    | Level 1 | score: 81%
+  ⏸ GPU at 70°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   80/95 Q85  |   14.7s | p=  83 c=  519 (t=    1+v= 518)  37.0t/s |  72°C mem=14.0G sw=524M | OK    | Level 5 | score: 81%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   81/95 Q86  |  303.5s | p=  98 c= 8362 (t= 7549+v= 813)  27.6t/s |  69°C mem=14.0G sw=524M | OK    | Level 3 | score: 81%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   82/95 Q87  |   36.1s | p=  58 c= 1171 (t=  674+v= 497)  32.9t/s |  72°C mem=14.0G sw=524M | OK    | Level 4 | score: 82%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   83/95 Q88  |   46.0s | p=  72 c= 1553 (t=  953+v= 600)  34.2t/s |  76°C mem=14.0G sw=524M | FAIL  | Level 3 | score: 81%
+  ⏸ GPU at 73°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   84/95 Q89  |   22.6s | p= 120 c=  759 (t=    1+v= 758)  34.8t/s |  72°C mem=14.0G sw=524M | OK    | Level 5 | score: 81%
+  ⏸ GPU at 70°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   85/95 Q90  |   21.5s | p= 112 c=  740 (t=    1+v= 739)  35.6t/s |  74°C mem=14.0G sw=524M | FAIL  | Level 5 | score: 80%
+  ⏸ GPU at 71°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   86/95 Q91  |   21.9s | p= 126 c=  760 (t=    1+v= 759)  36.0t/s |  79°C mem=14.0G sw=524M | OK    | Level 4 | score: 80%
+  ⏸ GPU at 71°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   87/95 Q92  |   31.2s | p=  76 c= 1078 (t=    0+v=1078)  35.3t/s |  80°C mem=14.0G sw=524M | OK    | Level 2 | score: 80%
+  ⏸ GPU at 75°C — waiting for valid reading ≤60°C
+  ... GPU 63°C, still waiting
+  ✓ GPU at 58°C — resuming
+   88/95 Q93  |  290.2s | p= 177 c= 7295 (t=    1+v=7294)  25.2t/s |  67°C mem=14.0G sw=524M | FAIL  | Level 1 | score: 80%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   89/95 Q94  |   19.5s | p=  68 c=  576 (t=  306+v= 270)  31.8t/s |     ? mem=14.0G sw=516M | OK    | Level 3 | score: 80%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   90/95 Q95  |   23.9s | p=  71 c=  783 (t=    1+v= 782)  34.2t/s |  75°C mem=14.0G sw=516M | OK    | Level 3 | score: 80%
+  ⏸ GPU at 70°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 54°C — resuming
+   91/95 Q96  |   18.8s | p= 349 c=  578 (t=    1+v= 577)  35.2t/s |  72°C mem=14.0G sw=516M | OK    | Level 3 | score: 80%
+  ⏸ GPU at 70°C — waiting for valid reading ≤60°C
+  ✓ GPU at 58°C — resuming
+   92/95 Q97  |   20.3s | p=  75 c=  705 (t=    1+v= 704)  36.0t/s |  80°C mem=14.0G sw=516M | OK    | Level 4 | score: 80%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   93/95 Q98  |   21.2s | p= 288 c=  702 (t=    1+v= 701)  35.3t/s |     ? mem=14.0G sw=516M | OK    | Level 5 | score: 81%
+  ⏸ GPU at 74°C — waiting for valid reading ≤60°C
+  ... GPU 63°C, still waiting
+  ✓ GPU at 56°C — resuming
+   94/95 Q99  |   20.2s | p=  82 c=  687 (t=    1+v= 686)  36.5t/s |     ? mem=14.0G sw=516M | OK    | Level 5 | score: 81%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 44°C — resuming
+   95/95 Q100 |   13.5s | p= 101 c=  423 (t=    1+v= 422)  36.1t/s |  61°C mem=14.0G sw=1105M | OK    | Level 2 | score: 81%
+
+  >>> MATH: 81% (81/100) in 11851s (197.5m) [fresh=95, carried=5]
+  >>> 2 questions truncated at 32768 tokens
+  >>> GPU: 64°C → None°C
+  >>> RAM: 2357MB | Swap: 588MB → 1105MB
+  >>> Log: results/runs/mlx_math_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_201810.jsonl
+  >>> Summary: results/runs/mlx_math_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_201810_summary.json

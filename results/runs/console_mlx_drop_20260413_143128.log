@@ -1,0 +1,44 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading drop dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit
+  Engine: mlx_vlm Python API
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 57°C | CPU: 60°C
+  Swap: 0MB
+  max_tokens: 8192 | thinking: on
+
+  Loading model... 
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 40800.62it/s]
+8.1s
+  Warmup (2+2)... '<|channel>thought
+*   Input: "' | p=32 c=91 (t=86+v=5) 37.3t/s | stop
+
+==============================================================================================================
+BENCHMARK: DROP | Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit | Questions: 100
+Engine: mlx_vlm Python API
+Params: temp=1.0, max_tokens=8192, seed=42, enable_thinking=True
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=64°C, swap=0MB, process_ram=4144MB
+Log: results/runs/mlx_drop_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_143145.jsonl
+==============================================================================================================
+  ⏸ GPU at 62°C — waiting for ≤60°C
+  ✓ GPU at None°C — resuming
+    1/100 Q1   |    2.1s | p= 430 c=   11 (t=    1+v=  10)  40.6t/s |  56°C mem=13.5G sw=0M | FAIL  | exp=['minimally resupplied', 'mini | score: 0%
+    2/100 Q2   |    1.5s | p= 310 c=    7 (t=    1+v=   6)  42.5t/s |  58°C mem=13.5G sw=0M | OK    | exp=['Bengals', 'Bengals'] | score: 50%
+    3/100 Q3   |    2.3s | p= 463 c=   14 (t=    1+v=  13)  38.5t/s |     ? mem=13.5G sw=0M | OK    | exp=['1426-1440', '1426-1440'] | score: 67%
+    4/100 Q4   |    1.3s | p= 204 c=   10 (t=    1+v=   9)  41.8t/s |     ? mem=13.5G sw=0M | OK    | exp=['Instability in the economy', | score: 75%
+    5/100 Q5   |    1.8s | p= 329 c=    8 (t=    1+v=   7)  42.6t/s |     ? mem=13.5G sw=0M | OK    | exp=['Greek Orthodox subjects', 'G | score: 80%
+    6/100 Q6   |    1.5s | p= 303 c=    7 (t=    1+v=   6)  42.6t/s |     ? mem=13.5G sw=0M | OK    | exp=['11', '1', '11'] | score: 83%
+    7/100 Q7   |    7.2s | p= 268 c=  221 (t=  214+v=   7)  37.1t/s |  63°C mem=13.5G sw=0M | OK    | exp=['27', '27-yard', '27-yard', ' | score: 86%
+  ⏸ GPU at 61°C — waiting for ≤60°C
+  ✓ GPU at 53°C — resuming
+    8/100 Q8   |  290.5s | p= 199 c= 8192 (t=    0+v=8192)  28.3t/s |  70°C mem=13.5G sw=0M | FAIL  TRUNC! | exp=['93.3', '93.3'] | score: 75%
+  ⏸ GPU at 67°C — waiting for ≤60°C
+  ✓ GPU at 60°C — resuming
+    9/100 Q9   |   11.3s | p= 351 c=  315 (t=  292+v=  23)  32.3t/s |  66°C mem=13.5G sw=0M | OK    | exp=['614504', '445,342 people, 16 | score: 78%
+~/.local/share/uv/python/cpython-3.11.14-macos-aarch64-none/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

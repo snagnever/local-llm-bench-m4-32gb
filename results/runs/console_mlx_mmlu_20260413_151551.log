@@ -1,0 +1,247 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading mmlu dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit
+  Engine: mlx_vlm Python API
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 47°C | CPU: 50°C
+  Swap: 0MB
+  max_tokens: 8192 | thinking: on
+
+  Loading model... 
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 86302.55it/s]
+8.2s
+  Warmup (2+2)... '<|channel>thought
+The user is ' | p=32 c=61 (t=56+v=5) 38.4t/s | stop
+  Auto-skip: 2 questions already completed for deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit / mmlu (use --force to rerun all)
+    skipping: [1, 2]
+
+==============================================================================================================
+BENCHMARK: MMLU | Model: deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit | Questions: 98
+Engine: mlx_vlm Python API
+Params: temp=1.0, max_tokens=8192, seed=42, enable_thinking=True
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=54°C, swap=0MB, process_ram=7217MB
+Carried over: 2 prior entries (2/2 correct = 100%)
+Log: results/runs/mlx_mmlu_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_151608.jsonl
+==============================================================================================================
+    1/98 Q3   |    0.9s | p=  96 c=    8 (t=    1+v=   7)  42.9t/s |  52°C mem=13.0G sw=0M | OK    | exp=C got=C | score: 100%
+    2/98 Q4   |    1.8s | p= 326 c=    8 (t=    1+v=   7)  41.3t/s |  52°C mem=13.4G sw=0M | FAIL  | exp=B got=D | score: 75%
+    3/98 Q5   |    0.9s | p=  85 c=    8 (t=    1+v=   7)  42.5t/s |  52°C mem=13.4G sw=0M | OK    | exp=D got=D | score: 80%
+    4/98 Q6   |   10.5s | p=  81 c=  359 (t=  354+v=   5)  36.4t/s |  62°C mem=13.4G sw=0M | OK    | exp=A got=A | score: 83%
+    5/98 Q7   |   12.4s | p= 113 c=  433 (t=  426+v=   7)  37.3t/s |  65°C mem=13.4G sw=0M | OK    | exp=B got=B | score: 86%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 39°C — resuming
+    6/98 Q8   |    5.2s | p=  96 c=  167 (t=  162+v=   5)  37.4t/s |  51°C mem=13.4G sw=0M | FAIL  | exp=C got=D | score: 75%
+    7/98 Q9   |    1.5s | p= 281 c=    8 (t=    1+v=   7)  42.0t/s |  50°C mem=13.4G sw=0M | OK    | exp=C got=C | score: 78%
+    8/98 Q10  |    6.9s | p=  65 c=  235 (t=  230+v=   5)  37.8t/s |     ? mem=13.4G sw=0M | OK    | exp=C got=C | score: 80%
+    9/98 Q11  |    1.5s | p= 287 c=    8 (t=    1+v=   7)  42.9t/s |     ? mem=13.4G sw=0M | OK    | exp=D got=D | score: 82%
+   10/98 Q12  |    2.3s | p= 529 c=    8 (t=    1+v=   7)  42.0t/s |     ? mem=13.6G sw=0M | FAIL  | exp=B got=A | score: 75%
+   11/98 Q13  |    1.1s | p= 130 c=    8 (t=    1+v=   7)  43.4t/s |     ? mem=13.6G sw=0M | FAIL  | exp=A got=B | score: 69%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 37°C — resuming
+   12/98 Q14  |    4.1s | p= 146 c=  123 (t=    1+v= 122)  37.9t/s |  48°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 71%
+   13/98 Q15  |    7.9s | p=  63 c=  276 (t=  271+v=   5)  37.5t/s |  55°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 73%
+   14/98 Q16  |    1.0s | p= 122 c=    8 (t=    1+v=   7)  42.2t/s |  51°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 75%
+   15/98 Q17  |    9.7s | p=  90 c=  339 (t=  334+v=   5)  37.4t/s |  59°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 76%
+   16/98 Q18  |    5.8s | p=  62 c=  197 (t=  192+v=   5)  37.9t/s |  62°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 78%
+   17/98 Q19  |    0.9s | p= 110 c=    6 (t=    1+v=   5)  45.2t/s |  57°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 79%
+   18/98 Q20  |    9.6s | p=  73 c=  336 (t=  331+v=   5)  37.6t/s |  63°C mem=13.6G sw=0M | FAIL  | exp=C got=B | score: 75%
+   19/98 Q21  |   21.2s | p=  75 c=  759 (t=  754+v=   5)  37.0t/s |  71°C mem=13.6G sw=0M | FAIL  | exp=B got=A | score: 71%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   20/98 Q22  |   23.2s | p=  82 c=  829 (t=  824+v=   5)  36.7t/s |  72°C mem=13.6G sw=0M | FAIL  | exp=C got=A | score: 68%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   21/98 Q23  |   24.8s | p=  75 c=  889 (t=  883+v=   6)  36.8t/s |  78°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 70%
+  ⏸ GPU at 69°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   22/98 Q24  |    7.7s | p=  89 c=  266 (t=  261+v=   5)  37.7t/s |  66°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 71%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   23/98 Q25  |    1.0s | p= 134 c=    8 (t=    1+v=   7)  42.9t/s |  57°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 72%
+   24/98 Q26  |   62.8s | p= 186 c= 2187 (t= 2181+v=   6)  35.4t/s |  85°C mem=13.6G sw=0M | FAIL  | exp=C got=D | score: 69%
+  ⏸ GPU at 77°C — waiting for valid reading ≤60°C
+  ... GPU 63°C, still waiting
+  ✓ GPU at 55°C — resuming
+   25/98 Q27  |    1.4s | p= 256 c=    8 (t=    1+v=   7)  42.8t/s |  58°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 70%
+   26/98 Q28  |   53.7s | p= 235 c= 1862 (t= 1857+v=   5)  35.5t/s |     ? mem=13.6G sw=0M | OK    | exp=C got=C | score: 71%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 56°C — resuming
+   27/98 Q29  |    1.3s | p= 242 c=    8 (t=    1+v=   7)  42.1t/s |  60°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 72%
+   28/98 Q30  |    1.0s | p= 141 c=    8 (t=    1+v=   7)  42.0t/s |  61°C mem=13.6G sw=0M | FAIL  | exp=D got=B | score: 70%
+   29/98 Q31  |    0.9s | p=  97 c=    8 (t=    1+v=   7)  42.7t/s |  60°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 71%
+   30/98 Q32  |    4.1s | p=  60 c=  134 (t=  129+v=   5)  37.9t/s |  65°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 72%
+   31/98 Q33  |    0.9s | p=  97 c=    8 (t=    1+v=   7)  42.7t/s |  61°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 73%
+   32/98 Q34  |    1.0s | p= 146 c=    8 (t=    1+v=   7)  42.0t/s |  61°C mem=13.6G sw=0M | OK    | exp=C got=C | score: 74%
+   33/98 Q35  |    1.1s | p= 142 c=    8 (t=    1+v=   7)  40.4t/s |  62°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 74%
+   34/98 Q36  |    1.0s | p= 156 c=    6 (t=    1+v=   5)  44.0t/s |  59°C mem=13.6G sw=0M | OK    | exp=C got=C | score: 75%
+   35/98 Q37  |   10.7s | p=  73 c=  374 (t=  369+v=   5)  37.1t/s |  74°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 76%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   36/98 Q38  |    1.0s | p= 138 c=    8 (t=    1+v=   7)  42.8t/s |     ? mem=13.6G sw=0M | OK    | exp=A got=A | score: 76%
+   37/98 Q39  |    1.4s | p= 265 c=    6 (t=    1+v=   5)  43.2t/s |  59°C mem=13.6G sw=0M | FAIL  | exp=B got=D | score: 74%
+   38/98 Q40  |   29.5s | p=  98 c= 1037 (t= 1032+v=   5)  36.1t/s |     ? mem=13.6G sw=0M | OK    | exp=A got=A | score: 75%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   39/98 Q41  |    1.5s | p= 279 c=    8 (t=    1+v=   7)  41.2t/s |  63°C mem=13.6G sw=0M | FAIL  | exp=C got=A | score: 73%
+   40/98 Q42  |    0.9s | p=  91 c=    8 (t=    1+v=   7)  42.8t/s |  63°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 74%
+   41/98 Q43  |    1.2s | p= 185 c=    8 (t=    1+v=   7)  43.2t/s |     ? mem=13.6G sw=0M | OK    | exp=C got=C | score: 74%
+   42/98 Q44  |    6.3s | p=  79 c=  212 (t=  207+v=   5)  37.4t/s |  65°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 75%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   43/98 Q45  |    1.0s | p= 143 c=    6 (t=    1+v=   5)  43.7t/s |  59°C mem=13.6G sw=0M | FAIL  | exp=D got=B | score: 73%
+   44/98 Q46  |  336.7s | p=  56 c= 8192 (t=    0+v=8192)  24.4t/s |  65°C mem=13.6G sw=0M | FAIL  TRUNC! | exp=A got=None | score: 72%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   45/98 Q47  |    7.1s | p=  70 c=  197 (t=  192+v=   5)  30.6t/s |  62°C mem=13.6G sw=0M | FAIL  | exp=A got=C | score: 70%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   46/98 Q48  |    1.0s | p= 126 c=    8 (t=    1+v=   7)  42.0t/s |  59°C mem=13.6G sw=0M | OK    | exp=C got=C | score: 71%
+   47/98 Q49  |    7.8s | p=  91 c=  261 (t=  256+v=   5)  36.8t/s |  70°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 71%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   48/98 Q50  |   10.7s | p= 119 c=  358 (t=  353+v=   5)  36.6t/s |  71°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 72%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   49/98 Q51  |    8.9s | p=  69 c=  307 (t=  302+v=   5)  37.0t/s |  69°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 73%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   50/98 Q52  |    5.6s | p=  71 c=  183 (t=  176+v=   7)  37.0t/s |  68°C mem=13.6G sw=0M | FAIL  | exp=A got=C | score: 71%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   51/98 Q53  |    1.7s | p= 333 c=    8 (t=    1+v=   7)  41.3t/s |  60°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 72%
+   52/98 Q54  |  363.9s | p=  60 c= 8192 (t=    0+v=8192)  22.6t/s |  66°C mem=13.6G sw=0M | FAIL  TRUNC! | exp=B got=None | score: 70%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   53/98 Q55  |    1.4s | p= 192 c=    6 (t=    1+v=   5)  35.4t/s |  63°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 71%
+   54/98 Q56  |    1.1s | p= 160 c=    8 (t=    1+v=   7)  41.9t/s |  64°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 71%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   55/98 Q57  |    0.8s | p=  83 c=    7 (t=    1+v=   6)  41.3t/s |  59°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 72%
+   56/98 Q58  |    1.8s | p= 326 c=    8 (t=    1+v=   7)  38.8t/s |  61°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 72%
+   57/98 Q59  |  359.9s | p= 109 c= 8192 (t=    0+v=8192)  22.8t/s |  65°C mem=13.6G sw=0M | FAIL  TRUNC! | exp=B got=None | score: 71%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   58/98 Q60  |    1.4s | p= 212 c=    8 (t=    1+v=   7)  35.8t/s |  59°C mem=13.6G sw=0M | FAIL  | exp=A got=C | score: 70%
+   59/98 Q61  |    1.0s | p= 109 c=    8 (t=    1+v=   7)  42.5t/s |  61°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 70%
+   60/98 Q62  |    1.1s | p= 125 c=    8 (t=    1+v=   7)  39.9t/s |  62°C mem=13.6G sw=0M | OK    | exp=B got=B | score: 71%
+   61/98 Q63  |    7.4s | p=  69 c=  244 (t=  239+v=   5)  36.1t/s |  68°C mem=13.6G sw=0M | OK    | exp=A got=A | score: 71%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   62/98 Q64  |    0.9s | p=  77 c=    8 (t=    1+v=   7)  40.7t/s |  60°C mem=13.6G sw=0M | FAIL  | exp=B got=C | score: 70%
+   63/98 Q65  |    9.4s | p=  83 c=  297 (t=  292+v=   5)  34.6t/s |  66°C mem=13.6G sw=0M | OK    | exp=D got=D | score: 71%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   64/98 Q66  |    1.0s | p= 130 c=    8 (t=    1+v=   7)  42.4t/s |  60°C mem=13.6G sw=0M | FAIL  | exp=A got=B | score: 70%
+   65/98 Q67  |    7.4s | p=  84 c=  248 (t=  243+v=   5)  36.7t/s |  70°C mem=13.6G sw=0M | FAIL  | exp=A got=C | score: 69%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   66/98 Q68  |    6.5s | p=  88 c=  213 (t=  208+v=   5)  36.7t/s |  71°C mem=13.6G sw=0M | OK    | exp=C got=C | score: 69%
+  ⏸ GPU at 65°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   67/98 Q69  |   21.4s | p= 103 c=  740 (t=  735+v=   5)  36.0t/s |  76°C mem=13.6G sw=0M | FAIL  | exp=B got=C | score: 68%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   68/98 Q70  |   13.0s | p=  66 c=  453 (t=  448+v=   5)  36.8t/s |  74°C mem=13.6G sw=0M | FAIL  | exp=D got=B | score: 67%
+  ⏸ GPU at 70°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   69/98 Q71  |    2.7s | p= 629 c=    8 (t=    1+v=   7)  38.1t/s |  66°C mem=13.8G sw=0M | OK    | exp=A got=A | score: 68%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   70/98 Q72  |   21.8s | p= 120 c=  758 (t=  753+v=   5)  36.2t/s |  79°C mem=13.8G sw=0M | OK    | exp=A got=A | score: 68%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   71/98 Q73  |    1.0s | p= 111 c=    8 (t=    1+v=   7)  41.7t/s |  63°C mem=13.8G sw=0M | FAIL  | exp=B got=D | score: 67%
+   72/98 Q74  |    1.2s | p= 151 c=    8 (t=    1+v=   7)  42.2t/s |  62°C mem=13.8G sw=0M | OK    | exp=B got=B | score: 68%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   73/98 Q75  |    1.0s | p= 124 c=    8 (t=    1+v=   7)  43.1t/s |  57°C mem=13.8G sw=0M | OK    | exp=A got=A | score: 68%
+   74/98 Q76  |   11.3s | p=  71 c=  387 (t=  382+v=   5)  36.3t/s |  73°C mem=13.8G sw=0M | OK    | exp=D got=D | score: 68%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   75/98 Q77  |    1.7s | p= 262 c=    8 (t=    1+v=   7)  42.4t/s |  60°C mem=13.8G sw=0M | OK    | exp=B got=B | score: 69%
+   76/98 Q78  |    0.8s | p=  80 c=    8 (t=    1+v=   7)  43.2t/s |  59°C mem=13.8G sw=0M | FAIL  | exp=C got=B | score: 68%
+   77/98 Q79  |    0.9s | p= 114 c=    8 (t=    1+v=   7)  43.5t/s |  58°C mem=13.8G sw=0M | OK    | exp=A got=A | score: 68%
+   78/98 Q80  |    1.2s | p= 209 c=    6 (t=    1+v=   5)  44.3t/s |  61°C mem=13.8G sw=0M | OK    | exp=C got=C | score: 69%
+   79/98 Q81  |    1.1s | p=  94 c=    8 (t=    1+v=   7)  43.1t/s |  57°C mem=13.8G sw=0M | FAIL  | exp=A got=C | score: 68%
+   80/98 Q82  |  339.9s | p=  72 c= 8192 (t=    0+v=8192)  24.1t/s |  63°C mem=13.8G sw=0M | FAIL  TRUNC! | exp=D got=None | score: 67%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 56°C — resuming
+   81/98 Q83  |   20.2s | p=  77 c=  571 (t=  566+v=   5)  29.2t/s |  65°C mem=13.8G sw=0M | OK    | exp=B got=B | score: 67%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 55°C — resuming
+   82/98 Q84  |   22.1s | p=  82 c=  697 (t=  692+v=   5)  32.5t/s |  67°C mem=13.8G sw=0M | OK    | exp=A got=A | score: 68%
+  ⏸ GPU at 66°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   83/98 Q85  |    4.7s | p=  63 c=  153 (t=  148+v=   5)  37.3t/s |     ? mem=13.8G sw=0M | OK    | exp=A got=A | score: 68%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   84/98 Q86  |    0.9s | p=  81 c=    8 (t=    1+v=   7)  43.6t/s |  58°C mem=13.8G sw=0M | OK    | exp=A got=A | score: 69%
+   85/98 Q87  |    6.3s | p=  64 c=  217 (t=  212+v=   5)  37.7t/s |  66°C mem=13.8G sw=0M | OK    | exp=D got=D | score: 69%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+   86/98 Q88  |    1.1s | p= 171 c=    8 (t=    1+v=   7)  43.0t/s |  55°C mem=13.8G sw=0M | OK    | exp=C got=C | score: 69%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+   87/98 Q89  |   11.8s | p=  79 c=  417 (t=  410+v=   7)  37.3t/s |     ? mem=13.8G sw=0M | OK    | exp=C got=C | score: 70%
+  ⏸ GPU at 64°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ... GPU None, still waiting
+  ✓ GPU at 45°C — resuming
+   88/98 Q90  |    1.7s | p= 337 c=    8 (t=    1+v=   7)  41.8t/s |  53°C mem=13.8G sw=0M | OK    | exp=A got=A | score: 70%
+   89/98 Q91  |   13.1s | p=  85 c=  465 (t=  460+v=   5)  37.5t/s |  62°C mem=13.8G sw=0M | OK    | exp=B got=B | score: 70%
+  ⏸ GPU at None (no reading) — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+   90/98 Q92  |    2.5s | p= 600 c=    8 (t=    1+v=   7)  41.6t/s |  58°C mem=13.8G sw=0M | FAIL  | exp=A got=C | score: 70%
+   91/98 Q93  |    1.8s | p= 386 c=    8 (t=    1+v=   7)  41.8t/s |  58°C mem=13.8G sw=0M | OK    | exp=D got=D | score: 70%
+   92/98 Q94  |    2.2s | p= 505 c=    8 (t=    1+v=   7)  40.7t/s |  60°C mem=13.8G sw=0M | OK    | exp=D got=D | score: 70%
+   93/98 Q95  |   25.2s | p= 325 c=  858 (t=  853+v=   5)  36.1t/s |  79°C mem=13.8G sw=0M | FAIL  | exp=A got=B | score: 69%
+  ⏸ GPU at 70°C — waiting for valid reading ≤60°C
+  ✓ GPU at 57°C — resuming
+   94/98 Q96  |   11.4s | p= 112 c=  394 (t=    1+v= 393)  36.9t/s |  71°C mem=13.8G sw=0M | OK    | exp=A got=A | score: 70%
+  ⏸ GPU at 67°C — waiting for valid reading ≤60°C
+  ... GPU None, still waiting
+  ✓ GPU at 53°C — resuming
+   95/98 Q97  |    7.5s | p= 215 c=  236 (t=    1+v= 235)  36.6t/s |  65°C mem=13.8G sw=0M | FAIL  | exp=D got=? | score: 69%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   96/98 Q98  |    1.4s | p= 244 c=    8 (t=    1+v=   7)  42.5t/s |  58°C mem=13.8G sw=0M | FAIL  | exp=B got=C | score: 68%
+   97/98 Q99  |    1.2s | p= 195 c=    8 (t=    1+v=   7)  42.8t/s |  57°C mem=13.8G sw=0M | OK    | exp=B got=B | score: 69%
+   98/98 Q100 |    1.0s | p= 147 c=    8 (t=    1+v=   7)  42.6t/s |  59°C mem=13.8G sw=0M | OK    | exp=D got=D | score: 69%
+
+  >>> MMLU: 69% (69/100) in 3818s (63.6m) [fresh=98, carried=2]
+  >>> 4 questions truncated at 8192 tokens
+  >>> GPU: 54°C → 56°C
+  >>> RAM: 7217MB | Swap: 0MB → 0MB
+  >>> Log: results/runs/mlx_mmlu_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_151608.jsonl
+  >>> Summary: results/runs/mlx_mmlu_deadbydawn101_gemma-4-21b-REAP-Tool-Calling-mlx-4bit_20260413_151608_summary.json

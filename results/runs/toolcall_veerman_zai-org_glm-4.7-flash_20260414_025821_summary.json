@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_zai-org_glm-4.7-flash_20260414_025821",
+  "suite": "veerman",
+  "model": "zai-org/glm-4.7-flash",
+  "model_slug": "zai-org_glm-4.7-flash",
+  "score": 0.75,
+  "score_pct": "75.0%",
+  "correct": 9,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 1,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 26.79,
+  "elapsed_s": 256,
+  "elapsed_min": 4.3,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 32,
+    "cpu": "Apple M4",
+    "macos_version": "15.7.4",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 53,
+    "cpu_temp_c": 56,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2189,
+    "free_pages": 6108
+  },
+  "final_state": {
+    "gpu_temp_c": 60,
+    "cpu_temp_c": 66,
+    "process_ram_mb": 0,
+    "swap_used_mb": 2189,
+    "free_pages": 4254
+  },
+  "timestamp_start": "2026-04-14T02:58:24.032873",
+  "timestamp_end": "2026-04-14T03:02:42.386406",
+  "log_file": "results/runs/toolcall_veerman_zai-org_glm-4.7-flash_20260414_025821.jsonl"
+}

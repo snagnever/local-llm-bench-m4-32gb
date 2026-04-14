@@ -1,0 +1,42 @@
+Loading veerman suite...
+
+--- Pre-flight ---
+  Model: qwen_qwen3.5-4b
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 59°C | CPU: 64°C
+  Swap: 2317MB
+
+==============================================================================================================
+TOOL_CALL | Suite: VEERMAN | Model: qwen_qwen3.5-4b | Fresh: 9 | Carried: 3
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=56°C, swap=2317MB
+Auto-skip: 3 prior entries (3/3 correct = 100%)
+Log: results/runs/toolcall_veerman_qwen_qwen3.5-4b_20260414_004623.jsonl
+==============================================================================================================
+    1/9 veerman_p1_weather_obvious           |    5.9s | p= 569 c=  94  15.9t/s |  66°C sw=2317M | OK    | score: 100%
+    2/9 veerman_p2_files_obvious             |    5.9s | p= 569 c=  99  16.9t/s |  66°C sw=2317M | OK    | score: 100%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+    3/9 veerman_p3_meeting_multi_arg         |   12.2s | p= 602 c= 242  19.9t/s |  64°C sw=2317M | OK    | score: 100%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+    4/9 veerman_p4_ambiguous_brussels        |    7.3s | p= 573 c= 144  19.7t/s |  64°C sw=2317M | OK    | score: 100%
+    5/9 veerman_p6_multi_step_unknown_city   |    7.5s | p= 576 c= 134  17.8t/s |  64°C sw=2317M | FAIL  (no_tool_called) | score: 88%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+    6/9 veerman_p7_noisy_params              |   14.3s | p= 604 c= 292  20.5t/s |  68°C sw=2317M | OK    | score: 89%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+    7/9 veerman_p8_two_tools_parallel        |    7.4s | p= 578 c= 143  19.2t/s |  64°C sw=2317M | OK    | score: 90%
+  ⏸ GPU at 61°C — waiting for valid reading ≤60°C
+  ✓ GPU at 50°C — resuming
+    8/9 veerman_p10_implicit_weather         |    9.3s | p= 582 c= 190  20.5t/s |  66°C sw=2317M | OK    | score: 91%
+    9/9 veerman_p12_redundant_weather        |   14.2s | p= 582 c= 292  20.6t/s |  72°C sw=2317M | FAIL  (no_tool_called) | score: 83%
+
+  >>> VEERMAN: 83% (10/12) in 215s (3.6m) [fresh=9, carried=3] tok-wt 19.4t/s
+  >>> GPU: 56°C → 65°C
+  >>> Swap: 2317MB → 2317MB
+  >>> Log: results/runs/toolcall_veerman_qwen_qwen3.5-4b_20260414_004623.jsonl
+  >>> Summary: results/runs/toolcall_veerman_qwen_qwen3.5-4b_20260414_004623_summary.json

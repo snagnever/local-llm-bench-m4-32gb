@@ -1,0 +1,48 @@
+Loading veerman suite...
+
+--- Pre-flight ---
+  Model: google/gemma-4-26b-a4b
+  Engine: LM Studio @ http://localhost:1234
+  Hardware: Apple M4, 32GB RAM, macOS 15.7.4
+  GPU: 55°C | CPU: 58°C
+  Swap: 2482MB
+
+==============================================================================================================
+TOOL_CALL | Suite: VEERMAN | Model: google/gemma-4-26b-a4b | Fresh: 12 | Carried: 0
+Params: temp=0.0, top_p=1.0, seed=42
+System: RAM=32GB, CPU=Apple M4
+State:  GPU=55°C, swap=2482MB
+Log: results/runs/toolcall_veerman_google_gemma-4-26b-a4b_20260414_031314.jsonl
+==============================================================================================================
+    1/12 veerman_p1_weather_obvious           |    5.5s | p= 338 c=  91  16.6t/s |  65°C sw=2482M | OK    | score: 100%
+    2/12 veerman_p2_files_obvious             |    4.2s | p= 338 c= 108  25.9t/s |  66°C sw=2692M | OK    | score: 100%
+    3/12 veerman_p3_meeting_multi_arg         |    2.9s | p= 372 c=  65  22.6t/s |  64°C sw=2692M | OK    | score: 100%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+    4/12 veerman_p4_ambiguous_brussels        |   10.2s | p= 343 c= 270  26.5t/s |  67°C sw=2692M | OK    | score: 100%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 52°C — resuming
+    5/12 veerman_p5_meta_trick                |    7.4s | p= 338 c= 196  26.5t/s |  62°C sw=2741M | OK    | score: 100%
+    6/12 veerman_p6_multi_step_unknown_city   |    7.2s | p= 346 c= 188  26.2t/s |  66°C sw=2741M | FAIL  (tool_mismatch) | score: 83%
+  ⏸ GPU at 63°C — waiting for valid reading ≤60°C
+  ✓ GPU at 53°C — resuming
+    7/12 veerman_p7_noisy_params              |    9.6s | p= 373 c= 240  25.0t/s |  64°C sw=2741M | OK    | score: 86%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 51°C — resuming
+    8/12 veerman_p8_two_tools_parallel        |    8.4s | p= 347 c= 226  26.9t/s |  66°C sw=2906M | OK    | score: 88%
+    9/12 veerman_p9_code_trick                |   49.7s | p= 344 c=1319  26.5t/s |  81°C sw=2906M | OK    | score: 89%
+  ⏸ GPU at 76°C — waiting for valid reading ≤60°C
+  ✓ GPU at 60°C — resuming
+   10/12 veerman_p10_implicit_weather         |   21.0s | p= 350 c= 562  26.7t/s |  80°C sw=2906M | FAIL  (no_tool_called) | score: 80%
+  ⏸ GPU at 72°C — waiting for valid reading ≤60°C
+  ✓ GPU at 59°C — resuming
+   11/12 veerman_p11_negation                 |    4.7s | p= 346 c= 104  22.3t/s |  67°C sw=2966M | OK    | score: 82%
+  ⏸ GPU at 62°C — waiting for valid reading ≤60°C
+  ✓ GPU at 54°C — resuming
+   12/12 veerman_p12_redundant_weather        |   11.3s | p= 351 c= 312  27.5t/s |  70°C sw=3536M | FAIL  (no_tool_called) | score: 75%
+
+  >>> VEERMAN: 75% (9/12) in 322s (5.4m) [fresh=12, carried=0] tok-wt 25.9t/s
+  >>> GPU: 55°C → 65°C
+  >>> Swap: 2482MB → 3536MB
+  >>> Log: results/runs/toolcall_veerman_google_gemma-4-26b-a4b_20260414_031314.jsonl
+  >>> Summary: results/runs/toolcall_veerman_google_gemma-4-26b-a4b_20260414_031314_summary.json

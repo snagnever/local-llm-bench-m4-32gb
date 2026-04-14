@@ -1,0 +1,136 @@
+# Tool schemas for the jdhodges-style tool-calling benchmark.
+# 8 tools × 40 test cases, scored by schema-aware matching.
+# Reconstructed from jdhodges 2026 blog post (original YAMLs not shipped with harness zip).
+
+tools:
+  - type: function
+    function:
+      name: get_weather
+      description: Get the current weather for a location.
+      parameters:
+        type: object
+        properties:
+          location:
+            type: string
+            description: "City name or 'City, ST' format, e.g. 'Portland, OR'."
+          units:
+            type: string
+            enum: [celsius, fahrenheit]
+            description: "Temperature unit. Optional; defaults to fahrenheit."
+        required: [location]
+
+  - type: function
+    function:
+      name: convert_currency
+      description: Convert a monetary amount from one currency to another.
+      parameters:
+        type: object
+        properties:
+          amount:
+            type: number
+            description: "Amount to convert."
+          from:
+            type: string
+            description: "Source currency code (ISO 4217), e.g. 'USD'."
+          to:
+            type: string
+            description: "Target currency code (ISO 4217), e.g. 'EUR'."
+        required: [amount, from, to]
+
+  - type: function
+    function:
+      name: set_reminder
+      description: Create a reminder at a specific time.
+      parameters:
+        type: object
+        properties:
+          title:
+            type: string
+            description: "Reminder text."
+          datetime:
+            type: string
+            description: "ISO 8601 datetime, e.g. '2026-04-15T08:00:00'."
+        required: [title, datetime]
+
+  - type: function
+    function:
+      name: send_email
+      description: Send an email.
+      parameters:
+        type: object
+        properties:
+          to:
+            type: string
+            description: "Primary recipient email address."
+          cc:
+            type: array
+            items: {type: string}
+            description: "CC recipients."
+          subject:
+            type: string
+            description: "Email subject line."
+          body:
+            type: string
+            description: "Email body text."
+        required: [to, subject, body]
+
+  - type: function
+    function:
+      name: create_calendar_event
+      description: Create a calendar event.
+      parameters:
+        type: object
+        properties:
+          title:
+            type: string
+            description: "Event title."
+          start:
+            type: string
+            description: "Event start (ISO 8601)."
+          end:
+            type: string
+            description: "Event end (ISO 8601)."
+          attendees:
+            type: array
+            items: {type: string}
+            description: "Attendee email addresses."
+        required: [title, start, end]
+
+  - type: function
+    function:
+      name: get_time
+      description: Get the current time in a specific timezone.
+      parameters:
+        type: object
+        properties:
+          timezone:
+            type: string
+            description: "IANA timezone name, e.g. 'America/Los_Angeles'."
+        required: [timezone]
+
+  - type: function
+    function:
+      name: web_search
+      description: Search the web for information.
+      parameters:
+        type: object
+        properties:
+          query:
+            type: string
+            description: "Search query string."
+        required: [query]
+
+  - type: function
+    function:
+      name: get_calendar_events
+      description: List calendar events in a date range.
+      parameters:
+        type: object
+        properties:
+          start_date:
+            type: string
+            description: "Range start (ISO 8601 date)."
+          end_date:
+            type: string
+            description: "Range end (ISO 8601 date)."
+        required: [start_date, end_date]
