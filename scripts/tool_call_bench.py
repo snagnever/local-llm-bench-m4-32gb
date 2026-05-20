@@ -31,9 +31,9 @@ from openai import OpenAI
 # Paths + constants
 # ---------------------------------------------------------------------------
 SCRIPT_DIR = Path(__file__).parent
-REPO_DIR = SCRIPT_DIR.parent.parent
-TC_DIR = REPO_DIR / "research" / "benchmarks" / "tool_calling"
-RUNS_DIR = REPO_DIR / "research" / "benchmarks" / "runs"
+REPO_DIR = SCRIPT_DIR.parent
+TC_DIR = REPO_DIR / "results" / "tool_calling"
+RUNS_DIR = REPO_DIR / "benchmarks" / "runs"
 
 # Deterministic generation
 TEMPERATURE = 0.0

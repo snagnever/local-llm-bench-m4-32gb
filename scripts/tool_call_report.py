@@ -19,9 +19,9 @@ from pathlib import Path
 from statistics import mean, median
 
 SCRIPT_DIR = Path(__file__).parent
-REPO = SCRIPT_DIR.parent.parent
-RUNS_DIR = REPO / "research" / "benchmarks" / "runs"
-OUT_MD = REPO / "research" / "benchmarks" / "tool_calling_results.md"
+REPO = SCRIPT_DIR.parent
+RUNS_DIR = REPO / "benchmarks" / "runs"
+OUT_MD = REPO / "results" / "tool_calling_results.md"
 
 
 def collect():
