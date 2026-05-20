@@ -1,0 +1,131 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading mmlu dataset...
+Generating test split:   0%|          | 0/14042 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 14042/14042 [00:00<00:00, 1032654.50 examples/s]
+Generating validation split:   0%|          | 0/1531 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 1531/1531 [00:00<00:00, 588155.29 examples/s]
+Generating dev split:   0%|          | 0/285 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 285/285 [00:00<00:00, 221079.46 examples/s]
+Generating auxiliary_train split:   0%|          | 0/99842 [00:00<?, ? examples/s]Generating auxiliary_train split: 100%|██████████| 99842/99842 [00:00<00:00, 1437212.18 examples/s]
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: qwen/qwen3-coder-next
+  Config: ctx=65000, quant=6bit, size=60.3GB, arch=qwen3_next
+  Hardware: Apple M4 Max, 128GB RAM, macOS 26.3
+  GPU: 41°C | CPU: 34°C
+  RAM: 44666MB process | Swap: 66MB
+  max_tokens: 32768
+  Warmup... '4' | p=19 c=2 (t=0+v=2) 2.1t/s | stop
+
+==============================================================================================================
+BENCHMARK: MMLU | Model: qwen/qwen3-coder-next | Questions: 100
+Params: temp=0, max_tokens=32768, seed=42
+Config: ctx=65000, quant=6bit, size=60.3GB, arch=qwen3_next, experts=?
+System: RAM=128GB, CPU=Apple M4 Max
+State:  GPU=41°C, swap=66MB, process_ram=44666MB
+Log: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/mmlu_qwen_qwen3-coder-next_20260517_155146.jsonl
+==============================================================================================================
+    1/100 Q1   |    1.2s | p=  99 c=    5 (t=    0+v=   5)   4.2t/s |  41°C ram=44666M sw=66M | OK    | exp=A got=A | score: 100%
+    2/100 Q2   |    1.2s | p=  71 c=    8 (t=    0+v=   8)   6.8t/s |  41°C ram=44666M sw=66M | OK    | exp=D got=D | score: 100%
+    3/100 Q3   |    1.2s | p=  96 c=    8 (t=    0+v=   8)   6.5t/s |  41°C ram=44666M sw=66M | OK    | exp=C got=C | score: 100%
+    4/100 Q4   |    1.3s | p= 325 c=    3 (t=    0+v=   3)   2.3t/s |  41°C ram=44666M sw=66M | FAIL  | exp=B got=C | score: 75%
+    5/100 Q5   |    1.1s | p=  78 c=    2 (t=    0+v=   2)   1.8t/s |  41°C ram=44666M sw=66M | OK    | exp=D got=D | score: 80%
+    6/100 Q6   |    1.1s | p=  73 c=    2 (t=    0+v=   2)   1.8t/s |  41°C ram=44666M sw=66M | OK    | exp=A got=A | score: 83%
+    7/100 Q7   |    1.2s | p= 103 c=    3 (t=    0+v=   3)   2.6t/s |  41°C ram=44666M sw=66M | OK    | exp=B got=B | score: 86%
+    8/100 Q8   |    1.2s | p=  89 c=    6 (t=    0+v=   6)   5.1t/s |  41°C ram=44666M sw=66M | OK    | exp=C got=C | score: 88%
+    9/100 Q9   |    1.3s | p= 271 c=    3 (t=    0+v=   3)   2.4t/s |  41°C ram=44666M sw=66M | FAIL  | exp=C got=A | score: 78%
+   10/100 Q10  |    1.1s | p=  58 c=    2 (t=    0+v=   2)   1.9t/s |  41°C ram=44666M sw=66M | OK    | exp=C got=C | score: 80%
+   11/100 Q11  |    1.3s | p= 282 c=    3 (t=    0+v=   3)   2.4t/s |  41°C ram=44667M sw=66M | OK    | exp=D got=D | score: 82%
+   12/100 Q12  |    1.6s | p= 516 c=   15 (t=    0+v=  15)   9.3t/s |  41°C ram=44667M sw=66M | OK    | exp=B got=B | score: 83%
+   13/100 Q13  |    1.3s | p= 122 c=    7 (t=    0+v=   7)   5.6t/s |  41°C ram=44667M sw=66M | FAIL  | exp=A got=C | score: 77%
+   14/100 Q14  |    1.2s | p= 135 c=    2 (t=    0+v=   2)   1.6t/s |  41°C ram=44667M sw=66M | OK    | exp=D got=D | score: 79%
+   15/100 Q15  |    1.1s | p=  58 c=    2 (t=    0+v=   2)   1.9t/s |  41°C ram=44667M sw=66M | OK    | exp=D got=D | score: 80%
+   16/100 Q16  |    1.2s | p= 115 c=    2 (t=    0+v=   2)   1.7t/s |  41°C ram=44667M sw=66M | OK    | exp=A got=A | score: 81%
+   17/100 Q17  |    1.0s | p=  88 c=    3 (t=    0+v=   3)   3.1t/s |  40°C ram=44667M sw=66M | OK    | exp=B got=B | score: 82%
+   18/100 Q18  |    1.0s | p=  51 c=    2 (t=    0+v=   2)   1.9t/s |  40°C ram=44667M sw=66M | OK    | exp=D got=D | score: 83%
+   19/100 Q19  |    1.2s | p= 101 c=    2 (t=    0+v=   2)   1.7t/s |  40°C ram=44667M sw=66M | OK    | exp=D got=D | score: 84%
+   20/100 Q20  |    1.1s | p=  62 c=    2 (t=    0+v=   2)   1.9t/s |  40°C ram=44667M sw=66M | FAIL  | exp=C got=B | score: 80%
+   21/100 Q21  |    1.1s | p=  69 c=    2 (t=    0+v=   2)   1.8t/s |  40°C ram=44667M sw=66M | OK    | exp=B got=B | score: 81%
+   22/100 Q22  |    1.1s | p=  72 c=    2 (t=    0+v=   2)   1.8t/s |  40°C ram=44667M sw=66M | OK    | exp=C got=C | score: 82%
+   23/100 Q23  |    1.1s | p=  70 c=    3 (t=    0+v=   3)   2.7t/s |  40°C ram=44667M sw=66M | OK    | exp=A got=A | score: 83%
+   24/100 Q24  |    1.2s | p=  83 c=    5 (t=    0+v=   5)   4.3t/s |  40°C ram=44667M sw=66M | OK    | exp=A got=A | score: 83%
+   25/100 Q25  |    1.3s | p= 125 c=    7 (t=    0+v=   7)   5.5t/s |  40°C ram=44667M sw=66M | OK    | exp=B got=B | score: 84%
+   26/100 Q26  |    1.3s | p= 164 c=    2 (t=    0+v=   2)   1.6t/s |  40°C ram=44667M sw=66M | OK    | exp=C got=C | score: 85%
+   27/100 Q27  |    1.2s | p= 243 c=    3 (t=    0+v=   3)   2.4t/s |  40°C ram=44667M sw=66M | OK    | exp=B got=B | score: 85%
+   28/100 Q28  |    1.5s | p= 221 c=   23 (t=    0+v=  23)  15.3t/s |  40°C ram=44667M sw=66M | OK    | exp=C got=C | score: 86%
+   29/100 Q29  |    1.2s | p= 244 c=    2 (t=    0+v=   2)   1.6t/s |  40°C ram=44667M sw=66M | OK    | exp=A got=A | score: 86%
+   30/100 Q30  |    1.3s | p= 133 c=    7 (t=    0+v=   7)   5.4t/s |  40°C ram=44667M sw=66M | FAIL  | exp=D got=B | score: 83%
+   31/100 Q31  |    1.1s | p=  93 c=    2 (t=    0+v=   2)   1.8t/s |  40°C ram=44667M sw=66M | OK    | exp=B got=B | score: 84%
+   32/100 Q32  |    1.1s | p=  55 c=    2 (t=    0+v=   2)   1.9t/s |  40°C ram=44667M sw=66M | OK    | exp=A got=A | score: 84%
+   33/100 Q33  |    1.1s | p=  87 c=    2 (t=    0+v=   2)   1.7t/s |  40°C ram=44667M sw=66M | OK    | exp=B got=B | score: 85%
+   34/100 Q34  |    1.3s | p= 159 c=    3 (t=    0+v=   3)   2.3t/s |  40°C ram=44667M sw=66M | OK    | exp=C got=C | score: 85%
+   35/100 Q35  |    1.3s | p= 132 c=    7 (t=    0+v=   7)   5.4t/s |  40°C ram=44667M sw=66M | OK    | exp=B got=B | score: 86%
+   36/100 Q36  |    1.3s | p= 144 c=    2 (t=    0+v=   2)   1.6t/s |  40°C ram=44667M sw=66M | OK    | exp=C got=C | score: 86%
+   37/100 Q37  |    1.1s | p=  69 c=    2 (t=    0+v=   2)   1.8t/s |  40°C ram=44667M sw=66M | OK    | exp=A got=A | score: 86%
+   38/100 Q38  |    1.2s | p= 140 c=    2 (t=    0+v=   2)   1.6t/s |  40°C ram=44667M sw=66M | OK    | exp=A got=A | score: 87%
+   39/100 Q39  |    1.2s | p= 253 c=    2 (t=    0+v=   2)   1.6t/s |  40°C ram=44667M sw=66M | FAIL  | exp=B got=D | score: 85%
+   40/100 Q40  |    1.1s | p=  87 c=    2 (t=    0+v=   2)   1.8t/s |  40°C ram=44667M sw=66M | OK    | exp=A got=A | score: 85%
+   41/100 Q41  |    1.2s | p= 263 c=    2 (t=    0+v=   2)   1.6t/s |  40°C ram=44667M sw=66M | FAIL  | exp=C got=A | score: 83%
+   42/100 Q42  |    1.1s | p=  85 c=    3 (t=    0+v=   3)   2.7t/s |  40°C ram=44667M sw=66M | FAIL  | exp=A got=C | score: 81%
+   43/100 Q43  |    1.5s | p= 182 c=   17 (t=    0+v=  17)  11.1t/s |  40°C ram=44667M sw=66M | OK    | exp=C got=C | score: 81%
+   44/100 Q44  |    1.1s | p=  73 c=    2 (t=    0+v=   2)   1.8t/s |  40°C ram=44667M sw=66M | OK    | exp=A got=A | score: 82%
+   45/100 Q45  |    1.2s | p= 136 c=    2 (t=    0+v=   2)   1.6t/s |  40°C ram=44667M sw=66M | FAIL  | exp=D got=B | score: 80%
+   46/100 Q46  |    1.1s | p=  51 c=    4 (t=    0+v=   4)   3.7t/s |  40°C ram=44667M sw=66M | FAIL  | exp=A got=B | score: 78%
+   47/100 Q47  |    1.1s | p=  61 c=    2 (t=    0+v=   2)   1.9t/s |  39°C ram=44667M sw=66M | FAIL  | exp=A got=C | score: 77%
+   48/100 Q48  |    1.2s | p= 112 c=    3 (t=    0+v=   3)   2.5t/s |  40°C ram=44667M sw=66M | OK    | exp=C got=C | score: 77%
+   49/100 Q49  |    1.1s | p=  80 c=    2 (t=    0+v=   2)   1.8t/s |  39°C ram=44667M sw=66M | OK    | exp=B got=B | score: 78%
+   50/100 Q50  |    1.2s | p= 111 c=    2 (t=    0+v=   2)   1.7t/s |  39°C ram=44667M sw=66M | OK    | exp=A got=A | score: 78%
+   51/100 Q51  |    1.1s | p=  63 c=    3 (t=    0+v=   3)   2.8t/s |  39°C ram=44667M sw=66M | OK    | exp=B got=B | score: 78%
+   52/100 Q52  |    1.1s | p=  61 c=    3 (t=    0+v=   3)   2.8t/s |  39°C ram=44667M sw=66M | OK    | exp=A got=A | score: 79%
+   53/100 Q53  |    1.3s | p= 322 c=    2 (t=    0+v=   2)   1.6t/s |  39°C ram=44667M sw=66M | OK    | exp=D got=D | score: 79%
+   54/100 Q54  |    1.1s | p=  54 c=    4 (t=    0+v=   4)   3.8t/s |  39°C ram=44667M sw=66M | OK    | exp=B got=B | score: 80%
+   55/100 Q55  |    1.3s | p= 182 c=    3 (t=    0+v=   3)   2.3t/s |  39°C ram=44667M sw=66M | OK    | exp=D got=D | score: 80%
+   56/100 Q56  |    1.2s | p= 151 c=    3 (t=    0+v=   3)   2.4t/s |  39°C ram=44667M sw=66M | OK    | exp=D got=D | score: 80%
+   57/100 Q57  |    1.1s | p=  74 c=    2 (t=    0+v=   2)   1.9t/s |  39°C ram=44667M sw=66M | OK    | exp=A got=A | score: 81%
+   58/100 Q58  |    1.3s | p= 319 c=    3 (t=    0+v=   3)   2.4t/s |  39°C ram=44667M sw=66M | FAIL  | exp=D got=A | score: 79%
+   59/100 Q59  |    1.4s | p=  98 c=   22 (t=    0+v=  22)  15.7t/s |  39°C ram=44667M sw=66M | OK    | exp=B got=B | score: 80%
+   60/100 Q60  |    1.2s | p= 202 c=   13 (t=    0+v=  13)  11.0t/s |  39°C ram=44667M sw=66M | FAIL  | exp=A got=C | score: 78%
+   61/100 Q61  |    1.1s | p= 102 c=    2 (t=    0+v=   2)   1.8t/s |  39°C ram=44667M sw=66M | OK    | exp=B got=B | score: 79%
+   62/100 Q62  |    1.2s | p= 116 c=    7 (t=    0+v=   7)   5.6t/s |  39°C ram=44667M sw=66M | OK    | exp=B got=B | score: 79%
+   63/100 Q63  |    1.0s | p=  65 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=A got=A | score: 79%
+   64/100 Q64  |    1.1s | p=  71 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | FAIL  | exp=B got=C | score: 78%
+   65/100 Q65  |    1.1s | p=  84 c=    2 (t=    0+v=   2)   1.8t/s |  38°C ram=44667M sw=66M | OK    | exp=D got=D | score: 78%
+   66/100 Q66  |    1.2s | p= 122 c=    7 (t=    0+v=   7)   5.7t/s |  38°C ram=44667M sw=66M | FAIL  | exp=A got=B | score: 77%
+   67/100 Q67  |    1.1s | p=  77 c=    3 (t=    0+v=   3)   2.7t/s |  38°C ram=44667M sw=66M | FAIL  | exp=A got=C | score: 76%
+   68/100 Q68  |    1.1s | p=  84 c=    2 (t=    0+v=   2)   1.8t/s |  38°C ram=44667M sw=66M | OK    | exp=C got=C | score: 76%
+   69/100 Q69  |    1.1s | p=  97 c=    2 (t=    0+v=   2)   1.8t/s |  38°C ram=44667M sw=66M | FAIL  | exp=B got=A | score: 75%
+   70/100 Q70  |    1.0s | p=  58 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | FAIL  | exp=D got=B | score: 74%
+   71/100 Q71  |    1.5s | p= 622 c=    2 (t=    0+v=   2)   1.4t/s |  39°C ram=44667M sw=66M | OK    | exp=A got=A | score: 75%
+   72/100 Q72  |    1.2s | p= 122 c=    2 (t=    0+v=   2)   1.7t/s |  38°C ram=44667M sw=66M | OK    | exp=A got=A | score: 75%
+   73/100 Q73  |    1.1s | p= 106 c=    2 (t=    0+v=   2)   1.8t/s |  38°C ram=44667M sw=66M | FAIL  | exp=B got=A | score: 74%
+   74/100 Q74  |    1.2s | p= 141 c=    2 (t=    0+v=   2)   1.7t/s |  38°C ram=44667M sw=66M | OK    | exp=B got=B | score: 74%
+   75/100 Q75  |    1.2s | p= 117 c=    2 (t=    0+v=   2)   1.7t/s |  38°C ram=44667M sw=66M | OK    | exp=A got=A | score: 75%
+   76/100 Q76  |    1.1s | p=  66 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=D got=D | score: 75%
+   77/100 Q77  |    1.5s | p= 251 c=   20 (t=    0+v=  20)  13.7t/s |  38°C ram=44667M sw=66M | OK    | exp=B got=B | score: 75%
+   78/100 Q78  |    1.1s | p=  73 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=C got=C | score: 76%
+   79/100 Q79  |    1.2s | p= 113 c=    2 (t=    0+v=   2)   1.7t/s |  38°C ram=44667M sw=66M | OK    | exp=A got=A | score: 76%
+   80/100 Q80  |    1.3s | p= 198 c=    3 (t=    0+v=   3)   2.2t/s |  38°C ram=44667M sw=66M | OK    | exp=C got=C | score: 76%
+   81/100 Q81  |    1.1s | p=  89 c=    2 (t=    0+v=   2)   1.8t/s |  38°C ram=44667M sw=66M | FAIL  | exp=A got=C | score: 75%
+   82/100 Q82  |    1.1s | p=  67 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=D got=D | score: 76%
+   83/100 Q83  |    1.1s | p=  69 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=B got=B | score: 76%
+   84/100 Q84  |    1.1s | p=  72 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=A got=A | score: 76%
+   85/100 Q85  |    1.0s | p=  58 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=A got=A | score: 76%
+   86/100 Q86  |    1.1s | p=  70 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=A got=A | score: 77%
+   87/100 Q87  |    1.0s | p=  57 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=D got=D | score: 77%
+   88/100 Q88  |    1.4s | p= 165 c=   10 (t=    0+v=  10)   7.3t/s |  38°C ram=44667M sw=66M | OK    | exp=C got=C | score: 77%
+   89/100 Q89  |    1.1s | p=  73 c=    2 (t=    0+v=   2)   1.9t/s |  38°C ram=44667M sw=66M | OK    | exp=C got=C | score: 78%
+   90/100 Q90  |    1.3s | p= 334 c=    3 (t=    0+v=   3)   2.3t/s |  38°C ram=44667M sw=66M | OK    | exp=A got=A | score: 78%
+   91/100 Q91  |    1.2s | p=  75 c=    9 (t=    0+v=   9)   7.7t/s |  38°C ram=44667M sw=66M | FAIL  | exp=B got=A | score: 77%
+   92/100 Q92  |    1.5s | p= 599 c=    3 (t=    0+v=   3)   2.1t/s |  38°C ram=44667M sw=66M | FAIL  | exp=A got=C | score: 76%
+   93/100 Q93  |    1.3s | p= 376 c=    3 (t=    0+v=   3)   2.3t/s |  38°C ram=44668M sw=66M | OK    | exp=D got=D | score: 76%
+   94/100 Q94  |    1.4s | p= 491 c=    2 (t=    0+v=   2)   1.5t/s |  38°C ram=44668M sw=66M | OK    | exp=D got=D | score: 77%
+   95/100 Q95  |    1.3s | p= 319 c=    3 (t=    0+v=   3)   2.4t/s |  38°C ram=44668M sw=66M | FAIL  | exp=A got=B | score: 76%
+   96/100 Q96  |    4.4s | p= 101 c=  232 (t=    0+v= 232)  52.7t/s |  39°C ram=44668M sw=66M | OK    | exp=A got=A | score: 76%
+   97/100 Q97  |    1.2s | p= 217 c=    3 (t=    0+v=   3)   2.6t/s |  38°C ram=44668M sw=66M | FAIL  | exp=D got=C | score: 75%
+   98/100 Q98  |    1.5s | p= 232 c=   24 (t=    0+v=  24)  16.0t/s |  38°C ram=44668M sw=66M | OK    | exp=B got=B | score: 76%
+   99/100 Q99  |    1.5s | p= 189 c=   15 (t=    0+v=  15)  10.1t/s |  38°C ram=44668M sw=66M | OK    | exp=B got=B | score: 76%
+  100/100 Q100 |   13.5s | p= 139 c=  859 (t=    0+v= 859)  63.7t/s |  40°C ram=44668M sw=66M | OK    | exp=D got=D | score: 76%
+
+  >>> MMLU: 76% (76/100) in 816s (13.6m)
+  >>> GPU: 41°C → 39°C
+  >>> RAM: 44666MB | Swap: 66MB → 66MB
+  >>> Log: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/mmlu_qwen_qwen3-coder-next_20260517_155146.jsonl
+  >>> Summary: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/mmlu_qwen_qwen3-coder-next_20260517_155146_summary.json

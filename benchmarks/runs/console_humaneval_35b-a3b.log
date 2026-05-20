@@ -1,0 +1,127 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading humaneval dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: qwen3.6-35b-a3b@6bit
+  Config: ctx=65536, quant=6bit, size=27.1GB, arch=qwen3_5_moe
+  Hardware: Apple M4 Max, 128GB RAM, macOS 26.3
+  GPU: 43°C | CPU: 35°C
+  RAM: 28930MB process | Swap: 68MB
+  max_tokens: 32768
+  Warmup... '4' | p=21 c=148 (t=144+v=4) 78.2t/s | stop
+
+==============================================================================================================
+BENCHMARK: HUMANEVAL | Model: qwen3.6-35b-a3b@6bit | Questions: 100
+Params: temp=0, max_tokens=32768, seed=42
+Config: ctx=65536, quant=6bit, size=27.1GB, arch=qwen3_5_moe, experts=?
+System: RAM=128GB, CPU=Apple M4 Max
+State:  GPU=43°C, swap=68MB, process_ram=28929MB
+Log: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/humaneval_qwen3.6-35b-a3b@6bit_20260519_083444.jsonl
+==============================================================================================================
+    1/100 Q1   |   55.4s | p= 144 c= 5178 (t= 5128+v=  50)  93.5t/s |  48°C ram=28929M sw=68M | OK    | generate_integers | score: 100%
+    2/100 Q2   |    6.0s | p=  94 c=  540 (t=  473+v=  67)  90.0t/s |  48°C ram=28931M sw=68M | OK    | concatenate | score: 100%
+    3/100 Q3   |   33.7s | p= 149 c= 3161 (t= 2960+v= 201)  93.9t/s |  49°C ram=28934M sw=68M | OK    | parse_nested_parens | score: 100%
+    4/100 Q4   |   34.9s | p= 164 c= 3271 (t= 3066+v= 205)  93.7t/s |  50°C ram=28934M sw=68M | OK    | strange_sort_list | score: 100%
+    5/100 Q5   |   23.1s | p= 148 c= 2170 (t= 2035+v= 135)  93.8t/s |  51°C ram=28935M sw=68M | OK    | derivative | score: 100%
+    6/100 Q6   |   23.8s | p= 127 c= 2228 (t= 2156+v=  72)  93.7t/s |  51°C ram=28935M sw=68M | OK    | monotonic | score: 100%
+    7/100 Q7   |   13.9s | p= 122 c= 1290 (t= 1196+v=  94)  93.1t/s |  52°C ram=28936M sw=68M | OK    | max_element | score: 100%
+    8/100 Q8   |   20.2s | p= 120 c= 1890 (t= 1830+v=  60)  93.6t/s |  52°C ram=28936M sw=68M | FAIL  | remove_duplicates | score: 88%
+    9/100 Q9   |   20.9s | p= 134 c= 1956 (t= 1808+v= 148)  93.6t/s |  52°C ram=28936M sw=68M | OK    | special_factorial | score: 89%
+   10/100 Q10  |   20.0s | p= 128 c= 1869 (t= 1766+v= 103)  93.5t/s |  52°C ram=28936M sw=68M | FAIL  | filter_integers | score: 80%
+   11/100 Q11  |   36.6s | p= 174 c= 3426 (t= 3379+v=  47)  93.6t/s |  53°C ram=28936M sw=68M | OK    | double_the_difference | score: 82%
+   12/100 Q12  |   57.1s | p= 164 c= 5313 (t= 5230+v=  83)  93.1t/s |  54°C ram=28936M sw=68M | OK    | count_nums | score: 83%
+   13/100 Q13  |   13.4s | p= 151 c= 1244 (t= 1097+v= 147)  92.6t/s |  54°C ram=28937M sw=68M | FAIL  | sum_product | score: 77%
+   14/100 Q14  |    3.2s | p= 129 c=  266 (t=  231+v=  35)  84.4t/s |  53°C ram=28937M sw=68M | FAIL  | filter_by_substring | score: 71%
+   15/100 Q15  |    4.7s | p=  78 c=  421 (t=  371+v=  50)  88.7t/s |  53°C ram=28937M sw=68M | OK    | strlen | score: 73%
+   16/100 Q16  |   19.4s | p=  91 c= 1813 (t= 1722+v=  91)  93.6t/s |  54°C ram=28937M sw=68M | OK    | fib | score: 75%
+   17/100 Q17  |   57.4s | p= 104 c= 5349 (t= 5287+v=  62)  93.2t/s |  55°C ram=28937M sw=68M | OK    | largest_prime_factor | score: 76%
+   18/100 Q18  |   83.8s | p= 442 c= 7701 (t= 7425+v= 276)  91.9t/s |  56°C ram=28937M sw=68M | OK    | minPath | score: 78%
+   19/100 Q19  |   29.4s | p= 149 c= 2746 (t= 2603+v= 143)  93.3t/s |  56°C ram=28939M sw=68M | OK    | solve | score: 79%
+   20/100 Q20  |   35.1s | p= 194 c= 3281 (t= 3049+v= 232)  93.4t/s |  57°C ram=28940M sw=68M | OK    | words_in_sentence | score: 80%
+   21/100 Q21  |   14.1s | p= 130 c= 1304 (t= 1238+v=  66)  92.6t/s |  56°C ram=28941M sw=68M | FAIL  | decode_shift | score: 76%
+   22/100 Q22  |   23.7s | p= 104 c= 2217 (t= 2160+v=  57)  93.4t/s |  56°C ram=28942M sw=68M | OK    | even_odd_count | score: 77%
+   23/100 Q23  |   18.7s | p= 258 c= 1733 (t= 1640+v=  93)  92.9t/s |  56°C ram=28944M sw=68M | OK    | even_odd_palindrome | score: 78%
+   24/100 Q24  |   17.8s | p= 130 c= 1656 (t= 1505+v= 151)  92.9t/s |  56°C ram=28944M sw=68M | OK    | correct_bracketing | score: 79%
+   25/100 Q25  |   30.4s | p= 122 c= 2834 (t= 2676+v= 158)  93.2t/s |  56°C ram=28944M sw=68M | OK    | minSubArraySum | score: 80%
+   26/100 Q26  |   19.8s | p= 158 c= 1837 (t= 1747+v=  90)  92.9t/s |  55°C ram=28944M sw=68M | OK    | triangle_area | score: 81%
+   27/100 Q27  |   29.3s | p= 151 c= 2734 (t= 2620+v= 114)  93.4t/s |  56°C ram=28944M sw=68M | FAIL  | separate_paren_groups | score: 78%
+   28/100 Q28  |   36.6s | p= 199 c= 3411 (t= 3297+v= 114)  93.2t/s |  56°C ram=28944M sw=68M | OK    | triples_sum_to_zero | score: 79%
+   29/100 Q29  |   11.9s | p= 269 c= 1088 (t= 1060+v=  28)  91.6t/s |  56°C ram=28944M sw=68M | OK    | compare | score: 79%
+   30/100 Q30  |   38.1s | p= 307 c= 3547 (t= 3470+v=  77)  93.0t/s |  56°C ram=28944M sw=68M | OK    | get_row | score: 80%
+   31/100 Q31  |   19.0s | p= 109 c= 1773 (t= 1747+v=  26)  93.2t/s |  56°C ram=28944M sw=68M | OK    | is_equal_to_sum_even | score: 81%
+   32/100 Q32  |   32.1s | p= 138 c= 2992 (t= 2727+v= 265)  93.1t/s |  56°C ram=28944M sw=68M | OK    | prime_fib | score: 81%
+   33/100 Q33  |   28.8s | p= 248 c= 2674 (t= 2360+v= 314)  93.0t/s |  56°C ram=28944M sw=68M | OK    | bf | score: 82%
+   34/100 Q34  |   31.8s | p= 170 c= 2963 (t= 2802+v= 161)  93.3t/s |  56°C ram=28943M sw=68M | OK    | anti_shuffle | score: 82%
+   35/100 Q35  |   15.4s | p= 147 c= 1429 (t= 1270+v= 159)  92.6t/s |  56°C ram=28943M sw=68M | OK    | int_to_mini_roman | score: 83%
+   36/100 Q36  |   19.7s | p= 231 c= 1836 (t= 1796+v=  40)  93.2t/s |  55°C ram=28943M sw=68M | OK    | sorted_list_sum | score: 83%
+   37/100 Q37  |   23.5s | p= 152 c= 2193 (t= 2053+v= 140)  93.5t/s |  56°C ram=28943M sw=68M | OK    | multiply | score: 84%
+   38/100 Q38  |   14.3s | p= 140 c= 1323 (t= 1290+v=  33)  92.8t/s |  55°C ram=28943M sw=68M | FAIL  | longest | score: 82%
+   39/100 Q39  |    3.5s | p=  80 c=  298 (t=  241+v=  57)  85.6t/s |  54°C ram=28943M sw=68M | OK    | triangle_area | score: 82%
+   40/100 Q40  |   18.8s | p= 137 c= 1753 (t= 1704+v=  49)  93.1t/s |  54°C ram=28943M sw=68M | OK    | can_arrange | score: 82%
+   41/100 Q41  |   22.4s | p= 138 c= 2094 (t= 2030+v=  64)  93.4t/s |  54°C ram=28943M sw=68M | OK    | change_base | score: 83%
+   42/100 Q42  |   44.6s | p= 149 c= 4163 (t= 4136+v=  27)  93.4t/s |  55°C ram=28943M sw=68M | OK    | iscube | score: 83%
+   43/100 Q43  |   26.4s | p= 187 c= 2470 (t= 2293+v= 177)  93.4t/s |  55°C ram=28943M sw=68M | OK    | sort_third | score: 84%
+   44/100 Q44  |   29.8s | p= 188 c= 2790 (t= 2754+v=  36)  93.6t/s |  55°C ram=28943M sw=68M | OK    | rounded_avg | score: 84%
+   45/100 Q45  |   23.6s | p= 129 c= 2205 (t= 2143+v=  62)  93.5t/s |  55°C ram=28943M sw=68M | FAIL  | intersperse | score: 82%
+   46/100 Q46  |   39.6s | p= 147 c= 3699 (t= 3544+v= 155)  93.3t/s |  55°C ram=28943M sw=68M | OK    | encode | score: 83%
+   47/100 Q47  |   11.3s | p= 160 c= 1042 (t=  903+v= 139)  92.3t/s |  55°C ram=28943M sw=68M | OK    | common | score: 83%
+   48/100 Q48  |   30.2s | p= 368 c= 2814 (t= 2755+v=  59)  93.1t/s |  55°C ram=28943M sw=68M | OK    | pluck | score: 83%
+   49/100 Q49  |    6.3s | p= 105 c=  570 (t=  481+v=  89)  90.3t/s |  54°C ram=28943M sw=68M | OK    | string_sequence | score: 84%
+   50/100 Q50  |    8.1s | p= 109 c=  737 (t=  653+v=  84)  91.3t/s |  54°C ram=28943M sw=68M | OK    | is_palindrome | score: 84%
+   51/100 Q51  |  199.2s | p= 185 c=17810 (t=17635+v= 175)  89.4t/s |  58°C ram=28943M sw=68M | OK    | make_palindrome | score: 84%
+   52/100 Q52  |   27.7s | p= 249 c= 2575 (t= 2521+v=  54)  92.8t/s |  57°C ram=28961M sw=68M | OK    | do_algebra | score: 85%
+   53/100 Q53  |   25.5s | p= 160 c= 2382 (t= 2232+v= 150)  93.3t/s |  56°C ram=28964M sw=68M | OK    | sort_even | score: 85%
+   54/100 Q54  |   46.9s | p= 164 c= 4362 (t= 4160+v= 202)  93.1t/s |  56°C ram=28964M sw=68M | OK    | f | score: 85%
+   55/100 Q55  |   27.1s | p= 156 c= 2530 (t= 2358+v= 172)  93.5t/s |  56°C ram=28964M sw=68M | OK    | is_happy | score: 85%
+   56/100 Q56  |   19.0s | p= 185 c= 1771 (t= 1608+v= 163)  93.2t/s |  56°C ram=28965M sw=68M | OK    | decimal_to_binary | score: 86%
+   57/100 Q57  |   35.2s | p= 210 c= 3286 (t= 3170+v= 116)  93.5t/s |  55°C ram=28966M sw=68M | OK    | fib4 | score: 86%
+   58/100 Q58  |   16.1s | p= 192 c= 1494 (t= 1437+v=  57)  92.6t/s |  55°C ram=28966M sw=68M | OK    | smallest_change | score: 86%
+   59/100 Q59  |   32.4s | p=  86 c= 3045 (t= 2952+v=  93)  93.9t/s |  55°C ram=28966M sw=68M | OK    | largest_divisor | score: 86%
+   60/100 Q60  |   20.3s | p= 160 c= 1897 (t= 1739+v= 158)  93.5t/s |  55°C ram=28966M sw=68M | OK    | next_smallest | score: 87%
+   61/100 Q61  |   27.3s | p= 315 c= 2553 (t= 2446+v= 107)  93.4t/s |  54°C ram=28966M sw=68M | OK    | Strongest_Extension | score: 87%
+   62/100 Q62  |   27.2s | p= 208 c= 2537 (t= 2410+v= 127)  93.4t/s |  54°C ram=28966M sw=68M | OK    | match_parens | score: 87%
+   63/100 Q63  |   21.1s | p= 186 c= 1973 (t= 1804+v= 169)  93.7t/s |  54°C ram=28966M sw=68M | OK    | solve | score: 87%
+   64/100 Q64  |    6.6s | p= 124 c=  603 (t=  504+v=  99)  90.7t/s |  54°C ram=28966M sw=68M | FAIL  | filter_by_prefix | score: 86%
+   65/100 Q65  |   16.9s | p= 107 c= 1585 (t= 1483+v= 102)  93.7t/s |  54°C ram=28966M sw=68M | OK    | count_upper | score: 86%
+   66/100 Q66  |   20.7s | p= 191 c= 1943 (t= 1866+v=  77)  93.7t/s |  53°C ram=28966M sw=68M | OK    | histogram | score: 86%
+   67/100 Q67  |   47.8s | p= 221 c= 4451 (t= 4379+v=  72)  93.2t/s |  54°C ram=28966M sw=68M | OK    | odd_count | score: 87%
+   68/100 Q68  |   18.8s | p= 174 c= 1757 (t= 1601+v= 156)  93.4t/s |  54°C ram=28966M sw=68M | OK    | make_a_pile | score: 87%
+   69/100 Q69  |   40.2s | p= 283 c= 3759 (t= 3676+v=  83)  93.4t/s |  54°C ram=28965M sw=68M | OK    | is_sorted | score: 87%
+   70/100 Q70  |   26.9s | p= 205 c= 2518 (t= 2442+v=  76)  93.7t/s |  54°C ram=28965M sw=68M | OK    | sum_squares | score: 87%
+   71/100 Q71  |   19.2s | p= 145 c= 1797 (t= 1752+v=  45)  93.5t/s |  54°C ram=28965M sw=68M | OK    | right_angle_triangle | score: 87%
+   72/100 Q72  |   27.2s | p= 222 c= 2543 (t= 2493+v=  50)  93.6t/s |  54°C ram=28965M sw=68M | OK    | select_words | score: 88%
+   73/100 Q73  |   42.6s | p= 313 c= 3975 (t= 3717+v= 258)  93.4t/s |  54°C ram=28965M sw=68M | OK    | numerical_letter_grade | score: 88%
+   74/100 Q74  |   35.6s | p= 254 c= 3313 (t= 3199+v= 114)  93.1t/s |  55°C ram=28966M sw=68M | OK    | file_name_check | score: 88%
+   75/100 Q75  |   37.1s | p= 203 c= 3475 (t= 3347+v= 128)  93.6t/s |  55°C ram=28965M sw=68M | FAIL  | find_closest_elements | score: 87%
+   76/100 Q76  |   36.1s | p= 116 c= 3371 (t= 3223+v= 148)  93.5t/s |  55°C ram=28966M sw=68M | OK    | median | score: 87%
+   77/100 Q77  |   27.4s | p= 176 c= 2564 (t= 2488+v=  76)  93.6t/s |  55°C ram=28966M sw=68M | OK    | split_words | score: 87%
+   78/100 Q78  |   30.9s | p= 163 c= 2891 (t= 2817+v=  74)  93.5t/s |  55°C ram=28966M sw=68M | OK    | specialFilter | score: 87%
+   79/100 Q79  |   19.6s | p=  88 c= 1831 (t= 1742+v=  89)  93.5t/s |  54°C ram=28966M sw=68M | OK    | add | score: 87%
+   80/100 Q80  |    4.1s | p= 111 c=  362 (t=  278+v=  84)  87.5t/s |  54°C ram=28966M sw=68M | OK    | unique | score: 88%
+   81/100 Q81  |   11.5s | p= 113 c= 1068 (t=  932+v= 136)  92.7t/s |  54°C ram=28966M sw=68M | OK    | prime_length | score: 88%
+   82/100 Q82  |   42.4s | p= 135 c= 3969 (t= 3905+v=  64)  93.6t/s |  55°C ram=28966M sw=68M | FAIL  | rolling_max | score: 87%
+   83/100 Q83  |   20.5s | p= 174 c= 1913 (t= 1881+v=  32)  93.4t/s |  55°C ram=28966M sw=68M | OK    | add_elements | score: 87%
+   84/100 Q84  |   19.5s | p= 160 c= 1818 (t= 1638+v= 180)  93.5t/s |  54°C ram=28966M sw=68M | FAIL  | rescale_to_unit | score: 86%
+   85/100 Q85  |   44.7s | p= 209 c= 4168 (t= 3973+v= 195)  93.2t/s |  55°C ram=28966M sw=68M | OK    | sort_array | score: 86%
+   86/100 Q86  |   19.2s | p= 146 c= 1793 (t= 1603+v= 190)  93.2t/s |  55°C ram=28966M sw=68M | OK    | is_prime | score: 86%
+   87/100 Q87  |   25.6s | p= 148 c= 2388 (t= 2274+v= 114)  93.4t/s |  55°C ram=28966M sw=68M | OK    | encrypt | score: 86%
+   88/100 Q88  |   56.7s | p= 207 c= 5275 (t= 5196+v=  79)  93.1t/s |  56°C ram=28966M sw=68M | OK    | get_max_triples | score: 86%
+   89/100 Q89  |   60.3s | p= 362 c= 5574 (t= 5154+v= 420)  92.4t/s |  56°C ram=28966M sw=68M | OK    | skjkasdkd | score: 87%
+   90/100 Q90  |   15.1s | p= 153 c= 1405 (t= 1276+v= 129)  92.9t/s |  56°C ram=28966M sw=68M | OK    | words_string | score: 87%
+   91/100 Q91  |   19.3s | p= 197 c= 1796 (t= 1767+v=  29)  93.2t/s |  55°C ram=28966M sw=68M | OK    | sum_squares | score: 87%
+   92/100 Q92  |   13.4s | p= 122 c= 1238 (t= 1199+v=  39)  92.6t/s |  55°C ram=28966M sw=68M | OK    | string_to_md5 | score: 87%
+   93/100 Q93  |   17.0s | p= 188 c= 1580 (t= 1420+v= 160)  93.2t/s |  55°C ram=28966M sw=68M | OK    | car_race_collision | score: 87%
+   94/100 Q94  |   16.5s | p= 124 c= 1540 (t= 1400+v= 140)  93.4t/s |  55°C ram=28966M sw=68M | OK    | x_or_y | score: 87%
+   95/100 Q95  |   25.5s | p= 195 c= 2387 (t= 2279+v= 108)  93.6t/s |  55°C ram=28966M sw=68M | OK    | count_up_to | score: 87%
+   96/100 Q96  |   20.3s | p= 153 c= 1893 (t= 1748+v= 145)  93.4t/s |  55°C ram=28966M sw=68M | FAIL  | mean_absolute_deviation | score: 86%
+   97/100 Q97  |   32.9s | p= 177 c= 3079 (t= 2880+v= 199)  93.6t/s |  55°C ram=28966M sw=68M | OK    | largest_smallest_integers | score: 87%
+   98/100 Q98  |   14.1s | p= 169 c= 1314 (t= 1151+v= 163)  92.9t/s |  55°C ram=28966M sw=68M | OK    | remove_vowels | score: 87%
+   99/100 Q99  |   14.5s | p= 233 c= 1340 (t= 1298+v=  42)  92.5t/s |  55°C ram=28966M sw=68M | OK    | total_match | score: 87%
+  100/100 Q100 |   25.6s | p= 267 c= 2396 (t= 2367+v=  29)  93.5t/s |  55°C ram=28966M sw=68M | OK    | maximum | score: 87%
+
+  >>> HUMANEVAL: 87% (87/100) in 3486s (58.1m)
+  >>> GPU: 43°C → 54°C
+  >>> RAM: 28929MB | Swap: 68MB → 68MB
+  >>> Log: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/humaneval_qwen3.6-35b-a3b@6bit_20260519_083444.jsonl
+  >>> Summary: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/humaneval_qwen3.6-35b-a3b@6bit_20260519_083444_summary.json

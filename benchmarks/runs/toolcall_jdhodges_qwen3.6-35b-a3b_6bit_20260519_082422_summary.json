@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_qwen3.6-35b-a3b_6bit_20260519_082422",
+  "suite": "jdhodges",
+  "model": "qwen3.6-35b-a3b@6bit",
+  "model_slug": "qwen3.6-35b-a3b_6bit",
+  "score": 0.975,
+  "score_pct": "97.5%",
+  "correct": 39,
+  "total": 40,
+  "carried_over": 0,
+  "fresh_run": 40,
+  "by_category": {
+    "tool_selection": {
+      "pass": 8,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 8,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 7,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 8,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 72.35,
+  "elapsed_s": 416,
+  "elapsed_min": 6.9,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 43,
+    "cpu_temp_c": 37,
+    "process_ram_mb": 0,
+    "swap_used_mb": 68,
+    "free_pages": 31634
+  },
+  "final_state": {
+    "gpu_temp_c": 43,
+    "cpu_temp_c": 35,
+    "process_ram_mb": 0,
+    "swap_used_mb": 68,
+    "free_pages": 104254
+  },
+  "timestamp_start": "2026-05-19T08:24:26.364150",
+  "timestamp_end": "2026-05-19T08:31:25.512665",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_jdhodges_qwen3.6-35b-a3b_6bit_20260519_082422.jsonl"
+}

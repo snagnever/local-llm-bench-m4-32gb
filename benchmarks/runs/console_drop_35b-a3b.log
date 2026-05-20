@@ -1,0 +1,127 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading drop dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: qwen3.6-35b-a3b@6bit
+  Config: ctx=65536, quant=6bit, size=27.1GB, arch=qwen3_5_moe
+  Hardware: Apple M4 Max, 128GB RAM, macOS 26.3
+  GPU: 50°C | CPU: 38°C
+  RAM: 29034MB process | Swap: 68MB
+  max_tokens: 32768
+  Warmup... '4' | p=21 c=148 (t=144+v=4) 76.3t/s | stop
+
+==============================================================================================================
+BENCHMARK: DROP | Model: qwen3.6-35b-a3b@6bit | Questions: 100
+Params: temp=0, max_tokens=32768, seed=42
+Config: ctx=65536, quant=6bit, size=27.1GB, arch=qwen3_5_moe, experts=?
+System: RAM=128GB, CPU=Apple M4 Max
+State:  GPU=50°C, swap=68MB, process_ram=29033MB
+Log: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/drop_qwen3.6-35b-a3b@6bit_20260519_135829.jsonl
+==============================================================================================================
+    1/100 Q1   |   10.3s | p= 435 c=  939 (t=  921+v=  18)  90.9t/s |  50°C ram=29033M sw=68M | OK    | exp=['minimally resupplied', 'mini | score: 100%
+    2/100 Q2   |    4.8s | p= 303 c=  419 (t=  413+v=   6)  87.5t/s |  50°C ram=29033M sw=68M | OK    | exp=['Bengals', 'Bengals'] | score: 100%
+    3/100 Q3   |    9.3s | p= 476 c=  842 (t=  830+v=  12)  90.4t/s |  50°C ram=29033M sw=68M | OK    | exp=['1426-1440', '1426-1440'] | score: 100%
+    4/100 Q4   |    6.5s | p= 205 c=  587 (t=  579+v=   8)  90.4t/s |  50°C ram=29033M sw=68M | OK    | exp=['Instability in the economy', | score: 100%
+    5/100 Q5   |   12.6s | p= 336 c= 1165 (t= 1159+v=   6)  92.2t/s |  50°C ram=29033M sw=68M | OK    | exp=['Greek Orthodox subjects', 'G | score: 100%
+    6/100 Q6   |    8.1s | p= 306 c=  731 (t=  726+v=   5)  90.7t/s |  50°C ram=29033M sw=68M | OK    | exp=['11', '1', '11'] | score: 100%
+    7/100 Q7   |    8.3s | p= 264 c=  753 (t=  747+v=   6)  91.3t/s |  50°C ram=29033M sw=68M | OK    | exp=['27', '27-yard', '27-yard', ' | score: 100%
+    8/100 Q8   |   12.9s | p= 199 c= 1205 (t= 1197+v=   8)  93.1t/s |  50°C ram=29033M sw=68M | FAIL  | exp=['93.3', '93.3'] | score: 88%
+    9/100 Q9   |    4.7s | p= 352 c=  407 (t=  386+v=  21)  86.3t/s |  50°C ram=29034M sw=68M | FAIL  | exp=['614504', '445,342 people, 16 | score: 78%
+   10/100 Q10  |    9.9s | p= 373 c=  904 (t=  900+v=   4)  91.3t/s |  50°C ram=29034M sw=68M | OK    | exp=['7', '7'] | score: 80%
+   11/100 Q11  |   14.1s | p= 193 c= 1314 (t= 1295+v=  19)  93.4t/s |  50°C ram=29034M sw=68M | OK    | exp=['under the age of 18', '25 to | score: 82%
+   12/100 Q12  |    6.6s | p= 225 c=  596 (t=  592+v=   4)  90.7t/s |  50°C ram=29034M sw=68M | OK    | exp=['7', '7', '7', '7', '7'] | score: 83%
+   13/100 Q13  |   10.3s | p= 337 c=  946 (t=  941+v=   5)  91.5t/s |  50°C ram=29034M sw=68M | OK    | exp=['third', 'third'] | score: 85%
+   14/100 Q14  |    8.3s | p= 354 c=  754 (t=  750+v=   4)  90.7t/s |  50°C ram=29034M sw=68M | OK    | exp=['3', '3'] | score: 86%
+   15/100 Q15  |    7.9s | p= 508 c=  704 (t=  699+v=   5)  89.1t/s |  50°C ram=29034M sw=68M | OK    | exp=['Lions', 'Lions', 'Lions'] | score: 87%
+   16/100 Q16  |   12.5s | p= 190 c= 1160 (t= 1141+v=  19)  92.9t/s |  50°C ram=29034M sw=68M | OK    | exp=['under the age of 18', '25 to | score: 88%
+   17/100 Q17  |    6.7s | p= 431 c=  592 (t=  588+v=   4)  88.6t/s |  50°C ram=29034M sw=68M | OK    | exp=['4', '4', '4', '4'] | score: 88%
+   18/100 Q18  |    9.8s | p= 270 c=  896 (t=  889+v=   7)  91.9t/s |  50°C ram=29035M sw=68M | OK    | exp=['0.1', '.1'] | score: 89%
+   19/100 Q19  |    8.5s | p= 270 c=  773 (t=  765+v=   8)  91.3t/s |  50°C ram=29035M sw=68M | FAIL  | exp=['2205', '2205', '2205'] | score: 84%
+   20/100 Q20  |    7.3s | p= 194 c=  661 (t=  652+v=   9)  91.1t/s |  50°C ram=29035M sw=68M | OK    | exp=['45 to 64', '45 to 64'] | score: 85%
+   21/100 Q21  |    9.8s | p= 624 c=  880 (t=  875+v=   5)  89.8t/s |  50°C ram=29035M sw=68M | OK    | exp=['37'] | score: 86%
+   22/100 Q22  |   10.5s | p= 356 c=  957 (t=  953+v=   4)  91.5t/s |  50°C ram=29035M sw=68M | OK    | exp=['3', '4', '4'] | score: 86%
+   23/100 Q23  |    4.0s | p= 197 c=  351 (t=  342+v=   9)  87.3t/s |  49°C ram=29035M sw=68M | FAIL  | exp=['14000', '14000'] | score: 83%
+   24/100 Q24  |   22.1s | p= 284 c= 2064 (t= 2049+v=  15)  93.4t/s |  51°C ram=29035M sw=68M | FAIL  | exp=['1986', '1990', '1994'] | score: 79%
+   25/100 Q25  |    8.9s | p= 331 c=  812 (t=  805+v=   7)  91.1t/s |  51°C ram=29035M sw=68M | OK    | exp=['1943', '1943', '1943', '1943 | score: 80%
+   26/100 Q26  |    6.9s | p= 290 c=  622 (t=  617+v=   5)  89.6t/s |  50°C ram=29035M sw=68M | OK    | exp=['51', '51', '51'] | score: 81%
+   27/100 Q27  |    7.5s | p= 344 c=  678 (t=  673+v=   5)  90.1t/s |  51°C ram=29035M sw=68M | OK    | exp=['50', '50-yard field goal', ' | score: 81%
+   28/100 Q28  |    7.9s | p= 291 c=  716 (t=  710+v=   6)  90.9t/s |  51°C ram=29035M sw=68M | OK    | exp=['108', '108', '3', '108', '10 | score: 82%
+   29/100 Q29  |    9.9s | p= 278 c=  911 (t=  906+v=   5)  91.8t/s |  51°C ram=29035M sw=68M | OK    | exp=['35', '31', '35', '35'] | score: 83%
+   30/100 Q30  |    3.5s | p= 386 c=  295 (t=  291+v=   4)  83.1t/s |  50°C ram=29035M sw=68M | OK    | exp=['3', '3', '3', '3', '3'] | score: 83%
+   31/100 Q31  |    8.4s | p= 510 c=  751 (t=  744+v=   7)  89.3t/s |  50°C ram=29035M sw=68M | OK    | exp=['Battle of White Mountain', ' | score: 84%
+   32/100 Q32  |    4.5s | p= 181 c=  397 (t=  393+v=   4)  88.4t/s |  50°C ram=29035M sw=68M | OK    | exp=['5', '5'] | score: 84%
+   33/100 Q33  |    7.1s | p= 265 c=  644 (t=  639+v=   5)  90.7t/s |  50°C ram=29035M sw=68M | OK    | exp=['67', '65'] | score: 85%
+   34/100 Q34  |    7.8s | p= 381 c=  708 (t=  700+v=   8)  90.2t/s |  50°C ram=29035M sw=68M | OK    | exp=['Commonwealth resumed the off | score: 85%
+   35/100 Q35  |    3.7s | p= 531 c=  307 (t=  301+v=   6)  81.9t/s |  50°C ram=29035M sw=68M | OK    | exp=['Alex Henery', 'Alex Henery', | score: 86%
+   36/100 Q36  |    9.3s | p= 299 c=  846 (t=  841+v=   5)  91.3t/s |  50°C ram=29035M sw=68M | OK    | exp=['Cardinals', 'Cardinals'] | score: 86%
+   37/100 Q37  |   11.3s | p= 218 c= 1045 (t= 1036+v=   9)  92.7t/s |  51°C ram=29035M sw=68M | OK    | exp=['75.65', '75.65'] | score: 86%
+   38/100 Q38  |    6.7s | p= 312 c=  603 (t=  599+v=   4)  89.7t/s |  50°C ram=29035M sw=68M | OK    | exp=['French', 'French'] | score: 87%
+   39/100 Q39  |    4.0s | p= 261 c=  345 (t=  339+v=   6)  86.3t/s |  50°C ram=29035M sw=68M | OK    | exp=['Ungheni', 'Ungheni', 'Unghen | score: 87%
+   40/100 Q40  |   12.8s | p= 344 c= 1174 (t= 1165+v=   9)  92.0t/s |  51°C ram=29035M sw=68M | OK    | exp=['99.44', '99.44', '99.44'] | score: 88%
+   41/100 Q41  |    3.4s | p= 275 c=  289 (t=  283+v=   6)  84.2t/s |  50°C ram=29035M sw=68M | OK    | exp=['African American', 'African  | score: 88%
+   42/100 Q42  |    8.4s | p= 351 c=  757 (t=  752+v=   5)  90.3t/s |  51°C ram=29035M sw=68M | OK    | exp=['7', '19'] | score: 88%
+   43/100 Q43  |    3.6s | p= 560 c=  286 (t=  281+v=   5)  80.5t/s |  50°C ram=29035M sw=68M | OK    | exp=['Atlanta Braves', 'Atlanta Br | score: 88%
+   44/100 Q44  |    9.9s | p= 342 c=  903 (t=  895+v=   8)  91.3t/s |  50°C ram=29035M sw=68M | OK    | exp=['14.3', '14.3'] | score: 89%
+   45/100 Q45  |    8.9s | p= 399 c=  801 (t=  797+v=   4)  90.1t/s |  50°C ram=29035M sw=68M | OK    | exp=['3', '3'] | score: 89%
+   46/100 Q46  |   12.9s | p= 315 c= 1193 (t= 1182+v=  11)  92.4t/s |  51°C ram=29035M sw=68M | OK    | exp=['Jake Elliott', 'Kamu Grugier | score: 89%
+   47/100 Q47  |    9.8s | p= 195 c=  905 (t=  895+v=  10)  92.1t/s |  51°C ram=29035M sw=68M | OK    | exp=['female householder with no h | score: 89%
+   48/100 Q48  |   11.7s | p= 208 c= 1081 (t= 1072+v=   9)  92.4t/s |  51°C ram=29035M sw=68M | OK    | exp=['69.89', '69.89'] | score: 90%
+   49/100 Q49  |   14.2s | p= 711 c= 1295 (t= 1285+v=  10)  91.0t/s |  52°C ram=29035M sw=68M | OK    | exp=['Holly Hallstrom', 'Dian Park | score: 90%
+   50/100 Q50  |   16.6s | p= 256 c= 1549 (t= 1544+v=   5)  93.2t/s |  52°C ram=29035M sw=68M | OK    | exp=['1', 'first'] | score: 90%
+   51/100 Q51  |    9.9s | p= 365 c=  900 (t=  885+v=  15)  90.7t/s |  52°C ram=29035M sw=68M | FAIL  | exp=["king's departure from the ar | score: 88%
+   52/100 Q52  |    7.3s | p= 339 c=  653 (t=  649+v=   4)  89.6t/s |  52°C ram=29035M sw=68M | OK    | exp=['White', 'White'] | score: 88%
+   53/100 Q53  |   10.6s | p= 303 c=  971 (t=  966+v=   5)  91.4t/s |  52°C ram=29034M sw=68M | OK    | exp=['second', 'second'] | score: 89%
+   54/100 Q54  |   10.5s | p= 458 c=  952 (t=  945+v=   7)  91.0t/s |  52°C ram=29034M sw=68M | OK    | exp=['that same year', '1285'] | score: 89%
+   55/100 Q55  |    8.0s | p= 280 c=  726 (t=  718+v=   8)  90.6t/s |  52°C ram=29034M sw=68M | OK    | exp=['Švitrigaila', 'Švitrigaila'] | score: 89%
+   56/100 Q56  |    7.8s | p= 514 c=  693 (t=  688+v=   5)  89.0t/s |  52°C ram=29034M sw=68M | OK    | exp=['Packers', 'Packers', 'Packer | score: 89%
+   57/100 Q57  |   10.8s | p= 311 c=  993 (t=  988+v=   5)  92.0t/s |  52°C ram=29035M sw=68M | OK    | exp=['26', '26', '26', '26'] | score: 89%
+   58/100 Q58  |    5.2s | p= 381 c=  456 (t=  450+v=   6)  87.4t/s |  52°C ram=29035M sw=68M | OK    | exp=['231', '231', '231'] | score: 90%
+   59/100 Q59  |   21.1s | p= 288 c= 1980 (t= 1969+v=  11)  93.7t/s |  53°C ram=29034M sw=68M | FAIL  | exp=['22'] | score: 88%
+   60/100 Q60  |    3.5s | p= 294 c=  296 (t=  292+v=   4)  84.2t/s |  52°C ram=29034M sw=68M | OK    | exp=['Craig', 'Craig'] | score: 88%
+   61/100 Q61  |    8.8s | p= 763 c=  782 (t=  778+v=   4)  88.4t/s |  52°C ram=29034M sw=68M | OK    | exp=['3', '3'] | score: 89%
+   62/100 Q62  |    8.6s | p= 264 c=  782 (t=  775+v=   7)  91.3t/s |  52°C ram=29035M sw=68M | OK    | exp=['13.5', '13.5', '13.5', '13.5 | score: 89%
+   63/100 Q63  |    7.1s | p= 199 c=  646 (t=  638+v=   8)  91.1t/s |  52°C ram=29035M sw=68M | OK    | exp=['67.2', '67.2'] | score: 89%
+   64/100 Q64  |    8.6s | p= 201 c=  789 (t=  785+v=   4)  91.6t/s |  52°C ram=29035M sw=68M | OK    | exp=['1'] | score: 89%
+   65/100 Q65  |    3.2s | p= 317 c=  266 (t=  261+v=   5)  83.1t/s |  51°C ram=29035M sw=68M | OK    | exp=['families', 'families'] | score: 89%
+   66/100 Q66  |    9.9s | p= 456 c=  903 (t=  899+v=   4)  90.8t/s |  52°C ram=29034M sw=68M | OK    | exp=['0', '0', '0'] | score: 89%
+   67/100 Q67  |    7.4s | p= 338 c=  667 (t=  661+v=   6)  90.2t/s |  52°C ram=29035M sw=68M | OK    | exp=['British government', 'rebels | score: 90%
+   68/100 Q68  |   10.0s | p= 389 c=  915 (t=  904+v=  11)  91.3t/s |  52°C ram=29035M sw=68M | OK    | exp=['pump boat in Mususiasi', 'Mu | score: 90%
+   69/100 Q69  |   22.8s | p= 304 c= 2130 (t= 2122+v=   8)  93.4t/s |  53°C ram=29035M sw=68M | OK    | exp=['7.66', '7.66'] | score: 90%
+   70/100 Q70  |   10.6s | p= 209 c=  982 (t=  976+v=   6)  92.3t/s |  52°C ram=29035M sw=68M | OK    | exp=['0.7', '1.23'] | score: 90%
+   71/100 Q71  |    7.0s | p= 261 c=  628 (t=  622+v=   6)  90.3t/s |  52°C ram=29035M sw=68M | OK    | exp=['4.5', '4.5'] | score: 90%
+   72/100 Q72  |    5.0s | p= 234 c=  441 (t=  432+v=   9)  88.8t/s |  52°C ram=29035M sw=68M | OK    | exp=['25 to 44', '25 to 44'] | score: 90%
+   73/100 Q73  |   12.9s | p= 499 c= 1181 (t= 1160+v=  21)  91.4t/s |  52°C ram=29035M sw=68M | FAIL  | exp=['62', '61'] | score: 89%
+   74/100 Q74  |    4.0s | p= 284 c=  342 (t=  338+v=   4)  85.5t/s |  52°C ram=29035M sw=68M | OK    | exp=['people', '15,557 people,  4, | score: 89%
+   75/100 Q75  |   15.2s | p= 411 c= 1403 (t= 1398+v=   5)  92.5t/s |  52°C ram=29035M sw=68M | OK    | exp=['42', '42'] | score: 89%
+   76/100 Q76  |   17.7s | p= 359 c= 1639 (t= 1635+v=   4)  92.6t/s |  53°C ram=29035M sw=68M | FAIL  | exp=['4', '4'] | score: 88%
+   77/100 Q77  |    8.6s | p= 393 c=  780 (t=  776+v=   4)  90.3t/s |  53°C ram=29035M sw=68M | OK    | exp=['1', '0'] | score: 88%
+   78/100 Q78  |    8.8s | p= 443 c=  792 (t=  783+v=   9)  90.1t/s |  53°C ram=29035M sw=68M | OK    | exp=['99.31', '99.93'] | score: 88%
+   79/100 Q79  |    7.3s | p= 263 c=  661 (t=  653+v=   8)  90.5t/s |  52°C ram=29035M sw=68M | OK    | exp=['Battle of Carrizal', 'Battle | score: 89%
+   80/100 Q80  |   13.5s | p= 196 c= 1253 (t= 1245+v=   8)  93.0t/s |  53°C ram=29035M sw=68M | OK    | exp=['86.8', '86.8'] | score: 89%
+   81/100 Q81  |    4.0s | p= 209 c=  351 (t=  342+v=   9)  87.1t/s |  52°C ram=29035M sw=68M | OK    | exp=['18 to 24', '18 to 24'] | score: 89%
+   82/100 Q82  |    8.2s | p= 451 c=  739 (t=  734+v=   5)  89.9t/s |  52°C ram=29035M sw=68M | OK    | exp=['48-yard', '48'] | score: 89%
+   83/100 Q83  |    8.0s | p= 450 c=  720 (t=  716+v=   4)  89.6t/s |  52°C ram=29035M sw=68M | OK    | exp=['1', '1'] | score: 89%
+   84/100 Q84  |    7.2s | p= 253 c=  647 (t=  641+v=   6)  90.3t/s |  52°C ram=29035M sw=68M | OK    | exp=['Pacific Islander', 'Pacific  | score: 89%
+   85/100 Q85  |    9.9s | p= 309 c=  903 (t=  895+v=   8)  91.4t/s |  52°C ram=29035M sw=68M | OK    | exp=['47', '92.2'] | score: 89%
+   86/100 Q86  |   10.9s | p= 288 c= 1001 (t=  992+v=   9)  91.7t/s |  52°C ram=29035M sw=68M | OK    | exp=['.0531', '0.0744'] | score: 90%
+   87/100 Q87  |    4.1s | p= 195 c=  358 (t=  349+v=   9)  87.3t/s |  52°C ram=29035M sw=68M | OK    | exp=['25 to 44', '25 to 44'] | score: 90%
+   88/100 Q88  |   13.0s | p= 418 c= 1191 (t= 1186+v=   5)  91.9t/s |  52°C ram=29035M sw=68M | OK    | exp=['27', '27', '27'] | score: 90%
+   89/100 Q89  |   12.6s | p= 323 c= 1169 (t= 1158+v=  11)  92.5t/s |  53°C ram=29035M sw=68M | OK    | exp=['Barack Obama', 'George W. Bu | score: 90%
+   90/100 Q90  |    7.5s | p= 332 c=  678 (t=  674+v=   4)  89.9t/s |  52°C ram=29035M sw=68M | OK    | exp=['2', '2', '2', '2', '2'] | score: 90%
+   91/100 Q91  |   10.9s | p= 269 c=  997 (t=  991+v=   6)  91.8t/s |  53°C ram=29035M sw=68M | OK    | exp=['319', '319'] | score: 90%
+   92/100 Q92  |   10.0s | p= 555 c=  899 (t=  889+v=  10)  90.3t/s |  52°C ram=29035M sw=68M | OK    | exp=['Battle of Slobodyshche', 'Ba | score: 90%
+   93/100 Q93  |    6.1s | p= 265 c=  544 (t=  534+v=  10)  89.5t/s |  52°C ram=29035M sw=68M | FAIL  | exp=['779489', '779489'] | score: 89%
+   94/100 Q94  |   18.3s | p= 294 c= 1702 (t= 1697+v=   5)  93.1t/s |  53°C ram=29035M sw=68M | OK    | exp=['26', '26', '26'] | score: 89%
+   95/100 Q95  |   10.7s | p= 437 c=  971 (t=  966+v=   5)  90.8t/s |  53°C ram=29035M sw=68M | OK    | exp=['10', '10'] | score: 89%
+   96/100 Q96  |    9.7s | p= 272 c=  882 (t=  874+v=   8)  91.4t/s |  53°C ram=29035M sw=68M | FAIL  | exp=['8352', '8352'] | score: 89%
+   97/100 Q97  |   13.8s | p= 220 c= 1276 (t= 1271+v=   5)  92.8t/s |  53°C ram=29035M sw=68M | OK    | exp=['Romanian', 'Romanian'] | score: 89%
+   98/100 Q98  |    9.3s | p= 203 c=  857 (t=  848+v=   9)  92.1t/s |  53°C ram=29035M sw=68M | OK    | exp=['74.3', '74.3'] | score: 89%
+   99/100 Q99  |    4.9s | p= 329 c=  433 (t=  429+v=   4)  87.5t/s |  53°C ram=29035M sw=68M | OK    | exp=['5', '5'] | score: 89%
+  100/100 Q100 |    9.3s | p= 300 c=  851 (t=  847+v=   4)  91.5t/s |  53°C ram=29035M sw=68M | OK    | exp=['4', '1'] | score: 89%
+
+  >>> DROP: 89% (89/100) in 1628s (27.1m)
+  >>> GPU: 50°C → 52°C
+  >>> RAM: 29033MB | Swap: 68MB → 68MB
+  >>> Log: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/drop_qwen3.6-35b-a3b@6bit_20260519_135829.jsonl
+  >>> Summary: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/drop_qwen3.6-35b-a3b@6bit_20260519_135829_summary.json

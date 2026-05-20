@@ -1,0 +1,128 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading math dataset...
+Loaded 100 questions
+
+--- Pre-flight ---
+  Model: qwen3.6-35b-a3b@6bit
+  Config: ctx=65536, quant=6bit, size=27.1GB, arch=qwen3_5_moe
+  Hardware: Apple M4 Max, 128GB RAM, macOS 26.3
+  GPU: 49°C | CPU: 45°C
+  RAM: 29006MB process | Swap: 68MB
+  max_tokens: 32768
+  Warmup... '4' | p=21 c=148 (t=144+v=4) 76.3t/s | stop
+
+==============================================================================================================
+BENCHMARK: MATH | Model: qwen3.6-35b-a3b@6bit | Questions: 100
+Params: temp=0, max_tokens=32768, seed=42
+Config: ctx=65536, quant=6bit, size=27.1GB, arch=qwen3_5_moe, experts=?
+System: RAM=128GB, CPU=Apple M4 Max
+State:  GPU=49°C, swap=68MB, process_ram=29005MB
+Log: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/math_qwen3.6-35b-a3b@6bit_20260519_103113.jsonl
+==============================================================================================================
+    1/100 Q1   |   34.7s | p=  91 c= 3256 (t= 2659+v= 597)  93.8t/s |  51°C ram=29005M sw=68M | OK    | Level 4 | score: 100%
+    2/100 Q2   |   10.0s | p=  73 c=  928 (t=  700+v= 228)  92.5t/s |  51°C ram=29005M sw=68M | OK    | Level 2 | score: 100%
+    3/100 Q3   |  165.7s | p= 106 c=15015 (t=14490+v= 525)  90.6t/s |  56°C ram=29005M sw=68M | OK    | Level 3 | score: 100%
+    4/100 Q4   |  271.2s | p=  90 c=23758 (t=23004+v= 754)  87.6t/s |  58°C ram=29008M sw=68M | OK    | Level 5 | score: 100%
+    5/100 Q5   |   29.1s | p=  45 c= 2705 (t= 2263+v= 442)  92.9t/s |  57°C ram=29010M sw=68M | OK    | Level 1 | score: 100%
+    6/100 Q6   |   26.1s | p=  66 c= 2439 (t= 1761+v= 678)  93.3t/s |  57°C ram=29007M sw=68M | OK    | Level 3 | score: 100%
+    7/100 Q7   |   25.3s | p= 106 c= 2356 (t= 1875+v= 481)  93.2t/s |  56°C ram=29007M sw=68M | OK    | Level 5 | score: 100%
+    8/100 Q8   |   85.2s | p=  90 c= 7874 (t= 7170+v= 704)  92.4t/s |  56°C ram=29008M sw=68M | OK    | Level 3 | score: 100%
+    9/100 Q9   |   73.9s | p=  94 c= 6853 (t= 6362+v= 491)  92.7t/s |  55°C ram=29010M sw=68M | OK    | Level 4 | score: 100%
+   10/100 Q10  |  383.4s | p= 106 c=32767 (t=32767+v=   0)  85.5t/s |  57°C ram=29010M sw=68M | FAIL  TRUNC! | Level 3 | score: 90%
+   11/100 Q11  |  195.3s | p=  83 c=17476 (t=16812+v= 664)  89.5t/s |  56°C ram=29016M sw=68M | OK    | Level 5 | score: 91%
+   12/100 Q12  |   74.6s | p= 137 c= 6915 (t= 6163+v= 752)  92.7t/s |  55°C ram=29013M sw=68M | OK    | Level 3 | score: 92%
+   13/100 Q13  |   44.0s | p=  77 c= 4116 (t= 3564+v= 552)  93.5t/s |  54°C ram=29012M sw=68M | OK    | Level 5 | score: 92%
+   14/100 Q14  |   30.9s | p=  62 c= 2903 (t= 2530+v= 373)  94.0t/s |  54°C ram=29013M sw=68M | OK    | Level 1 | score: 93%
+   15/100 Q15  |  283.7s | p= 143 c=24835 (t=23820+v=1015)  87.5t/s |  56°C ram=29014M sw=68M | OK    | Level 5 | score: 93%
+   16/100 Q16  |   15.0s | p=  76 c= 1379 (t= 1179+v= 200)  92.2t/s |  55°C ram=29019M sw=68M | OK    | Level 3 | score: 94%
+   17/100 Q17  |   15.6s | p=  73 c= 1452 (t= 1088+v= 364)  93.3t/s |  54°C ram=29013M sw=68M | OK    | Level 3 | score: 94%
+   18/100 Q18  |  169.6s | p= 150 c=15291 (t=14711+v= 580)  90.2t/s |  55°C ram=29013M sw=68M | OK    | Level 5 | score: 94%
+   19/100 Q19  |    9.8s | p=  56 c=  896 (t=  697+v= 199)  91.6t/s |  54°C ram=29016M sw=68M | OK    | Level 1 | score: 95%
+   20/100 Q20  |  165.0s | p= 132 c=14884 (t=14080+v= 804)  90.2t/s |  56°C ram=29013M sw=68M | OK    | Level 3 | score: 95%
+   21/100 Q21  |  184.4s | p=  68 c=16546 (t=15857+v= 689)  89.7t/s |  56°C ram=29016M sw=68M | OK    | Level 4 | score: 95%
+   22/100 Q22  |  246.5s | p=  88 c=21739 (t=21169+v= 570)  88.2t/s |  57°C ram=29016M sw=68M | OK    | Level 4 | score: 95%
+   23/100 Q23  |   37.2s | p=  57 c= 3462 (t= 3175+v= 287)  93.1t/s |  56°C ram=29018M sw=68M | OK    | Level 2 | score: 96%
+   24/100 Q24  |   15.4s | p=  88 c= 1433 (t= 1053+v= 380)  93.2t/s |  55°C ram=29015M sw=68M | OK    | Level 3 | score: 96%
+   25/100 Q25  |   21.9s | p=  91 c= 2049 (t= 1520+v= 529)  93.6t/s |  54°C ram=29014M sw=68M | OK    | Level 4 | score: 96%
+   26/100 Q26  |  237.7s | p=  62 c=21026 (t=20133+v= 893)  88.5t/s |  56°C ram=29015M sw=68M | OK    | Level 5 | score: 96%
+   27/100 Q27  |  169.2s | p= 184 c=15227 (t=14744+v= 483)  90.0t/s |  56°C ram=29019M sw=68M | OK    | Level 4 | score: 96%
+   28/100 Q28  |   38.7s | p=  48 c= 3620 (t= 3057+v= 563)  93.5t/s |  55°C ram=29018M sw=68M | OK    | Level 3 | score: 96%
+   29/100 Q29  |   69.2s | p=  95 c= 6419 (t= 5749+v= 670)  92.7t/s |  55°C ram=29015M sw=68M | OK    | Level 2 | score: 97%
+   30/100 Q30  |  173.9s | p=  55 c=15666 (t=15173+v= 493)  90.1t/s |  55°C ram=29016M sw=68M | OK    | Level 5 | score: 97%
+   31/100 Q31  |   27.7s | p=  62 c= 2596 (t= 2058+v= 538)  93.7t/s |  55°C ram=29018M sw=68M | OK    | Level 3 | score: 97%
+   32/100 Q32  |  117.0s | p=  68 c=10707 (t=10171+v= 536)  91.5t/s |  55°C ram=29016M sw=68M | OK    | Level 5 | score: 97%
+   33/100 Q33  |   21.7s | p= 103 c= 2027 (t= 1577+v= 450)  93.6t/s |  55°C ram=29019M sw=68M | OK    | Level 1 | score: 97%
+   34/100 Q34  |   77.8s | p=  57 c= 7209 (t= 6312+v= 897)  92.7t/s |  55°C ram=29018M sw=68M | OK    | Level 3 | score: 97%
+   35/100 Q35  |  208.3s | p= 143 c=18553 (t=17787+v= 766)  89.1t/s |  56°C ram=29018M sw=68M | FAIL  | Level 5 | score: 94%
+   36/100 Q36  |   81.2s | p=  93 c= 7496 (t= 6997+v= 499)  92.3t/s |  56°C ram=29021M sw=68M | OK    | Level 5 | score: 94%
+   37/100 Q37  |   25.0s | p=  78 c= 2335 (t= 1912+v= 423)  93.6t/s |  55°C ram=29018M sw=68M | OK    | Level 3 | score: 95%
+   38/100 Q38  |  118.9s | p=  75 c=10885 (t=10368+v= 517)  91.6t/s |  56°C ram=29018M sw=68M | OK    | Level 3 | score: 95%
+   39/100 Q39  |  198.9s | p= 352 c=17743 (t=17223+v= 520)  89.2t/s |  56°C ram=29019M sw=68M | OK    | Level 5 | score: 95%
+   40/100 Q40  |  339.4s | p=  74 c=29255 (t=28500+v= 755)  86.2t/s |  57°C ram=29021M sw=68M | OK    | Level 3 | score: 95%
+   41/100 Q41  |  138.5s | p= 114 c=12592 (t=11996+v= 596)  90.9t/s |  55°C ram=29023M sw=68M | OK    | Level 4 | score: 95%
+   42/100 Q42  |   21.1s | p=  46 c= 1975 (t= 1575+v= 400)  93.5t/s |  55°C ram=29021M sw=68M | OK    | Level 1 | score: 95%
+   43/100 Q43  |  187.5s | p=  91 c=16848 (t=16471+v= 377)  89.9t/s |  55°C ram=29019M sw=68M | OK    | Level 3 | score: 95%
+   44/100 Q44  |  134.6s | p= 104 c=12271 (t=11644+v= 627)  91.2t/s |  55°C ram=29023M sw=68M | OK    | Level 3 | score: 95%
+   45/100 Q45  |   24.0s | p= 104 c= 2240 (t= 1969+v= 271)  93.3t/s |  54°C ram=29023M sw=68M | OK    | Level 3 | score: 96%
+   46/100 Q46  |   32.7s | p= 103 c= 3071 (t= 2348+v= 723)  93.8t/s |  54°C ram=29022M sw=68M | OK    | Level 4 | score: 96%
+   47/100 Q47  |   37.7s | p=  85 c= 3523 (t= 2770+v= 753)  93.6t/s |  54°C ram=29023M sw=68M | OK    | Level 5 | score: 96%
+   48/100 Q48  |   97.2s | p=  80 c= 8971 (t= 8265+v= 706)  92.3t/s |  54°C ram=29023M sw=68M | OK    | Level 5 | score: 96%
+   49/100 Q49  |   13.2s | p=  94 c= 1227 (t=  826+v= 401)  92.7t/s |  54°C ram=29024M sw=68M | OK    | Level 3 | score: 96%
+   50/100 Q50  |   42.0s | p=  94 c= 3932 (t= 3208+v= 724)  93.5t/s |  54°C ram=29023M sw=68M | FAIL  | Level 2 | score: 94%
+   51/100 Q51  |  108.9s | p=  94 c=10003 (t= 9445+v= 558)  91.9t/s |  55°C ram=29023M sw=68M | OK    | Level 5 | score: 94%
+   52/100 Q52  |   16.2s | p=  60 c= 1515 (t= 1092+v= 423)  93.2t/s |  54°C ram=29024M sw=68M | OK    | Level 2 | score: 94%
+   53/100 Q53  |   39.9s | p= 103 c= 3738 (t= 3311+v= 427)  93.7t/s |  54°C ram=29023M sw=68M | OK    | Level 3 | score: 94%
+   54/100 Q54  |   20.9s | p=  65 c= 1961 (t= 1393+v= 568)  93.7t/s |  54°C ram=29023M sw=68M | OK    | Level 2 | score: 94%
+   55/100 Q55  |   60.0s | p=  65 c= 5601 (t= 5216+v= 385)  93.3t/s |  55°C ram=29023M sw=68M | OK    | Level 3 | score: 95%
+   56/100 Q56  |   51.7s | p= 882 c= 4764 (t= 4303+v= 461)  92.1t/s |  55°C ram=29023M sw=68M | OK    | Level 4 | score: 95%
+   57/100 Q57  |  182.8s | p= 265 c=16428 (t=15470+v= 958)  89.8t/s |  57°C ram=29023M sw=68M | OK    | Level 4 | score: 95%
+   58/100 Q58  |  151.6s | p=  86 c=13735 (t=13030+v= 705)  90.6t/s |  57°C ram=29026M sw=68M | OK    | Level 4 | score: 95%
+   59/100 Q59  |   13.4s | p=  85 c= 1234 (t= 1025+v= 209)  92.4t/s |  56°C ram=29025M sw=68M | OK    | Level 2 | score: 95%
+   60/100 Q60  |  188.2s | p=  80 c=16887 (t=16429+v= 458)  89.7t/s |  57°C ram=29023M sw=68M | FAIL  | Level 4 | score: 93%
+   61/100 Q61  |   15.3s | p=  58 c= 1423 (t= 1059+v= 364)  92.7t/s |  55°C ram=29026M sw=68M | OK    | Level 4 | score: 93%
+   62/100 Q62  |  180.1s | p=  67 c=16223 (t=15860+v= 363)  90.1t/s |  56°C ram=29023M sw=68M | OK    | Level 4 | score: 94%
+   63/100 Q63  |  313.2s | p= 114 c=27237 (t=26508+v= 729)  87.0t/s |  56°C ram=29026M sw=68M | FAIL  | Level 4 | score: 92%
+   64/100 Q64  |  383.6s | p= 181 c=32767 (t=32767+v=   0)  85.4t/s |  57°C ram=29029M sw=68M | FAIL  TRUNC! | Level 5 | score: 91%
+   65/100 Q65  |  201.8s | p=  74 c=18062 (t=17476+v= 586)  89.5t/s |  55°C ram=29029M sw=68M | OK    | Level 5 | score: 91%
+   66/100 Q66  |   38.6s | p=  72 c= 3612 (t= 3070+v= 542)  93.5t/s |  55°C ram=29029M sw=68M | OK    | Level 4 | score: 91%
+   67/100 Q67  |  201.5s | p=  95 c=18011 (t=17355+v= 656)  89.4t/s |  55°C ram=29026M sw=68M | OK    | Level 5 | score: 91%
+   68/100 Q68  |  166.6s | p= 198 c=15037 (t=14355+v= 682)  90.3t/s |  55°C ram=29030M sw=68M | OK    | Level 4 | score: 91%
+   69/100 Q69  |  211.6s | p= 123 c=18867 (t=18288+v= 579)  89.1t/s |  56°C ram=29032M sw=68M | OK    | Level 4 | score: 91%
+   70/100 Q70  |  187.7s | p=  82 c=16798 (t=16330+v= 468)  89.5t/s |  56°C ram=29031M sw=68M | OK    | Level 2 | score: 91%
+   71/100 Q71  |   12.0s | p=  44 c= 1101 (t=  926+v= 175)  92.0t/s |  55°C ram=29031M sw=68M | OK    | Level 2 | score: 92%
+   72/100 Q72  |  201.1s | p= 214 c=17955 (t=16998+v= 957)  89.3t/s |  56°C ram=29028M sw=68M | OK    | Level 5 | score: 92%
+   73/100 Q73  |   39.8s | p=  75 c= 3716 (t= 3114+v= 602)  93.4t/s |  55°C ram=29031M sw=68M | OK    | Level 5 | score: 92%
+   74/100 Q74  |   59.8s | p=  53 c= 5561 (t= 4924+v= 637)  93.0t/s |  55°C ram=29028M sw=68M | OK    | Level 3 | score: 92%
+   75/100 Q75  |   41.2s | p= 203 c= 3837 (t= 3540+v= 297)  93.2t/s |  55°C ram=29028M sw=68M | OK    | Level 1 | score: 92%
+   76/100 Q76  |  143.3s | p= 155 c=13006 (t=12415+v= 591)  90.7t/s |  56°C ram=29028M sw=68M | OK    | Level 3 | score: 92%
+   77/100 Q77  |   13.5s | p=  76 c= 1252 (t=  848+v= 404)  92.5t/s |  55°C ram=29030M sw=68M | OK    | Level 2 | score: 92%
+   78/100 Q78  |   21.3s | p= 115 c= 1992 (t= 1665+v= 327)  93.5t/s |  54°C ram=29028M sw=68M | OK    | Level 3 | score: 92%
+   79/100 Q79  |  217.7s | p= 171 c=19360 (t=18577+v= 783)  88.9t/s |  57°C ram=29028M sw=68M | OK    | Level 5 | score: 92%
+   80/100 Q80  |  185.4s | p=  85 c=16616 (t=15960+v= 656)  89.6t/s |  57°C ram=29032M sw=68M | FAIL  | Level 3 | score: 91%
+   81/100 Q81  |  251.2s | p= 351 c=22055 (t=21458+v= 597)  87.8t/s |  56°C ram=29031M sw=68M | OK    | Level 3 | score: 91%
+   82/100 Q82  |  139.2s | p= 107 c=12651 (t=12057+v= 594)  90.9t/s |  56°C ram=29032M sw=68M | FAIL  | Level 5 | score: 90%
+   83/100 Q83  |  128.1s | p=  82 c=11695 (t=11052+v= 643)  91.3t/s |  56°C ram=29030M sw=68M | OK    | Level 4 | score: 90%
+   84/100 Q84  |  216.9s | p= 333 c=19276 (t=18790+v= 486)  88.9t/s |  56°C ram=29030M sw=68M | OK    | Level 1 | score: 90%
+   85/100 Q85  |   59.0s | p=  81 c= 5493 (t= 4925+v= 568)  93.0t/s |  55°C ram=29034M sw=68M | OK    | Level 5 | score: 91%
+   86/100 Q86  |  362.1s | p= 100 c=31113 (t=30369+v= 744)  85.9t/s |  56°C ram=29031M sw=68M | OK    | Level 3 | score: 91%
+   87/100 Q87  |  111.4s | p=  58 c=10216 (t= 9220+v= 996)  91.7t/s |  56°C ram=29038M sw=68M | OK    | Level 4 | score: 91%
+   88/100 Q88  |   85.0s | p=  73 c= 7812 (t= 7110+v= 702)  91.9t/s |  56°C ram=29033M sw=68M | OK    | Level 3 | score: 91%
+   89/100 Q89  |  186.5s | p= 114 c=16753 (t=16264+v= 489)  89.8t/s |  56°C ram=29033M sw=68M | OK    | Level 5 | score: 91%
+   90/100 Q90  |  217.2s | p= 114 c=19312 (t=18650+v= 662)  88.9t/s |  56°C ram=29035M sw=68M | FAIL  | Level 5 | score: 90%
+   91/100 Q91  |  145.5s | p= 133 c=13192 (t=12510+v= 682)  90.7t/s |  56°C ram=29036M sw=68M | OK    | Level 4 | score: 90%
+   92/100 Q92  |   50.1s | p=  73 c= 4678 (t= 4277+v= 401)  93.4t/s |  55°C ram=29036M sw=68M | OK    | Level 2 | score: 90%
+   93/100 Q93  |  272.3s | p= 185 c=23887 (t=23476+v= 411)  87.7t/s |  56°C ram=29035M sw=68M | FAIL  | Level 1 | score: 89%
+   94/100 Q94  |   47.4s | p=  70 c= 4416 (t= 3937+v= 479)  93.2t/s |  56°C ram=29039M sw=68M | OK    | Level 3 | score: 89%
+   95/100 Q95  |  150.7s | p=  73 c=13676 (t=13003+v= 673)  90.8t/s |  56°C ram=29034M sw=68M | OK    | Level 3 | score: 89%
+   96/100 Q96  |   23.9s | p= 364 c= 2216 (t= 1686+v= 530)  92.8t/s |  55°C ram=29037M sw=68M | OK    | Level 3 | score: 90%
+   97/100 Q97  |   37.6s | p=  79 c= 3516 (t= 3154+v= 362)  93.6t/s |  55°C ram=29033M sw=68M | OK    | Level 4 | score: 90%
+   98/100 Q98  |  157.2s | p= 291 c=14204 (t=13559+v= 645)  90.4t/s |  55°C ram=29033M sw=68M | OK    | Level 5 | score: 90%
+   99/100 Q99  |   73.9s | p=  84 c= 6853 (t= 6255+v= 598)  92.7t/s |  55°C ram=29036M sw=68M | OK    | Level 5 | score: 90%
+  100/100 Q100 |   58.2s | p= 108 c= 5416 (t= 4863+v= 553)  93.0t/s |  55°C ram=29034M sw=68M | FAIL  | Level 2 | score: 89%
+
+  >>> MATH: 89% (89/100) in 12395s (206.6m)
+  >>> 2 questions truncated at 32768 tokens
+  >>> GPU: 49°C → 54°C
+  >>> RAM: 29005MB | Swap: 68MB → 68MB
+  >>> Log: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/math_qwen3.6-35b-a3b@6bit_20260519_103113.jsonl
+  >>> Summary: /Users/vitor/LocalProjects/local-llms/local-llm-bench-m4-32gb/benchmarks/runs/math_qwen3.6-35b-a3b@6bit_20260519_103113_summary.json
