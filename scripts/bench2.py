@@ -15,6 +15,9 @@ Usage:
   python3 bench2.py math --examples 100
   python3 bench2.py math --examples 100 --only 4,13,15,26   # rerun specific questions
   python3 bench2.py gpqa --examples 100 --model google/gemma-4-26b-a4b
+  python3 bench2.py livecodebench --examples 50 --lcb-version release_v6
+
+Benchmarks: mmlu, math, humaneval, gpqa, drop, livecodebench
 """
 import time, json, sys, os, subprocess, re, random, argparse
 from datetime import datetime
@@ -323,13 +326,233 @@ def load_humaneval_questions(n):
         })
     return questions
 
+# LiveCodeBench prompts (mirrors lcb_runner/prompts/code_generation.py shape)
+LCB_SYS_FUNCTIONAL = (
+    "You are an expert Python programmer. You will be given a question "
+    "(problem specification) and will generate a correct Python program "
+    "that matches the specification and passes all tests."
+)
+LCB_INSTR_FUNCTIONAL = (
+    "### Question:\n{question}\n\n### Format:\nYou will use the following starter code "
+    "to write the solution and enclose your code within delimiters.\n```python\n{starter}\n```\n\n"
+    "### Answer: (use the provided format with backticks)"
+)
+LCB_INSTR_STDIN = (
+    "### Question:\n{question}\n\n### Format: read the inputs from stdin solve the problem "
+    "and write the answer to stdout (do not directly test on the sample inputs). "
+    "Enclose your code within delimiters as follows.\n"
+    "```python\n# YOUR CODE HERE\n```\n\n"
+    "### Answer: (use the provided format with backticks)"
+)
+
+def _decode_lcb_private_tests(raw):
+    """Private tests in LiveCodeBench are stored either as raw JSON or as
+    base64-encoded zlib-compressed JSON/pickle. Try both."""
+    import base64, zlib, pickle
+    if not raw:
+        return []
+    try:
+        return json.loads(raw)
+    except Exception:
+        pass
+    try:
+        decoded = base64.b64decode(raw.encode("utf-8") if isinstance(raw, str) else raw)
+        decompressed = zlib.decompress(decoded)
+        try:
+            return json.loads(decompressed)
+        except Exception:
+            return json.loads(pickle.loads(decompressed))
+    except Exception as e:
+        print(f"  WARN: could not decode private tests: {e}", file=sys.stderr)
+        return []
+
+LCB_VERSION_FILES = {
+    "release_v1": ["test.jsonl"],
+    "release_v2": ["test.jsonl", "test2.jsonl"],
+    "release_v3": ["test.jsonl", "test2.jsonl", "test3.jsonl"],
+    "release_v4": ["test.jsonl", "test2.jsonl", "test3.jsonl", "test4.jsonl"],
+    "release_v5": ["test.jsonl", "test2.jsonl", "test3.jsonl", "test4.jsonl", "test5.jsonl"],
+    "release_v6": ["test.jsonl", "test2.jsonl", "test3.jsonl", "test4.jsonl", "test5.jsonl", "test6.jsonl"],
+}
+
+def load_livecodebench_questions(n, version="release_v6"):
+    """Load LiveCodeBench code-generation problems. `version` is one of
+    release_v1..release_v6 (rolling time windows). v6 covers problems through
+    ~April 2025 — the contamination-resistant choice for current models.
+
+    Loads JSONL shards directly from the HF Hub (the dataset uses a script-based
+    loader that the modern `datasets` library no longer accepts)."""
+    from huggingface_hub import hf_hub_download
+    files = LCB_VERSION_FILES[version]
+    rows = []
+    for fname in files:
+        path = hf_hub_download(
+            repo_id="livecodebench/code_generation_lite",
+            filename=fname,
+            repo_type="dataset",
+        )
+        with open(path) as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    rows.append(json.loads(line))
+    random.seed(SEED)
+    indices = random.sample(range(len(rows)), min(n, len(rows)))
+    questions = []
+    for i, idx in enumerate(indices):
+        row = rows[idx]
+        public_tests = json.loads(row.get('public_test_cases') or '[]')
+        private_tests = _decode_lcb_private_tests(row.get('private_test_cases'))
+        all_tests = public_tests + private_tests
+        # Determine test type from first test (LCB problems are homogeneous)
+        testtype = all_tests[0].get('testtype', 'stdin') if all_tests else 'stdin'
+        # For functional tests, function name lives in metadata
+        metadata = {}
+        try:
+            metadata = json.loads(row.get('metadata') or '{}')
+        except Exception:
+            pass
+        fn_name = metadata.get('func_name')
+        starter = row.get('starter_code') or ''
+
+        if testtype == 'functional' or starter:
+            instr = LCB_INSTR_FUNCTIONAL.format(
+                question=row['question_content'], starter=starter
+            )
+        else:
+            instr = LCB_INSTR_STDIN.format(question=row['question_content'])
+
+        questions.append({
+            'question_num': i + 1,
+            'dataset_idx': idx,
+            'question_id': row.get('question_id', f'lcb_{idx}'),
+            'platform': row.get('platform', '?'),
+            'difficulty': row.get('difficulty', '?'),
+            'contest_date': row.get('contest_date', '?'),
+            'testtype': testtype,
+            'starter_code': starter,
+            'fn_name': fn_name,
+            'test_cases': all_tests,
+            'lcb_version': version,
+            'messages': [
+                {"role": "system", "content": LCB_SYS_FUNCTIONAL},
+                {"role": "user", "content": instr},
+            ],
+        })
+    return questions
+
 LOADERS = {
     'math': load_math_questions,
     'gpqa': load_gpqa_questions,
     'mmlu': load_mmlu_questions,
     'drop': load_drop_questions,
     'humaneval': load_humaneval_questions,
+    'livecodebench': load_livecodebench_questions,
 }
+
+# ---- Code extraction & LiveCodeBench test runner ----
+
+def extract_python_code(text):
+    """Extract Python code from a model response. Returns the largest
+    code block, or the raw text if no fences found."""
+    if not text:
+        return ''
+    # Prefer ```python ... ``` blocks
+    blocks = re.findall(r'```(?:python|py)?\s*\n?(.*?)```', text, re.DOTALL)
+    if blocks:
+        return max(blocks, key=len).strip()
+    return text.strip()
+
+LCB_TIMEOUT_S = 12  # per-test timeout
+
+def _run_lcb_functional_test(code, test_case, fn_name, starter_code):
+    """Run a single functional test. `test_case.input` holds one JSON-encoded
+    argument per line; `test_case.output` is the JSON-encoded expected return."""
+    raw_input = test_case.get('input', '')
+    expected = (test_case.get('output') or '').strip()
+
+    # Each non-empty line of input is one positional arg, JSON-parsed
+    arg_lines = [ln for ln in raw_input.split('\n') if ln.strip() != '']
+    # Use raw JSON literals; let the runner parse them in-process for fidelity
+    args_repr = '[' + ', '.join(arg_lines) + ']' if arg_lines else '[]'
+
+    if 'class Solution' in starter_code or 'class Solution' in code:
+        invoke = f"Solution().{fn_name}(*_args)"
+    else:
+        invoke = f"{fn_name}(*_args)"
+
+    runner = (
+        f"{code}\n\n"
+        f"import json as _json, sys as _sys\n"
+        f"_args = {args_repr}\n"
+        f"_result = {invoke}\n"
+        f"_sys.stdout.write(_json.dumps(_result))\n"
+    )
+    try:
+        proc = subprocess.run(
+            [sys.executable, '-c', runner],
+            capture_output=True, text=True, timeout=LCB_TIMEOUT_S,
+        )
+        if proc.returncode != 0:
+            return False, f'rc={proc.returncode}: {proc.stderr[:120]}'
+        got = proc.stdout.strip()
+        # Try structured equality first
+        try:
+            if json.loads(got) == json.loads(expected):
+                return True, 'ok'
+        except Exception:
+            pass
+        return (got == expected), 'ok' if got == expected else f'mismatch'
+    except subprocess.TimeoutExpired:
+        return False, 'timeout'
+    except Exception as e:
+        return False, f'exec_error: {e}'
+
+def _run_lcb_stdin_test(code, test_case):
+    """Run a single stdin/stdout test."""
+    test_input = test_case.get('input', '')
+    expected = (test_case.get('output') or '').strip()
+    try:
+        proc = subprocess.run(
+            [sys.executable, '-c', code],
+            input=test_input, capture_output=True, text=True,
+            timeout=LCB_TIMEOUT_S,
+        )
+        if proc.returncode != 0:
+            return False, f'rc={proc.returncode}: {proc.stderr[:120]}'
+        got_lines = [ln.rstrip() for ln in proc.stdout.strip().split('\n')]
+        exp_lines = [ln.rstrip() for ln in expected.split('\n')]
+        return (got_lines == exp_lines), 'ok' if got_lines == exp_lines else 'mismatch'
+    except subprocess.TimeoutExpired:
+        return False, 'timeout'
+    except Exception as e:
+        return False, f'exec_error: {e}'
+
+def grade_livecodebench(question, response_text):
+    """Score a LiveCodeBench problem. Pass@1: all test cases must pass."""
+    code = extract_python_code(response_text)
+    if not code:
+        return False, None, 'no_code'
+
+    tests = question.get('test_cases') or []
+    if not tests:
+        return False, question['question_id'], 'no_tests'
+
+    testtype = question.get('testtype', 'stdin')
+    fn_name = question.get('fn_name')
+    starter = question.get('starter_code', '')
+
+    for idx, tc in enumerate(tests):
+        tc_type = tc.get('testtype', testtype)
+        if tc_type == 'functional':
+            if not fn_name:
+                return False, question['question_id'], 'no_fn_name'
+            ok, reason = _run_lcb_functional_test(code, tc, fn_name, starter)
+        else:
+            ok, reason = _run_lcb_stdin_test(code, tc)
+        if not ok:
+            return False, question['question_id'], f'fail_test{idx}:{reason}'
+    return True, question['question_id'], 'pass'
 
 # ---- Grading ----
 
@@ -379,6 +602,9 @@ def grade(benchmark, question, response_text, finish_reason):
                 return ok, question['entry_point'], 'pass' if ok else 'fail'
         except Exception as e:
             return False, question['entry_point'], f'exec_error: {e}'
+
+    elif benchmark == 'livecodebench':
+        return grade_livecodebench(question, response_text)
 
     return None, None, 'ungraded'
 
@@ -459,6 +685,12 @@ def run_benchmark(benchmark, questions, model_id, only_questions=None, max_token
                 'type': q.get('type'),
                 'subject': q.get('subject'),
                 'entry_point': q.get('entry_point'),
+                # LiveCodeBench-specific
+                'lcb_question_id': q.get('question_id'),
+                'lcb_platform': q.get('platform'),
+                'lcb_difficulty': q.get('difficulty'),
+                'lcb_testtype': q.get('testtype'),
+                'lcb_version': q.get('lcb_version'),
                 # API request params
                 'max_tokens_sent': max_tokens,
                 'temperature': TEMPERATURE,
@@ -513,6 +745,8 @@ def run_benchmark(benchmark, questions, model_id, only_questions=None, max_token
                 detail = f" | exp={str(q.get('expected_answers',['?']))[:30]}"
             elif benchmark == 'humaneval':
                 detail = f" | {q.get('entry_point','?')}"
+            elif benchmark == 'livecodebench':
+                detail = f" | {q.get('platform','?')}/{q.get('difficulty','?')} {q.get('question_id','?')}"
 
             trunc_flag = " TRUNC!" if r['finish_reason'] == 'length' else ""
             score_so_far = correct_count / total_count * 100
@@ -578,11 +812,14 @@ def run_benchmark(benchmark, questions, model_id, only_questions=None, max_token
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Benchmark harness v2 with full logging")
-    parser.add_argument("benchmark", choices=["mmlu", "math", "humaneval", "gpqa", "drop"])
+    parser.add_argument("benchmark", choices=["mmlu", "math", "humaneval", "gpqa", "drop", "livecodebench"])
     parser.add_argument("--examples", type=int, default=100)
     parser.add_argument("--model", type=str, default="local")
     parser.add_argument("--max-tokens", type=int, default=MAX_TOKENS)
     parser.add_argument("--only", type=str, help="Comma-separated question numbers to run (1-indexed)")
+    parser.add_argument("--lcb-version", type=str, default="release_v6",
+                        choices=["release_v1","release_v2","release_v3","release_v4","release_v5","release_v6"],
+                        help="LiveCodeBench release window (default release_v6 — through ~Apr 2025)")
     args = parser.parse_args()
 
     # Parse --only
@@ -593,8 +830,12 @@ if __name__ == '__main__':
     # Load questions
     print(f"Loading {args.benchmark} dataset...")
     loader = LOADERS[args.benchmark]
-    questions = loader(args.examples)
-    print(f"Loaded {len(questions)} questions")
+    if args.benchmark == 'livecodebench':
+        questions = loader(args.examples, version=args.lcb_version)
+        print(f"Loaded {len(questions)} questions (LiveCodeBench {args.lcb_version})")
+    else:
+        questions = loader(args.examples)
+        print(f"Loaded {len(questions)} questions")
 
     # Detect model if "local"
     model_id = args.model

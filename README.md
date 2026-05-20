@@ -105,10 +105,20 @@ LMSTUDIO_URL=http://<your-host>:1234/v1 python3 scripts/bench2.py math --example
 # Rerun only specific question numbers (e.g. ones that failed)
 python3 scripts/bench2.py math --examples 100 --only 4,13,15,26
 
+# LiveCodeBench (v5/v6 — contamination-resistant rolling-window coding bench)
+python3 scripts/bench2.py livecodebench --examples 50 --lcb-version release_v6
+
 # MLX path (direct mlx_vlm, no server)
 python3 scripts/mlx_bench.py math --examples 100 \
   --model deadbydawn101/gemma-4-21b-REAP-Tool-Calling-mlx-4bit
 ```
+
+**Supported benchmarks:** `mmlu`, `math`, `humaneval`, `gpqa`, `drop`, `livecodebench`.
+LiveCodeBench loads JSONL shards directly from `livecodebench/code_generation_lite` on
+HuggingFace Hub (no `datasets` loading script). Versions `release_v1`..`release_v6`
+correspond to cumulative monthly snapshots — v6 covers problems through ~April 2025.
+Both `functional` (LeetCode-style) and `stdin` (AtCoder/Codeforces-style) test types
+are executed with a 12s per-test timeout; pass@1 = all tests pass.
 
 ### View results
 
