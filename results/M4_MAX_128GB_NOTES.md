@@ -132,7 +132,7 @@ Throughput breakdown across all 4 scenarios:
 
 ### 6. `gemma-4-26b-a4b@6bit` is the Gemma flagship
 
-- Wins or ties every Gemma A/B: **LCB v6 78 %** (+14 vs @4bit), **MATH 83 %**, **GPQA 53 %** (+6 vs @4bit), **HumanEval 97 %**.
+- Wins or ties every Gemma A/B: **LCB v6 80 %** (after Step B reruns, +14 vs @4bit's 66 %), **MATH 83 %**, **GPQA 53 %** (+6 vs @4bit), **HumanEval 97 %**.
 - Knowledge avg 78.0 % — top of the Gemma family but still **−7.8pp below `qwen3.6-27b`** (85.8 %).
 - Decode throughput 80.8 gen t/s — 4× faster than 27b dense (20.7) for ~8pp less knowledge. Strong "fast generalist" candidate.
 
@@ -140,7 +140,7 @@ Throughput breakdown across all 4 scenarios:
 
 - **Fastest decode on the rig**: 100.3 ops-agent gen t/s, 106 creative-writing — beats every Phase 1 model.
 - Identical tool-calling (98 % / 83 %) and HumanEval (98 %, +1 vs @6bit) to the larger quant.
-- The quant cost shows on the **hard** benches: LCB **64 % vs @6bit's 78 %** (9 unrecovered 32 768-cap truncations), GPQA **47 % vs 53 %**. Closer to a useful "fast coder" slot than a knowledge generalist.
+- The quant cost shows on the **hard** benches: LCB **66 % vs @6bit's 80 %** (Step B reruns: only 1 of 9 truncations recovered at 65 k; 8 still truncate → real model limits), GPQA **47 % vs 53 %**. Closer to a useful "fast coder" slot than a knowledge generalist.
 
 ### 8. `gemma-4-31b` dense is a cost-trap on this rig
 
@@ -165,22 +165,20 @@ Throughput breakdown across all 4 scenarios:
 
 - **Qwen 3.6 thinking models truncated GPQA at 32 768** (final-letter format + spirals). Phase 1: 15-23 % truncation on Qwen GPQA.
 - **Gemma 4 does NOT emit thinking tokens** (`think=0` in every response) — but **truncates LCB on hard problems** because it writes long, exhaustive code (often re-deriving full helpers). Phase 2: 18 % LCB truncation on @4bit, 8 % on @6bit, 0 % on 31B/E4B.
-- **Operational rule going forward:** for Gemma 4, raise `--max-tokens` on **LiveCodeBench** (not just GPQA) to recover the full quality signal. `@4bit` and `@6bit` LCB scores published here are the floor; corrected ceiling for `@6bit` is ≈ 86 %.
+- **Operational rule going forward (updated 2026-05-24 after Step B reruns):** for Gemma 4, raise `--max-tokens` on **LiveCodeBench** to **65 536** by default. But: most 32k truncations are NOT cap-too-tight — they're real model limits. `@4bit` got only +2 pp from the rerun (64 → 66, 1 of 9 recovered); `@6bit` also +2 pp (78 → 80, 1 of 4 recovered). The "ceiling ≈ 86 %" projection in the Phase 2 plan was optimistic — actual recovery is modest.
 - Two GPQA questions on `@6bit` truncated even at the 65 536 cap (Q60, Q78) — both `exp=C got=None`. Forms the "unanswerable at this scale" floor for those two MCQs.
 
-## Phase 2 truncations — explicit list
+## Phase 2 truncations — explicit list (post-Step-B)
 
-For future `--only` reruns:
-
-| Model | Bench | Truncated Qs |
-|---|---|---|
-| `gemma-4-26b-a4b@4bit` | LCB v6 | 2, 8, 11, 19, 28, 39, 44, 45, 46 |
-| `gemma-4-26b-a4b@4bit` | MATH | 64 |
-| `gemma-4-26b-a4b@4bit` | GPQA | 1 (at 65 536 cap — unrecoverable at this scale) |
-| `gemma-4-26b-a4b@6bit` | LCB v6 | 8, 15, 19, 28 |
-| `gemma-4-26b-a4b@6bit` | GPQA | 60, 78 (both at 65 536 cap — unrecoverable) |
-| `gemma-4-31b-it-mlx` | — | 0 truncations |
-| `gemma-4-e4b-it-mlx` | — | 0 truncations |
+| Model | Bench | Truncated Qs | Notes |
+|---|---|---|---|
+| `gemma-4-26b-a4b@4bit` | LCB v6 | 8, 11, 19, 28, 39, 44, 45, 46 | All 8 at 65 k cap — real model limits; not cap-too-tight. Q2 was recovered (FAIL → OK at 65 k) |
+| `gemma-4-26b-a4b@4bit` | MATH | 64 | Not yet rerun |
+| `gemma-4-26b-a4b@4bit` | GPQA | 1 | At 65 536 cap — unrecoverable at this scale |
+| `gemma-4-26b-a4b@6bit` | LCB v6 | 19 | At 65 k cap — real spiral. Q8/Q15 now answer cleanly under 10 k but wrong; Q28 recovered (FAIL → OK at 65 k) |
+| `gemma-4-26b-a4b@6bit` | GPQA | 60, 78 | Both at 65 536 cap — unrecoverable |
+| `gemma-4-31b-it-mlx` | — | 0 truncations | |
+| `gemma-4-e4b-it-mlx` | — | 0 truncations | |
 
 ## Phase 2 wall-clock actuals
 
@@ -256,10 +254,12 @@ and ~55 min/spiral.
 
 1. **`tools/local-llm-bench/bench.py` `--base-url`** must **not** include `/v1` — the script appends `/v1/chat/completions` itself. The testing-plan command on line 322 (`--base-url http://192.168.68.124:1234/v1`) doubles the path and silently fails the context-window pre-flight. Use `http://127.0.0.1:1234` (bare host:port).
 2. **`scripts/tool_call_bench.py --suite`** only accepts `jdhodges` or `veerman` — there is no `both`. Run twice if you want both suites.
-3. **`bench2.py` writes a fresh summary per run** rather than merging when you re-run with `--only`. To produce a single canonical score after a truncation rerun, the per-question JSONLs need to be reconciled manually. The Phase 1 LCB backfill produced three canonical merged summaries (chart script picks them by alphabetical-last sort — `MERGED` beats any timestamped name):
+3. **`bench2.py` writes a fresh summary per run** rather than merging when you re-run with `--only`. To produce a single canonical score after a truncation rerun, the per-question JSONLs need to be reconciled manually. After both the Phase 1 LCB backfill and the Phase 2 Step B reruns there are five canonical merged summaries (chart script picks them by alphabetical-last sort — `MERGED` beats any timestamped name):
    - `benchmarks/runs/livecodebench_qwen_qwen3-coder-next_MERGED_summary.json` (original 50-q + Q19 rerun at 65 k)
    - `benchmarks/runs/livecodebench_qwen3.6-35b-a3b@6bit_MERGED_summary.json` (3 batch JSONLs + Q4 rerun)
    - `benchmarks/runs/livecodebench_qwen3.6-27b_MERGED_summary.json` (14 batch JSONLs)
+   - `benchmarks/runs/livecodebench_gemma-4-26b-a4b-it-mlx@4bit_MERGED_summary.json` (original 50-q + 9-Q Step B rerun at 65 k)
+   - `benchmarks/runs/livecodebench_gemma-4-26b-a4b-it-mlx@6bit_MERGED_summary.json` (original 50-q + 4-Q Step B rerun at 65 k)
 4. **`bench2.py` hardcoded 1800 s urlopen timeout was too short for slow thinking models at the raised cap.** When 27b dense exceeded 30 min on a spiral, `urlopen` aborted but LM Studio kept processing — the next request queued behind the still-running inference and also timed out, cascading into back-to-back failures and wedging the run. **Fix landed:** `bench2.py` now reads `BENCH_TIMEOUT` env var (seconds) for the per-request timeout. Set `BENCH_TIMEOUT=3600` when running any ≤ 25 t/s thinking model at `--max-tokens 65536`. Default unchanged (1800 s).
 5. **Long-running `bench2.py` invocations launched via the Claude Code `Bash run_in_background` harness silently died around the 2–3 h mark** regardless of the `timeout` flag passed. No traceback, no exit notification — the python process simply vanished and the per-question JSONL stopped growing. Reproduced 3× on different runs. **Workaround:** detached driver pattern. See `.bench-logs/run-27b-lcb-remaining.sh` (`nohup` → PPID=1) — it ran 11 sequential 3-question batches over ~11 h without interruption. Recommended for any future single-leg bench run expected to exceed ~2 h.
 6. **The `Config` and per-question `model_arch/model_quant/model_size_gb/model_params` fields reflect whatever model is resident at `bench2.py` startup, not the model the API request hit.** `get_model_config()` is called once at run start; the per-question recording inherits that snapshot even if LM Studio JIT-swaps to the requested `--model` on the first request. Not a correctness issue (the actual model that responded is the one the API was asked for) but it's misleading in the JSONL — the `metric_*` fields in the canonical merged summaries above were verified against the request body, not the stale snapshot.
@@ -273,7 +273,7 @@ Plan defined in [TESTING_PLAN.md](../TESTING_PLAN.md):
 - **Phase 2 quant-A/B variants pending:** `qwen3-coder-next@4bit` (vs done @6bit), `qwen3.6-35b-a3b@8bit` (vs done @6bit).
 - **Phase 3 pending:** `deepseek-v4-flash-dq` (96.53 GB 2-bit DQ, tool-call only as fit-test).
 - **Phase 4 watchlist:** Qwen2.5-Coder-7B FIM, Qwen2.5-VL-72B, Kimi-K2.6-Thinking distill, Gemma 4 21B REAP.
-- **Follow-up A — LCB truncation reruns for Gemma `@4bit` and `@6bit`** at `--max-tokens 65536` — see the truncated-Qs table above. ~3 h on @4bit, ~1 h on @6bit if all spiral to the higher cap.
+- **Follow-up A ✅ — LCB truncation reruns for Gemma `@4bit` and `@6bit`** (Step B from testing-plan, done 2026-05-24). `@4bit`: 1 of 9 recovered (Q2), score 64 → 66, 8 truncations still at 65 k cap. `@6bit`: 1 of 4 recovered (Q28), 2 of 4 now answer cleanly but still wrong (Q8, Q15), 1 still truncates (Q19), score 78 → 80. Wall-clock 116 min + 21 min. Canonical MERGED summaries written. Key finding: most Gemma 4 LCB truncations at 32 k are real model limits, not cap-too-tight artifacts.
 - **Follow-up B — Phase 1 LCB cheap-recovery reruns (done 2026-05-24).**
   `coder-next` Q19 at 65 k → completed cleanly but still wrong (real model
   failure, not cap artifact). `35b-a3b@6bit` Q4 at 65 k on clean LM Studio
