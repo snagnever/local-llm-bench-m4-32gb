@@ -30,7 +30,13 @@ from pathlib import Path
 BASE_URL = os.environ.get("LMSTUDIO_URL", "http://127.0.0.1:1234/v1")
 TEMPERATURE = 0
 MAX_TOKENS = 32768
-TIMEOUT = 1800  # 30 min per question
+# 30 min per question default; override via BENCH_TIMEOUT env var (seconds).
+# Slow dense thinking models (e.g. qwen3.6-27b at ~20 t/s) can need ~55 min
+# to spend the full 65 536 max_tokens budget. Without a longer timeout,
+# urlopen aborts mid-flight and the next request queues behind the still-
+# running LM Studio inference, cascading into back-to-back timeouts and
+# wedging the run.
+TIMEOUT = int(os.environ.get("BENCH_TIMEOUT", "1800"))
 SEED = 42
 
 # ---- Directories ----

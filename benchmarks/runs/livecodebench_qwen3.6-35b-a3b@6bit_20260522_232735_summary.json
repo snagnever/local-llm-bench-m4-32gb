@@ -1,0 +1,62 @@
+{
+  "run_name": "livecodebench_qwen3.6-35b-a3b@6bit_20260522_232735",
+  "benchmark": "livecodebench",
+  "model": "qwen3.6-35b-a3b@6bit",
+  "score": 0.75,
+  "score_pct": "75.0%",
+  "correct": 3,
+  "total": 4,
+  "truncated": 0,
+  "elapsed_s": 1313,
+  "elapsed_min": 21.9,
+  "max_tokens": 65536,
+  "temperature": 0,
+  "seed": 42,
+  "timeout_s": 1800,
+  "model_config": {
+    "model_id": "gemma-4-e4b-it-mlx",
+    "architecture": "gemma4",
+    "quantization": "8bit",
+    "bits_per_weight": 8,
+    "size_bytes": 8972032540,
+    "size_gb": 8.4,
+    "params": "4B",
+    "context_length": 65536,
+    "flash_attention": "?",
+    "eval_batch_size": "?",
+    "num_experts": "?"
+  },
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 34,
+    "cpu_temp_c": 32,
+    "process_ram_mb": 29087,
+    "swap_used_mb": 60
+  },
+  "final_state": {
+    "gpu_temp_c": 53,
+    "cpu_temp_c": 48,
+    "process_ram_mb": 29089,
+    "swap_used_mb": 60
+  },
+  "timestamp_start": "2026-05-22T23:27:38.552657",
+  "timestamp_end": "2026-05-22T23:49:34.682922",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/livecodebench_qwen3.6-35b-a3b@6bit_20260522_232735.jsonl",
+  "only_questions": [
+    47,
+    48,
+    49,
+    50
+  ],
+  "questions_run": [
+    47,
+    48,
+    49,
+    50
+  ]
+}

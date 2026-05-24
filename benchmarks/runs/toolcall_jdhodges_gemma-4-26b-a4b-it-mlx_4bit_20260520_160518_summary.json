@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_gemma-4-26b-a4b-it-mlx_4bit_20260520_160518",
+  "suite": "jdhodges",
+  "model": "gemma-4-26b-a4b-it-mlx@4bit",
+  "model_slug": "gemma-4-26b-a4b-it-mlx_4bit",
+  "score": 0.975,
+  "score_pct": "97.5%",
+  "correct": 39,
+  "total": 40,
+  "carried_over": 0,
+  "fresh_run": 40,
+  "by_category": {
+    "tool_selection": {
+      "pass": 8,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 8,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 7,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 8,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 73.36,
+  "elapsed_s": 322,
+  "elapsed_min": 5.4,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 39,
+    "cpu_temp_c": 39,
+    "process_ram_mb": 0,
+    "swap_used_mb": 60,
+    "free_pages": 1585352
+  },
+  "final_state": {
+    "gpu_temp_c": 36,
+    "cpu_temp_c": 32,
+    "process_ram_mb": 0,
+    "swap_used_mb": 60,
+    "free_pages": 1545983
+  },
+  "timestamp_start": "2026-05-20T16:05:21.711378",
+  "timestamp_end": "2026-05-20T16:10:47.128559",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_jdhodges_gemma-4-26b-a4b-it-mlx_4bit_20260520_160518.jsonl"
+}

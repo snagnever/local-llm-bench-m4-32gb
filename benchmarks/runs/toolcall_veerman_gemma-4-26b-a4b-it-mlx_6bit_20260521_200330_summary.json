@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_gemma-4-26b-a4b-it-mlx_6bit_20260521_200330",
+  "suite": "veerman",
+  "model": "gemma-4-26b-a4b-it-mlx@6bit",
+  "model_slug": "gemma-4-26b-a4b-it-mlx_6bit",
+  "score": 0.8333333333333334,
+  "score_pct": "83.3%",
+  "correct": 10,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 2,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 66.58,
+  "elapsed_s": 102,
+  "elapsed_min": 1.7,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 41,
+    "cpu_temp_c": 38,
+    "process_ram_mb": 0,
+    "swap_used_mb": 60,
+    "free_pages": 331720
+  },
+  "final_state": {
+    "gpu_temp_c": 42,
+    "cpu_temp_c": 41,
+    "process_ram_mb": 0,
+    "swap_used_mb": 60,
+    "free_pages": 370237
+  },
+  "timestamp_start": "2026-05-21T20:03:34.282907",
+  "timestamp_end": "2026-05-21T20:05:19.993859",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_veerman_gemma-4-26b-a4b-it-mlx_6bit_20260521_200330.jsonl"
+}
