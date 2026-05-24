@@ -110,7 +110,7 @@ Four models, executed model-major 2026-05-20 → 2026-05-22 per
 | Tool calls Veerman (12) | 83 % | 83 % | 83 % | 67 % |
 | **Tool calls combined (52)** | 95.2 % | 95.2 % | 95.2 % | 82.7 % |
 | HumanEval | **98 %** | 97 % | 95 % | 91 % |
-| LiveCodeBench v6 (n=50) | 64 % (9 LCB TRUNC) | **78 %** (4 LCB TRUNC) | 76 % | 68 % |
+| LiveCodeBench v6 (n=50) | 66 % (8 LCB TRUNC, post-Step-B) | **80 %** (1 LCB TRUNC, post-Step-B) | 76 % | 68 % |
 | MMLU | 78 % | 78 % | 77 % | 65 % |
 | MATH | 80 % (1 TRUNC) | 83 % | 79 % | 14 % ⚠ |
 | DROP | 79 % | 79 % | **85 %** | 65 % |
