@@ -45,10 +45,14 @@ UPSTREAM = {
 }
 
 # Benchmarks in canonical display order
-BENCH_ORDER = ["humaneval", "mmlu", "math", "drop", "gpqa", "tool_combined"]
+BENCH_ORDER = ["humaneval", "mmlu", "math", "drop", "gpqa",
+               "livecodebench", "tool_combined", "tbench"]
 BENCH_LABEL = {
     "humaneval": "HumanEval", "mmlu": "MMLU", "math": "MATH",
-    "drop": "DROP", "gpqa": "GPQA", "tool_combined": "Tool calls\n(combined)",
+    "drop": "DROP", "gpqa": "GPQA",
+    "livecodebench": "LCB v6\n(n=50)",
+    "tool_combined": "Tool calls\n(combined)",
+    "tbench": "Terminal-\nBench 2.0",
 }
 
 
@@ -170,7 +174,8 @@ def chart_throughput(local: dict, out_path: Path) -> None:
     models_local = [m for m in DISPLAY if m in local]
     if not models_local:
         return
-    benches = ["humaneval", "mmlu", "math", "drop", "gpqa", "tool_combined"]
+    benches = ["humaneval", "mmlu", "math", "drop", "gpqa",
+               "livecodebench", "tool_combined", "tbench"]
     x = np.arange(len(benches))
     width = 0.8 / len(models_local)
 
@@ -204,7 +209,8 @@ def chart_time(local: dict, out_path: Path) -> None:
     models_local = [m for m in DISPLAY if m in local]
     if not models_local:
         return
-    benches = ["humaneval", "mmlu", "math", "drop", "gpqa", "tool_combined"]
+    benches = ["humaneval", "mmlu", "math", "drop", "gpqa",
+               "livecodebench", "tool_combined", "tbench"]
     x = np.arange(len(benches))
     width = 0.8 / len(models_local)
 

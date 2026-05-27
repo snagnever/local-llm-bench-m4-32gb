@@ -1,0 +1,14 @@
+{
+  "run_name": "tbench_qwen3-6-35b-a3b-6bit_2026-05-27_003634",
+  "benchmark": "tbench",
+  "model": "qwen3.6-35b-a3b@6bit",
+  "score": 0.2247,
+  "score_pct": "22.5%",
+  "correct": 20,
+  "total": 89,
+  "elapsed_s": 0.0,
+  "elapsed_min": 0.0,
+  "harbor_output_dir": "/Users/vitor/LocalProjects/local-llms/.bench-logs/tbench-runs/qwen-35b-a3b-6bit",
+  "timestamp_start": "2026-05-27T00:36:34.275848",
+  "timestamp_end": null
+}

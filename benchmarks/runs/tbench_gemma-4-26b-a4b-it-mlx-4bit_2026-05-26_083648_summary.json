@@ -1,0 +1,14 @@
+{
+  "run_name": "tbench_gemma-4-26b-a4b-it-mlx-4bit_2026-05-26_083648",
+  "benchmark": "tbench",
+  "model": "gemma-4-26b-a4b-it-mlx@4bit",
+  "score": 0.2022,
+  "score_pct": "20.2%",
+  "correct": 18,
+  "total": 89,
+  "elapsed_s": 57514.7,
+  "elapsed_min": 958.6,
+  "harbor_output_dir": "/Users/vitor/LocalProjects/local-llms/.bench-logs/tbench-runs/gemma-26b-a4b-4bit",
+  "timestamp_start": "2026-05-26T08:36:48.702693",
+  "timestamp_end": "2026-05-27T00:35:23.353810"
+}

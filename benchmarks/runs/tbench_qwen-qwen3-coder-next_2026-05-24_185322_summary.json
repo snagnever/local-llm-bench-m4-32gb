@@ -1,0 +1,14 @@
+{
+  "run_name": "tbench_qwen-qwen3-coder-next_2026-05-24_185322",
+  "benchmark": "tbench",
+  "model": "qwen/qwen3-coder-next",
+  "score": 0.3258,
+  "score_pct": "32.6%",
+  "correct": 29,
+  "total": 89,
+  "elapsed_s": 60548.6,
+  "elapsed_min": 1009.1,
+  "harbor_output_dir": "/Users/vitor/LocalProjects/local-llms/.bench-logs/tbench-runs/coder-next",
+  "timestamp_start": "2026-05-24T18:53:22.773502",
+  "timestamp_end": "2026-05-25T11:42:31.419506"
+}

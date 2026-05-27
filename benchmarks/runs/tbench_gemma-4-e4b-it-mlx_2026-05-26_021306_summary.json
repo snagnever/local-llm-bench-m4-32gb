@@ -1,0 +1,14 @@
+{
+  "run_name": "tbench_gemma-4-e4b-it-mlx_2026-05-26_021306",
+  "benchmark": "tbench",
+  "model": "gemma-4-e4b-it-mlx",
+  "score": 0.0449,
+  "score_pct": "4.5%",
+  "correct": 4,
+  "total": 89,
+  "elapsed_s": 22965.2,
+  "elapsed_min": 382.8,
+  "harbor_output_dir": "/Users/vitor/LocalProjects/local-llms/.bench-logs/tbench-runs/gemma-e4b",
+  "timestamp_start": "2026-05-26T02:13:06.622033",
+  "timestamp_end": "2026-05-26T08:35:51.784410"
+}

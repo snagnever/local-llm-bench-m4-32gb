@@ -282,3 +282,69 @@ Plan defined in [TESTING_PLAN.md](../TESTING_PLAN.md):
   is whether a higher cap (≥ 96 k) recovers 35b-a3b's 5 deep-thinking spirals
   (Q3, Q23, Q33, Q39, Q44) — estimated ~1.5–2 h at 96 k, +4–10 pp upside.
   Skipped for now per cost/value trade-off.
+
+## Terminal-Bench 2.0 — Phase A (tie-breaker, 2026-05-24 → 2026-05-26)
+
+Plan: [`docs/benchmark-plans/2026-05-24-terminal-bench-phase-a-plus-b.md`](../../../docs/benchmark-plans/2026-05-24-terminal-bench-phase-a-plus-b.md).
+First on-rig measurements of T-Bench 2.0 — the only **agentic shell-loop**
+signal on this rig, complements the static benches above.
+
+| # | Model | Score | PASS / FAIL | Errored (timeout) | Wall-clock |
+|---|---|---|---|---|---|
+| A1 | `qwen/qwen3-coder-next` (6-bit) | **32.6 %** (vendor 36.2) | 29 / 60 | 43 | 16.8 h |
+| A2 | `gemma-4-26b-a4b-it-mlx@6bit` | **21.3 %** | 19 / 69 (1 ungraded) | 40 | 14.4 h |
+
+**Operational notes:**
+
+- **`--agent-timeout-multiplier 0.5`** — bounded the 14 outlier tasks
+  declaring >60-min agent budgets (1 task at 200 min). Without this cap,
+  leg 1's first 3 tasks alone consumed 144 min for zero passes; total
+  wall-clock would have been 4–5 days/leg instead of 14–17 h. Scores are
+  therefore a **defensible floor**: tasks that genuinely need >15 min agent
+  time on this rig are graded FAIL. Plan estimate: full-budget would lift
+  scores ≤5 pp.
+- **Harness**: Harbor 0.8.0 + terminus-2 agent + LiteLLM → LM Studio
+  OpenAI-compat endpoint, container env=docker linux/amd64 (Rosetta).
+  Concurrency=1 (single-resident-model rule). Adapter
+  `scripts/harbor_to_summary.py` post-processes `<job_dir>/result.json` →
+  `benchmarks/runs/tbench_*_summary.json`. Per-leg driver scripts under
+  `.bench-logs/run-tbench-*.sh` (pattern derived from
+  `run-27b-lcb-remaining.sh`).
+- **Result.json schema gotcha**: Harbor 0.8.0 always excludes
+  `trial_results` from the on-disk `result.json` (periodic AND final
+  writes). Source of truth for score is
+  `stats.evals[<key>].reward_stats.reward["1.0"|"0.0"]` — list of trial
+  names per reward value. First adapter pass reported 0.0% before this was
+  fixed; current adapter uses `reward_stats` directly.
+- **Task-order bias**: T-Bench 2.0's first ~5 tasks (make-mips-interpreter,
+  circuit-fibsqrt, build-pov-ray, overfull-hbox, video-processing) are all
+  in the hardest decile by `timeout_sec`. Both legs spent ~2 h at 0/N PASS
+  before scoring anything. Future timeline projections from the first
+  10 tasks will under-estimate by ~3× — wait for the inflection at task
+  ~15 before extrapolating final score.
+- **`AgentTimeoutError` ≠ chain bug**: 43/89 fails on leg 1 and 40/89 on
+  leg 2 are graded-as-FAIL timeouts (model spent the full agent budget
+  without solving). The non-timeout fails are graded-FAIL with model
+  responses returned cleanly — verifier scored 0. Chain is healthy; the
+  task set is genuinely hard for ≤30B local models.
+
+**Takeaways:**
+
+1. **Coding-best vs knowledge-best diverge on agentic shell.** Phase 2
+   LCB had `gemma-4-26b-a4b@6bit` (80 %) crushing `coder-next` (56 %).
+   T-Bench inverts: coder-next 32.6 % > Gemma 21.3 %. **The agentic loop
+   reveals what static benches miss** — tool-driven multi-turn behavior
+   is coder-next's design target, and the gap shows.
+2. **Vendor claim is honest for coder-next.** 32.6 % measured vs 36.2 %
+   vendor = 3.6 pp gap, consistent with MLX 6-bit quant cost on a model
+   the vendor likely measured at BF16 or close.
+3. **Phase A → B decision** (plan §4): leg 1 = 32.6 % (>25 %), leg 2 =
+   21.3 % (between 10 and 25 %). Neither rule fires exactly; both legs
+   produce real positive signal (>>10 %), one is solidly in vendor-parity
+   range. **Proceeding to full Phase B** to fill the remaining 5 local
+   rows — the bench is producing meaningful local signal worth measuring
+   across the whole candidate set.
+
+Per-trial data: `benchmarks/runs/tbench_qwen-qwen3-coder-next_*.{jsonl,_summary.json}`,
+`benchmarks/runs/tbench_gemma-4-26b-a4b-it-mlx-6bit_*.{jsonl,_summary.json}`.
+Raw Harbor jobs: `.bench-logs/tbench-runs/{coder-next,gemma-26b-a4b-6bit}/`.
