@@ -1,0 +1,14 @@
+{
+  "run_name": "tbench_qwen3-6-27b_2026-05-28_123630",
+  "benchmark": "tbench",
+  "model": "qwen3.6-27b",
+  "score": 0.3146,
+  "score_pct": "31.5%",
+  "correct": 28,
+  "total": 89,
+  "elapsed_s": 68087.5,
+  "elapsed_min": 1134.8,
+  "harbor_output_dir": "/Users/vitor/LocalProjects/local-llms/.bench-logs/tbench-runs/qwen-27b",
+  "timestamp_start": "2026-05-28T12:36:30.372982",
+  "timestamp_end": "2026-05-29T07:31:17.877733"
+}

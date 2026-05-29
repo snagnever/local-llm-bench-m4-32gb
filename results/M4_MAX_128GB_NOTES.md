@@ -348,3 +348,94 @@ signal on this rig, complements the static benches above.
 Per-trial data: `benchmarks/runs/tbench_qwen-qwen3-coder-next_*.{jsonl,_summary.json}`,
 `benchmarks/runs/tbench_gemma-4-26b-a4b-it-mlx-6bit_*.{jsonl,_summary.json}`.
 Raw Harbor jobs: `.bench-logs/tbench-runs/{coder-next,gemma-26b-a4b-6bit}/`.
+
+## Terminal-Bench 2.0 — Phase B (full backfill, 2026-05-26 → 2026-05-29)
+
+All 7 local models measured. Full table:
+
+| # | Model | Score | PASS / FAIL | Errored | Wall-clock | Per-task mean |
+|---|---|---|---|---|---|---|
+| A1 | `qwen/qwen3-coder-next` (6-bit) | **32.6 %** (vendor 36.2) | 29 / 60 | 43 | 16.8 h | 11.3 min |
+| B5 | `qwen3.6-27b` dense (6-bit) | **31.5 %** | 28 / 61 | 58 | 18.9 h | 12.7 min |
+| B3 | `qwen3.6-35b-a3b@6bit` | **28.1 %** | 25 / 64 | 47 | 15.6 h | 10.5 min |
+| B4 | `gemma-4-31b-it-mlx` (8-bit dense) | **22.5 %** | 20 / 69 | 49 | 17.4 h | 11.7 min |
+| A2 | `gemma-4-26b-a4b@6bit` | **21.3 %** | 19 / 69 | 40 | 14.4 h | 9.7 min |
+| B2 | `gemma-4-26b-a4b@4bit` | **20.2 %** | 18 / 68 | 44 | 16.0 h | 10.8 min |
+| B1 | `gemma-4-e4b` (4B/8-bit) | **4.5 %** | 4 / 85 | 10 | 6.4 h | 4.3 min |
+
+**Total Phase A+B wall-clock: ~105 h across 7 legs** — under the plan's
+~100 h B-full estimate, but only because the 0.5x agent-timeout cap shaved
+worst-case 4–5× on the 14 long-timeout outlier tasks. Without the cap, full
+B would have taken ~250+ h.
+
+### What the agentic loop reveals that static benches miss
+
+This is the headline finding — T-Bench cleanly inverts LCB at the top:
+
+| Model | LCB v6 rank | T-Bench rank | Δ |
+|---|---|---|---|
+| `gemma-4-26b-a4b@6bit` | **1st** (80 %) | 5th (21.3 %) | **−4 spots** |
+| `gemma-4-31b` dense | 2nd (76 %) | 4th (22.5 %) | −2 spots |
+| `gemma-4-26b-a4b@4bit` | 3rd (66 %) | 6th (20.2 %) | −3 spots |
+| `qwen3.6-27b` dense | 4th (62 %) | **2nd** (31.5 %) | +2 spots |
+| `qwen/qwen3-coder-next` | 5th (56 %) | **1st** (32.6 %) | **+4 spots** |
+| `qwen3.6-35b-a3b@6bit` | 6th (54 %) | 3rd (28.1 %) | +3 spots |
+
+The Qwen models — trained with explicit agentic-loop targets — all gain
+ranks. The Gemma models — trained as general-purpose / one-shot — all lose
+ranks. This was the resolution the post-Phase-2 analysis predicted but
+couldn't pin down without a multi-turn agent signal on the rig.
+
+### Per-leg findings
+
+1. **`coder-next` 32.6 % vs vendor 36.2 %** — 3.6 pp gap, consistent with
+   MLX 6-bit quant cost on a model the vendor likely measured at BF16. The
+   vendor's branding for it as the agentic-default is honest.
+2. **`qwen3.6-27b` dense 31.5 %** — the knowledge king lands #2 on T-Bench
+   too. 1.1 pp behind coder-next; 6× slower decode (~20 t/s vs 67 t/s). For
+   one-shot hard problems it's still the right pick; for high-turn-count
+   agentic loops, coder-next's speed advantage compounds.
+3. **`qwen3.6-35b-a3b@6bit` 28.1 %** — F1 thinking-format guard PASSED
+   easily (threshold was ≤ 5 % to abort 27b). Thinking format works fine
+   with terminus-2 on the LM Studio → LiteLLM chain. The earlier MoE-MLX
+   tool-call regression concern (`qwen3.6-35b-a3b` on `mlx-community` 4-bit
+   checkpoints) does not appear on the 6-bit variant.
+4. **`gemma-4-31b` dense 22.5 %** — the Phase 2 LCB verdict generalizes:
+   31b dense ties or loses to 26B-A4B@6bit on agentic shell too. Demote /
+   skip in normal rotation holds.
+5. **Quant A/B on 26B-A4B: @4bit 20.2 % vs @6bit 21.3 % — 1.1 pp gap.**
+   The 14 pp LCB penalty from 4-bit doesn't bite on agentic shell. Likely
+   because T-Bench's bottleneck is multi-turn coordination + tool use, not
+   the kind of one-shot algorithmic correctness LCB tests. Operationally:
+   for agentic-only workloads on this rig, `gemma-4-26b-a4b@4bit` is a
+   reasonable substitute for `@6bit` at 1/2 the weights size — but
+   `coder-next` beats both by 11–12 pp anyway.
+6. **`gemma-4-e4b` 4.5 %** — confirmed 4B size floor on T-Bench. The agent
+   runs cleanly (10 errored vs 40+ on bigger models — the model isn't
+   timing out, it just doesn't solve), but the verifier scores 0 on 85/89
+   tasks. Useful as FIM / quick-call slot only, not agentic.
+
+### Operational findings
+
+- **`--agent-timeout-multiplier 0.5` is essential on this rig.** Without
+  it, leg 1's first 3 tasks alone consumed 144 min for zero passes; the
+  14 outlier tasks declaring >60-min agent budgets would have made each
+  leg 60+ h. Published scores are a defensible floor; plan estimate is
+  full-budget would lift ≤5 pp per leg.
+- **First ~5 tasks of T-Bench 2.0 are all in the hardest decile by
+  declared timeout.** Every leg sees 0 passes for the first 2-3 h.
+  Don't extrapolate from the early window — wait for task ~15 before
+  projecting final score.
+- **Two Harbor 0.8.0 quirks to know about:** (1) on-disk `result.json`
+  excludes `trial_results` even at job completion — score must come from
+  `stats.evals[*].reward_stats`. (2) The `--agent-timeout-multiplier` flag
+  multiplies the per-task `timeout_sec` declared in each `task.toml`; it
+  doesn't impose a flat cap. Run-time bound is therefore the sum of
+  multiplier × declared-timeout, not a fixed budget.
+- **macOS lacks `setsid`.** The plan template referenced
+  `nohup setsid bash ...` from prior LCB driver scripts but that fails on
+  macOS Darwin. Subshell double-fork `( nohup bash ...sh > /tmp/...log 2>&1 & )`
+  works and gives PPID=1 (launchd). Same F3 silent-kill protection.
+
+Per-trial JSONLs and summaries: `benchmarks/runs/tbench_*.{jsonl,_summary.json}`
+(seven pairs). Raw Harbor jobs: `.bench-logs/tbench-runs/<job_name>/`.
