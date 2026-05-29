@@ -11,7 +11,7 @@ from datetime import datetime
 
 MODEL_ID = sys.argv[1] if len(sys.argv) > 1 else "local"
 OUTPUT_DIR = sys.argv[2] if len(sys.argv) > 2 else "results/speed_probe"
-BASE_URL = "http://127.0.0.1:1234/v1"
+BASE_URL = os.environ.get("LMSTUDIO_URL", "http://127.0.0.1:1234/v1")
 
 # Sanitize model ID for filenames
 SAFE_NAME = MODEL_ID.replace("/", "_").replace(" ", "_")

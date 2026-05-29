@@ -1,0 +1,75 @@
+{
+  "model": "/Users/vitor/.lmstudio/models/mlx-community/DeepSeek-V4-Flash-2bit-DQ",
+  "timestamp": "20260529_121622",
+  "base_url": "http://127.0.0.1:8765/v1",
+  "questions": [
+    {
+      "name": "trivial",
+      "category": "sanity",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is 2+2? Answer with just the number."
+        }
+      ],
+      "expected": "4",
+      "max_tokens": 256,
+      "result": {
+        "success": true,
+        "content": "4",
+        "elapsed": 0.31,
+        "prompt_tokens": 23,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "name": "mmlu_atmosphere",
+      "category": "knowledge",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which of the following is the correct order of the layers of the Earth's atmosphere from lowest to highest?\n(A) Troposphere, Stratosphere, Mesosphere, Thermosphere\n(B) Stratosphere, Troposphere, Mesosphere, Thermosphere\n(C) Troposphere, Mesosphere, Stratosphere, Thermosphere\n(D) Mesosphere, Troposphere, Stratosphere, Thermosphere\nAnswer with just the letter."
+        }
+      ],
+      "expected": "A",
+      "max_tokens": 512,
+      "result": {
+        "success": true,
+        "content": "A",
+        "elapsed": 0.67,
+        "prompt_tokens": 97,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "name": "code_second_largest",
+      "category": "coding",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that takes a list of integers and returns the second largest element. If fewer than 2 unique elements, return None. Just the function, no explanation."
+        }
+      ],
+      "expected": null,
+      "max_tokens": 1024,
+      "result": {
+        "success": true,
+        "content": "function second_largest(list):\n    if len(set(list)) < 2:\n        return None\n    sorted_unique = sorted(set(list), reverse=True)\n    return sorted_unique[1]",
+        "elapsed": 1.47,
+        "prompt_tokens": 45,
+        "completion_tokens": 39,
+        "reasoning_tokens": 0
+      }
+    }
+  ],
+  "total_time": 2.45,
+  "system_metrics": {
+    "peak_ram_gb": 119.2,
+    "peak_swap_gb": 2.2,
+    "avg_gpu_pct": 73.6,
+    "peak_power_w": 38.6,
+    "samples": 3
+  }
+}

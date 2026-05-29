@@ -1,0 +1,44 @@
+{
+  "run_name": "mmlu__Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ_20260529_165141",
+  "benchmark": "mmlu",
+  "model": "/Users/vitor/.lmstudio/models/mlx-community/DeepSeek-V4-Flash-2bit-DQ",
+  "score": 0.3333333333333333,
+  "score_pct": "33.3%",
+  "correct": 1,
+  "total": 3,
+  "truncated": 0,
+  "elapsed_s": 31,
+  "elapsed_min": 0.5,
+  "max_tokens": 32768,
+  "temperature": 0,
+  "seed": 42,
+  "timeout_s": 3600,
+  "model_config": null,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 32,
+    "cpu_temp_c": 36,
+    "process_ram_mb": 48,
+    "swap_used_mb": 1684
+  },
+  "final_state": {
+    "gpu_temp_c": 32,
+    "cpu_temp_c": 34,
+    "process_ram_mb": 48,
+    "swap_used_mb": 1684
+  },
+  "timestamp_start": "2026-05-29T16:51:44.633346",
+  "timestamp_end": "2026-05-29T16:52:18.689862",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/mmlu__Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ_20260529_165141.jsonl",
+  "only_questions": null,
+  "questions_run": [
+    1,
+    2,
+    3
+  ]
+}

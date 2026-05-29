@@ -439,3 +439,134 @@ couldn't pin down without a multi-turn agent signal on the rig.
 
 Per-trial JSONLs and summaries: `benchmarks/runs/tbench_*.{jsonl,_summary.json}`
 (seven pairs). Raw Harbor jobs: `.bench-logs/tbench-runs/<job_name>/`.
+
+## Phase 3 #10 — DeepSeek V4 Flash (blocked, 2026-05-29)
+
+Plan: [`docs/benchmark-plans/2026-05-29-deepseek-v4-flash-phase-3.md`](../../../docs/benchmark-plans/2026-05-29-deepseek-v4-flash-phase-3.md).
+Status: **full sweep aborted at Step 3b (tool-calling jdhodges).** The
+runtime stack does not produce reliable inference at scale on this rig
+yet; bench numbers below are partial and not comparable.
+
+### What ran
+
+| Step | Bench | Outcome |
+|---|---|---|
+| Pre-flight | mlx_lm.server + CLI generate | ✅ smoke chat returned coherent reply at warm-load |
+| 3a | speed_probe (3 prompts) | ✅ 26 t/s steady-state on the code prompt; cold-load fine |
+| 3b | tool_call_bench jdhodges (40) | ⚠ **12.5 % (5/40)** — see "why this is a floor, not a score" below |
+| 3b | tool_call_bench veerman (12) | Skipped — same blocker would apply |
+| 3c–h | bench2.py knowledge + LCB | Skipped — same blocker |
+| 4 | bench.py throughput | Skipped — same blocker |
+| 5 | T-Bench 2.0 | Skipped — multi-turn agent loop guarantees the blocker fires |
+
+### The blocker: `RuntimeError: [metal::malloc] Resource limit (499000) exceeded`
+
+The DeepSeek V4 model port in [mlx-lm PR #1192](https://github.com/ml-explore/mlx-lm/pull/1192)
+uses an MLA indexer (`deepseek_v4.py:557`, `scores = mx.maximum(scores, 0) * self.scale`)
+that allocates many sub-buffers per forward pass. The M4 Max Metal device
+reports a hardware `resource_limit: 499000` (max resources referenceable
+in a single Metal command buffer — checked via `mx.device_info()`). As the
+mlx_lm.server prompt cache accumulates across requests, the indexer's
+resource count exceeds 499000 and Metal aborts the request mid-decode.
+
+| Memory observation | Value |
+|---|---|
+| Metal `max_recommended_working_set_size` | 115.4 GB |
+| Metal `memory_size` | 128 GB |
+| Metal `max_buffer_length` | 86.6 GB |
+| Metal **`resource_limit`** | **499000** ← the blocker |
+
+`resource_limit` is a **count**, not a byte size — no env var
+(`set_memory_limit`, `set_wired_limit`, `set_cache_limit`) raises it; it's
+fixed by the Apple Metal driver / device class. The fix has to be in the
+mlx-lm port: chunking the indexer so no single command buffer references
+> 499 000 resources. Filed below.
+
+### Why the jdhodges 12.5 % is a floor, not a score
+
+5 OK / 40 fresh cases (`benchmarks/runs/toolcall_jdhodges__Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ_20260529_121729_summary.json`).
+The 5 passes are all in the `edge_cases` category (5/8 = 62.5 %) — cases
+where the correct answer is **plain prose, no tool call** (greetings,
+definitions, vague reminders). Every other category scored 0 % flat:
+
+| Category | Pass / Total |
+|---|---|
+| tool_selection | 0 / 8 |
+| argument_accuracy | 0 / 8 |
+| multi_tool | 0 / 8 |
+| edge_cases | **5 / 8** |
+| format_compliance | 0 / 8 |
+
+Two failure modes mixed inside the 35 misses, both expected:
+
+1. **`no_tool_called`** — mlx_lm.server logged `WARNING - Received tools
+   but model does not support tool calling`. Consistent with the inventory
+   ([`docs/testing-plan.md:54`](../../../docs/testing-plan.md)) marking
+   this model as **Tools: —**. The 2-bit DQ checkpoint isn't a
+   tool-calling fine-tune.
+2. **`request_error: Connection error.`** — 15+ cases timed out (350–960 s
+   each) because the Metal `resource_limit` aborted the request mid-decode
+   on the server, the urlopen kept waiting on a half-open socket, and
+   eventually saw the connection drop. **49 `RuntimeError [metal::malloc]
+   Resource limit (499000) exceeded`** entries in
+   `.bench-logs/mlx-server-deepseek-v4.log`.
+
+The first ~19 cases ran cleanly (all `no_tool_called`, prose-only output,
+no Metal errors) before the prompt cache crossed the resource-count
+threshold. That's the smoking gun — cold-cache works, warm-cache fails.
+
+### Wall-clock cost
+
+- Server warm-load (96 GB model): ~5 min cold to first inference.
+- Speed probe: 2.5 s for 3 prompts.
+- Tool-call jdhodges: **161.5 min** wall-clock (vs ~30 min projected) —
+  ~110 min was urlopen waiting for hung requests after the Metal cap fired.
+- Total session: ~3 h before pulling the plug.
+
+### Implications for the testing plan
+
+- **Phase 3 #10 cannot complete as written.** Restart-per-bench would
+  dodge it for short benches (HumanEval, MMLU, DROP), but every long
+  bench (MATH n=100, GPQA n=100, LCB n=50) accumulates enough cache to
+  trip mid-run, and T-Bench's multi-turn loop fires it on every task.
+- **Operational rule for any future try:** if running this model on this
+  rig at all, restart `mlx_lm.server` between requests — there is no
+  in-process knob to reset the prompt cache without dropping the model.
+  Use [Step D quant A/B](../../../docs/testing-plan.md#step-d--phase-2-quant-ab-variants)
+  candidates instead for the freed compute time.
+- **Upstream dependency:** mlx-lm PR #1192 (DeepSeek V4 architecture) or
+  a successor needs to chunk the indexer's per-forward-pass resource
+  count before benching this checkpoint becomes worthwhile again.
+
+### Artifacts
+
+- jdhodges summary: `benchmarks/runs/toolcall_jdhodges__Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ_20260529_121729_summary.json`
+- jdhodges per-case: `benchmarks/runs/toolcall_jdhodges__Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ_20260529_121729.jsonl`
+- Speed probe: `results/speed_probe/_Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ_20260529_121622_results.json`
+- Server log with Metal errors: `.bench-logs/mlx-server-deepseek-v4.log`
+- Tool-call driver log: `.bench-logs/toolcall-jdhodges-deepseek-v4-flash.log`
+- Setup guide (unchanged): [`docs/deepseek-v4-flash-setup.md`](../../../docs/deepseek-v4-flash-setup.md)
+- Detached drivers (unused, kept for the next try):
+  `.bench-logs/run-deepseek-v4-flash-{math,gpqa}.sh`,
+  `.bench-logs/run-tbench-deepseek-v4-flash.sh`
+
+### Addendum (later same day) — chunked indexer patch + restart-per-batch attempt
+
+After the blocker was documented, two follow-up workarounds were attempted:
+
+1. **Vendor patch `patches/mlx-lm-deepseek-v4-indexer-chunk.patch`** — chunks the MLA indexer over `n_heads` with `mx.eval` + `mx.clear_cache` between chunks. Reduced the OOM rate from 49 → 3 (chunk=8) → 8 (chunk=2). Did **not** fully solve it: even with chunk=2, single-request OOMs migrated to other ops (notably `mx.random.seed` at server bookkeeping) and wedge the device for subsequent requests.
+2. **Restart-per-batch operational wrapper** — `.bench-logs/run-deepseek-v4-flash-toolcall-jdhodges-restart-loop.sh` kills + restarts `mlx_lm.server` between each 8-case batch. Ran 3 of 5 batches before being stopped. Per-batch:
+
+| Batch | Score | OOMs in server log | Wall-clock |
+|---|---|---|---|
+| `sel_*` (short prompts ~75-105 tok) | 0/8 clean prose, 0 OOMs | 0 | 8.7 min |
+| `arg_*` (longer prompts, tool-arg schemas) | 0/8 (mostly Connection errors) | ~16 | 32.9 min |
+| `multi_*` (longest prompts) | 0/8 (2 prose, 6 errors) | ~26 | 33.4 min |
+
+**Key finding from these attempts:** the restart-per-batch wrapper helps batches with short prompts (`sel_*` ran clean) but does **not** help batches with longer prompts — meaning **single-request OOMs are a real failure mode independent of cross-request cache accumulation**. The bench's first OOM in the un-patched run (case 20, `multi_email_after_calendar_read`) is the same multi-tool category that fails inside a fresh-server batch.
+
+Full investigation + fix plan are now in dedicated docs:
+- [`docs/deepseek-v4-flash-metal-oom-investigation.md`](../../../docs/deepseek-v4-flash-metal-oom-investigation.md) — root cause, all test runs, hypotheses, external signals (PR #1192 stalled since 2026-05-01; spicyneuron's 4000-token reproducer and `fix-ds4` fork)
+- [`docs/deepseek-v4-flash-metal-oom-fix-plan.md`](../../../docs/deepseek-v4-flash-metal-oom-fix-plan.md) — confidence-ordered hypothesis-application plan with exact edits, apply commands, and pass/fail tests for each step
+
+**Daily-driver implications (carry-over from the investigation doc):** with the current runtime, `deepseek-v4-flash-dq` is usable for short-prompt single-shot chat on a freshly-restarted server. Longer prompts (≥ ~400 tokens / multi-turn tool schemas / cached prompts ≥ ~10 sequences) will trip the cap and wedge the server. Until the H1 fix (per-layer eval boundaries) is applied and verified, this checkpoint is not yet daily-driver ready on this rig.
