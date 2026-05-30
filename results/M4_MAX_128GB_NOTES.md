@@ -462,12 +462,20 @@ yet; bench numbers below are partial and not comparable.
 ### The blocker: `RuntimeError: [metal::malloc] Resource limit (499000) exceeded`
 
 The DeepSeek V4 model port in [mlx-lm PR #1192](https://github.com/ml-explore/mlx-lm/pull/1192)
-uses an MLA indexer (`deepseek_v4.py:557`, `scores = mx.maximum(scores, 0) * self.scale`)
-that allocates many sub-buffers per forward pass. The M4 Max Metal device
-reports a hardware `resource_limit: 499000` (max resources referenceable
-in a single Metal command buffer — checked via `mx.device_info()`). As the
-mlx_lm.server prompt cache accumulates across requests, the indexer's
-resource count exceeds 499000 and Metal aborts the request mid-decode.
+uses an MLA compressor + indexer (`deepseek_v4.py`) in its attention path. The
+M4 Max Metal device reports a hardware `resource_limit: 499000` (checked via
+`mx.device_info()`).
+
+> **Root cause corrected 2026-05-30.** This is a *count of **live resident**
+> Metal buffers* (the allocator's `num_resources_` vs `resource_limit_` /
+> `ResidencySet`), **not** "per command buffer" and **not** cross-request cache
+> accumulation. The model leaks **~1 live buffer per layer (43 layers) per
+> decode step** in the compressor/indexer, growing linearly until the count cap
+> is hit at **~11,300 generated tokens regardless of prompt length**. Ablation:
+> ~83% compressor/indexer, ~17% core attention; MoE/hyper-connections don't leak.
+> Full evidence in [`docs/deepseek-v4-flash-metal-oom-investigation.md`](../../../docs/deepseek-v4-flash-metal-oom-investigation.md)
+> §2/§2.4 and the fix plan's Phase 1.5 / Phase 2-revised. The original
+> single-forward-pass framing below is superseded.
 
 | Memory observation | Value |
 |---|---|
@@ -569,4 +577,18 @@ Full investigation + fix plan are now in dedicated docs:
 - [`docs/deepseek-v4-flash-metal-oom-investigation.md`](../../../docs/deepseek-v4-flash-metal-oom-investigation.md) — root cause, all test runs, hypotheses, external signals (PR #1192 stalled since 2026-05-01; spicyneuron's 4000-token reproducer and `fix-ds4` fork)
 - [`docs/deepseek-v4-flash-metal-oom-fix-plan.md`](../../../docs/deepseek-v4-flash-metal-oom-fix-plan.md) — confidence-ordered hypothesis-application plan with exact edits, apply commands, and pass/fail tests for each step
 
-**Daily-driver implications (carry-over from the investigation doc):** with the current runtime, `deepseek-v4-flash-dq` is usable for short-prompt single-shot chat on a freshly-restarted server. Longer prompts (≥ ~400 tokens / multi-turn tool schemas / cached prompts ≥ ~10 sequences) will trip the cap and wedge the server. Until the H1 fix (per-layer eval boundaries) is applied and verified, this checkpoint is not yet daily-driver ready on this rig.
+**Daily-driver implications (FIXED 2026-05-30):** the per-decode-step live-buffer leak is
+**fixed and reproducer-verified.** Fix = [`patches/mlx-lm-deepseek-v4-cache-materialize.patch`](../../../patches/mlx-lm-deepseek-v4-cache-materialize.patch),
+one hunk in `DeepseekV4Model.__call__` that `mx.eval`s every per-layer cache array each
+forward (cuts the un-detached lazy graphs in `PoolingCache`/`RotatingKVCache` and their
+batched variants). The forced-generation reproducer now streams **19,989 tokens clean at
+31.3 t/s with 0 Metal OOMs** (baseline died at 11,314; no throughput regression), leak
+slope 205 → 7 KB/step. (Dead ends en route: patching `PoolingCache` then `BatchPoolingCache`
+both still OOMed on the *server* path — the BatchGenerator uses `Batch*` caches and the
+dominant batch leak is `BatchRotatingKVCache`; the single model-forward choke point covers
+all cache classes at once. The earlier "H1 per-layer eval" idea also FAILED — can't reclaim
+live buffers.) **Done-bar #1 also PASSED:** full 40-case jdhodges sweep on one long-lived
+server = **40/40 completed, 0 Metal OOMs, 19.8 min** (vs unpatched 49 OOMs, aborted at case
+20). Tool-call score 8/40 (all `edge_cases` — model isn't a tool-caller, unchanged by fix).
+Remaining: 30-turn chat (#3, manual) + an optional full Phase 3 #10 knowledge/throughput
+sweep now that the runtime is stable. See investigation doc §2 and fix plan Phase 2-revised (R5).
