@@ -616,7 +616,17 @@ doubled as the pre-submission OOM soak: **300 requests, 0 `metal::malloc`, 0 err
 | GPQA | 100 | **24 %** | 36 | 96 min | 0 |
 | HumanEval | 100 | **48 %** | 15 | 52 min | 0 |
 | Tool-calling jdhodges (40) | 40 | 8/40 (**20 %**) | — | 19.8 min | 0 |
+| Tool-calling Veerman (12) | 12 | 2/12 (**17 %**) | — | 5.5 min | 0 |
 | **Soak total** | **300** | — | 51 | **~2h44m** | **0** |
+
+> **Tool-calling is N/A on this build, not a quality signal.** The MLX conversion ships a
+> 24-line `chat_template.jinja` with **no tools branch** and no tool special tokens, so
+> `mlx_lm.server` logs *"model does not support tool calling"* and **drops the `tools` array on
+> every request** — the model never sees a tool schema and can only answer in prose
+> (`no_tool_called`). The jdhodges 8/40 + Veerman 2/12 passes are all prose-is-correct edge
+> cases. `tool_combined` = 10/52 (19.2 %) is plotted for completeness but reflects the missing
+> template (a conversion gap, fixable), **not** the model's inherent tool ability. 2-bit quant
+> would further hurt structured emission even with a proper template.
 
 Reading it:
 - **OOM fix vindicated under sustained load.** 51 of the 300 requests ran the full token cap
@@ -635,6 +645,6 @@ branch), and a heads-up comment on [#1192](https://github.com/ml-explore/mlx-lm/
 Standalone writeup: [`docs/deepseek-v4-flash-metal-oom-upstream-writeup.md`](../../../docs/deepseek-v4-flash-metal-oom-upstream-writeup.md).
 
 **Still pending** (see [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md)):
-MATH, DROP, LiveCodeBench v6, tool-calling Veerman, Terminal-Bench 2.0, the 4 throughput
+MATH, DROP, LiveCodeBench v6, Terminal-Bench 2.0, the 4 throughput
 scenarios. Charts (`results/charts/chart_m4max_phase1_*.png`) regenerated to include the
 measured cells; blank cells = not yet measured.
