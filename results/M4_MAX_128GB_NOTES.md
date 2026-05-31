@@ -624,6 +624,7 @@ doubled as the pre-submission OOM soak: **300 requests, 0 `metal::malloc`, 0 err
 | Bench | n | Score | TRUNC | Wall-clock | Metal OOMs |
 |---|---|---|---|---|---|
 | DROP | 100 | **71 %** — best knowledge result; extractive QA survives 2-bit | 0 | 16 min | 0 |
+| MATH | 100 | **47 %** — floor; 41 % degenerated to the cap at temp=0 | 41 | 105 min | 0 |
 
 > **Tool-calling is N/A on this build, not a quality signal.** The MLX conversion ships a
 > 24-line `chat_template.jinja` with **no tools branch** and no tool special tokens, so
@@ -633,6 +634,15 @@ doubled as the pre-submission OOM soak: **300 requests, 0 `metal::malloc`, 0 err
 > cases. `tool_combined` = 10/52 (19.2 %) is plotted for completeness but reflects the missing
 > template (a conversion gap, fixable), **not** the model's inherent tool ability. 2-bit quant
 > would further hurt structured emission even with a proper template.
+
+> **✅ Tool calling RECOVERED with a tool template (2026-05-31).** Adding a tool-aware
+> `chat_template.jinja` + a custom `deepseek_json` parser (matches `<tool_call` to survive a BPE
+> `>`+`\n` token merge that defeats the stock parser) takes the *same checkpoint* from prose-floor
+> to **jdhodges 33/40 (82 %), Veerman 6/12 (50 %)** — competitive with the full-precision locals
+> (90–98 %). The tool calls are well-formed; the residual misses are 2-bit reasoning slips, the
+> main one being **parallel multi-tool** (emits 1 of N — a quant ceiling, not a template gap; a
+> stronger template was tried and reverted). Fix + analysis:
+> [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-tool-template.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-tool-template.md).
 
 Reading it:
 - **OOM fix vindicated under sustained load.** 51 of the 300 requests ran the full token cap
