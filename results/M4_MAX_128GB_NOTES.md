@@ -625,6 +625,7 @@ doubled as the pre-submission OOM soak: **300 requests, 0 `metal::malloc`, 0 err
 |---|---|---|---|---|---|
 | DROP | 100 | **71 %** — best knowledge result; extractive QA survives 2-bit | 0 | 16 min | 0 |
 | MATH | 100 | **47 %** — floor; 41 % degenerated to the cap at temp=0 | 41 | 105 min | 0 |
+| LiveCodeBench v6 | 50 | **6 %** — floor; 80 % degenerated, 2-bit can't sustain long codegen | 40 | 171 min | 0 |
 
 > **Tool-calling is N/A on this build, not a quality signal.** The MLX conversion ships a
 > 24-line `chat_template.jinja` with **no tools branch** and no tool special tokens, so

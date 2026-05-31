@@ -65,6 +65,8 @@ def load_local_runs():
         if f.name.startswith("toolcall_"):
             continue
         d = json.loads(f.read_text())
+        if "benchmark" not in d:
+            continue  # tool-calling summaries (e.g. tooltmpl_*) carry 'suite', not 'benchmark'
         model = d["model"]
         bench = d["benchmark"]
         score = d["score"]
