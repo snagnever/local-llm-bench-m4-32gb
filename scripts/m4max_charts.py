@@ -124,6 +124,8 @@ DISPLAY = {
     "gemma-4-26b-a4b-it-mlx@6bit": "Gemma 4 26B-A4B (this rig, MLX 6-bit)",
     "gemma-4-31b-it-mlx": "Gemma 4 31B dense (this rig, MLX 8-bit)",
     "gemma-4-e4b-it-mlx": "Gemma 4 E4B (this rig, MLX 8-bit)",
+    "/Users/vitor/.lmstudio/models/mlx-community/DeepSeek-V4-Flash-2bit-DQ":
+        "DeepSeek-V4-Flash (this rig, MLX 2-bit DQ)",
 }
 
 

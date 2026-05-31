@@ -440,10 +440,20 @@ couldn't pin down without a multi-turn agent signal on the rig.
 Per-trial JSONLs and summaries: `benchmarks/runs/tbench_*.{jsonl,_summary.json}`
 (seven pairs). Raw Harbor jobs: `.bench-logs/tbench-runs/<job_name>/`.
 
-## Phase 3 #10 — DeepSeek V4 Flash (blocked, 2026-05-29)
+## Phase 3 #10 — DeepSeek V4 Flash (blocked 2026-05-29 → OOM fixed, partial sweep 2026-05-30)
 
 Plan: [`docs/benchmark-plans/2026-05-29-deepseek-v4-flash-phase-3.md`](../../../docs/benchmark-plans/2026-05-29-deepseek-v4-flash-phase-3.md).
-Status: **full sweep aborted at Step 3b (tool-calling jdhodges).** The
+
+> **⏩ Current status (2026-05-30): OOM fixed; knowledge sweep partially run.** The
+> original blocker is resolved (see the two addenda below). With the
+> [`cache-materialize`](../../../patches/mlx-lm-deepseek-v4-cache-materialize.patch) patch the
+> model now benches cleanly on a single long-lived server. Measured so far: **MMLU 44 %,
+> GPQA 24 %, HumanEval 48 %** (n=100 each), tool-calling jdhodges **40/40 completed (8 correct)**.
+> Still pending: MATH, DROP, LiveCodeBench, tool-calling Veerman, Terminal-Bench, throughput.
+> Plan for the rest: [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md).
+> The numbers in the historical "blocked" narrative below are superseded by **Addendum 2**.
+
+Status (historical, 2026-05-29): **full sweep aborted at Step 3b (tool-calling jdhodges).** The
 runtime stack does not produce reliable inference at scale on this rig
 yet; bench numbers below are partial and not comparable.
 
@@ -592,3 +602,39 @@ server = **40/40 completed, 0 Metal OOMs, 19.8 min** (vs unpatched 49 OOMs, abor
 20). Tool-call score 8/40 (all `edge_cases` — model isn't a tool-caller, unchanged by fix).
 Remaining: 30-turn chat (#3, manual) + an optional full Phase 3 #10 knowledge/throughput
 sweep now that the runtime is stable. See investigation doc §2 and fix plan Phase 2-revised (R5).
+
+### Addendum 2 (2026-05-30) — knowledge-bench results + upstream submission
+
+With the runtime stable, the knowledge sweep was re-run on a **single long-lived patched
+server** (no restart wrapper), greedy `temp=0`, thinking=OFF, per-request `max_tokens` capped
+(2048 MMLU / 4096 GPQA+HumanEval) to bound the separate 2-bit degeneration runaway. This run
+doubled as the pre-submission OOM soak: **300 requests, 0 `metal::malloc`, 0 errors, ~2h44m**.
+
+| Bench | n | Score | Degenerate (TRUNC) | Wall-clock | Metal OOMs |
+|---|---|---|---|---|---|
+| MMLU | 100 | **44 %** | 0 | 16 min | 0 |
+| GPQA | 100 | **24 %** | 36 | 96 min | 0 |
+| HumanEval | 100 | **48 %** | 15 | 52 min | 0 |
+| Tool-calling jdhodges (40) | 40 | 8/40 (**20 %**) | — | 19.8 min | 0 |
+| **Soak total** | **300** | — | 51 | **~2h44m** | **0** |
+
+Reading it:
+- **OOM fix vindicated under sustained load.** 51 of the 300 requests ran the full token cap
+  (long/degenerate generations — the hardest case for the residency leak) on a server that
+  never restarted, with zero residency errors. Strongest cross-request evidence to date.
+- **Scores are the 2-bit DQ quality floor**, not a runtime issue — well below the Gemma/Qwen
+  locals (MMLU 65–88, GPQA 34–70, HumanEval 87–98 on this rig). Orthogonal to the OOM fix.
+- **Degeneration is long-form only**: 0 % on short MMLU answers, 36 %/15 % on the
+  longer-output GPQA/HumanEval (repetition looping + some legit-but-rambling answers
+  guillotined at the cap). No sampling knob fixes it; 4-bit (the real remedy) exceeds 128 GB.
+
+**Upstream submission (2026-05-30):** the cache-materialize fix was filed upstream —
+issue [ml-explore/mlx-lm#1332](https://github.com/ml-explore/mlx-lm/issues/1332),
+PR [Blaizzy/mlx-lm#25](https://github.com/Blaizzy/mlx-lm/pull/25) (against the #1192 head
+branch), and a heads-up comment on [#1192](https://github.com/ml-explore/mlx-lm/pull/1192#issuecomment-4585428668).
+Standalone writeup: [`docs/deepseek-v4-flash-metal-oom-upstream-writeup.md`](../../../docs/deepseek-v4-flash-metal-oom-upstream-writeup.md).
+
+**Still pending** (see [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md)):
+MATH, DROP, LiveCodeBench v6, tool-calling Veerman, Terminal-Bench 2.0, the 4 throughput
+scenarios. Charts (`results/charts/chart_m4max_phase1_*.png`) regenerated to include the
+measured cells; blank cells = not yet measured.
