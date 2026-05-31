@@ -619,6 +619,12 @@ doubled as the pre-submission OOM soak: **300 requests, 0 `metal::malloc`, 0 err
 | Tool-calling Veerman (12) | 12 | 2/12 (**17 %**) | — | 5.5 min | 0 |
 | **Soak total** | **300** | — | 51 | **~2h44m** | **0** |
 
+**Remaining-bench queue** (post-soak, single long-lived server, same config, 0 OOMs):
+
+| Bench | n | Score | TRUNC | Wall-clock | Metal OOMs |
+|---|---|---|---|---|---|
+| DROP | 100 | **71 %** — best knowledge result; extractive QA survives 2-bit | 0 | 16 min | 0 |
+
 > **Tool-calling is N/A on this build, not a quality signal.** The MLX conversion ships a
 > 24-line `chat_template.jinja` with **no tools branch** and no tool special tokens, so
 > `mlx_lm.server` logs *"model does not support tool calling"* and **drops the `tools` array on
