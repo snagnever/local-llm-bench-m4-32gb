@@ -636,14 +636,20 @@ doubled as the pre-submission OOM soak: **300 requests, 0 `metal::malloc`, 0 err
 > template (a conversion gap, fixable), **not** the model's inherent tool ability. 2-bit quant
 > would further hurt structured emission even with a proper template.
 
-> **✅ Tool calling RECOVERED with a tool template (2026-05-31).** Adding a tool-aware
-> `chat_template.jinja` + a custom `deepseek_json` parser (matches `<tool_call` to survive a BPE
-> `>`+`\n` token merge that defeats the stock parser) takes the *same checkpoint* from prose-floor
-> to **jdhodges 33/40 (82 %), Veerman 6/12 (50 %)** — competitive with the full-precision locals
-> (90–98 %). The tool calls are well-formed; the residual misses are 2-bit reasoning slips, the
-> main one being **parallel multi-tool** (emits 1 of N — a quant ceiling, not a template gap; a
-> stronger template was tried and reverted). Fix + analysis:
-> [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-tool-template.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-tool-template.md).
+> **✅ Tool calling RECOVERED — and the native format makes it excellent (2026-05-31).**
+> The conversion ships no tool template. Two configs were tested on the *same 2-bit checkpoint*:
+>
+> | Tool format | jdhodges | Veerman | combined |
+> |---|---|---|---|
+> | Hermes `<tool_call>` (workaround template + `deepseek_json` parser) | 33/40 (82 %) | 6/12 (50 %) | 39/52 (75 %) |
+> | **Native DSML** (official template #16 + `deepseek_dsml` parser) | **39/40 (98 %)** | **9/12 (75 %)** | **48/52 (92 %)** |
+>
+> Native **DSML matches the best full-size local on this rig** (qwen3.6-35b-a3b, 98 % jdhodges).
+> The Hermes "partial multi-tool" misses were a **format tax, not a 2-bit ceiling** — in DSML the
+> model emits parallel calls natively (multi_tool 3/8 → **8/8**). Both configs hit the same `>`-token
+> BPE-merge gotcha in mlx-lm's marker matching (json_tools fix: ml-explore/mlx-lm#1335 / #1336; the
+> `deepseek_dsml` parser uses the same prefix-marker trick). Use **native DSML** going forward.
+> Analysis: [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-tool-template.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-tool-template.md).
 
 Reading it:
 - **OOM fix vindicated under sustained load.** 51 of the 300 requests ran the full token cap
