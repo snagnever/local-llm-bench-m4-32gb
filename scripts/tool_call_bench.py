@@ -52,6 +52,11 @@ OPENAI_BASE_DEFAULT = f"{LMSTUDIO_BASE}/v1"
 # Per-call HTTP timeout (seconds)
 REQUEST_TIMEOUT = 600
 
+# Cap generation so a thinking-model spiral can't eat the full HTTP timeout.
+# Normal tool-call completions are <350 tokens; this is ~12x headroom.
+# Override via TOOLBENCH_MAX_TOKENS.
+MAX_COMPLETION_TOKENS = int(os.environ.get("TOOLBENCH_MAX_TOKENS", "4096"))
+
 # ---------------------------------------------------------------------------
 # System monitoring (mirrors bench2.py)
 # ---------------------------------------------------------------------------
@@ -172,18 +177,18 @@ def load_suite(suite: str) -> tuple[list, list]:
 def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
     """Execute one tool-calling case. Returns a dict matching bench2.py fields."""
     today = datetime.now().strftime("%Y-%m-%d")
+    # System prompt: default below, or a verbatim override via TOOLBENCH_SYSTEM_PROMPT
+    # (recorded in run output; used to A/B test proactivity-nudge prompts).
+    system_content = os.environ.get("TOOLBENCH_SYSTEM_PROMPT") or (
+        f"You are a helpful assistant with access to tools. "
+        f"Today's date is {today}. "
+        "Use tools when appropriate to answer user requests. "
+        "If a request doesn't need a tool, respond directly. "
+        "If required information is missing, ask for clarification. "
+        "You may call multiple tools in parallel when appropriate."
+    )
     messages = [
-        {
-            "role": "system",
-            "content": (
-                f"You are a helpful assistant with access to tools. "
-                f"Today's date is {today}. "
-                "Use tools when appropriate to answer user requests. "
-                "If a request doesn't need a tool, respond directly. "
-                "If required information is missing, ask for clarification. "
-                "You may call multiple tools in parallel when appropriate."
-            ),
-        },
+        {"role": "system", "content": system_content},
         {"role": "user", "content": case["prompt"]},
     ]
 
@@ -200,6 +205,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
             temperature=TEMPERATURE,
             top_p=TOP_P,
             seed=SEED,
+            max_tokens=MAX_COMPLETION_TOKENS,
             timeout=REQUEST_TIMEOUT,
         )
         t1_elapsed = time.time() - t1_start
@@ -291,6 +297,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
                 temperature=TEMPERATURE,
                 top_p=TOP_P,
                 seed=SEED,
+                max_tokens=MAX_COMPLETION_TOKENS,
                 timeout=REQUEST_TIMEOUT,
             )
             t2_elapsed = time.time() - t2_start
