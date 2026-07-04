@@ -671,3 +671,52 @@ Standalone writeup: [`docs/deepseek-v4-flash-metal-oom-upstream-writeup.md`](../
 MATH, DROP, LiveCodeBench v6, Terminal-Bench 2.0, the 4 throughput
 scenarios. Charts (`results/charts/chart_m4max_phase1_*.png`) regenerated to include the
 measured cells; blank cells = not yet measured.
+
+## MiniMax-M2.5-3bit — feasibility ABORTED (GPU kernel panic ×3, 2026-07-03 → 07-04)
+
+Plan: [`docs/benchmark-plans/2026-07-03-minimax-m2.5-feasibility.md`](../../../docs/benchmark-plans/2026-07-03-minimax-m2.5-feasibility.md).
+
+> **⛔ VERDICT: NO-GO on this rig/OS.** `mlx-community/MiniMax-M2.5-3bit` (93 GiB weights,
+> `minimax_m2` arch, 256E/8A MoE, 62 layers, no MLA) loads and generates coherently, and
+> its *quality* is strong — but under sustained inference it **reproducibly hard
+> kernel-panics the Mac Studio** (three times), in Apple's GPU driver
+> (`IOGPUFamily` / `IOGPUGroupMemory` / `AGXG16X`), across **every** config tried.
+> Deployment is impossible while the host crashes. Do **not** re-test on this stack.
+
+### Cheap-signal results — partial (sweep never completed; all crashed out)
+
+| Bench | Result | Notes |
+|---|---|---|
+| Tool calls jdhodges (40) | **97.5 %** (39/40) | strong mechanics |
+| Tool calls veerman (12) | **58.3 %** (7/12) | under-agency, prompt-addressable — A/B nudge was a trade (+agentic / −mechanics), not a win |
+| HumanEval | **95.8 % raw / 97.2 % hang-adj** | cut at 72/100 (parallel-4 dead-request hangs) |
+| LiveCodeBench v6 | **68 % raw / 74 % hang-adj** (26/38) | crashed 3× before finishing 50 |
+| MMLU | — | abandoned (host crashes) |
+
+Config: ctx 32768, parallel 1, temp 0, seed 42. "hang-adj" excludes `p=0 c=0`
+dead-request timeouts (infra failures, not wrong answers). All numbers are **partial
+and not fully comparable** — the run never completed.
+
+### The blocker: reproducible GPU-driver kernel panic ×3
+
+| # | Config | Memory at crash | Panic |
+|---|---|---|---|
+| 1 | ctx 65000 / parallel 4 / fp16 KV | ~ceiling | `remove_memory_object() memory object not found` @IOGPUGroupMemory.cpp:323 |
+| 2 | ctx 32768 / parallel 1 / fp16 KV | **OK** (0 % compressor) | `pending memory object … non pending hash` @:528 |
+| 3 | ctx 32768 / parallel 1 / **KV-quant 8-bit** | **OK** | same @:528; panicked task = `LM Studio Helper (GPU)` |
+
+`IOGPUFamily 129.3.2 / AGXG16X 345.20.4`, macOS 25D125 (Darwin 25.3.0), M4 Max T6041.
+A reproducible **Apple GPU-driver bug** in `IOGPUGroupMemory`'s object-tracking hash,
+triggered by MLX's Metal alloc/free pattern for this model — **independent of parallelism,
+context, memory pressure, and KV quantization.** Nothing application-side fixes it:
+memory tuning, config tuning, and KV quant were all tried and all crashed (KV quant only
+*delayed* it, surviving ~21 long generations). Correlates with long-generation / large-KV
+load: tool-calling and HumanEval (short gens) never crashed; LCB's 20k–32k-token reasoning
+spirals did. Soft precursor = the intermittent `p=0 c=0` dead-request hangs.
+
+**Only external changes could revisit it:** an Apple macOS/GPU-driver update, an MLX/LM
+Studio release that changes the Metal allocation pattern, or a **different runtime** (GGUF
+via llama.cpp — different Metal path, untested, a separate investigation). Full detail:
+the plan doc's "Kernel panic — THREE TIMES" section. Contrast with DeepSeek-V4 (§ above):
+that was a fixable *mlx-lm buffer leak*; this is a *driver-level panic* with no
+application-side remedy.
