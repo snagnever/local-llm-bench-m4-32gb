@@ -780,3 +780,71 @@ speed for a model already ruled out — **not worth the compute.** Coding-qualit
 a speculative-decoding draft model (LM Studio supports `--speculative-draft-*`), or a
 smaller Kimi-Dev distillation. Until then, `qwen3.6-27b` (LCB 62 %) remains the coding-quality
 reference and `gemma-4-26b-a4b@6bit` (LCB 80 %) the coding leader.
+
+## DeepSeek-V4-Flash GGUF (IQ2_XS) — ✅ GO via llama.cpp (the runtime that MLX never could be, 2026-07-05)
+
+**The headline: DeepSeek-V4-Flash runs cleanly on this rig for the first time.** The MLX
+build (`deepseek-v4-flash-dq`) was blocked for weeks by the mlx-lm MLA live-buffer leak
+(Metal `resource_limit` at ~11.3k tokens). The GGUF build (`teamblobfish/DeepSeek-V4-Flash-GGUF`,
+IQ2_XS-XL, 81 GB, 2 shards) on **llama.cpp** uses a completely different Metal path and has
+**no leak** — it sustained a **16,384-token single generation with memory dead-flat at
+82.3 GB, 0 errors**. The MLX plan's own re-test hypothesis ("GGUF via llama.cpp, a different
+Metal path") is confirmed GO.
+
+### The working recipe (not LM Studio-native — see blockers)
+Three gates, three fixes:
+1. **Arch:** stock llama.cpp 2.23.1 → `unknown model architecture: 'deepseek4'`. **Fix:** upgrade
+   the LM Studio GGUF runtime to **2.24.0** (beta channel; `lms runtime get --channel beta ...`).
+2. **Repack crash:** even on 2.24.0, LM Studio-native load aborts on the first forward pass —
+   `ggml_abort` in the CPU **repack** path (Q8_0 MoE `mul_mat_id`, ref llama.cpp PR #17869).
+   `lms load` has no flag for it and the `LLAMA_ARG_REPACK` env is **not honored** by LM Studio's
+   `LlamaV4::load` wrapper. **Fix:** run the standalone `llama-server` (LM Studio's own 2.24.0
+   binary) with `--no-repack`.
+3. **Metal OOM:** default `n_slots=4` overcommits KV. **Fix:** `-np 1`.
+
+```bash
+BIN=~/.lmstudio/extensions/backends/llama.cpp-mac-arm64-apple-metal-advsimd-2.24.0
+M=~/.lmstudio/models/teamblobfish/DeepSeek-V4-Flash-GGUF/DeepSeek-V4-Flash-IQ2_XS-XL-00001-of-00002.gguf
+cd "$BIN" && ./llama-server -m "$M" -a deepseek-v4-flash-iq2xs \
+  --no-repack -c 32768 -np 1 -ngl 999 --host 127.0.0.1 --port 1235
+# harness: LMSTUDIO_URL=http://127.0.0.1:1235/v1
+```
+
+**LM Studio-native is BLOCKED** (no repack toggle; env ignored). **MLX-native is BLOCKED**
+(`ValueError: Model type deepseek_v4 not supported` on mlx-llm 1.9.1 — LM Studio's MLX engine
+never had the arch; the May-29 test used a standalone patched mlx-lm). GGUF-via-standalone is
+the only working path on this stack.
+
+### Non-thinking — a key property
+**0 reasoning tokens on every generation** (output goes straight to the answer/code — verified
+in raw JSONL). Unlike Kimi (`◁think▷` spiral) or MiniMax/Qwen3.6, its **effective throughput
+= its raw throughput** — no reasoning tax. This is why ~10 t/s is usable.
+
+### Cheap-signal ladder (IQ2_XS, standalone llama-server, ctx 32768, single-model)
+| Signal | Score | Notes |
+|---|---|---|
+| Speed | **~10 t/s** | vs MLX-DQ's 26 t/s cold probe — but MLX never completed a bench; GGUF is stable. Compute-bound, GPU ~100 %. |
+| Feasibility soak | ✅ 16,384 tok single gen | memory flat 82.3 GB, 0 leak/OOM/error — past MLX's ~11.3k death point |
+| jdhodges (40) | **87.5 %** (35/40) | **overturns the MLX 12.5 % crash-floor** — DS4 *is* tool-calling capable (near coder-next 90 %). |
+| Veerman (12) | **58.3 %** (7/12) | strong mechanics, weak agentic proactivity (p6/p8/p12 tool-mismatch, p7 spiral) — same shape as MiniMax. |
+| HumanEval | **88 %** (88/100) | 0 trunc; ~90 % excluding 2 empty-response hiccups. Ties coder-next 89 % — strong for 2-bit. 3.1 h (verbose non-thinking). |
+| LiveCodeBench v6 | **86 % partial (6/7)** ⏸ | **INCOMPLETE — stopped at 7/50** (runtime: some cases blow up to 11k tokens/~19 min). Finish overnight — see next steps. |
+| MMLU | — | not run |
+
+Occasional **empty-response hiccup** (~2–3 %: 0 tokens returned, counted as FAIL) — low-rate, non-systematic; watch it.
+
+### Verdict + next steps
+**GO — DeepSeek-V4-Flash is feasible and genuinely capable on the GGUF path**, and the session's
+biggest runtime win. Quality clears the gate (tool-calling 87.5 %, HumanEval 88 %). Two steps
+remain to finish the cheap-signal ladder:
+1. **Finish LCB v6 overnight** — restart the server (recipe above), then either run the remaining
+   43 (`bench2.py livecodebench --examples 50 --only 8,9,...,50 --max-tokens 32768`, then
+   **manually merge** with the first 7 — bench2 writes a fresh summary, no auto-merge) OR re-run
+   the full 50 fresh for a self-contained summary. Budget ~4–6 h (a few hard cases may hit the
+   32 768 cap → ~55 min each). Partial so far: 7/50, 86 %, 0 trunc.
+2. **MMLU (100)** after LCB.
+Then regenerate charts and update `docs/local-llm-reference.md` if it earns a slot (it's the only
+runnable model in the DeepSeek-V4 / large-MoE class on this rig).
+
+Raw data: `benchmarks/runs/{toolcall_*,humaneval_*,livecodebench_*}_deepseek-v4-flash-iq2xs_*`,
+`results/speed_probe/deepseek-v4-flash-iq2xs_*`. Plan: [`docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md`](../../../docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md).
