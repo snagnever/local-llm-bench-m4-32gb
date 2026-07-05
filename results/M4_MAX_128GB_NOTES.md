@@ -720,3 +720,35 @@ via llama.cpp — different Metal path, untested, a separate investigation). Ful
 the plan doc's "Kernel panic — THREE TIMES" section. Contrast with DeepSeek-V4 (§ above):
 that was a fixable *mlx-lm buffer leak*; this is a *driver-level panic* with no
 application-side remedy.
+
+## agents-a1-xl-mlx — cheap-signal + coding/knowledge tail (2026-07-04 → 07-05)
+
+**Qwen3.5 MoE** (`qwen3_5_moe` arch, self-IDs as "Qwen3.5 / Alibaba Tongyi"),
+MLX 6-bit, 27.8 GB on disk (29.90 GB resident), ctx 131712. Comfortable-fit class
+(~48 GB resident with KV, no swap) — **not** the memory/panic class that blocked
+DeepSeek-V4 / MiniMax-M2.5. Ran the entire cheap tail with **zero crashes**.
+Plan + full write-up: [`docs/benchmark-plans/2026-07-04-agents-a1-xl.md`](../../../docs/benchmark-plans/2026-07-04-agents-a1-xl.md).
+
+| Signal | Score | Notes |
+|---|---|---|
+| jdhodges (40) | **92.5%** (37/40) | sel 7/8 · args 8/8 · multi 6/8 · edge 8/8 · format 8/8; 7.4 min |
+| Veerman (12) | **83.3%** (10/12) | action 6/7 · **restraint 2/2** · hard 2/3; ties the leaders |
+| HumanEval | **97%** (97/100) | 1 trunc; 75 min; ties gemma@6bit 97 |
+| MMLU | **82%** (82/100) | 3 trunc; 104 min (2× 65k-cap spirals @ ~17 min) |
+| LiveCodeBench v6 | **64%** (32/50) | 2 trunc; **240 min** (2× 65k-cap spirals @ ~29 min) |
+| Speed | ~40 t/s think / ~65–80 short | MoE; heavy reasoning inflates wall-clock |
+
+**Headline:** strong well-rounded MoE — top-tier tool-calling + HumanEval, near-top
+MMLU (< 27b 88), solid mid-pack LCB (> coder-next 56 / 27b 62 / 35b-a3b 54; < gemma@6bit 80).
+**Caveat = thinking tax:** emits reasoning tokens on everything (109 on "2+2", 18k on a
+"leetcode/easy", 65k-cap spirals on both MMLU and LCB) → far slower than a same-size
+non-thinking model; a full MATH/DROP/GPQA sweep would be 20–40 h (Qwen-3.6-dense phenotype).
+**Gate:** marginal pass on coding only (LCB 64% vs 27b 62%, +2 pp; MMLU 82% < 85% miss) →
+**expensive tail DEFERRED** (thin justification, already well-characterized).
+**Slot:** solid mid-tier all-rounder; does **not** displace coder-next (agentic speed),
+27b (knowledge), or gemma@6bit (coding). Best fit = tool-calling generalist, but the
+thinking tax makes it slower than coder-next for real agentic loops.
+
+Operational note: arrived co-resident with hermes-4-70b + qwen3.6-27b (~110 GB weights,
+swap maxed, `Spill=YES`); unloaded both per the single-large-model residency rule before
+benching (swap 19.9 GB → 166 MB). All numbers above are single-model / clean-state.
