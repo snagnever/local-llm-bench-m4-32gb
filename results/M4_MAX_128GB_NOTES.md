@@ -752,3 +752,31 @@ thinking tax makes it slower than coder-next for real agentic loops.
 Operational note: arrived co-resident with hermes-4-70b + qwen3.6-27b (~110 GB weights,
 swap maxed, `Spill=YES`); unloaded both per the single-large-model residency rule before
 benching (swap 19.9 GB → 166 MB). All numbers above are single-model / clean-state.
+
+## kimi-dev-72b — cheap-signal gate ABORTED (speed 7 t/s, 2026-07-05)
+
+`unsloth/Kimi-Dev-72B-GGUF` UD-Q6_K_XL (arch `qwen2` / Qwen2.5-72B base, 73B dense,
+62.55 GiB weights, 67.16 GB resident at ctx 32768 / parallel 1). SWE-bench Verified
+60.4 % is its headline (SOTA open-source at release). **Aborted at the speed step of
+the cheap-signal ladder** — never reached graded coding runs.
+
+| Signal | Result | Notes |
+|---|---|---|
+| Load | ✅ clean, 36 s | Stock llama.cpp 2.23.1; the red LM Studio arch badge was benign. |
+| Pre-flight | ✅ PASS | Warmup answers "4". |
+| **Speed** | **~7 tok/s** | 3 runs: 7.0 / 7.0 / 7.1 t/s (trivial), 6.9 / 7.2 / 7.2 (mmlu). Compute-bound (GPU 100 %, 54 W); memory state (87 GB no-swap vs 135 GB swapping) did **not** move the number. |
+| Tool-calling | ✗ no structured calls | Given a tool + explicit instruction, emitted prose *about* calling it inside `◁think▷`, `tool_calls: []`. Not a tool-calling fine-tune → floor, like `deepseek-v4-flash-dq`. |
+| Reasoning | mandatory `◁think▷` spirals | **Non-standard markers** (not `<think>`) → LM Studio does **not** parse them (`reasoning_tokens: 0`); raw reasoning lands in `content`. Spirals even on "2+2" (180 tok, cut mid-think at the probe cap). |
+
+**Verdict — NO-GO on speed.** At ~7 t/s (½ of `qwen3.6-27b` 20 t/s, ⅓ of
+`gemma-4-31b` dense 13.7 — the **slowest model benched on this rig**), and with a
+mandatory thinking spiral inflating effective throughput further, it is disqualified
+as a daily-driver / agentic model regardless of coding quality. Its only differentiating
+axis is coding quality (LCB / HumanEval), but a full run would be ~1–2 rig-days at this
+speed for a model already ruled out — **not worth the compute.** Coding-quality numbers
+**deferred / not measured.**
+
+**Revisit only if:** a faster path appears — a lighter quant that keeps the SWE quality,
+a speculative-decoding draft model (LM Studio supports `--speculative-draft-*`), or a
+smaller Kimi-Dev distillation. Until then, `qwen3.6-27b` (LCB 62 %) remains the coding-quality
+reference and `gemma-4-26b-a4b@6bit` (LCB 80 %) the coding leader.
