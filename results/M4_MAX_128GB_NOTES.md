@@ -848,3 +848,129 @@ runnable model in the DeepSeek-V4 / large-MoE class on this rig).
 
 Raw data: `benchmarks/runs/{toolcall_*,humaneval_*,livecodebench_*}_deepseek-v4-flash-iq2xs_*`,
 `results/speed_probe/deepseek-v4-flash-iq2xs_*`. Plan: [`docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md`](../../../docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md).
+
+## MiniMax-M2.5 GGUF (Q3_K_S) — ✅ GO, the MLX NO-GO overturned (2026-07-05)
+
+The marquee Phase 5 experiment: the **MLX build (`mlx-community/minimax-m2.5`, 3-bit)
+kernel-panicked the host ×3** in Apple's GPU driver → hard NO-GO. The MLX plan's own
+re-test hypothesis was *"a different runtime (GGUF via llama.cpp, a different Metal
+path)."* **This is that test — and it's a GO.** llama.cpp's Metal backend allocates GPU
+buffers on a different code path than MLX; the panic **did not recur** across load,
+probes, and a full sustained soak. The failure was MLX's allocation pattern, **not the
+model**.
+
+### Phase 0 feasibility soak — PASS (sole-model, ctx 32768, `--gpu max --parallel 1`)
+`unsloth/minimax-m2.5`, Q3_K_S, 98.69 GB resident (estimate 97.91 GiB). LM Studio-native
+load (bundled llama.cpp 2.23.1 recognizes `minimax-m2`) — **no fork, no repack flag, no
+standalone server needed** (unlike DeepSeek-V4).
+
+| Time | Step | Result |
+|---|---|---|
+| 18:11 | Load (ctx 32768) | ✅ clean, **no panic**; 98.69 GB resident |
+| 18:12 | Probe 1 (trivial) | "4", coherent (153 reasoning tok) |
+| 18:13 | Probe 2 (timed medium) | **36.2 t/s**, coherent hash-map explanation |
+| 18:14–18:16 | **8k sustained soak** | 5038 tok, `finish=stop` (finished naturally), coherent **~4100-word essay**, **36.8 t/s sustained**, peak **121.9/128 GB**, swap flat 1.58 GB, **0 Metal errors, no panic** |
+| 18:30 | Unload | clean → memory back to **12.5 GB baseline (no leak)** |
+
+Pass criteria all green: 8k soak completes coherent, 0 `metal::malloc`, no kernel panic,
+memory held steady (no upward trend / OOM), swap flat, host uptime unbroken.
+Telemetry: `.bench-logs/minimax-gguf-feasibility-{macmon.jsonl,lmslog.txt}` (repo root).
+
+### Reasoning tokens — parsed cleanly (unlike Kimi)
+Card says "no explicit thinking tags," but it **does reason internally** (~145–810
+reasoning tok/response, heavier on code). Crucially LM Studio parses them as **structured
+`reasoning_tokens`**, so they don't pollute `content` the way Kimi's unparsed `◁think▷`
+did. There's a reasoning tax on token count, but the content stays clean and 36.8 t/s is
+genuinely usable — **5× Kimi's 7 t/s**, faster than `qwen3.6-27b`.
+
+### Cheap-signal ladder (Q3_K_S, LM Studio :1234, ctx 32768, sole-model)
+| Signal | Score | Notes |
+|---|---|---|
+| Speed (sustained) | **36.8 t/s** | held over the 2.3-min soak; tool-calls 28–31 t/s |
+| Feasibility soak | ✅ 8k tok single gen | mem peak 121.9 GB, flat, 0 leak/OOM/panic |
+| jdhodges (40) | **95 %** (38/40) | clears the ≥85 % gate; matches MLX pre-crash 97.5 %. 6.9 min, 28.3 t/s |
+| Veerman (12) | **75 %** (9/12) | 3 tool_mismatch (p2/p6/p12); same band as base `qwen3.6-35b-a3b` (75 %) — agentic tune did **not** lift the holdout suite |
+| HumanEval (100) | **94 %** (94/100) | ~73 min, 36 t/s, **1 trunc** (Q17 `largest_prime_factor` spiraled to the 32k cap → the only FAIL-by-truncation; true ceiling ~94–95 %). Beats DeepSeek-V4 88 %, matches MLX pre-crash 95.8 % — GGUF loses nothing. |
+| LCB v6 (50) | **68 %** (34/50) | 32k cap, ~4.5 h. Difficulty split: **easy 15/15 (100 %)**, medium 16/23 (70 %), **hard 3/12 (25 %)**. **5 truncations** (all FAIL); true ceiling ~70–74 %. Above `qwen3.6-27b` (62 %), `kimi` (64 %), `coder-next` (56 %); below Gemma coding leaders (`gemma-4-26b-a4b@6bit` 80 %). Matches MLX-build partial (68 % raw). |
+| Terminal-Bench 2.0 | ❌ **NO-GO (memory)** | see below — 98.69 GB model can't coexist with Docker on 128 GB |
+| MMLU | — | **not run** (session stopped after tbench NO-GO) |
+
+### Verdict + next steps
+**GO — MiniMax-M2.5 is feasible AND fast on the GGUF path**, overturning the MLX NO-GO.
+It clears the cheap-signal gate (jdhodges 95 % ≥ 85 %) and is a decisive positive result:
+the MiniMax family is runnable on this rig via llama.cpp, and at 36.8 t/s it's a viable
+daily-driver-class large MoE (not a cost-trap like Kimi). **HumanEval 94 %** (run
+2026-07-05, ~73 min) confirms strong coding. The remaining knowledge tail (LCB v6 → MMLU,
+`--max-tokens 32768`, sole-model) was **deferred** — MiniMax (98.69 GB) can't co-exist
+with the 01:00 DeepSeek LCB job (82 GB); it earns the rest on a future sole-model session.
+Then charts + a `docs/local-llm-reference.md` slot (top-tier local MoE candidate).
+
+### Terminal-Bench 2.0 — ❌ NO-GO (memory coexistence, not capability)
+
+Attempted the full 89-task Harbor run (`terminus-2` agent, Docker); **stopped after 46
+trials, all errored, mean 0.0.** Every trial died with `Environment start timed out after
+600.0 seconds` — **the Docker task containers can't start.**
+
+**Root cause = memory, decisively.** The model holds **98.69 GB**; the OS + Docker
+Desktop's Linux VM consume the rest, leaving **~3 GB free** (macmon showed 125 GB used
+from the *first* trial, climbing to a 134 GB peak — over the 128 GB physical, into swap).
+Terminal-Bench's amd64-emulated task images (many multi-GB) can't allocate/start in that
+sliver → 600 s timeout, 100 % failure.
+
+- **Not a concurrency bug.** Trials fired at an exact 10-min cadence (`-n 1` worked,
+  sequential). The 28 lingering containers were **orphans** — Harbor doesn't tear down a
+  container when its trial times out, so they accumulate and compound the exhaustion.
+- **The first trial failed with free memory** → freeing more won't help enough: dropping
+  ctx 64k→32k recovers only ~3.5 GB vs the 20–40 GB Docker needs.
+- **Why 27b succeeded and this can't:** `qwen3.6-27b` is ~20 GB → ~100 GB free for Docker.
+  A 98.69 GB model leaves ~3 GB. **Terminal-Bench requires a model that leaves Docker
+  headroom; ≥~70 GB models are effectively locked out on a 128 GB rig.** Same *class* of
+  operational NO-GO as Kimi's speed wall — a rig limit, not a model-quality verdict.
+- Raw job data: `.bench-logs/tbench-runs/minimax-m2.5/` (46 `EnvironmentStartTimeoutError`).
+
+### Context length — native **196,608 (192k)**, usable **~64k** on this rig (corrects the plan)
+
+The Phase-5 plan's "65536 won't fit / 32768 is the ceiling" was inherited from the MLX
+build and is **wrong for the GGUF**. Measured via `lms load --estimate-only` (no load) +
+GGUF metadata:
+
+- **Native trained cap:** `minimax-m2.context_length = 196608` (RoPE freq_base 5e6, no
+  YaRN). Beyond needs RoPE scaling.
+- **KV is cheap** (GQA, 48 heads / 8 KV heads, ~103 KB/token): footprint 32k→131k adds
+  only ~9.7 GiB. Estimates: 32k=97.9, 64k=101.1, 96k=104.4, 192k=114.0 GiB.
+- **Usable inference ceiling = 64,000 tokens; hard cliff at 64,512.** Swept empirically
+  (load at ctx N → real inference): **32768, 40960, 49152, 57344, 59392, 61440, 63488,
+  63744, 64000 all COMPUTE OK**; **64512, 65024, 65280, 65535, 65536 all return
+  `{"error":"Compute error."}`** (the model *loads* fine at those — shows IDLE/98.69 GB —
+  but every inference errors). Sharp wall in the 2^16 region → a Metal KV-buffer limit for
+  `minimax-m2`, not a memory-fit issue (footprint at 64k is only 101 GiB). **Recommended
+  operating ctx = 61,440 (60k)** — safe margin below the cliff, validated with a real
+  2,693-token generation over the LAN. This is ~2× the 32k the benches ran at.
+  (Earlier draft of this note said "usable = 32k" — WRONG; that was before the sweep. The
+  original `Compute error` was seen only at 65536, which happens to be just past the cliff.)
+  Peak-memory math (est + ~17 GB overhead): 60k→~124 GB, 96k→~129 (also over 128), 192k→~138.
+- ⚠️ **`max_tokens` cap:** a request with `max_tokens=60000` returned **HTTP 400 Bad
+  Request** (the LCB truncation-recovery rerun failed on this). LM Studio rejects very large
+  `max_tokens`; the truncated LCB Q8/Q19 were **not** recovered.
+
+### Terminal-Bench path forward — distributed (model rig + separate Docker host)
+
+The tbench memory NO-GO above is **rig-local**, not fundamental: the model calls are cheap,
+it's the Docker containers that need RAM. **Split them across two machines.** LM Studio on
+the 128 GB rig serves the model on the LAN; a *second* Mac runs Docker + the terminus-2
+agent, hitting the rig over the network. Neither competes for RAM.
+
+- **Rig (model server) — set up & validated 2026-07-06:** firewall off; `lms server start
+  --bind 0.0.0.0 --port 1234` (listens `*:1234`); LAN IP **192.168.68.123**; MiniMax loaded
+  **at 61440 (60k)** — the safe max below the 64,512 compute cliff (see Context length).
+  Verified: a 2,693-tok generation via `curl http://192.168.68.123:1234/v1/chat/completions`
+  from the LAN returns coherent output, `finish=stop`. 48h TTL.
+- **Docker host (other Apple-Silicon Mac):** ready-to-run driver at
+  `.bench-logs/run-tbench-minimax-REMOTE.sh` — `OPENAI_API_BASE=http://192.168.68.123:1234/v1`,
+  `--model openai/unsloth/minimax-m2.5`, `--environment-build-timeout 3.0` (amd64 emulation
+  is slow), `-n` sized to that Mac's free Docker RAM, orphan-cleanup around the run. Caveat:
+  task images are still amd64-emulated on Apple Silicon (slow starts) — an x86 Linux host
+  would be strictly better, but free RAM is the thing that actually unblocks it.
+
+Raw data: `benchmarks/runs/{toolcall_{jdhodges,veerman},humaneval,livecodebench}_unsloth_minimax-m2.5_*`,
+`results/speed_probe/unsloth_minimax-m2.5_*`. Plan: [`docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md`](../../../docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md).

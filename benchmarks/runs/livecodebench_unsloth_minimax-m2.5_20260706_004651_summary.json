@@ -1,0 +1,58 @@
+{
+  "run_name": "livecodebench_unsloth_minimax-m2.5_20260706_004651",
+  "benchmark": "livecodebench",
+  "model": "unsloth/minimax-m2.5",
+  "score": 0.0,
+  "score_pct": "0.0%",
+  "correct": 0,
+  "total": 2,
+  "truncated": 0,
+  "elapsed_s": 14,
+  "elapsed_min": 0.2,
+  "max_tokens": 60000,
+  "temperature": 0,
+  "seed": 42,
+  "timeout_s": 3600,
+  "model_config": {
+    "model_id": "unsloth/minimax-m2.5",
+    "architecture": "minimax-m2",
+    "quantization": "Q3_K_S",
+    "bits_per_weight": 3,
+    "size_bytes": 98690597344,
+    "size_gb": 91.9,
+    "params": "256x4.9B",
+    "context_length": 65536,
+    "flash_attention": true,
+    "eval_batch_size": 2048,
+    "num_experts": 8
+  },
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 47,
+    "cpu_temp_c": 41,
+    "process_ram_mb": 106298,
+    "swap_used_mb": 1031
+  },
+  "final_state": {
+    "gpu_temp_c": 45,
+    "cpu_temp_c": 41,
+    "process_ram_mb": 106310,
+    "swap_used_mb": 1031
+  },
+  "timestamp_start": "2026-07-06T00:46:54.930505",
+  "timestamp_end": "2026-07-06T00:47:12.589753",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/livecodebench_unsloth_minimax-m2.5_20260706_004651.jsonl",
+  "only_questions": [
+    8,
+    19
+  ],
+  "questions_run": [
+    8,
+    19
+  ]
+}
