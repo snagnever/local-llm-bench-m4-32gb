@@ -891,7 +891,7 @@ genuinely usable — **5× Kimi's 7 t/s**, faster than `qwen3.6-27b`.
 | jdhodges (40) | **95 %** (38/40) | clears the ≥85 % gate; matches MLX pre-crash 97.5 %. 6.9 min, 28.3 t/s |
 | Veerman (12) | **75 %** (9/12) | 3 tool_mismatch (p2/p6/p12); same band as base `qwen3.6-35b-a3b` (75 %) — agentic tune did **not** lift the holdout suite |
 | HumanEval (100) | **94 %** (94/100) | ~73 min, 36 t/s, **1 trunc** (Q17 `largest_prime_factor` spiraled to the 32k cap → the only FAIL-by-truncation; true ceiling ~94–95 %). Beats DeepSeek-V4 88 %, matches MLX pre-crash 95.8 % — GGUF loses nothing. |
-| LCB v6 (50) | **68 %** (34/50) | 32k cap, ~4.5 h. Difficulty split: **easy 15/15 (100 %)**, medium 16/23 (70 %), **hard 3/12 (25 %)**. **5 truncations** (all FAIL); true ceiling ~70–74 %. Above `qwen3.6-27b` (62 %), `kimi` (64 %), `coder-next` (56 %); below Gemma coding leaders (`gemma-4-26b-a4b@6bit` 80 %). Matches MLX-build partial (68 % raw). |
+| LCB v6 (50) | **72 %** (36/50) after ctx-recovery — 68 % (34/50) raw at 32k | Raw at 32k cap, ~4.5 h. Difficulty split: **easy 15/15 (100 %)**, medium 16/23 (70 %), **hard 3/12 → 5/12 (42 %)** post-recovery. Original **5 truncations** (all FAIL) reran at ctx 60k / max_tokens 57344 → **2 recovered** (Q38, Q48 both atcoder/hard), 3 still fail (Q19/Q44 real spirals to 57k cap, Q8 completes-but-wrong). **Net +2 → 36/50 = 72 %.** Above `qwen3.6-27b` (62 %), `kimi` (64 %), `coder-next` (56 %); below Gemma coding leaders (`gemma-4-26b-a4b@6bit` 80 %). Matches MLX-build partial (68 % raw). |
 | Terminal-Bench 2.0 | ❌ **NO-GO (memory)** | see below — 98.69 GB model can't coexist with Docker on 128 GB |
 | MMLU | — | **not run** (session stopped after tbench NO-GO) |
 
@@ -949,9 +949,16 @@ GGUF metadata:
   (Earlier draft of this note said "usable = 32k" — WRONG; that was before the sweep. The
   original `Compute error` was seen only at 65536, which happens to be just past the cliff.)
   Peak-memory math (est + ~17 GB overhead): 60k→~124 GB, 96k→~129 (also over 128), 192k→~138.
-- ⚠️ **`max_tokens` cap:** a request with `max_tokens=60000` returned **HTTP 400 Bad
-  Request** (the LCB truncation-recovery rerun failed on this). LM Studio rejects very large
-  `max_tokens`; the truncated LCB Q8/Q19 were **not** recovered.
+- **`max_tokens` cap — corrected:** an earlier draft claimed `max_tokens=60000` returned
+  **HTTP 400** and blocked the recovery. That 400 was an **artifact of the broken 65536-ctx
+  state**, not a real limit. With the model reloaded at ctx **61440**, `max_tokens=57344`
+  runs clean. **LCB truncation-recovery DID run (2026-07-06):** the 5 truncated hard Qs
+  [8,19,38,44,48] reran at ctx 60k / max_tokens 57344. **2 of 5 recovered** (Q38, Q48 → OK);
+  Q19 & Q44 are genuine spirals (burned all 57k, 1–13 visible tokens, no convergence); Q8
+  completes-but-wrong. **Verdict: ~40 % of truncations are "just over the 32k cap" and
+  recover with headroom; the rest are real model-limit spirals that more context can't fix.
+  60k ctx is worth +4 LCB points (68→72 %).** Q44's 57k-tok gen pushed swap to 8.5 GB but
+  survived. Raw: `benchmarks/runs/livecodebench_unsloth_minimax-m2.5_20260706_090036*`.
 
 ### Terminal-Bench path forward — distributed (model rig + separate Docker host)
 
@@ -961,12 +968,14 @@ the 128 GB rig serves the model on the LAN; a *second* Mac runs Docker + the ter
 agent, hitting the rig over the network. Neither competes for RAM.
 
 - **Rig (model server) — set up & validated 2026-07-06:** firewall off; `lms server start
-  --bind 0.0.0.0 --port 1234` (listens `*:1234`); LAN IP **192.168.68.123**; MiniMax loaded
+  --bind 0.0.0.0 --port 1234` (listens `*:1234`). Reach it by **mDNS hostname `macstudio.local`**
+  (preferred — DHCP-proof; the machine's `LocalHostName` is `macstudio`, so the `.local` name
+  is `macstudio.local`, NOT `mac-studio.local`) or LAN IP **192.168.68.123**. MiniMax loaded
   **at 61440 (60k)** — the safe max below the 64,512 compute cliff (see Context length).
-  Verified: a 2,693-tok generation via `curl http://192.168.68.123:1234/v1/chat/completions`
+  Verified: a 2,693-tok generation via `curl http://macstudio.local:1234/v1/chat/completions`
   from the LAN returns coherent output, `finish=stop`. 48h TTL.
 - **Docker host (other Apple-Silicon Mac):** ready-to-run driver at
-  `.bench-logs/run-tbench-minimax-REMOTE.sh` — `OPENAI_API_BASE=http://192.168.68.123:1234/v1`,
+  `.bench-logs/run-tbench-minimax-REMOTE.sh` — `OPENAI_API_BASE=http://macstudio.local:1234/v1`,
   `--model openai/unsloth/minimax-m2.5`, `--environment-build-timeout 3.0` (amd64 emulation
   is slow), `-n` sized to that Mac's free Docker RAM, orphan-cleanup around the run. Caveat:
   task images are still amd64-emulated on Apple Silicon (slow starts) — an x86 Linux host
