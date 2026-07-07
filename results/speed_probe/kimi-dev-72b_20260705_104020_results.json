@@ -1,0 +1,72 @@
+{
+  "model": "kimi-dev-72b",
+  "timestamp": "20260705_104020",
+  "base_url": "http://127.0.0.1:1234/v1",
+  "questions": [
+    {
+      "name": "trivial",
+      "category": "sanity",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is 2+2? Answer with just the number."
+        }
+      ],
+      "expected": "4",
+      "max_tokens": 256,
+      "result": {
+        "success": true,
+        "content": "\u25c1think\u25b7Okay, let's see. The user asked for the answer to 2+2 and wants it as just the number. So I need to calculate that sum.\n\nHmm, adding two numbers. Let me think about how addition works. When you add 2 and 2 together, you get 4. That's a basic arithmetic fact. But maybe there's more to it? Wait, no, the user wants a straightforward answer. They just want the number 4 without any explanation or extra words.\n\nSo I should respond with \"4\" as the only output. Let me check if there are any other possibilities. Maybe in some contexts, like base systems, but the user didn't specify that. The default is base 10, so 2+2 is definitely 4 here. So the answer should be just \"4\".\n\u25c1/think\u25b7\n\n4",
+        "elapsed": 25.92,
+        "prompt_tokens": 32,
+        "completion_tokens": 180,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "name": "mmlu_atmosphere",
+      "category": "knowledge",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which of the following is the correct order of the layers of the Earth's atmosphere from lowest to highest?\n(A) Troposphere, Stratosphere, Mesosphere, Thermosphere\n(B) Stratosphere, Troposphere, Mesosphere, Thermosphere\n(C) Troposphere, Mesosphere, Stratosphere, Thermosphere\n(D) Mesosphere, Troposphere, Stratosphere, Thermosphere\nAnswer with just the letter."
+        }
+      ],
+      "expected": "A",
+      "max_tokens": 512,
+      "result": {
+        "success": true,
+        "content": "\u25c1think\u25b7Okay, let's see. The user is asking for the correct order of Earth's atmospheric layers from lowest to highest. The options given are A, B, C, and D. \n\nFirst, I need to recall the standard order of these layers. From what I remember, the troposphere is the closest layer to the Earth's surface. Then comes the stratosphere, which includes the ozone layer. After that, there's the mesosphere where meteors burn up. The thermosphere is the outermost layer before space.\n\nLooking at the options:\n\nA: Troposphere, Stratosphere, Mesosphere, Thermosphere\nB: Stratosphere, Troposphere, Mesosphere, Thermosphere\nC: Troposphere, Mesosphere, Stratosphere, Thermosphere\nD: Mesosphere, Troposphere, Stratosphere, Thermosphere\n\nOption A seems correct because it starts with troposphere (lowest), then stratosphere, mesosphere, and thermosphere. The other options have different orders which don't match the standard structure.\n\nSo the answer should be A.\n\u25c1/think\u25b7\n\nA",
+        "elapsed": 33.57,
+        "prompt_tokens": 110,
+        "completion_tokens": 233,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "name": "code_second_largest",
+      "category": "coding",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function that takes a list of integers and returns the second largest element. If fewer than 2 unique elements, return None. Just the function, no explanation."
+        }
+      ],
+      "expected": null,
+      "max_tokens": 1024,
+      "result": {
+        "success": false,
+        "error": "timed out",
+        "elapsed": 120.0
+      }
+    }
+  ],
+  "total_time": 179.49,
+  "system_metrics": {
+    "peak_ram_gb": 87.0,
+    "peak_swap_gb": 1.9,
+    "avg_gpu_pct": 99.4,
+    "peak_power_w": 60.0,
+    "samples": 168
+  }
+}

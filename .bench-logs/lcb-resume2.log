@@ -1,0 +1,33 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading livecodebench dataset...
+Loaded 50 questions (LiveCodeBench release_v6)
+
+--- Pre-flight ---
+  Model: minimax-m2.5
+  Config: ctx=32768, quant=3bit, size=93.2GB, arch=minimax_m2
+  Hardware: Apple M4 Max, 128GB RAM, macOS 26.3
+  GPU: 47°C | CPU: 47°C
+  RAM: 2627MB process | Swap: 2198MB
+  max_tokens: 32768
+  Warmup... '4' | p=49 c=61 (t=57+v=4) 4.0t/s | stop
+Running 23 specific questions: [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+
+==============================================================================================================
+BENCHMARK: LIVECODEBENCH | Model: minimax-m2.5 | Questions: 23
+Params: temp=0, max_tokens=32768, seed=42
+Config: ctx=32768, quant=3bit, size=93.2GB, arch=minimax_m2, experts=?
+System: RAM=128GB, CPU=Apple M4 Max
+State:  GPU=46°C, swap=373MB, process_ram=2632MB
+Log: /Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/livecodebench_minimax-m2.5_20260704_165910.jsonl
+==============================================================================================================
+    1/23 Q28  |  875.3s | p=   0 c=    0 (t=    0+v=   0)   0.0t/s |  57°C ram=2632M sw=373M | FAIL  | leetcode/medium 3528 | score: 0%
+    2/23 Q29  |   47.1s | p= 616 c=  994 (t=  836+v= 158)  21.1t/s |  54°C ram=93M sw=349M | OK    | leetcode/easy 3347 | score: 50%
+    3/23 Q30  |   32.7s | p= 818 c= 1534 (t=  703+v= 831)  46.9t/s |  55°C ram=32991M sw=341M | OK    | atcoder/easy abc384_b | score: 67%
+    4/23 Q31  |   49.4s | p= 442 c= 2434 (t= 1322+v=1112)  49.3t/s |  55°C ram=32993M sw=341M | OK    | atcoder/medium abc302_c | score: 75%
+    5/23 Q32  |   35.5s | p= 616 c= 1704 (t=  714+v= 990)  48.0t/s |  55°C ram=32995M sw=333M | OK    | atcoder/easy abc377_b | score: 80%
+    6/23 Q33  |  389.4s | p= 316 c=14858 (t=13067+v=1791)  38.2t/s |  58°C ram=32996M sw=333M | OK    | leetcode/medium 3573 | score: 83%
+    7/23 Q34  |   78.0s | p= 507 c= 3752 (t= 2262+v=1490)  48.1t/s |  57°C ram=32998M sw=325M | OK    | atcoder/hard abc361_e | score: 86%
+    8/23 Q35  |  215.1s | p= 475 c= 9019 (t= 6729+v=2290)  41.9t/s |  58°C ram=32974M sw=325M | FAIL  | leetcode/medium 3000 | score: 75%
+    9/23 Q36  |  325.4s | p= 373 c=12770 (t=11116+v=1654)  39.2t/s |  58°C ram=32975M sw=317M | FAIL  | atcoder/hard abc397_d | score: 67%
+   10/23 Q37  |   17.7s | p= 364 c=  856 (t=  418+v= 438)  48.4t/s |  57°C ram=32979M sw=317M | OK    | atcoder/easy abc313_a | score: 70%
+   11/23 Q38  |  827.5s | p= 873 c=25963 (t=23655+v=2308)  31.4t/s |  58°C ram=32980M sw=317M | FAIL  | atcoder/hard abc383_e | score: 64%
