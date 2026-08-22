@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_t1s1_veerman_qwen3.8-27b-mlx_6bit_20260817_101226",
+  "suite": "veerman",
+  "model": "qwen3.8-27b-mlx@6bit",
+  "model_slug": "qwen3.8-27b-mlx_6bit",
+  "score": 0.6666666666666666,
+  "score_pct": "66.7%",
+  "correct": 8,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 5,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 1,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 19.59,
+  "elapsed_s": 339,
+  "elapsed_min": 5.6,
+  "temperature": 1.0,
+  "seed": 1,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.5.2",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 51,
+    "cpu_temp_c": 42,
+    "process_ram_mb": 0,
+    "swap_used_mb": 9,
+    "free_pages": 16412
+  },
+  "final_state": {
+    "gpu_temp_c": 58,
+    "cpu_temp_c": 43,
+    "process_ram_mb": 0,
+    "swap_used_mb": 9,
+    "free_pages": 32000
+  },
+  "timestamp_start": "2026-08-17T10:12:30.555166",
+  "timestamp_end": "2026-08-17T10:18:12.902679",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_t1s1_veerman_qwen3.8-27b-mlx_6bit_20260817_101226.jsonl"
+}

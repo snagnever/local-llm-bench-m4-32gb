@@ -1,0 +1,62 @@
+{
+  "run_name": "toolcall_jdhodges_deepseek-chat_20260815_201043",
+  "suite": "jdhodges",
+  "model": "deepseek-chat",
+  "model_slug": "deepseek-chat",
+  "score": 0.975,
+  "score_pct": "97.5%",
+  "correct": 39,
+  "total": 40,
+  "carried_over": 0,
+  "fresh_run": 40,
+  "by_category": {
+    "tool_selection": {
+      "pass": 8,
+      "total": 8
+    },
+    "argument_accuracy": {
+      "pass": 8,
+      "total": 8
+    },
+    "multi_tool": {
+      "pass": 7,
+      "total": 8
+    },
+    "edge_cases": {
+      "pass": 8,
+      "total": 8
+    },
+    "format_compliance": {
+      "pass": 8,
+      "total": 8
+    }
+  },
+  "fresh_tok_weighted_tps": 13.99,
+  "elapsed_s": 577,
+  "elapsed_min": 9.6,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.5.2",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 37,
+    "cpu_temp_c": 38,
+    "process_ram_mb": 0,
+    "swap_used_mb": 5,
+    "free_pages": 25600
+  },
+  "final_state": {
+    "gpu_temp_c": 53,
+    "cpu_temp_c": 43,
+    "process_ram_mb": 0,
+    "swap_used_mb": 5,
+    "free_pages": 183704
+  },
+  "timestamp_start": "2026-08-15T20:10:46.587994",
+  "timestamp_end": "2026-08-15T20:20:27.215395",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_jdhodges_deepseek-chat_20260815_201043.jsonl"
+}

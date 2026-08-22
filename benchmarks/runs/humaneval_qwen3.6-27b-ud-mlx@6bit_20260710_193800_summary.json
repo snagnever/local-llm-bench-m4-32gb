@@ -1,0 +1,56 @@
+{
+  "run_name": "humaneval_qwen3.6-27b-ud-mlx@6bit_20260710_193800",
+  "benchmark": "humaneval",
+  "model": "qwen3.6-27b-ud-mlx@6bit",
+  "score": 1.0,
+  "score_pct": "100.0%",
+  "correct": 1,
+  "total": 1,
+  "truncated": 0,
+  "elapsed_s": 663,
+  "elapsed_min": 11.1,
+  "max_tokens": 32768,
+  "temperature": 0,
+  "seed": 42,
+  "timeout_s": 1800,
+  "model_config": {
+    "model_id": "qwen3.6-27b-ud-mlx@6bit",
+    "architecture": "qwen3_5",
+    "quantization": "6bit",
+    "bits_per_weight": 6,
+    "size_bytes": 30522621725,
+    "size_gb": 28.4,
+    "params": "27B",
+    "context_length": 65536,
+    "flash_attention": "?",
+    "eval_batch_size": "?",
+    "num_experts": "?"
+  },
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.5.2",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 42,
+    "cpu_temp_c": 41,
+    "process_ram_mb": 30138,
+    "swap_used_mb": 0
+  },
+  "final_state": {
+    "gpu_temp_c": 70,
+    "cpu_temp_c": 56,
+    "process_ram_mb": 30729,
+    "swap_used_mb": 0
+  },
+  "timestamp_start": "2026-07-10T19:38:04.074683",
+  "timestamp_end": "2026-07-10T19:49:10.737296",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/humaneval_qwen3.6-27b-ud-mlx@6bit_20260710_193800.jsonl",
+  "only_questions": [
+    18
+  ],
+  "questions_run": [
+    18
+  ]
+}

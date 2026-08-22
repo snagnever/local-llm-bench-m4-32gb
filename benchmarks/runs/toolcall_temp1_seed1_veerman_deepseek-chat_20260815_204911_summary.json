@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_temp1_seed1_veerman_deepseek-chat_20260815_204911",
+  "suite": "veerman",
+  "model": "deepseek-chat",
+  "model_slug": "deepseek-chat",
+  "score": 0.6666666666666666,
+  "score_pct": "66.7%",
+  "correct": 8,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 1,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 1,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 15.75,
+  "elapsed_s": 151,
+  "elapsed_min": 2.5,
+  "temperature": 1.0,
+  "seed": 1,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.5.2",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 43,
+    "cpu_temp_c": 40,
+    "process_ram_mb": 0,
+    "swap_used_mb": 5,
+    "free_pages": 44718
+  },
+  "final_state": {
+    "gpu_temp_c": 50,
+    "cpu_temp_c": 46,
+    "process_ram_mb": 0,
+    "swap_used_mb": 5,
+    "free_pages": 121124
+  },
+  "timestamp_start": "2026-08-15T20:49:14.838388",
+  "timestamp_end": "2026-08-15T20:51:49.617973",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_temp1_seed1_veerman_deepseek-chat_20260815_204911.jsonl"
+}

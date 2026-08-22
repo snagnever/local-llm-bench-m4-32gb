@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "scenario": "creative-writing",
+    "mode": "single-shot",
+    "label": "m4-max-128gb-40gpu lmstudio",
+    "backend": "lmstudio",
+    "model_info": {
+      "name": "qwen3.5-122b-a10b-mtp"
+    },
+    "runs": 1,
+    "max_tokens": 2000,
+    "cold": false,
+    "warm_up_time": 0.071,
+    "system": {
+      "os": "Darwin",
+      "os_version": "26.5.2",
+      "arch": "arm64",
+      "chip": "Apple M4 Max",
+      "memory_gb": 128,
+      "cpu_cores": 16,
+      "cpu_cores_performance": 12,
+      "cpu_cores_efficiency": 4,
+      "gpu_cores": 40,
+      "gpu_wired_limit_mb": 0
+    },
+    "timestamp": "2026-07-10T22:05:05"
+  },
+  "results": [
+    {
+      "turn": 1,
+      "run": 1,
+      "ctx_tokens_est": 57,
+      "new_tokens_est": 29,
+      "ttft": 0.628,
+      "gen_time": 11.946,
+      "gen_tps": 38.3,
+      "total": 12.574,
+      "output_tokens": 458,
+      "_response": "Beneath the floorboards where the foundation sleeps,\nA city of black towers wakes from cold repose.\nNo windows here to show the morning light,\nOnly the fan-winds whirring through the night,\nA thousand blades that spin a single song,\nTo keep the static from the past too long.\n\nThey hold the grain of photos turned to gray,\nThe birthday candles blown on yesterday,\nThe video where laughter fills the screen,\nBefore the silence took the in-between.\nHere lies the voice of Grandmother's soft hum,\nThe way she sang a lullaby to come,\nPreserved in pulses, binary and deep,\nWhile all the house above is wrapped in sleep.\n\nA green LED blinks like a firefly's eye,\nBeneath the concrete and the endless sky\nOf pipes that carry water, steam, and dust,\nWhere metal gears have traded faith for rust.\nYet here, no rust can touch the stored delight,\nThe digital ghosts that haunt this chamber light.\n\nThe hum is steady, rhythmic as a heart,\nThough separate rooms tear families apart,\nThis cooling air, a breath against the heat,\nEnsures the memories stay intact and sweet.\nIt processes the laughter of a child,\nBefore the years had made the face too wild,\nIt holds the wedding vows in crystal code,\nOn pathways where no heavy footsteps trod.\n\nThe basement door is locked with iron key,\nBut open wide to those who wait to see,\nThe faces fading from the physical plane,\nNow sharp and clear within this electric rain.\nA server rack stands tall like ancient stone,\nWhere memories of love are never known\nTo die or fade, to blur or lose their place,\nWithin this dark and humming sacred space.\n\nSo let the world above grow old and gray,\nLet seasons change and turn the leaves away,\nDown here the summer never loses bloom,\nInside this cold and silent, glowing room.\nThe fans exhale a warm and constant breeze,\nThat carries through the years and brings you ease,\nA chorus of machines that softly say,\n\"We keep them safe until you come to stay.\"",
+      "_user": "Write a poem about a mass of servers humming in a dark basement, keeping a family's memories alive. At least 30 lines."
+    },
+    {
+      "turn": 2,
+      "run": 1,
+      "ctx_tokens_est": 60,
+      "new_tokens_est": 32,
+      "ttft": 0.637,
+      "gen_time": 17.393,
+      "gen_tps": 37.4,
+      "total": 18.03,
+      "output_tokens": 651,
+      "_response": "In the dappled shade of the ancient oak, where moss clung thick as velvet to the roots, Barnaby the Tortoise soldered his dream. It was not a shell of keratin and bone, but a chassis of scavenged copper, polished river stones, and a single, slow-blinking LED that pulsed like a sleeping heartbeat.\n\nThe Hare, Silas, laughed when he saw it. Silas's rig sat on a pedestal of white marble, a beast of liquid cooling towers and RGB lights that shifted through the spectrum in dizzying cycles. It hummed with the roar of a thousand fans, processing frames at speeds that made the wind look sluggish.\n\n\"Your machine is a snail,\" Silas sneered, tapping his foot until the ground vibrated. \"Mine renders worlds before you can blink an eye. I play games while your processor calculates the first pixel.\"\n\nBarnaby adjusted his spectacles, which were cracked but clean. \"And when the power cord is pulled, Silas? When the battery drains and the fans scream their last?\"\n\nSilas scoffed. \"I recharge in a flash. A nap, a snack, and I am back to winning.\"\n\nBut Barnaby's machine had no plug. It ran on a tiny solar cell carved from amber, and it drew power not from lightning-fast bursts, but from the slow, steady accumulation of sunlight over hours. It did not need sleep. It did not need a cool-down cycle. While Silas's rig overheated in the summer heat, forcing him to pause and let the fans whir into silence, Barnaby's amber LED kept its gentle rhythm.\n\nThe contest was simple: render the story of the forest. Silas began immediately, his machine a blur of light and noise, outputting gigabytes of data per second. But by noon, the heat became too much; the system throttled, the fans slowed, and Silas had to shut it down to let the marble cool. He slept in the shade, dreaming of victory.\n\nBarnaby's machine did not sleep. It ticked. *Tick.* A line of code. *Tock.* Another pixel rendered. Slowly, methodically, without a single pause for breath or cooling, it worked through the afternoon, through the twilight, and into the deep blue hour of night. Silas woke to find his machine cold and silent.\n\nBy dawn, Silas's rig roared back to life, faster than ever, but Barnaby was already gone. The tortoise had taken his amber box to the top of the hill. There, glowing softly in the morning light, sat a complete, rendered story of the forest\u2014every leaf, every shadow, every bird's flight path perfect and whole.\n\nSilas arrived, panting, his machine hot behind him. \"How?\" he asked. \"You are so slow.\"\n\nBarnaby smiled, his skin wrinkled like old parchment. \"Speed is a race against the clock,\" he said softly. \"But patience is a race against nothing. I never stopped moving, Silas. And in the end, that was enough to finish first.\"",
+      "_user": "Write a short fable about a tortoise who built a tiny computer that was slower than the hare's gaming rig but never needed to rest."
+    },
+    {
+      "turn": 3,
+      "run": 1,
+      "ctx_tokens_est": 58,
+      "new_tokens_est": 31,
+      "ttft": 0.655,
+      "gen_time": 10.881,
+      "gen_tps": 37.8,
+      "total": 11.535,
+      "output_tokens": 411,
+      "_response": "Beneath the dust of century-deep silence,\nThe cardboard corner yields to brittle light.\nA thumbprint smudge still stains the white reserve,\nWhere fingers paused to catch a fleeting sight.\nNo pixel grid can hold this chemical ghost,\nThis silver halide frozen in its sleep;\nIt smells of vinegar and forgotten toast,\nAnd secrets that the wooden rafters keep.\n\nThe image shows a porch, a woman's dress,\nA child who reaches for a swinging rope,\nThe sun is trapped within the yellowed press,\nA captured warmth against a world of hope.\nThe edges curl like petals in a fire,\nThe black-and-white has shifted into sepia's hue,\nAs if the paper drinks the very pyre\nOf time that burned to make this moment true.\n\nThey say the screen had swallowed all the light,\nThat memory became a fluid, shifting stream,\nBut here the grain is rough against the night,\nA solid anchor in a digital dream.\nNo server crash could delete the inked outline,\nNo virus rot the fiber of the sheet;\nThis single print outlasts the grand design\nOf cloud-stacks that dissolved beneath our feet.\n\nThe attic air is thick with settling ash,\nAnd silence hums where electric currents ran,\nBut in this frame, a quiet laughter crash\nRemains unchanged since history's first plan.\nWe hold the weight of something real and thin,\nA final breath before the paper died,\nWhere light once struck to let the world begin\nTo live forever on a surface dried.\n\nNow hands that never knew a touch-screen glow\nWill trace the ridge where emulsion used to be,\nAnd wonder at the ancient, slow decay\nOf things we made to last eternally.\nThe shutter clicked a century ago,\nBut in this dust, the moment holds its ground;\nThe very last of all the printed show,\nWhere silence and the image are unbound.",
+      "_user": "Write a poem about the last photograph ever printed on paper, found in an attic a hundred years from now. At least 25 lines."
+    }
+  ]
+}

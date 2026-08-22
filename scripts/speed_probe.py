@@ -42,9 +42,16 @@ QUESTIONS = [
 ]
 
 def call_api(messages, max_tokens):
+    msgs = [{"role": "system", "content": "You are a helpful assistant."}] + messages
+    # No-think on GGUF Qwen3.5 reasoning models: there is no /no_think soft switch;
+    # the only lever is enable_thinking=false, whose template emits a pre-closed
+    # <think>\n\n</think>. Prefilling that block as a trailing assistant turn is the
+    # exact same tokens (mirrors BENCH_NOTHINK_PREFILL in local-llm-bench/bench.py).
+    if os.environ.get("BENCH_NOTHINK_PREFILL") == "1":
+        msgs = msgs + [{"role": "assistant", "content": "<think>\n\n</think>\n\n"}]
     payload = json.dumps({
         "model": MODEL_ID,
-        "messages": [{"role": "system", "content": "You are a helpful assistant."}] + messages,
+        "messages": msgs,
         "temperature": 0,
         "max_tokens": max_tokens,
     }).encode()

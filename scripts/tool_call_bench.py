@@ -35,10 +35,13 @@ REPO_DIR = SCRIPT_DIR.parent
 TC_DIR = REPO_DIR / "results" / "tool_calling"
 RUNS_DIR = REPO_DIR / "benchmarks" / "runs"
 
-# Deterministic generation
-TEMPERATURE = 0.0
-TOP_P = 1.0
-SEED = 42
+# Deterministic generation by default; env-overridable for vendor-recommended
+# sampling (e.g. DeepSeek-V4-Flash-0731 spec: temp 1.0, top_p 0.95 agentic).
+# Unset env → unchanged temp 0 / top_p 1.0 / seed 42, so existing runs are
+# byte-for-byte identical.
+TEMPERATURE = float(os.environ.get("BENCH_TEMPERATURE", "0.0"))
+TOP_P = float(os.environ.get("BENCH_TOP_P", "1.0"))
+SEED = int(os.environ.get("BENCH_SEED", "42"))
 
 # Thermal safety — match bench2.py / mlx_bench.py behaviour
 # Can be disabled with --no-cooldown (in which case we still log temps but never pause).

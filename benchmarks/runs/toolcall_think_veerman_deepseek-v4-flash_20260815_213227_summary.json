@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_think_veerman_deepseek-v4-flash_20260815_213227",
+  "suite": "veerman",
+  "model": "deepseek-v4-flash",
+  "model_slug": "deepseek-v4-flash",
+  "score": 0.8333333333333334,
+  "score_pct": "83.3%",
+  "correct": 10,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 2,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 22.37,
+  "elapsed_s": 185,
+  "elapsed_min": 3.1,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.5.2",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 48,
+    "cpu_temp_c": 41,
+    "process_ram_mb": 0,
+    "swap_used_mb": 5,
+    "free_pages": 95874
+  },
+  "final_state": {
+    "gpu_temp_c": 50,
+    "cpu_temp_c": 46,
+    "process_ram_mb": 0,
+    "swap_used_mb": 5,
+    "free_pages": 88436
+  },
+  "timestamp_start": "2026-08-15T21:32:31.613864",
+  "timestamp_end": "2026-08-15T21:35:40.327296",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_think_veerman_deepseek-v4-flash_20260815_213227.jsonl"
+}
