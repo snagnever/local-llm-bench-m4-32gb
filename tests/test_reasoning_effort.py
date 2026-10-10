@@ -84,3 +84,16 @@ def test_error_path_reports_zero_reasoning(monkeypatch):
     monkeypatch.setattr(bench2, "urlopen", _boom)
     r = bench2.api_call([{"role": "user", "content": "x"}], model="m")
     assert r["finish_reason"] == "error" and r["reasoning_chars"] == 0
+
+
+import tool_call_bench  # noqa: E402
+
+
+def test_tool_bench_extra_body(monkeypatch):
+    monkeypatch.setattr(tool_call_bench, "REASONING_EFFORT", None)
+    monkeypatch.setattr(tool_call_bench, "SAMPLING_EXTRA", {})
+    assert tool_call_bench.extra_body() is None
+    monkeypatch.setattr(tool_call_bench, "REASONING_EFFORT", "xhigh")
+    assert tool_call_bench.extra_body() == {"reasoning_effort": "xhigh"}
+    monkeypatch.setattr(tool_call_bench, "SAMPLING_EXTRA", {"top_k": 20, "min_p": 0.0})
+    assert tool_call_bench.extra_body() == {"top_k": 20, "min_p": 0.0, "reasoning_effort": "xhigh"}

@@ -56,6 +56,16 @@ REQUEST_TIMEOUT = 600
 # Normal tool-call completions are <350 tokens; this is ~12x headroom.
 # Override via TOOLBENCH_MAX_TOKENS.
 MAX_COMPLETION_TOKENS = int(os.environ.get("TOOLBENCH_MAX_TOKENS", "4096"))
+# None/empty keep requests as before. Set by --reasoning-effort and the sampling flags.
+REASONING_EFFORT = None
+SAMPLING_EXTRA = {}
+
+
+def extra_body():
+    body = dict(SAMPLING_EXTRA)
+    if REASONING_EFFORT:
+        body["reasoning_effort"] = REASONING_EFFORT
+    return body or None
 
 # ---------------------------------------------------------------------------
 # System monitoring (mirrors bench2.py)
@@ -206,6 +216,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
             top_p=TOP_P,
             seed=SEED,
             max_tokens=MAX_COMPLETION_TOKENS,
+            extra_body=extra_body(),
             timeout=REQUEST_TIMEOUT,
         )
         t1_elapsed = time.time() - t1_start
@@ -298,6 +309,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
                 top_p=TOP_P,
                 seed=SEED,
                 max_tokens=MAX_COMPLETION_TOKENS,
+                extra_body=extra_body(),
                 timeout=REQUEST_TIMEOUT,
             )
             t2_elapsed = time.time() - t2_start
@@ -703,6 +715,8 @@ def run_bench(model_lmskey: str, suite: str, force: bool = False,
                 # System
                 "temperature": TEMPERATURE,
                 "top_p": TOP_P,
+                "reasoning_effort": REASONING_EFFORT,
+                "sampling_extra": SAMPLING_EXTRA,
                 "seed": SEED,
                 "gpu_temp_c": state["gpu_temp_c"],
                 "cpu_temp_c": state["cpu_temp_c"],
@@ -790,6 +804,9 @@ def run_bench(model_lmskey: str, suite: str, force: bool = False,
         "elapsed_s": round(elapsed_total),
         "elapsed_min": round(elapsed_total / 60, 1),
         "temperature": TEMPERATURE,
+        "top_p": TOP_P,
+        "reasoning_effort": REASONING_EFFORT,
+        "sampling_extra": SAMPLING_EXTRA,
         "seed": SEED,
         "hardware": hardware,
         "initial_state": initial_state,
@@ -837,7 +854,20 @@ if __name__ == "__main__":
     p.add_argument("--run-prefix", default="toolcall",
                    help="File/run name prefix to separate LM Studio vs mlx_vlm results "
                         "(default: toolcall, use toolcall_mlx for mlx_vlm runs)")
+    p.add_argument("--reasoning-effort", choices=["none", "low", "medium", "high", "xhigh"], default=None,
+                   help="Send reasoning_effort in every request (default: omit)")
+    p.add_argument("--temperature", type=float, default=TEMPERATURE)
+    p.add_argument("--top-p", type=float, default=TOP_P)
+    p.add_argument("--top-k", type=int, default=None)
+    p.add_argument("--min-p", type=float, default=None)
+    p.add_argument("--presence-penalty", type=float, default=None)
+    p.add_argument("--repetition-penalty", type=float, default=None)
     args = p.parse_args()
+    REASONING_EFFORT = args.reasoning_effort
+    TEMPERATURE, TOP_P = args.temperature, args.top_p
+    SAMPLING_EXTRA = {k: v for k, v in {"top_k": args.top_k, "min_p": args.min_p,
+                                        "presence_penalty": args.presence_penalty,
+                                        "repetition_penalty": args.repetition_penalty}.items() if v is not None}
 
     only_ids = None
     if args.only:
