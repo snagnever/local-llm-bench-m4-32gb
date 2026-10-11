@@ -97,3 +97,11 @@ def test_tool_bench_extra_body(monkeypatch):
     assert tool_call_bench.extra_body() == {"reasoning_effort": "xhigh"}
     monkeypatch.setattr(tool_call_bench, "SAMPLING_EXTRA", {"top_k": 20, "min_p": 0.0})
     assert tool_call_bench.extra_body() == {"top_k": 20, "min_p": 0.0, "reasoning_effort": "xhigh"}
+
+
+def test_tool_bench_reasoning_text_reads_sdk_extras():
+    from types import SimpleNamespace
+    # O SDK da OpenAI guarda campos fora do schema em model_extra; alguns servidores usam o atributo direto.
+    assert tool_call_bench.reasoning_text(SimpleNamespace(model_extra={"reasoning_content": "abc"})) == "abc"
+    assert tool_call_bench.reasoning_text(SimpleNamespace(reasoning="zz", model_extra={})) == "zz"
+    assert tool_call_bench.reasoning_text(SimpleNamespace(model_extra=None)) == ""

@@ -67,6 +67,17 @@ def extra_body():
         body["reasoning_effort"] = REASONING_EFFORT
     return body or None
 
+
+def reasoning_text(msg):
+    """Thinking text of an SDK message. Servers send it as reasoning_content or reasoning, which the
+    OpenAI SDK keeps in model_extra (or as an attribute on some versions)."""
+    extra = getattr(msg, "model_extra", None) or {}
+    for key in ("reasoning_content", "reasoning"):
+        value = getattr(msg, key, None) or extra.get(key)
+        if value:
+            return value
+    return ""
+
 # ---------------------------------------------------------------------------
 # System monitoring (mirrors bench2.py)
 # ---------------------------------------------------------------------------
@@ -205,6 +216,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
     t1_start = time.time()
     err = None
     t1_tool_calls, t1_text, usage = [], "", {}
+    t1_reasoning = ""
     raw_msg_dict = None
     try:
         resp = client.chat.completions.create(
@@ -230,6 +242,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
                     "arguments_raw": tc.function.arguments,
                 })
         t1_text = msg.content or ""
+        t1_reasoning = reasoning_text(msg)
         raw_msg_dict = {
             "role": msg.role,
             "content": msg.content,
@@ -278,6 +291,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
         "elapsed_s": round(t1_elapsed, 3),
         "tool_calls": t1_tool_calls,
         "text": t1_text,
+        "reasoning_chars": len(t1_reasoning),
         "usage": usage,
         "finish_reason": finish_reason,
         "error": err,
@@ -323,6 +337,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
                         "arguments_raw": tc.function.arguments,
                     })
             t2_text = msg2.content or ""
+            t2_reasoning = reasoning_text(msg2)
             u2 = resp2.usage
             usage2 = {}
             if u2 is not None:
@@ -336,10 +351,12 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
             t2_elapsed = time.time() - t2_start
             t2_err = str(e)
             t2_tool_calls, t2_text, usage2, t2_finish = [], "", {}, "error"
+            t2_reasoning = ""
         result["turn_2"] = {
             "elapsed_s": round(t2_elapsed, 3),
             "tool_calls": t2_tool_calls,
             "text": t2_text,
+            "reasoning_chars": len(t2_reasoning),
             "usage": usage2,
             "finish_reason": t2_finish,
             "error": t2_err,
@@ -706,6 +723,7 @@ def run_bench(model_lmskey: str, suite: str, force: bool = False,
                 "turn_2_tool_calls": (t2 or {}).get("tool_calls"),
                 "turn_2_text": (t2 or {}).get("text"),
                 "turn_2_usage": (t2 or {}).get("usage"),
+                "reasoning_chars": (t1.get("reasoning_chars") or 0) + ((t2 or {}).get("reasoning_chars") or 0),
 
                 # Scoring
                 "score_pass": score["pass"],
