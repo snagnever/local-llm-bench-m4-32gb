@@ -19,7 +19,7 @@ Usage:
 
 Benchmarks: mmlu, math, humaneval, gpqa, drop, livecodebench
 """
-import time, json, sys, os, subprocess, re, random, argparse
+import time, json, sys, os, subprocess, re, random, argparse, tempfile
 from datetime import datetime
 from urllib.request import urlopen, Request
 from pathlib import Path
@@ -502,6 +502,33 @@ def extract_python_code(text):
 
 LCB_TIMEOUT_S = 12  # per-test timeout
 
+# Import prelude of the official LiveCodeBench runner
+# (lcb_runner/evaluation/testing_util.py, import_string). Solutions may rely on
+# these names without importing them, e.g. `List[int]` from typing.
+LCB_PRELUDE = (
+    "from string import *\nfrom re import *\nfrom datetime import *\nfrom collections import *\n"
+    "from heapq import *\nfrom bisect import *\nfrom copy import *\nfrom math import *\nfrom random import *\n"
+    "from statistics import *\nfrom itertools import *\nfrom functools import *\nfrom operator import *\n"
+    "from io import *\nfrom sys import *\nfrom json import *\nfrom builtins import *\nfrom typing import *\n"
+    "import string\nimport re\nimport datetime\nimport collections\nimport heapq\nimport bisect\nimport copy\n"
+    "import math\nimport random\nimport statistics\nimport itertools\nimport functools\nimport operator\n"
+    "import io\nimport sys\nimport json\nsys.setrecursionlimit(50000)\n"
+)
+
+def _run_lcb_program(program, stdin=None):
+    """Run `program` with the LiveCodeBench prelude from a temporary file.
+    A file avoids the OS argument limit that `python -c` hits on large inputs."""
+    fd, path = tempfile.mkstemp(suffix='.py', prefix='lcb_')
+    try:
+        with os.fdopen(fd, 'w') as fh:
+            fh.write(f"{LCB_PRELUDE}\n{program}")
+        return subprocess.run(
+            [sys.executable, path],
+            input=stdin, capture_output=True, text=True, timeout=LCB_TIMEOUT_S,
+        )
+    finally:
+        os.unlink(path)
+
 def _run_lcb_functional_test(code, test_case, fn_name, starter_code):
     """Run a single functional test. `test_case.input` holds one JSON-encoded
     argument per line; `test_case.output` is the JSON-encoded expected return."""
@@ -526,10 +553,7 @@ def _run_lcb_functional_test(code, test_case, fn_name, starter_code):
         f"_sys.stdout.write(_json.dumps(_result))\n"
     )
     try:
-        proc = subprocess.run(
-            [sys.executable, '-c', runner],
-            capture_output=True, text=True, timeout=LCB_TIMEOUT_S,
-        )
+        proc = _run_lcb_program(runner)
         if proc.returncode != 0:
             return False, f'rc={proc.returncode}: {proc.stderr[:120]}'
         got = proc.stdout.strip()
@@ -550,11 +574,7 @@ def _run_lcb_stdin_test(code, test_case):
     test_input = test_case.get('input', '')
     expected = (test_case.get('output') or '').strip()
     try:
-        proc = subprocess.run(
-            [sys.executable, '-c', code],
-            input=test_input, capture_output=True, text=True,
-            timeout=LCB_TIMEOUT_S,
-        )
+        proc = _run_lcb_program(code, stdin=test_input)
         if proc.returncode != 0:
             return False, f'rc={proc.returncode}: {proc.stderr[:120]}'
         got_lines = [ln.rstrip() for ln in proc.stdout.strip().split('\n')]
