@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_deepseek-v4-flash-iq2xs_20260705_132128",
+  "suite": "veerman",
+  "model": "deepseek-v4-flash-iq2xs",
+  "model_slug": "deepseek-v4-flash-iq2xs",
+  "score": 0.5833333333333334,
+  "score_pct": "58.3%",
+  "correct": 7,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 4,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 1,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 2,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 9.82,
+  "elapsed_s": 377,
+  "elapsed_min": 6.3,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 42,
+    "cpu_temp_c": 42,
+    "process_ram_mb": 0,
+    "swap_used_mb": 1063,
+    "free_pages": 1271024
+  },
+  "final_state": {
+    "gpu_temp_c": 45,
+    "cpu_temp_c": 36,
+    "process_ram_mb": 0,
+    "swap_used_mb": 1047,
+    "free_pages": 1199602
+  },
+  "timestamp_start": "2026-07-05T13:21:31.630482",
+  "timestamp_end": "2026-07-05T13:27:52.097567",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_veerman_deepseek-v4-flash-iq2xs_20260705_132128.jsonl"
+}

@@ -440,10 +440,20 @@ couldn't pin down without a multi-turn agent signal on the rig.
 Per-trial JSONLs and summaries: `benchmarks/runs/tbench_*.{jsonl,_summary.json}`
 (seven pairs). Raw Harbor jobs: `.bench-logs/tbench-runs/<job_name>/`.
 
-## Phase 3 #10 — DeepSeek V4 Flash (blocked, 2026-05-29)
+## Phase 3 #10 — DeepSeek V4 Flash (blocked 2026-05-29 → OOM fixed, partial sweep 2026-05-30)
 
 Plan: [`docs/benchmark-plans/2026-05-29-deepseek-v4-flash-phase-3.md`](../../../docs/benchmark-plans/2026-05-29-deepseek-v4-flash-phase-3.md).
-Status: **full sweep aborted at Step 3b (tool-calling jdhodges).** The
+
+> **⏩ Current status (2026-05-30): OOM fixed; knowledge sweep partially run.** The
+> original blocker is resolved (see the two addenda below). With the
+> [`cache-materialize`](../../../patches/mlx-lm-deepseek-v4-cache-materialize.patch) patch the
+> model now benches cleanly on a single long-lived server. Measured so far: **MMLU 44 %,
+> GPQA 24 %, HumanEval 48 %** (n=100 each), tool-calling jdhodges **40/40 completed (8 correct)**.
+> Still pending: MATH, DROP, LiveCodeBench, tool-calling Veerman, Terminal-Bench, throughput.
+> Plan for the rest: [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md).
+> The numbers in the historical "blocked" narrative below are superseded by **Addendum 2**.
+
+Status (historical, 2026-05-29): **full sweep aborted at Step 3b (tool-calling jdhodges).** The
 runtime stack does not produce reliable inference at scale on this rig
 yet; bench numbers below are partial and not comparable.
 
@@ -462,12 +472,20 @@ yet; bench numbers below are partial and not comparable.
 ### The blocker: `RuntimeError: [metal::malloc] Resource limit (499000) exceeded`
 
 The DeepSeek V4 model port in [mlx-lm PR #1192](https://github.com/ml-explore/mlx-lm/pull/1192)
-uses an MLA indexer (`deepseek_v4.py:557`, `scores = mx.maximum(scores, 0) * self.scale`)
-that allocates many sub-buffers per forward pass. The M4 Max Metal device
-reports a hardware `resource_limit: 499000` (max resources referenceable
-in a single Metal command buffer — checked via `mx.device_info()`). As the
-mlx_lm.server prompt cache accumulates across requests, the indexer's
-resource count exceeds 499000 and Metal aborts the request mid-decode.
+uses an MLA compressor + indexer (`deepseek_v4.py`) in its attention path. The
+M4 Max Metal device reports a hardware `resource_limit: 499000` (checked via
+`mx.device_info()`).
+
+> **Root cause corrected 2026-05-30.** This is a *count of **live resident**
+> Metal buffers* (the allocator's `num_resources_` vs `resource_limit_` /
+> `ResidencySet`), **not** "per command buffer" and **not** cross-request cache
+> accumulation. The model leaks **~1 live buffer per layer (43 layers) per
+> decode step** in the compressor/indexer, growing linearly until the count cap
+> is hit at **~11,300 generated tokens regardless of prompt length**. Ablation:
+> ~83% compressor/indexer, ~17% core attention; MoE/hyper-connections don't leak.
+> Full evidence in [`docs/deepseek-v4-flash-metal-oom-investigation.md`](../../../docs/deepseek-v4-flash-metal-oom-investigation.md)
+> §2/§2.4 and the fix plan's Phase 1.5 / Phase 2-revised. The original
+> single-forward-pass framing below is superseded.
 
 | Memory observation | Value |
 |---|---|
@@ -569,4 +587,399 @@ Full investigation + fix plan are now in dedicated docs:
 - [`docs/deepseek-v4-flash-metal-oom-investigation.md`](../../../docs/deepseek-v4-flash-metal-oom-investigation.md) — root cause, all test runs, hypotheses, external signals (PR #1192 stalled since 2026-05-01; spicyneuron's 4000-token reproducer and `fix-ds4` fork)
 - [`docs/deepseek-v4-flash-metal-oom-fix-plan.md`](../../../docs/deepseek-v4-flash-metal-oom-fix-plan.md) — confidence-ordered hypothesis-application plan with exact edits, apply commands, and pass/fail tests for each step
 
-**Daily-driver implications (carry-over from the investigation doc):** with the current runtime, `deepseek-v4-flash-dq` is usable for short-prompt single-shot chat on a freshly-restarted server. Longer prompts (≥ ~400 tokens / multi-turn tool schemas / cached prompts ≥ ~10 sequences) will trip the cap and wedge the server. Until the H1 fix (per-layer eval boundaries) is applied and verified, this checkpoint is not yet daily-driver ready on this rig.
+**Daily-driver implications (FIXED 2026-05-30):** the per-decode-step live-buffer leak is
+**fixed and reproducer-verified.** Fix = [`patches/mlx-lm-deepseek-v4-cache-materialize.patch`](../../../patches/mlx-lm-deepseek-v4-cache-materialize.patch),
+one hunk in `DeepseekV4Model.__call__` that `mx.eval`s every per-layer cache array each
+forward (cuts the un-detached lazy graphs in `PoolingCache`/`RotatingKVCache` and their
+batched variants). The forced-generation reproducer now streams **19,989 tokens clean at
+31.3 t/s with 0 Metal OOMs** (baseline died at 11,314; no throughput regression), leak
+slope 205 → 7 KB/step. (Dead ends en route: patching `PoolingCache` then `BatchPoolingCache`
+both still OOMed on the *server* path — the BatchGenerator uses `Batch*` caches and the
+dominant batch leak is `BatchRotatingKVCache`; the single model-forward choke point covers
+all cache classes at once. The earlier "H1 per-layer eval" idea also FAILED — can't reclaim
+live buffers.) **Done-bar #1 also PASSED:** full 40-case jdhodges sweep on one long-lived
+server = **40/40 completed, 0 Metal OOMs, 19.8 min** (vs unpatched 49 OOMs, aborted at case
+20). Tool-call score 8/40 (all `edge_cases` — model isn't a tool-caller, unchanged by fix).
+Remaining: 30-turn chat (#3, manual) + an optional full Phase 3 #10 knowledge/throughput
+sweep now that the runtime is stable. See investigation doc §2 and fix plan Phase 2-revised (R5).
+
+### Addendum 2 (2026-05-30) — knowledge-bench results + upstream submission
+
+With the runtime stable, the knowledge sweep was re-run on a **single long-lived patched
+server** (no restart wrapper), greedy `temp=0`, thinking=OFF, per-request `max_tokens` capped
+(2048 MMLU / 4096 GPQA+HumanEval) to bound the separate 2-bit degeneration runaway. This run
+doubled as the pre-submission OOM soak: **300 requests, 0 `metal::malloc`, 0 errors, ~2h44m**.
+
+| Bench | n | Score | Degenerate (TRUNC) | Wall-clock | Metal OOMs |
+|---|---|---|---|---|---|
+| MMLU | 100 | **44 %** | 0 | 16 min | 0 |
+| GPQA | 100 | **24 %** | 36 | 96 min | 0 |
+| HumanEval | 100 | **48 %** | 15 | 52 min | 0 |
+| Tool-calling jdhodges (40) | 40 | 8/40 (**20 %**) | — | 19.8 min | 0 |
+| Tool-calling Veerman (12) | 12 | 2/12 (**17 %**) | — | 5.5 min | 0 |
+| **Soak total** | **300** | — | 51 | **~2h44m** | **0** |
+
+**Remaining-bench queue** (post-soak, single long-lived server, same config, 0 OOMs):
+
+| Bench | n | Score | TRUNC | Wall-clock | Metal OOMs |
+|---|---|---|---|---|---|
+| DROP | 100 | **71 %** — best knowledge result; extractive QA survives 2-bit | 0 | 16 min | 0 |
+| MATH | 100 | **47 %** — floor; 41 % degenerated to the cap at temp=0 | 41 | 105 min | 0 |
+| LiveCodeBench v6 | 50 | **6 %** — floor; 80 % degenerated, 2-bit can't sustain long codegen | 40 | 171 min | 0 |
+
+> **Tool-calling is N/A on this build, not a quality signal.** The MLX conversion ships a
+> 24-line `chat_template.jinja` with **no tools branch** and no tool special tokens, so
+> `mlx_lm.server` logs *"model does not support tool calling"* and **drops the `tools` array on
+> every request** — the model never sees a tool schema and can only answer in prose
+> (`no_tool_called`). The jdhodges 8/40 + Veerman 2/12 passes are all prose-is-correct edge
+> cases. `tool_combined` = 10/52 (19.2 %) is plotted for completeness but reflects the missing
+> template (a conversion gap, fixable), **not** the model's inherent tool ability. 2-bit quant
+> would further hurt structured emission even with a proper template.
+
+> **✅ Tool calling RECOVERED — and the native format makes it excellent (2026-05-31).**
+> The conversion ships no tool template. Two configs were tested on the *same 2-bit checkpoint*:
+>
+> | Tool format | jdhodges | Veerman | combined |
+> |---|---|---|---|
+> | Hermes `<tool_call>` (workaround template + `deepseek_json` parser) | 33/40 (82 %) | 6/12 (50 %) | 39/52 (75 %) |
+> | **Native DSML** (official template #16 + `deepseek_dsml` parser) | **39/40 (98 %)** | **9/12 (75 %)** | **48/52 (92 %)** |
+>
+> Native **DSML matches the best full-size local on this rig** (qwen3.6-35b-a3b, 98 % jdhodges).
+> The Hermes "partial multi-tool" misses were a **format tax, not a 2-bit ceiling** — in DSML the
+> model emits parallel calls natively (multi_tool 3/8 → **8/8**). Both configs hit the same `>`-token
+> BPE-merge gotcha in mlx-lm's marker matching (json_tools fix: ml-explore/mlx-lm#1335 / #1336; the
+> `deepseek_dsml` parser uses the same prefix-marker trick). Use **native DSML** going forward.
+> Analysis: [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-tool-template.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-tool-template.md).
+
+Reading it:
+- **OOM fix vindicated under sustained load.** 51 of the 300 requests ran the full token cap
+  (long/degenerate generations — the hardest case for the residency leak) on a server that
+  never restarted, with zero residency errors. Strongest cross-request evidence to date.
+- **Scores are the 2-bit DQ quality floor**, not a runtime issue — well below the Gemma/Qwen
+  locals (MMLU 65–88, GPQA 34–70, HumanEval 87–98 on this rig). Orthogonal to the OOM fix.
+- **Degeneration is long-form only**: 0 % on short MMLU answers, 36 %/15 % on the
+  longer-output GPQA/HumanEval (repetition looping + some legit-but-rambling answers
+  guillotined at the cap). No sampling knob fixes it; 4-bit (the real remedy) exceeds 128 GB.
+
+**Upstream submission (2026-05-30):** the cache-materialize fix was filed upstream —
+issue [ml-explore/mlx-lm#1332](https://github.com/ml-explore/mlx-lm/issues/1332),
+PR [Blaizzy/mlx-lm#25](https://github.com/Blaizzy/mlx-lm/pull/25) (against the #1192 head
+branch), and a heads-up comment on [#1192](https://github.com/ml-explore/mlx-lm/pull/1192#issuecomment-4585428668).
+Standalone writeup: [`docs/deepseek-v4-flash-metal-oom-upstream-writeup.md`](../../../docs/deepseek-v4-flash-metal-oom-upstream-writeup.md).
+
+**Still pending** (see [`docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md`](../../../docs/benchmark-plans/2026-05-30-deepseek-v4-flash-remaining-benches.md)):
+MATH, DROP, LiveCodeBench v6, Terminal-Bench 2.0, the 4 throughput
+scenarios. Charts (`results/charts/chart_m4max_phase1_*.png`) regenerated to include the
+measured cells; blank cells = not yet measured.
+
+## MiniMax-M2.5-3bit — feasibility ABORTED (GPU kernel panic ×3, 2026-07-03 → 07-04)
+
+Plan: [`docs/benchmark-plans/2026-07-03-minimax-m2.5-feasibility.md`](../../../docs/benchmark-plans/2026-07-03-minimax-m2.5-feasibility.md).
+
+> **⛔ VERDICT: NO-GO on this rig/OS.** `mlx-community/MiniMax-M2.5-3bit` (93 GiB weights,
+> `minimax_m2` arch, 256E/8A MoE, 62 layers, no MLA) loads and generates coherently, and
+> its *quality* is strong — but under sustained inference it **reproducibly hard
+> kernel-panics the Mac Studio** (three times), in Apple's GPU driver
+> (`IOGPUFamily` / `IOGPUGroupMemory` / `AGXG16X`), across **every** config tried.
+> Deployment is impossible while the host crashes. Do **not** re-test on this stack.
+
+### Cheap-signal results — partial (sweep never completed; all crashed out)
+
+| Bench | Result | Notes |
+|---|---|---|
+| Tool calls jdhodges (40) | **97.5 %** (39/40) | strong mechanics |
+| Tool calls veerman (12) | **58.3 %** (7/12) | under-agency, prompt-addressable — A/B nudge was a trade (+agentic / −mechanics), not a win |
+| HumanEval | **95.8 % raw / 97.2 % hang-adj** | cut at 72/100 (parallel-4 dead-request hangs) |
+| LiveCodeBench v6 | **68 % raw / 74 % hang-adj** (26/38) | crashed 3× before finishing 50 |
+| MMLU | — | abandoned (host crashes) |
+
+Config: ctx 32768, parallel 1, temp 0, seed 42. "hang-adj" excludes `p=0 c=0`
+dead-request timeouts (infra failures, not wrong answers). All numbers are **partial
+and not fully comparable** — the run never completed.
+
+### The blocker: reproducible GPU-driver kernel panic ×3
+
+| # | Config | Memory at crash | Panic |
+|---|---|---|---|
+| 1 | ctx 65000 / parallel 4 / fp16 KV | ~ceiling | `remove_memory_object() memory object not found` @IOGPUGroupMemory.cpp:323 |
+| 2 | ctx 32768 / parallel 1 / fp16 KV | **OK** (0 % compressor) | `pending memory object … non pending hash` @:528 |
+| 3 | ctx 32768 / parallel 1 / **KV-quant 8-bit** | **OK** | same @:528; panicked task = `LM Studio Helper (GPU)` |
+
+`IOGPUFamily 129.3.2 / AGXG16X 345.20.4`, macOS 25D125 (Darwin 25.3.0), M4 Max T6041.
+A reproducible **Apple GPU-driver bug** in `IOGPUGroupMemory`'s object-tracking hash,
+triggered by MLX's Metal alloc/free pattern for this model — **independent of parallelism,
+context, memory pressure, and KV quantization.** Nothing application-side fixes it:
+memory tuning, config tuning, and KV quant were all tried and all crashed (KV quant only
+*delayed* it, surviving ~21 long generations). Correlates with long-generation / large-KV
+load: tool-calling and HumanEval (short gens) never crashed; LCB's 20k–32k-token reasoning
+spirals did. Soft precursor = the intermittent `p=0 c=0` dead-request hangs.
+
+**Only external changes could revisit it:** an Apple macOS/GPU-driver update, an MLX/LM
+Studio release that changes the Metal allocation pattern, or a **different runtime** (GGUF
+via llama.cpp — different Metal path, untested, a separate investigation). Full detail:
+the plan doc's "Kernel panic — THREE TIMES" section. Contrast with DeepSeek-V4 (§ above):
+that was a fixable *mlx-lm buffer leak*; this is a *driver-level panic* with no
+application-side remedy.
+
+## agents-a1-xl-mlx — cheap-signal + coding/knowledge tail (2026-07-04 → 07-05)
+
+**Qwen3.5 MoE** (`qwen3_5_moe` arch, self-IDs as "Qwen3.5 / Alibaba Tongyi"),
+MLX 6-bit, 27.8 GB on disk (29.90 GB resident), ctx 131712. Comfortable-fit class
+(~48 GB resident with KV, no swap) — **not** the memory/panic class that blocked
+DeepSeek-V4 / MiniMax-M2.5. Ran the entire cheap tail with **zero crashes**.
+Plan + full write-up: [`docs/benchmark-plans/2026-07-04-agents-a1-xl.md`](../../../docs/benchmark-plans/2026-07-04-agents-a1-xl.md).
+
+| Signal | Score | Notes |
+|---|---|---|
+| jdhodges (40) | **92.5%** (37/40) | sel 7/8 · args 8/8 · multi 6/8 · edge 8/8 · format 8/8; 7.4 min |
+| Veerman (12) | **83.3%** (10/12) | action 6/7 · **restraint 2/2** · hard 2/3; ties the leaders |
+| HumanEval | **97%** (97/100) | 1 trunc; 75 min; ties gemma@6bit 97 |
+| MMLU | **82%** (82/100) | 3 trunc; 104 min (2× 65k-cap spirals @ ~17 min) |
+| LiveCodeBench v6 | **64%** (32/50) | 2 trunc; **240 min** (2× 65k-cap spirals @ ~29 min) |
+| Speed | ~40 t/s think / ~65–80 short | MoE; heavy reasoning inflates wall-clock |
+
+**Headline:** strong well-rounded MoE — top-tier tool-calling + HumanEval, near-top
+MMLU (< 27b 88), solid mid-pack LCB (> coder-next 56 / 27b 62 / 35b-a3b 54; < gemma@6bit 80).
+**Caveat = thinking tax:** emits reasoning tokens on everything (109 on "2+2", 18k on a
+"leetcode/easy", 65k-cap spirals on both MMLU and LCB) → far slower than a same-size
+non-thinking model; a full MATH/DROP/GPQA sweep would be 20–40 h (Qwen-3.6-dense phenotype).
+**Gate:** marginal pass on coding only (LCB 64% vs 27b 62%, +2 pp; MMLU 82% < 85% miss) →
+**expensive tail DEFERRED** (thin justification, already well-characterized).
+**Slot:** solid mid-tier all-rounder; does **not** displace coder-next (agentic speed),
+27b (knowledge), or gemma@6bit (coding). Best fit = tool-calling generalist, but the
+thinking tax makes it slower than coder-next for real agentic loops.
+
+Operational note: arrived co-resident with hermes-4-70b + qwen3.6-27b (~110 GB weights,
+swap maxed, `Spill=YES`); unloaded both per the single-large-model residency rule before
+benching (swap 19.9 GB → 166 MB). All numbers above are single-model / clean-state.
+
+## kimi-dev-72b — cheap-signal gate ABORTED (speed 7 t/s, 2026-07-05)
+
+`unsloth/Kimi-Dev-72B-GGUF` UD-Q6_K_XL (arch `qwen2` / Qwen2.5-72B base, 73B dense,
+62.55 GiB weights, 67.16 GB resident at ctx 32768 / parallel 1). SWE-bench Verified
+60.4 % is its headline (SOTA open-source at release). **Aborted at the speed step of
+the cheap-signal ladder** — never reached graded coding runs.
+
+| Signal | Result | Notes |
+|---|---|---|
+| Load | ✅ clean, 36 s | Stock llama.cpp 2.23.1; the red LM Studio arch badge was benign. |
+| Pre-flight | ✅ PASS | Warmup answers "4". |
+| **Speed** | **~7 tok/s** | 3 runs: 7.0 / 7.0 / 7.1 t/s (trivial), 6.9 / 7.2 / 7.2 (mmlu). Compute-bound (GPU 100 %, 54 W); memory state (87 GB no-swap vs 135 GB swapping) did **not** move the number. |
+| Tool-calling | ✗ no structured calls | Given a tool + explicit instruction, emitted prose *about* calling it inside `◁think▷`, `tool_calls: []`. Not a tool-calling fine-tune → floor, like `deepseek-v4-flash-dq`. |
+| Reasoning | mandatory `◁think▷` spirals | **Non-standard markers** (not `<think>`) → LM Studio does **not** parse them (`reasoning_tokens: 0`); raw reasoning lands in `content`. Spirals even on "2+2" (180 tok, cut mid-think at the probe cap). |
+
+**Verdict — NO-GO on speed.** At ~7 t/s (½ of `qwen3.6-27b` 20 t/s, ⅓ of
+`gemma-4-31b` dense 13.7 — the **slowest model benched on this rig**), and with a
+mandatory thinking spiral inflating effective throughput further, it is disqualified
+as a daily-driver / agentic model regardless of coding quality. Its only differentiating
+axis is coding quality (LCB / HumanEval), but a full run would be ~1–2 rig-days at this
+speed for a model already ruled out — **not worth the compute.** Coding-quality numbers
+**deferred / not measured.**
+
+**Revisit only if:** a faster path appears — a lighter quant that keeps the SWE quality,
+a speculative-decoding draft model (LM Studio supports `--speculative-draft-*`), or a
+smaller Kimi-Dev distillation. Until then, `qwen3.6-27b` (LCB 62 %) remains the coding-quality
+reference and `gemma-4-26b-a4b@6bit` (LCB 80 %) the coding leader.
+
+## DeepSeek-V4-Flash GGUF (IQ2_XS) — ✅ GO via llama.cpp (the runtime that MLX never could be, 2026-07-05)
+
+**The headline: DeepSeek-V4-Flash runs cleanly on this rig for the first time.** The MLX
+build (`deepseek-v4-flash-dq`) was blocked for weeks by the mlx-lm MLA live-buffer leak
+(Metal `resource_limit` at ~11.3k tokens). The GGUF build (`teamblobfish/DeepSeek-V4-Flash-GGUF`,
+IQ2_XS-XL, 81 GB, 2 shards) on **llama.cpp** uses a completely different Metal path and has
+**no leak** — it sustained a **16,384-token single generation with memory dead-flat at
+82.3 GB, 0 errors**. The MLX plan's own re-test hypothesis ("GGUF via llama.cpp, a different
+Metal path") is confirmed GO.
+
+### The working recipe (not LM Studio-native — see blockers)
+Three gates, three fixes:
+1. **Arch:** stock llama.cpp 2.23.1 → `unknown model architecture: 'deepseek4'`. **Fix:** upgrade
+   the LM Studio GGUF runtime to **2.24.0** (beta channel; `lms runtime get --channel beta ...`).
+2. **Repack crash:** even on 2.24.0, LM Studio-native load aborts on the first forward pass —
+   `ggml_abort` in the CPU **repack** path (Q8_0 MoE `mul_mat_id`, ref llama.cpp PR #17869).
+   `lms load` has no flag for it and the `LLAMA_ARG_REPACK` env is **not honored** by LM Studio's
+   `LlamaV4::load` wrapper. **Fix:** run the standalone `llama-server` (LM Studio's own 2.24.0
+   binary) with `--no-repack`.
+3. **Metal OOM:** default `n_slots=4` overcommits KV. **Fix:** `-np 1`.
+
+```bash
+BIN=~/.lmstudio/extensions/backends/llama.cpp-mac-arm64-apple-metal-advsimd-2.24.0
+M=~/.lmstudio/models/teamblobfish/DeepSeek-V4-Flash-GGUF/DeepSeek-V4-Flash-IQ2_XS-XL-00001-of-00002.gguf
+cd "$BIN" && ./llama-server -m "$M" -a deepseek-v4-flash-iq2xs \
+  --no-repack -c 32768 -np 1 -ngl 999 --host 127.0.0.1 --port 1235
+# harness: LMSTUDIO_URL=http://127.0.0.1:1235/v1
+```
+
+**LM Studio-native is BLOCKED** (no repack toggle; env ignored). **MLX-native is BLOCKED**
+(`ValueError: Model type deepseek_v4 not supported` on mlx-llm 1.9.1 — LM Studio's MLX engine
+never had the arch; the May-29 test used a standalone patched mlx-lm). GGUF-via-standalone is
+the only working path on this stack.
+
+### Non-thinking — a key property
+**0 reasoning tokens on every generation** (output goes straight to the answer/code — verified
+in raw JSONL). Unlike Kimi (`◁think▷` spiral) or MiniMax/Qwen3.6, its **effective throughput
+= its raw throughput** — no reasoning tax. This is why ~10 t/s is usable.
+
+### Cheap-signal ladder (IQ2_XS, standalone llama-server, ctx 32768, single-model)
+| Signal | Score | Notes |
+|---|---|---|
+| Speed | **~10 t/s** | vs MLX-DQ's 26 t/s cold probe — but MLX never completed a bench; GGUF is stable. Compute-bound, GPU ~100 %. |
+| Feasibility soak | ✅ 16,384 tok single gen | memory flat 82.3 GB, 0 leak/OOM/error — past MLX's ~11.3k death point |
+| jdhodges (40) | **87.5 %** (35/40) | **overturns the MLX 12.5 % crash-floor** — DS4 *is* tool-calling capable (near coder-next 90 %). |
+| Veerman (12) | **58.3 %** (7/12) | strong mechanics, weak agentic proactivity (p6/p8/p12 tool-mismatch, p7 spiral) — same shape as MiniMax. |
+| HumanEval | **88 %** (88/100) | 0 trunc; ~90 % excluding 2 empty-response hiccups. Ties coder-next 89 % — strong for 2-bit. 3.1 h (verbose non-thinking). |
+| LiveCodeBench v6 | **86 % partial (6/7)** ⏸ | **INCOMPLETE — stopped at 7/50** (runtime: some cases blow up to 11k tokens/~19 min). Finish overnight — see next steps. |
+| MMLU | — | not run |
+
+Occasional **empty-response hiccup** (~2–3 %: 0 tokens returned, counted as FAIL) — low-rate, non-systematic; watch it.
+
+### Verdict + next steps
+**GO — DeepSeek-V4-Flash is feasible and genuinely capable on the GGUF path**, and the session's
+biggest runtime win. Quality clears the gate (tool-calling 87.5 %, HumanEval 88 %). Two steps
+remain to finish the cheap-signal ladder:
+1. **Finish LCB v6 overnight** — restart the server (recipe above), then either run the remaining
+   43 (`bench2.py livecodebench --examples 50 --only 8,9,...,50 --max-tokens 32768`, then
+   **manually merge** with the first 7 — bench2 writes a fresh summary, no auto-merge) OR re-run
+   the full 50 fresh for a self-contained summary. Budget ~4–6 h (a few hard cases may hit the
+   32 768 cap → ~55 min each). Partial so far: 7/50, 86 %, 0 trunc.
+2. **MMLU (100)** after LCB.
+Then regenerate charts and update `docs/local-llm-reference.md` if it earns a slot (it's the only
+runnable model in the DeepSeek-V4 / large-MoE class on this rig).
+
+Raw data: `benchmarks/runs/{toolcall_*,humaneval_*,livecodebench_*}_deepseek-v4-flash-iq2xs_*`,
+`results/speed_probe/deepseek-v4-flash-iq2xs_*`. Plan: [`docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md`](../../../docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md).
+
+## MiniMax-M2.5 GGUF (Q3_K_S) — ✅ GO, the MLX NO-GO overturned (2026-07-05)
+
+The marquee Phase 5 experiment: the **MLX build (`mlx-community/minimax-m2.5`, 3-bit)
+kernel-panicked the host ×3** in Apple's GPU driver → hard NO-GO. The MLX plan's own
+re-test hypothesis was *"a different runtime (GGUF via llama.cpp, a different Metal
+path)."* **This is that test — and it's a GO.** llama.cpp's Metal backend allocates GPU
+buffers on a different code path than MLX; the panic **did not recur** across load,
+probes, and a full sustained soak. The failure was MLX's allocation pattern, **not the
+model**.
+
+### Phase 0 feasibility soak — PASS (sole-model, ctx 32768, `--gpu max --parallel 1`)
+`unsloth/minimax-m2.5`, Q3_K_S, 98.69 GB resident (estimate 97.91 GiB). LM Studio-native
+load (bundled llama.cpp 2.23.1 recognizes `minimax-m2`) — **no fork, no repack flag, no
+standalone server needed** (unlike DeepSeek-V4).
+
+| Time | Step | Result |
+|---|---|---|
+| 18:11 | Load (ctx 32768) | ✅ clean, **no panic**; 98.69 GB resident |
+| 18:12 | Probe 1 (trivial) | "4", coherent (153 reasoning tok) |
+| 18:13 | Probe 2 (timed medium) | **36.2 t/s**, coherent hash-map explanation |
+| 18:14–18:16 | **8k sustained soak** | 5038 tok, `finish=stop` (finished naturally), coherent **~4100-word essay**, **36.8 t/s sustained**, peak **121.9/128 GB**, swap flat 1.58 GB, **0 Metal errors, no panic** |
+| 18:30 | Unload | clean → memory back to **12.5 GB baseline (no leak)** |
+
+Pass criteria all green: 8k soak completes coherent, 0 `metal::malloc`, no kernel panic,
+memory held steady (no upward trend / OOM), swap flat, host uptime unbroken.
+Telemetry: `.bench-logs/minimax-gguf-feasibility-{macmon.jsonl,lmslog.txt}` (repo root).
+
+### Reasoning tokens — parsed cleanly (unlike Kimi)
+Card says "no explicit thinking tags," but it **does reason internally** (~145–810
+reasoning tok/response, heavier on code). Crucially LM Studio parses them as **structured
+`reasoning_tokens`**, so they don't pollute `content` the way Kimi's unparsed `◁think▷`
+did. There's a reasoning tax on token count, but the content stays clean and 36.8 t/s is
+genuinely usable — **5× Kimi's 7 t/s**, faster than `qwen3.6-27b`.
+
+### Cheap-signal ladder (Q3_K_S, LM Studio :1234, ctx 32768, sole-model)
+| Signal | Score | Notes |
+|---|---|---|
+| Speed (sustained) | **36.8 t/s** | held over the 2.3-min soak; tool-calls 28–31 t/s |
+| Feasibility soak | ✅ 8k tok single gen | mem peak 121.9 GB, flat, 0 leak/OOM/panic |
+| jdhodges (40) | **95 %** (38/40) | clears the ≥85 % gate; matches MLX pre-crash 97.5 %. 6.9 min, 28.3 t/s |
+| Veerman (12) | **75 %** (9/12) | 3 tool_mismatch (p2/p6/p12); same band as base `qwen3.6-35b-a3b` (75 %) — agentic tune did **not** lift the holdout suite |
+| HumanEval (100) | **94 %** (94/100) | ~73 min, 36 t/s, **1 trunc** (Q17 `largest_prime_factor` spiraled to the 32k cap → the only FAIL-by-truncation; true ceiling ~94–95 %). Beats DeepSeek-V4 88 %, matches MLX pre-crash 95.8 % — GGUF loses nothing. |
+| LCB v6 (50) | **72 %** (36/50) after ctx-recovery — 68 % (34/50) raw at 32k | Raw at 32k cap, ~4.5 h. Difficulty split: **easy 15/15 (100 %)**, medium 16/23 (70 %), **hard 3/12 → 5/12 (42 %)** post-recovery. Original **5 truncations** (all FAIL) reran at ctx 60k / max_tokens 57344 → **2 recovered** (Q38, Q48 both atcoder/hard), 3 still fail (Q19/Q44 real spirals to 57k cap, Q8 completes-but-wrong). **Net +2 → 36/50 = 72 %.** Above `qwen3.6-27b` (62 %), `kimi` (64 %), `coder-next` (56 %); below Gemma coding leaders (`gemma-4-26b-a4b@6bit` 80 %). Matches MLX-build partial (68 % raw). |
+| Terminal-Bench 2.0 | ❌ **NO-GO (memory)** | see below — 98.69 GB model can't coexist with Docker on 128 GB |
+| MMLU | — | **not run** (session stopped after tbench NO-GO) |
+
+### Verdict + next steps
+**GO — MiniMax-M2.5 is feasible AND fast on the GGUF path**, overturning the MLX NO-GO.
+It clears the cheap-signal gate (jdhodges 95 % ≥ 85 %) and is a decisive positive result:
+the MiniMax family is runnable on this rig via llama.cpp, and at 36.8 t/s it's a viable
+daily-driver-class large MoE (not a cost-trap like Kimi). **HumanEval 94 %** (run
+2026-07-05, ~73 min) confirms strong coding. The remaining knowledge tail (LCB v6 → MMLU,
+`--max-tokens 32768`, sole-model) was **deferred** — MiniMax (98.69 GB) can't co-exist
+with the 01:00 DeepSeek LCB job (82 GB); it earns the rest on a future sole-model session.
+Then charts + a `docs/local-llm-reference.md` slot (top-tier local MoE candidate).
+
+### Terminal-Bench 2.0 — ❌ NO-GO (memory coexistence, not capability)
+
+Attempted the full 89-task Harbor run (`terminus-2` agent, Docker); **stopped after 46
+trials, all errored, mean 0.0.** Every trial died with `Environment start timed out after
+600.0 seconds` — **the Docker task containers can't start.**
+
+**Root cause = memory, decisively.** The model holds **98.69 GB**; the OS + Docker
+Desktop's Linux VM consume the rest, leaving **~3 GB free** (macmon showed 125 GB used
+from the *first* trial, climbing to a 134 GB peak — over the 128 GB physical, into swap).
+Terminal-Bench's amd64-emulated task images (many multi-GB) can't allocate/start in that
+sliver → 600 s timeout, 100 % failure.
+
+- **Not a concurrency bug.** Trials fired at an exact 10-min cadence (`-n 1` worked,
+  sequential). The 28 lingering containers were **orphans** — Harbor doesn't tear down a
+  container when its trial times out, so they accumulate and compound the exhaustion.
+- **The first trial failed with free memory** → freeing more won't help enough: dropping
+  ctx 64k→32k recovers only ~3.5 GB vs the 20–40 GB Docker needs.
+- **Why 27b succeeded and this can't:** `qwen3.6-27b` is ~20 GB → ~100 GB free for Docker.
+  A 98.69 GB model leaves ~3 GB. **Terminal-Bench requires a model that leaves Docker
+  headroom; ≥~70 GB models are effectively locked out on a 128 GB rig.** Same *class* of
+  operational NO-GO as Kimi's speed wall — a rig limit, not a model-quality verdict.
+- Raw job data: `.bench-logs/tbench-runs/minimax-m2.5/` (46 `EnvironmentStartTimeoutError`).
+
+### Context length — native **196,608 (192k)**, usable **~64k** on this rig (corrects the plan)
+
+The Phase-5 plan's "65536 won't fit / 32768 is the ceiling" was inherited from the MLX
+build and is **wrong for the GGUF**. Measured via `lms load --estimate-only` (no load) +
+GGUF metadata:
+
+- **Native trained cap:** `minimax-m2.context_length = 196608` (RoPE freq_base 5e6, no
+  YaRN). Beyond needs RoPE scaling.
+- **KV is cheap** (GQA, 48 heads / 8 KV heads, ~103 KB/token): footprint 32k→131k adds
+  only ~9.7 GiB. Estimates: 32k=97.9, 64k=101.1, 96k=104.4, 192k=114.0 GiB.
+- **Usable inference ceiling = 64,000 tokens; hard cliff at 64,512.** Swept empirically
+  (load at ctx N → real inference): **32768, 40960, 49152, 57344, 59392, 61440, 63488,
+  63744, 64000 all COMPUTE OK**; **64512, 65024, 65280, 65535, 65536 all return
+  `{"error":"Compute error."}`** (the model *loads* fine at those — shows IDLE/98.69 GB —
+  but every inference errors). Sharp wall in the 2^16 region → a Metal KV-buffer limit for
+  `minimax-m2`, not a memory-fit issue (footprint at 64k is only 101 GiB). **Recommended
+  operating ctx = 61,440 (60k)** — safe margin below the cliff, validated with a real
+  2,693-token generation over the LAN. This is ~2× the 32k the benches ran at.
+  (Earlier draft of this note said "usable = 32k" — WRONG; that was before the sweep. The
+  original `Compute error` was seen only at 65536, which happens to be just past the cliff.)
+  Peak-memory math (est + ~17 GB overhead): 60k→~124 GB, 96k→~129 (also over 128), 192k→~138.
+- **`max_tokens` cap — corrected:** an earlier draft claimed `max_tokens=60000` returned
+  **HTTP 400** and blocked the recovery. That 400 was an **artifact of the broken 65536-ctx
+  state**, not a real limit. With the model reloaded at ctx **61440**, `max_tokens=57344`
+  runs clean. **LCB truncation-recovery DID run (2026-07-06):** the 5 truncated hard Qs
+  [8,19,38,44,48] reran at ctx 60k / max_tokens 57344. **2 of 5 recovered** (Q38, Q48 → OK);
+  Q19 & Q44 are genuine spirals (burned all 57k, 1–13 visible tokens, no convergence); Q8
+  completes-but-wrong. **Verdict: ~40 % of truncations are "just over the 32k cap" and
+  recover with headroom; the rest are real model-limit spirals that more context can't fix.
+  60k ctx is worth +4 LCB points (68→72 %).** Q44's 57k-tok gen pushed swap to 8.5 GB but
+  survived. Raw: `benchmarks/runs/livecodebench_unsloth_minimax-m2.5_20260706_090036*`.
+
+### Terminal-Bench path forward — distributed (model rig + separate Docker host)
+
+The tbench memory NO-GO above is **rig-local**, not fundamental: the model calls are cheap,
+it's the Docker containers that need RAM. **Split them across two machines.** LM Studio on
+the 128 GB rig serves the model on the LAN; a *second* Mac runs Docker + the terminus-2
+agent, hitting the rig over the network. Neither competes for RAM.
+
+- **Rig (model server) — set up & validated 2026-07-06:** firewall off; `lms server start
+  --bind 0.0.0.0 --port 1234` (listens `*:1234`). Reach it by **mDNS hostname `macstudio.local`**
+  (preferred — DHCP-proof; the machine's `LocalHostName` is `macstudio`, so the `.local` name
+  is `macstudio.local`, NOT `mac-studio.local`) or LAN IP **192.168.68.123**. MiniMax loaded
+  **at 61440 (60k)** — the safe max below the 64,512 compute cliff (see Context length).
+  Verified: a 2,693-tok generation via `curl http://macstudio.local:1234/v1/chat/completions`
+  from the LAN returns coherent output, `finish=stop`. 48h TTL.
+- **Docker host (other Apple-Silicon Mac):** ready-to-run driver at
+  `.bench-logs/run-tbench-minimax-REMOTE.sh` — `OPENAI_API_BASE=http://macstudio.local:1234/v1`,
+  `--model openai/unsloth/minimax-m2.5`, `--environment-build-timeout 3.0` (amd64 emulation
+  is slow), `-n` sized to that Mac's free Docker RAM, orphan-cleanup around the run. Caveat:
+  task images are still amd64-emulated on Apple Silicon (slow starts) — an x86 Linux host
+  would be strictly better, but free RAM is the thing that actually unblocks it.
+
+Raw data: `benchmarks/runs/{toolcall_{jdhodges,veerman},humaneval,livecodebench}_unsloth_minimax-m2.5_*`,
+`results/speed_probe/unsloth_minimax-m2.5_*`. Plan: [`docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md`](../../../docs/benchmark-plans/2026-07-05-phase-5-new-arrivals.md).

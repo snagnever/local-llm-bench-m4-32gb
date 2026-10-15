@@ -79,10 +79,18 @@ From [benchmarks/runs/](../benchmarks/runs/) (this rig, M4 Max 128GB — Phase 1
 
 | Model | MMLU | HumanEval | MATH | DROP | GPQA |
 |---|---|---|---|---|---|
-| qwen/qwen3-coder-next (6-bit MLX, 65GB) | 76 | 89 | *running* | — | — |
-| qwen3.6-27b (6-bit MLX) | TBD | TBD | TBD | TBD | TBD |
-| qwen3.6-35b-a3b (6-bit MLX) | TBD | TBD | TBD | TBD | TBD |
-| gemma-4-26b-a4b-it-mlx (4-bit MLX) | TBD | TBD | TBD | TBD | TBD |
+| qwen/qwen3-coder-next (6-bit MLX, 65GB) | 76 | 89 | 84 | 83 | 37 |
+| qwen3.6-27b (6-bit MLX) | 88 | 93 | 88 | 90 | 70 |
+| qwen3.6-35b-a3b (6-bit MLX) | 83 | 87 | 89 | 89 | 65 |
+| gemma-4-26b-a4b-it-mlx (4-bit MLX) | 78 | 98 | 80 | 79 | 47 |
+| **deepseek-v4-flash-2bit-dq** (2-bit DQ MLX, ~96GB) | **44** | **48** | **47** | **71** | **24** |
+
+Full measured set (all Phase 1/2 models × all benches, incl. LiveCodeBench / tool-calling /
+Terminal-Bench) is plotted in [`results/charts/chart_m4max_phase1_scores.png`](charts/chart_m4max_phase1_scores.png)
+— blank cells = not yet measured. DeepSeek-V4-Flash's low scores are the **2-bit DQ quality
+floor** (see [`M4_MAX_128GB_NOTES.md`](M4_MAX_128GB_NOTES.md) Phase 3 #10, Addendum 2), not a
+runtime issue; its Metal-OOM blocker is fixed and filed upstream (ml-explore/mlx-lm#1332,
+Blaizzy/mlx-lm#25).
 
 ---
 

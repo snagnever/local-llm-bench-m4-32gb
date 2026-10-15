@@ -19,7 +19,7 @@ Usage:
 
 Benchmarks: mmlu, math, humaneval, gpqa, drop, livecodebench
 """
-import time, json, sys, os, subprocess, re, random, argparse
+import time, json, sys, os, subprocess, re, random, argparse, tempfile
 from datetime import datetime
 from urllib.request import urlopen, Request
 from pathlib import Path
@@ -37,6 +37,30 @@ MAX_TOKENS = 32768
 # running LM Studio inference, cascading into back-to-back timeouts and
 # wedging the run.
 TIMEOUT = int(os.environ.get("BENCH_TIMEOUT", "1800"))
+# None keeps the payload as before (each server applies its own default, which on
+# mlx-serve 26.10.1 produced answers with no thinking). Set by --reasoning-effort.
+REASONING_EFFORT = None
+# Extra sampling keys sent as-is (top_p, top_k, min_p, presence_penalty, repetition_penalty).
+# Empty keeps the payload as before. Set by the sampling flags; --temperature sets TEMPERATURE.
+SAMPLING = {}
+
+
+def sampling_from_args(**kw):
+    return {k: v for k, v in kw.items() if v is not None}
+
+
+def split_reasoning(message):
+    """Return (content, reasoning) from a chat message.
+
+    Servers put the thinking in `reasoning_content`, in `reasoning`, or inline as
+    <think>...</think> at the start of `content`. Graders must only see the content."""
+    content = message.get("content") or ""
+    reasoning = message.get("reasoning_content") or message.get("reasoning") or ""
+    if "</think>" in content:
+        head, _, tail = content.partition("</think>")
+        reasoning += head.replace("<think>", "", 1)
+        content = tail.lstrip()
+    return content, reasoning
 SEED = 42
 
 # ---- Directories ----
@@ -46,12 +70,16 @@ OUTPUT_DIR = SCRIPT_DIR.parent / "benchmarks" / "runs"
 # ---- API ----
 
 def api_call(messages, max_tokens=MAX_TOKENS, model="local"):
-    payload = json.dumps({
+    body = {
         "model": model,
         "messages": messages,
         "temperature": TEMPERATURE,
         "max_tokens": max_tokens,
-    }).encode()
+    }
+    body.update(SAMPLING)
+    if REASONING_EFFORT:
+        body["reasoning_effort"] = REASONING_EFFORT
+    payload = json.dumps(body).encode()
     req = Request(f"{BASE_URL}/chat/completions", data=payload,
                   headers={"Content-Type": "application/json"})
     start = time.time()
@@ -65,8 +93,10 @@ def api_call(messages, max_tokens=MAX_TOKENS, model="local"):
         think = usage.get("completion_tokens_details", {}).get("reasoning_tokens", 0)
         prompt_tok = usage.get("prompt_tokens", 0)
         tok_s = comp / elapsed if elapsed > 0 else 0
+        content, reasoning = split_reasoning(choice["message"])
         return {
-            "content": choice["message"].get("content", ""),
+            "content": content,
+            "reasoning_chars": len(reasoning),
             "finish_reason": choice.get("finish_reason", "?"),
             "elapsed": elapsed,
             "prompt_tokens": prompt_tok,
@@ -80,6 +110,7 @@ def api_call(messages, max_tokens=MAX_TOKENS, model="local"):
     except Exception as e:
         return {
             "content": "", "finish_reason": "error", "elapsed": time.time() - start,
+            "reasoning_chars": 0,
             "prompt_tokens": 0, "comp_tokens": 0, "think_tokens": 0,
             "visible_tokens": 0, "tok_s": 0, "error": str(e), "model_id": model,
         }
@@ -471,6 +502,33 @@ def extract_python_code(text):
 
 LCB_TIMEOUT_S = 12  # per-test timeout
 
+# Import prelude of the official LiveCodeBench runner
+# (lcb_runner/evaluation/testing_util.py, import_string). Solutions may rely on
+# these names without importing them, e.g. `List[int]` from typing.
+LCB_PRELUDE = (
+    "from string import *\nfrom re import *\nfrom datetime import *\nfrom collections import *\n"
+    "from heapq import *\nfrom bisect import *\nfrom copy import *\nfrom math import *\nfrom random import *\n"
+    "from statistics import *\nfrom itertools import *\nfrom functools import *\nfrom operator import *\n"
+    "from io import *\nfrom sys import *\nfrom json import *\nfrom builtins import *\nfrom typing import *\n"
+    "import string\nimport re\nimport datetime\nimport collections\nimport heapq\nimport bisect\nimport copy\n"
+    "import math\nimport random\nimport statistics\nimport itertools\nimport functools\nimport operator\n"
+    "import io\nimport sys\nimport json\nsys.setrecursionlimit(50000)\n"
+)
+
+def _run_lcb_program(program, stdin=None):
+    """Run `program` with the LiveCodeBench prelude from a temporary file.
+    A file avoids the OS argument limit that `python -c` hits on large inputs."""
+    fd, path = tempfile.mkstemp(suffix='.py', prefix='lcb_')
+    try:
+        with os.fdopen(fd, 'w') as fh:
+            fh.write(f"{LCB_PRELUDE}\n{program}")
+        return subprocess.run(
+            [sys.executable, path],
+            input=stdin, capture_output=True, text=True, timeout=LCB_TIMEOUT_S,
+        )
+    finally:
+        os.unlink(path)
+
 def _run_lcb_functional_test(code, test_case, fn_name, starter_code):
     """Run a single functional test. `test_case.input` holds one JSON-encoded
     argument per line; `test_case.output` is the JSON-encoded expected return."""
@@ -495,10 +553,7 @@ def _run_lcb_functional_test(code, test_case, fn_name, starter_code):
         f"_sys.stdout.write(_json.dumps(_result))\n"
     )
     try:
-        proc = subprocess.run(
-            [sys.executable, '-c', runner],
-            capture_output=True, text=True, timeout=LCB_TIMEOUT_S,
-        )
+        proc = _run_lcb_program(runner)
         if proc.returncode != 0:
             return False, f'rc={proc.returncode}: {proc.stderr[:120]}'
         got = proc.stdout.strip()
@@ -519,11 +574,7 @@ def _run_lcb_stdin_test(code, test_case):
     test_input = test_case.get('input', '')
     expected = (test_case.get('output') or '').strip()
     try:
-        proc = subprocess.run(
-            [sys.executable, '-c', code],
-            input=test_input, capture_output=True, text=True,
-            timeout=LCB_TIMEOUT_S,
-        )
+        proc = _run_lcb_program(code, stdin=test_input)
         if proc.returncode != 0:
             return False, f'rc={proc.returncode}: {proc.stderr[:120]}'
         got_lines = [ln.rstrip() for ln in proc.stdout.strip().split('\n')]
@@ -705,6 +756,9 @@ def run_benchmark(benchmark, questions, model_id, only_questions=None, max_token
                 'prompt_tokens': r['prompt_tokens'],
                 'completion_tokens': r['comp_tokens'],
                 'reasoning_tokens': r['think_tokens'],
+                'reasoning_effort': REASONING_EFFORT,
+                'reasoning_chars': r['reasoning_chars'],
+                'sampling': SAMPLING,
                 'visible_tokens': r['visible_tokens'],
                 'total_tokens': r['prompt_tokens'] + r['comp_tokens'],
                 'finish_reason': r['finish_reason'],
@@ -826,7 +880,20 @@ if __name__ == '__main__':
     parser.add_argument("--lcb-version", type=str, default="release_v6",
                         choices=["release_v1","release_v2","release_v3","release_v4","release_v5","release_v6"],
                         help="LiveCodeBench release window (default release_v6 — through ~Apr 2025)")
+    parser.add_argument("--reasoning-effort", choices=["none", "low", "medium", "high", "xhigh"], default=None,
+                        help="Send reasoning_effort in every request (default: omit, server default applies)")
+    parser.add_argument("--temperature", type=float, default=TEMPERATURE)
+    parser.add_argument("--top-p", type=float, default=None)
+    parser.add_argument("--top-k", type=int, default=None)
+    parser.add_argument("--min-p", type=float, default=None)
+    parser.add_argument("--presence-penalty", type=float, default=None)
+    parser.add_argument("--repetition-penalty", type=float, default=None)
     args = parser.parse_args()
+    REASONING_EFFORT = args.reasoning_effort
+    TEMPERATURE = args.temperature
+    SAMPLING = sampling_from_args(top_p=args.top_p, top_k=args.top_k, min_p=args.min_p,
+                                  presence_penalty=args.presence_penalty,
+                                  repetition_penalty=args.repetition_penalty)
 
     # Parse --only
     only = None
@@ -869,7 +936,8 @@ if __name__ == '__main__':
     print(f"  Hardware: {hw.get('cpu','?')}, {hw.get('total_ram_gb','?')}GB RAM, macOS {hw.get('macos_version','?')}")
     print(f"  GPU: {state['gpu_temp_c']}°C | CPU: {state['cpu_temp_c']}°C" if state['gpu_temp_c'] else "  Temps: ?")
     print(f"  RAM: {state['process_ram_mb']}MB process | Swap: {state['swap_used_mb']}MB")
-    print(f"  max_tokens: {args.max_tokens}")
+    print(f"  max_tokens: {args.max_tokens}  reasoning_effort: {REASONING_EFFORT}  "
+          f"temperature: {TEMPERATURE}  sampling: {SAMPLING}")
 
     # Warmup
     print(f"  Warmup...", end=' ')

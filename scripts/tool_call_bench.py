@@ -52,6 +52,32 @@ OPENAI_BASE_DEFAULT = f"{LMSTUDIO_BASE}/v1"
 # Per-call HTTP timeout (seconds)
 REQUEST_TIMEOUT = 600
 
+# Cap generation so a thinking-model spiral can't eat the full HTTP timeout.
+# Normal tool-call completions are <350 tokens; this is ~12x headroom.
+# Override via TOOLBENCH_MAX_TOKENS.
+MAX_COMPLETION_TOKENS = int(os.environ.get("TOOLBENCH_MAX_TOKENS", "4096"))
+# None/empty keep requests as before. Set by --reasoning-effort and the sampling flags.
+REASONING_EFFORT = None
+SAMPLING_EXTRA = {}
+
+
+def extra_body():
+    body = dict(SAMPLING_EXTRA)
+    if REASONING_EFFORT:
+        body["reasoning_effort"] = REASONING_EFFORT
+    return body or None
+
+
+def reasoning_text(msg):
+    """Thinking text of an SDK message. Servers send it as reasoning_content or reasoning, which the
+    OpenAI SDK keeps in model_extra (or as an attribute on some versions)."""
+    extra = getattr(msg, "model_extra", None) or {}
+    for key in ("reasoning_content", "reasoning"):
+        value = getattr(msg, key, None) or extra.get(key)
+        if value:
+            return value
+    return ""
+
 # ---------------------------------------------------------------------------
 # System monitoring (mirrors bench2.py)
 # ---------------------------------------------------------------------------
@@ -172,24 +198,25 @@ def load_suite(suite: str) -> tuple[list, list]:
 def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
     """Execute one tool-calling case. Returns a dict matching bench2.py fields."""
     today = datetime.now().strftime("%Y-%m-%d")
+    # System prompt: default below, or a verbatim override via TOOLBENCH_SYSTEM_PROMPT
+    # (recorded in run output; used to A/B test proactivity-nudge prompts).
+    system_content = os.environ.get("TOOLBENCH_SYSTEM_PROMPT") or (
+        f"You are a helpful assistant with access to tools. "
+        f"Today's date is {today}. "
+        "Use tools when appropriate to answer user requests. "
+        "If a request doesn't need a tool, respond directly. "
+        "If required information is missing, ask for clarification. "
+        "You may call multiple tools in parallel when appropriate."
+    )
     messages = [
-        {
-            "role": "system",
-            "content": (
-                f"You are a helpful assistant with access to tools. "
-                f"Today's date is {today}. "
-                "Use tools when appropriate to answer user requests. "
-                "If a request doesn't need a tool, respond directly. "
-                "If required information is missing, ask for clarification. "
-                "You may call multiple tools in parallel when appropriate."
-            ),
-        },
+        {"role": "system", "content": system_content},
         {"role": "user", "content": case["prompt"]},
     ]
 
     t1_start = time.time()
     err = None
     t1_tool_calls, t1_text, usage = [], "", {}
+    t1_reasoning = ""
     raw_msg_dict = None
     try:
         resp = client.chat.completions.create(
@@ -200,6 +227,8 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
             temperature=TEMPERATURE,
             top_p=TOP_P,
             seed=SEED,
+            max_tokens=MAX_COMPLETION_TOKENS,
+            extra_body=extra_body(),
             timeout=REQUEST_TIMEOUT,
         )
         t1_elapsed = time.time() - t1_start
@@ -213,6 +242,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
                     "arguments_raw": tc.function.arguments,
                 })
         t1_text = msg.content or ""
+        t1_reasoning = reasoning_text(msg)
         raw_msg_dict = {
             "role": msg.role,
             "content": msg.content,
@@ -261,6 +291,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
         "elapsed_s": round(t1_elapsed, 3),
         "tool_calls": t1_tool_calls,
         "text": t1_text,
+        "reasoning_chars": len(t1_reasoning),
         "usage": usage,
         "finish_reason": finish_reason,
         "error": err,
@@ -291,6 +322,8 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
                 temperature=TEMPERATURE,
                 top_p=TOP_P,
                 seed=SEED,
+                max_tokens=MAX_COMPLETION_TOKENS,
+                extra_body=extra_body(),
                 timeout=REQUEST_TIMEOUT,
             )
             t2_elapsed = time.time() - t2_start
@@ -304,6 +337,7 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
                         "arguments_raw": tc.function.arguments,
                     })
             t2_text = msg2.content or ""
+            t2_reasoning = reasoning_text(msg2)
             u2 = resp2.usage
             usage2 = {}
             if u2 is not None:
@@ -317,10 +351,12 @@ def run_case(client: OpenAI, model: str, case: dict, tools: list) -> dict:
             t2_elapsed = time.time() - t2_start
             t2_err = str(e)
             t2_tool_calls, t2_text, usage2, t2_finish = [], "", {}, "error"
+            t2_reasoning = ""
         result["turn_2"] = {
             "elapsed_s": round(t2_elapsed, 3),
             "tool_calls": t2_tool_calls,
             "text": t2_text,
+            "reasoning_chars": len(t2_reasoning),
             "usage": usage2,
             "finish_reason": t2_finish,
             "error": t2_err,
@@ -687,6 +723,7 @@ def run_bench(model_lmskey: str, suite: str, force: bool = False,
                 "turn_2_tool_calls": (t2 or {}).get("tool_calls"),
                 "turn_2_text": (t2 or {}).get("text"),
                 "turn_2_usage": (t2 or {}).get("usage"),
+                "reasoning_chars": (t1.get("reasoning_chars") or 0) + ((t2 or {}).get("reasoning_chars") or 0),
 
                 # Scoring
                 "score_pass": score["pass"],
@@ -696,6 +733,8 @@ def run_bench(model_lmskey: str, suite: str, force: bool = False,
                 # System
                 "temperature": TEMPERATURE,
                 "top_p": TOP_P,
+                "reasoning_effort": REASONING_EFFORT,
+                "sampling_extra": SAMPLING_EXTRA,
                 "seed": SEED,
                 "gpu_temp_c": state["gpu_temp_c"],
                 "cpu_temp_c": state["cpu_temp_c"],
@@ -783,6 +822,9 @@ def run_bench(model_lmskey: str, suite: str, force: bool = False,
         "elapsed_s": round(elapsed_total),
         "elapsed_min": round(elapsed_total / 60, 1),
         "temperature": TEMPERATURE,
+        "top_p": TOP_P,
+        "reasoning_effort": REASONING_EFFORT,
+        "sampling_extra": SAMPLING_EXTRA,
         "seed": SEED,
         "hardware": hardware,
         "initial_state": initial_state,
@@ -830,7 +872,20 @@ if __name__ == "__main__":
     p.add_argument("--run-prefix", default="toolcall",
                    help="File/run name prefix to separate LM Studio vs mlx_vlm results "
                         "(default: toolcall, use toolcall_mlx for mlx_vlm runs)")
+    p.add_argument("--reasoning-effort", choices=["none", "low", "medium", "high", "xhigh"], default=None,
+                   help="Send reasoning_effort in every request (default: omit)")
+    p.add_argument("--temperature", type=float, default=TEMPERATURE)
+    p.add_argument("--top-p", type=float, default=TOP_P)
+    p.add_argument("--top-k", type=int, default=None)
+    p.add_argument("--min-p", type=float, default=None)
+    p.add_argument("--presence-penalty", type=float, default=None)
+    p.add_argument("--repetition-penalty", type=float, default=None)
     args = p.parse_args()
+    REASONING_EFFORT = args.reasoning_effort
+    TEMPERATURE, TOP_P = args.temperature, args.top_p
+    SAMPLING_EXTRA = {k: v for k, v in {"top_k": args.top_k, "min_p": args.min_p,
+                                        "presence_penalty": args.presence_penalty,
+                                        "repetition_penalty": args.repetition_penalty}.items() if v is not None}
 
     only_ids = None
     if args.only:

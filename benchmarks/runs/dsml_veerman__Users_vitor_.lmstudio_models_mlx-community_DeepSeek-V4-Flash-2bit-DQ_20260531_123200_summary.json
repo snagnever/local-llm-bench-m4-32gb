@@ -1,0 +1,54 @@
+{
+  "run_name": "dsml_veerman__Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ_20260531_123200",
+  "suite": "veerman",
+  "model": "/Users/vitor/.lmstudio/models/mlx-community/DeepSeek-V4-Flash-2bit-DQ",
+  "model_slug": "_Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ",
+  "score": 0.75,
+  "score_pct": "75.0%",
+  "correct": 9,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 6,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 1,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 2,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 14.41,
+  "elapsed_s": 145,
+  "elapsed_min": 2.4,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 34,
+    "cpu_temp_c": 32,
+    "process_ram_mb": 0,
+    "swap_used_mb": 1127,
+    "free_pages": 18818
+  },
+  "final_state": {
+    "gpu_temp_c": 40,
+    "cpu_temp_c": 34,
+    "process_ram_mb": 0,
+    "swap_used_mb": 1127,
+    "free_pages": 121386
+  },
+  "timestamp_start": "2026-05-31T12:32:03.973847",
+  "timestamp_end": "2026-05-31T12:34:31.905000",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/dsml_veerman__Users_vitor_.lmstudio_models_mlx-community_DeepSeek-V4-Flash-2bit-DQ_20260531_123200.jsonl"
+}

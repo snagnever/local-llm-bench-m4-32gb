@@ -1,0 +1,54 @@
+{
+  "run_name": "toolcall_veerman_minimax-m2.5_20260703_220110",
+  "suite": "veerman",
+  "model": "minimax-m2.5",
+  "model_slug": "minimax-m2.5",
+  "score": 0.5833333333333334,
+  "score_pct": "58.3%",
+  "correct": 7,
+  "total": 12,
+  "carried_over": 0,
+  "fresh_run": 12,
+  "by_category": {
+    "veerman_action": {
+      "pass": 4,
+      "total": 7
+    },
+    "veerman_restraint": {
+      "pass": 2,
+      "total": 2
+    },
+    "veerman_hard": {
+      "pass": 1,
+      "total": 3
+    }
+  },
+  "fresh_tok_weighted_tps": 39.0,
+  "elapsed_s": 145,
+  "elapsed_min": 2.4,
+  "temperature": 0.0,
+  "seed": 42,
+  "hardware": {
+    "total_ram_gb": 128,
+    "cpu": "Apple M4 Max",
+    "macos_version": "26.3",
+    "arch": "arm64"
+  },
+  "initial_state": {
+    "gpu_temp_c": 46,
+    "cpu_temp_c": 44,
+    "process_ram_mb": 0,
+    "swap_used_mb": 5068,
+    "free_pages": 69936
+  },
+  "final_state": {
+    "gpu_temp_c": 48,
+    "cpu_temp_c": 45,
+    "process_ram_mb": 0,
+    "swap_used_mb": 5068,
+    "free_pages": 172620
+  },
+  "timestamp_start": "2026-07-03T22:01:13.914607",
+  "timestamp_end": "2026-07-03T22:03:42.082338",
+  "log_file": "/Users/vitor/LocalProjects/local-llms/tools/local-llm-bench-m4-32gb/benchmarks/runs/toolcall_veerman_minimax-m2.5_20260703_220110.jsonl"
+}
